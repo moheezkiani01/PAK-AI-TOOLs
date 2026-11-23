@@ -19,6 +19,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'AI Tools & Digital Subscriptions in Pakistan | PakAITools',
     template: '%s | PakAITools',

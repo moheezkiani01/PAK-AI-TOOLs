@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Search,
@@ -19,6 +20,22 @@ import { HeroSearch } from '@/components/HeroSearch';
 import { WhatsAppIcon } from '@/components/WhatsAppFab';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
+
+export const metadata: Metadata = {
+  title: 'AI Tools & Digital Subscriptions in Pakistan | PakAITools',
+  description:
+    'Buy AI tools, design apps, VPNs and streaming plans in Pakistan with PKR pricing. Pay by JazzCash, EasyPaisa, SadaPay, NayaPay, UBL (bank transfer) and Binance (international). Fast delivery.',
+  alternates: {
+    canonical: 'https://pakaitools.store/',
+  },
+  openGraph: {
+    title: 'AI Tools & Digital Subscriptions in Pakistan | PakAITools',
+    description:
+      'Buy AI tools, design apps, VPNs and streaming plans in Pakistan with PKR pricing. Pay by JazzCash, EasyPaisa, SadaPay, NayaPay, UBL (bank transfer) and Binance (international). Fast delivery.',
+    url: 'https://pakaitools.store/',
+    images: ['/og-default.png'],
+  },
+};
 
 export default function HomePage() {
   const categories = getCategories();
@@ -328,25 +345,88 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Local Payment Options */}
-      <section aria-labelledby="payment-heading" className="space-y-4">
-        <h2 id="payment-heading" className="text-xl font-bold text-text">
-          Local Pakistani Payment Options
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
-          {SITE.paymentMethods.map((method) => (
-            <div
-              key={method}
-              className="p-3 rounded-xl border border-separator bg-bg-card text-center font-semibold text-xs text-text flex items-center justify-center"
-            >
-              {method}
-            </div>
-          ))}
+      {/* 6. How to Choose & Local Payment Methods */}
+      <section aria-labelledby="payment-heading" className="space-y-6">
+        <div className="border-b border-separator pb-3">
+          <h2 id="payment-heading" className="text-2xl md:text-3xl font-bold text-text">
+            How to Choose &amp; Pay for Subscriptions in Pakistan
+          </h2>
+          <p className="text-xs md:text-sm text-text-secondary mt-1">
+            Zero international card markup, transparent replacement warranty, and instant PKR transfers.
+          </p>
         </div>
-        <div className="text-right">
-          <Link href="/payment-methods/" className="text-xs text-accent font-semibold hover:underline">
-            Read full payment instructions →
-          </Link>
+
+        {/* Buying Advice Paragraphs */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs md:text-sm text-text-secondary leading-relaxed">
+          <div className="p-4 rounded-xl border border-separator bg-bg-card space-y-1.5">
+            <h3 className="font-bold text-text text-sm">1. Identify Your Account Type</h3>
+            <p>
+              Decide between private accounts (activated on your own personal email, ideal for <Link href="/design-creative/" className="text-accent underline font-medium">Canva Pro</Link> and <Link href="/developer-tools/" className="text-accent underline font-medium">GitHub Copilot</Link>) versus shared slot profiles (budget-friendly access for <Link href="/ai-chatbots/" className="text-accent underline font-medium">ChatGPT Plus</Link> and <Link href="/streaming/" className="text-accent underline font-medium">Netflix</Link>).
+            </p>
+          </div>
+          <div className="p-4 rounded-xl border border-separator bg-bg-card space-y-1.5">
+            <h3 className="font-bold text-text text-sm">2. Check Warranty Upfront</h3>
+            <p>
+              Every active listing on PakAITools displays an upfront replacement warranty duration. If third-party access issues occur during your term, our WhatsApp support team restores or replaces credentials without hassle.
+            </p>
+          </div>
+          <div className="p-4 rounded-xl border border-separator bg-bg-card space-y-1.5">
+            <h3 className="font-bold text-text text-sm">3. Zero Card Fees</h3>
+            <p>
+              Avoid 10%–15% foreign transaction taxes and advance withholding fees levied on local bank cards. Check the <Link href="/price-list/" className="text-accent underline font-medium">Full Price List</Link> for exact fixed PKR amounts.
+            </p>
+          </div>
+        </div>
+
+        {/* Payment Comparison Table */}
+        <div className="rounded-2xl border border-separator bg-bg-card overflow-hidden">
+          <div className="p-4 border-b border-separator/60 bg-bg-subtle/50">
+            <h3 className="font-bold text-sm text-text">Pakistani Payment Methods Comparison</h3>
+            <p className="text-xs text-text-secondary mt-0.5">Choose your preferred local wallet or interbank transfer</p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs md:text-sm">
+              <thead className="bg-bg-subtle border-b border-separator text-text font-bold">
+                <tr>
+                  <th scope="col" className="px-4 py-3">Method</th>
+                  <th scope="col" className="px-4 py-3">Transfer Speed</th>
+                  <th scope="col" className="px-4 py-3">Bank Fee</th>
+                  <th scope="col" className="px-4 py-3">Best Suited For</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-separator text-text-secondary">
+                <tr className="hover:bg-bg-subtle/40 transition-colors">
+                  <th scope="row" className="px-4 py-3 font-semibold text-text">JazzCash / EasyPaisa</th>
+                  <td className="px-4 py-3">Instant (1 min)</td>
+                  <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">Rs. 0</td>
+                  <td className="px-4 py-3">Students &amp; quick individual plan purchases</td>
+                </tr>
+                <tr className="hover:bg-bg-subtle/40 transition-colors">
+                  <th scope="row" className="px-4 py-3 font-semibold text-text">SadaPay / NayaPay</th>
+                  <td className="px-4 py-3">Instant (1 min)</td>
+                  <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">Rs. 0</td>
+                  <td className="px-4 py-3">Freelancers, creators &amp; tech professionals</td>
+                </tr>
+                <tr className="hover:bg-bg-subtle/40 transition-colors">
+                  <th scope="row" className="px-4 py-3 font-semibold text-text">Raast Transfer</th>
+                  <td className="px-4 py-3">Instant (Real-time)</td>
+                  <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">Rs. 0</td>
+                  <td className="px-4 py-3">Direct account-to-account transfer from any Pakistani bank</td>
+                </tr>
+                <tr className="hover:bg-bg-subtle/40 transition-colors">
+                  <th scope="row" className="px-4 py-3 font-semibold text-text">Binance Pay (USDT)</th>
+                  <td className="px-4 py-3">5–15 mins</td>
+                  <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">Network standard</td>
+                  <td className="px-4 py-3">Overseas Pakistanis &amp; international digital workers</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="p-3 bg-bg-subtle/40 border-t border-separator text-right">
+            <Link href="/payment-methods/" className="text-xs text-accent font-semibold hover:underline inline-flex items-center">
+              Read step-by-step payment instructions <ArrowRight className="w-3.5 h-3.5 ml-1" />
+            </Link>
+          </div>
         </div>
       </section>
 

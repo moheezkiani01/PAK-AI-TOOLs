@@ -8,6 +8,7 @@ import {
   getCategoryBySlug,
   getBrandHub,
   getBrandBySlug,
+  getProductsByBrand,
   getProductsByCategory,
 } from '@/lib/data';
 import { BuyCard } from '@/components/BuyCard';
@@ -77,12 +78,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
     { name: product.name, url: `/product/${product.slug}/` },
   ];
 
-  const schema = getProductSchema(product, breadcrumbs);
+  const schema = getProductSchema(product, breadcrumbs, brand?.logo);
 
-  // Related plans (up to 3 from same category)
-  const relatedPlans = getProductsByCategory(product.categorySlug)
-    .filter((p) => p.slug !== product.slug)
-    .slice(0, 3);
+  // Related plans: same-brand plans first, then same-category alternatives
+  const sameBrandPlans = getProductsByBrand(product.brandSlug).filter((p) => p.slug !== product.slug);
+  const sameCategoryPlans = getProductsByCategory(product.categorySlug).filter(
+    (p) => p.slug !== product.slug && p.brandSlug !== product.brandSlug
+  );
+  const relatedPlans = [...sameBrandPlans, ...sameCategoryPlans].slice(0, 3);
 
   const fullWaLink = buildWhatsAppLink(
     getProductWhatsAppMessage(

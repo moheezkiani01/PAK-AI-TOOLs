@@ -9,7 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/cart/', '/checkout/', '/search', '/*?sort=', '/*?filter='],
       },
       {
         userAgent: [
@@ -17,16 +16,14 @@ export default function robots(): MetadataRoute.Robots {
           'Bingbot',
           'OAI-SearchBot',
           'ChatGPT-User',
+          'GPTBot',
           'PerplexityBot',
-          'Perplexity-User',
           'ClaudeBot',
-          'Claude-SearchBot',
-          'Claude-User',
+          'Google-Extended',
         ],
         allow: '/',
-        disallow: ['/cart/', '/checkout/', '/search'],
       },
     ],
-    sitemap: `${SITE.domain}/sitemap.xml`,
+    sitemap: `${SITE.domain}/sitemap_index.xml`,
   };
 }

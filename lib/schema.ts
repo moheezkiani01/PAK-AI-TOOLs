@@ -12,12 +12,16 @@ export function getOrganizationSchema() {
       '@type': 'Person',
       name: SITE.founder,
     },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Pakistan',
+    },
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: `+${SITE.whatsapp}`,
-      contactType: 'customer service',
+      contactType: 'customer support',
       email: SITE.email,
-      availableLanguage: ['English', 'Urdu'],
+      availableLanguage: ['en', 'ur'],
     },
   };
 }
@@ -68,22 +72,30 @@ export function getFaqSchema(faqs: Array<{ question: string; answer: string }>) 
 
 export function getProductSchema(
   product: Product,
-  breadcrumbs: Array<{ name: string; url: string }>
+  breadcrumbs: Array<{ name: string; url: string }>,
+  brandLogo?: string | null
 ) {
   const graph: any[] = [];
   const canonicalUrl = `${SITE.domain}/product/${product.slug}/`;
 
   if (product.price !== null) {
+    const imageUrl = brandLogo
+      ? (brandLogo.startsWith('http') ? brandLogo : `${SITE.domain}${brandLogo}`)
+      : `${SITE.domain}/og-default.png`;
+
     graph.push({
       '@type': 'Product',
+      '@id': `${canonicalUrl}#product`,
       name: product.name,
       description: product.answer,
-      image: `${SITE.domain}/og-default.png`,
-      sku: `PAT-${product.id}`,
+      image: [imageUrl],
+      sku: product.slug,
       brand: {
         '@type': 'Brand',
         name: product.brandSlug,
       },
+      category: product.categorySlug,
+      url: canonicalUrl,
       offers: {
         '@type': 'Offer',
         url: canonicalUrl,
@@ -93,8 +105,7 @@ export function getProductSchema(
         availability: 'https://schema.org/InStock',
         itemCondition: 'https://schema.org/NewCondition',
         seller: {
-          '@type': 'Organization',
-          name: SITE.name,
+          '@id': `${SITE.domain}/#organization`,
         },
         hasMerchantReturnPolicy: {
           '@type': 'MerchantReturnPolicy',

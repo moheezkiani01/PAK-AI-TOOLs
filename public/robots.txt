@@ -1,36 +1,23 @@
 User-agent: *
 Allow: /
-Disallow: /cart/
-Disallow: /checkout/
-Disallow: /search
-Disallow: /*?sort=
-Disallow: /*?filter=
 
-User-agent: Googlebot
-Allow: /
+Sitemap: https://pakaitools.store/sitemap_index.xml
 
-User-agent: Bingbot
-Allow: /
-
+# AI search crawlers (allowed for citations and search discovery)
 User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: GPTBot
 Allow: /
 
-User-agent: Perplexity-User
+User-agent: PerplexityBot
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
-User-agent: Claude-SearchBot
+User-agent: Google-Extended
 Allow: /
-
-User-agent: Claude-User
-Allow: /
-
-Sitemap: https://pakaitools.store/sitemap.xml
