@@ -15,6 +15,7 @@ import { getCategories, getProducts, getSitePages, getBlogPosts, getNewsArticles
 import { CategoryCard } from '@/components/CategoryCard';
 import { PlanRow } from '@/components/PlanRow';
 import { Faq } from '@/components/Faq';
+import { HeroSearch } from '@/components/HeroSearch';
 import { WhatsAppIcon } from '@/components/WhatsAppFab';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
@@ -89,16 +90,8 @@ export default function HomePage() {
           {answerText}
         </p>
 
-        {/* Quick Search Box */}
-        <form action="/price-list/" method="GET" className="max-w-md mx-auto relative mt-3">
-          <input
-            type="search"
-            name="q"
-            placeholder="Search Canva, ChatGPT, Netflix, VPN..."
-            className="w-full pl-11 pr-4 py-3 rounded-2xl border border-separator bg-bg-card text-text placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-accent min-h-[48px] shadow-sm text-sm"
-          />
-          <Search className="w-5 h-5 absolute left-3.5 top-3.5 text-text-tertiary" aria-hidden="true" />
-        </form>
+        {/* Quick Instant Search Box */}
+        <HeroSearch />
 
         {/* Primary & Secondary Action CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
