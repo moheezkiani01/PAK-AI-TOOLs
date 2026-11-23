@@ -145,6 +145,7 @@ if (fs.existsSync(path.join(PUBLIC_DIR, 'search-index.json'))) {
 
 const requiredSitemaps = [
   'sitemap_index.xml',
+  'sitemap.xml',
   'sitemap_products.xml',
   'sitemap_hubs.xml',
   'sitemap_compare.xml',

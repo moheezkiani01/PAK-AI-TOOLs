@@ -1,6 +1,6 @@
 # PakAITools — Complete Website Build Specification
 
-**Site:** https://pakaitools.store · **Owner/Founder:** Moheez Kiani · **WhatsApp:** +92 321 9305619 · **Email:** support@aitoolspak.com
+**Site:** https://pakaitools.store · **Owner/Founder:** Moheez Kiani · **WhatsApp:** +92 321 9305619 · **Email:** support@pakaitools.store
 **Version:** 1.0 · **Written:** November 22, 2026 · **Audience:** the developer (or AI coding agent) who builds the site. The owner is non-technical, so every decision below is already made. Do not ask the owner technical questions. If something is missing, add it to `data-issues.md` and carry on.
 
 ---
@@ -107,7 +107,7 @@ export const SITE = {
   name: 'PakAITools',
   founder: 'Moheez Kiani',
   whatsapp: '923219305619', whatsappDisplay: '+92 321 9305619',
-  email: 'support@aitoolspak.com',
+  email: 'support@pakaitools.store',
   pkrPerUsd: 280,                 // update monthly, or when the market moves > 2%
   rateDate: '2026-11-22',
   pricesReviewedOn: '2026-11-22', // edit only when prices were really reviewed

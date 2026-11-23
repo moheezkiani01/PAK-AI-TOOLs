@@ -122,4 +122,12 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 </sitemapindex>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_index.xml'), indexXml);
 
-console.log('Saved split sitemaps: sitemap_products.xml, sitemap_hubs.xml, sitemap_compare.xml, sitemap_blog.xml, and sitemap_index.xml in public/!');
+// 6. Full combined Sitemap (sitemap.xml)
+const allUrls = [...hubUrls, ...productUrls, ...compareUrls, ...blogUrls];
+const fullSitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allUrls.join('\n')}
+</urlset>`;
+fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), fullSitemapXml);
+
+console.log('Saved split sitemaps: sitemap_products.xml, sitemap_hubs.xml, sitemap_compare.xml, sitemap_blog.xml, sitemap_index.xml, and sitemap.xml in public/!');

@@ -7,21 +7,19 @@ export function getOrganizationSchema() {
     '@id': `${SITE.domain}/#organization`,
     name: SITE.name,
     url: SITE.domain,
-    logo: `${SITE.domain}/logo-512.png`,
+    logo: `${SITE.domain}/icon-192.png`,
+    email: SITE.email,
     founder: {
       '@type': 'Person',
       name: SITE.founder,
     },
-    areaServed: {
-      '@type': 'Country',
-      name: 'Pakistan',
-    },
+    areaServed: 'PK',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: `+${SITE.whatsapp}`,
       contactType: 'customer support',
       email: SITE.email,
-      availableLanguage: ['en', 'ur'],
+      availableLanguage: ['English', 'Urdu'],
     },
   };
 }
@@ -32,6 +30,8 @@ export function getWebSiteSchema() {
     '@id': `${SITE.domain}/#website`,
     url: SITE.domain,
     name: SITE.name,
+    alternateName: ['Pak AI Tools', 'pakaitools.store'],
+    inLanguage: 'en-PK',
     publisher: {
       '@id': `${SITE.domain}/#organization`,
     },

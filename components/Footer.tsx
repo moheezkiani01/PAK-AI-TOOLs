@@ -125,7 +125,7 @@ export function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-2">
             <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
-            <p>Founder & Owner: {SITE.founder} · support@aitoolspak.com</p>
+            <p>Founder & Owner: {SITE.founder} · {SITE.email}</p>
           </div>
         </div>
       </div>

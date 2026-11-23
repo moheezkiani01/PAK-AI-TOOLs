@@ -4,7 +4,7 @@ export const SITE = {
   founder: 'Moheez Kiani',
   whatsapp: '923219305619',
   whatsappDisplay: '+92 321 9305619',
-  email: 'support@aitoolspak.com',
+  email: 'support@pakaitools.store',
   pkrPerUsd: 280,
   rateDate: '2026-11-22',
   rateDateDisplay: 'November 22, 2026',

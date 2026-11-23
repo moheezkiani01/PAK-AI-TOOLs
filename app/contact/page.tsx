@@ -11,14 +11,14 @@ import { renderMarkdown } from '@/lib/markdown';
 export const metadata: Metadata = {
   title: 'Contact PakAITools – WhatsApp & Email Support',
   description:
-    'Contact PakAITools on WhatsApp (+92 321 9305619) or email support@aitoolspak.com for orders, questions, and warranty assistance.',
+    'Contact PakAITools on WhatsApp (+92 321 9305619) or email support@pakaitools.store for orders, questions, and warranty assistance.',
   alternates: {
     canonical: 'https://pakaitools.store/contact/',
   },
   openGraph: {
     title: 'Contact PakAITools – WhatsApp & Email Support',
     description:
-      'Contact PakAITools on WhatsApp (+92 321 9305619) or email support@aitoolspak.com for orders, questions, and warranty assistance.',
+      'Contact PakAITools on WhatsApp (+92 321 9305619) or email support@pakaitools.store for orders, questions, and warranty assistance.',
     url: 'https://pakaitools.store/contact/',
     images: ['/og-default.png'],
   },
