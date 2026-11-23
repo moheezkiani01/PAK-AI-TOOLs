@@ -2,12 +2,16 @@
   "name": "pakaitools",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/generate-data.mjs && node scripts/generate-guides.mjs && node scripts/gen-search-index.mjs && node scripts/gen-plan-images.mjs && node scripts/gen-sitemaps.mjs",
-    "build": "pnpm prebuild && next build && node scripts/validate.mjs",
+    "build": "npm run prebuild && next build && node scripts/validate.mjs",
     "validate": "node scripts/validate.mjs",
-    "preview": "npx serve out"
+    "preview": "npx serve out",
+    "deploy": "npx wrangler pages deploy out"
   },
   "dependencies": {
     "clsx": "^2.1.1",
