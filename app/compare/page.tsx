@@ -63,12 +63,12 @@ export default function CompareHubPage() {
   }
 
   return (
-    <div className="space-y-10 py-2 max-w-5xl mx-auto">
+    <div className="space-y-6 md:space-y-8 py-2 max-w-5xl mx-auto">
       <JsonLd schema={schema} />
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Hero / Header */}
-      <section className="space-y-4">
+      <section className="space-y-3">
         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent-soft text-accent text-xs font-bold uppercase tracking-wider">
           <Scale className="w-3.5 h-3.5" />
           <span>Commercial Investigation Guides</span>
@@ -77,8 +77,8 @@ export default function CompareHubPage() {
           {hub?.h1 || 'Compare AI Tools, Software & Subscriptions in Pakistan (PKR Price & Plan Guide)'}
         </h1>
         <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-3xl">
-          {hub?.intro ||
-            'Not sure which AI subscription, creative suite, VPN, or streaming plan fits your budget in Pakistan? Use PakAITools\' side-by-side comparison guides to compare exact PKR prices, durations, warranty terms, device limits, and own-account upgrade vs. ready-account options.'}
+          {(hub?.intro ||
+            'Not sure which AI subscription, creative suite, VPN, or streaming plan fits your budget in Pakistan? Use PakAITools\' side-by-side comparison guides to compare exact PKR prices, durations, warranty terms, device limits, and own-account upgrade vs. ready-account options.').replace(/\*\*/g, '')}
         </p>
       </section>
 
@@ -99,9 +99,9 @@ export default function CompareHubPage() {
       </div>
 
       {/* Comparisons Grouped by Category */}
-      <div className="space-y-10">
+      <div className="space-y-6">
         {Array.from(categoriesMap.entries()).map(([catName, items]) => (
-          <section key={catName} className="space-y-4">
+          <section key={catName} className="space-y-3">
             <div className="flex items-center justify-between border-b border-separator pb-2">
               <h2 className="text-xl md:text-2xl font-bold text-text flex items-center space-x-2">
                 <span>{catName}</span>
@@ -111,7 +111,7 @@ export default function CompareHubPage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
               {items.map((comp) => (
                 <article
                   key={comp.slug}
@@ -127,7 +127,7 @@ export default function CompareHubPage() {
                       </Link>
                     </h3>
                     <p className="text-xs md:text-sm text-text-secondary line-clamp-3 leading-relaxed mb-4">
-                      {comp.verdict || comp.metaDesc}
+                      {(comp.verdict || comp.metaDesc)?.replace(/\*\*/g, '')}
                     </p>
                   </div>
 

@@ -89,12 +89,12 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
   const bodyHtml = renderMarkdown(comp.contentMarkdown);
 
   return (
-    <article className="space-y-8 py-2 max-w-4xl mx-auto">
+    <article className="space-y-6 py-2 max-w-4xl mx-auto">
       <JsonLd schema={schema} />
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Header */}
-      <header className="space-y-4">
+      <header className="space-y-3">
         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent-soft text-accent text-xs font-bold uppercase tracking-wider">
           <Scale className="w-3.5 h-3.5" />
           <span>{comp.category} Comparison</span>
@@ -117,7 +117,7 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
             <span>Answer-First Verdict</span>
           </div>
           <p className="text-sm md:text-base text-text font-medium leading-relaxed">
-            {comp.verdict}
+            {comp.verdict?.replace(/\*\*/g, '')}
           </p>
         </div>
       )}

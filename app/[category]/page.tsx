@@ -80,30 +80,34 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   );
 
   return (
-    <div className="space-y-10 py-2">
+    <div className="space-y-6 md:space-y-8 py-2">
       <JsonLd schema={schema} />
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Header & Answer Paragraph */}
-      <section className="space-y-4">
+      <section className="space-y-2">
         <h1 className="text-3xl md:text-4xl font-black text-text">
           {hub?.h1 || `${category.name} Price in Pakistan`}
         </h1>
         <p className="text-base text-text-secondary leading-relaxed max-w-3xl">
-          {hub?.answer ||
-            `PakAITools lists ${category.brands} brands and ${category.plans} plans in ${category.name} for Pakistan. Compare plans by duration, device allowance, and warranty before you order.`}
+          {(hub?.answer ||
+            `PakAITools lists ${category.brands} brands and ${category.plans} plans in ${category.name} for Pakistan. Compare plans by duration, device allowance, and warranty before you order.`).replace(/\*\*/g, '')}
         </p>
       </section>
 
       {/* Brand Grid (Single clean heading) */}
-      <section aria-labelledby="brands-grid-heading" className="space-y-4">
+      <section aria-labelledby="brands-grid-heading" className="space-y-3">
         <h2 id="brands-grid-heading" className="text-xl md:text-2xl font-bold text-text">
           Brands in {category.name}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
           {brands.map((brand) => {
-            const brandProducts = products.filter((p) => p.brandSlug === brand.slug);
-            const prices = brandProducts.map((p) => p.price).filter((pr): pr is number => pr !== null);
+            const brandProducts = products.filter(
+              (p) => p.brandSlug === brand.slug || p.slug === brand.productSlug
+            );
+            const prices = brandProducts
+              .map((p) => p.price)
+              .filter((pr): pr is number => pr !== null && typeof pr === 'number');
             const minPrice = prices.length > 0 ? Math.min(...prices) : null;
             return <BrandCard key={brand.slug} brand={brand} minPrice={minPrice} />;
           })}
@@ -112,7 +116,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       {/* Rich Markdown Content if available (without duplicate Brand grid) */}
       {hub?.contentMarkdown && (
-        <section className="rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4">
+        <section className="rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-3">
           <div
             className="catalogue-content space-y-4 text-text-secondary text-sm md:text-base leading-relaxed"
             dangerouslySetInnerHTML={{ __html: renderMarkdown(hub.contentMarkdown) }}

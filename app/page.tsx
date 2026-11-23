@@ -79,9 +79,9 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-16 py-4">
+    <div className="space-y-8 md:space-y-10 py-2">
       {/* 1. Hero Section (Above the fold) */}
-      <section className="text-center max-w-3xl mx-auto space-y-6 pt-4 md:pt-8">
+      <section className="text-center max-w-3xl mx-auto space-y-4 pt-2 md:pt-4">
         <h1 className="text-3xl md:text-5xl font-black text-text tracking-tight leading-tight">
           {h1Text}
         </h1>
@@ -90,7 +90,7 @@ export default function HomePage() {
         </p>
 
         {/* Quick Search Box */}
-        <form action="/price-list/" method="GET" className="max-w-md mx-auto relative mt-4">
+        <form action="/price-list/" method="GET" className="max-w-md mx-auto relative mt-3">
           <input
             type="search"
             name="q"
@@ -138,25 +138,25 @@ export default function HomePage() {
       </section>
 
       {/* 2. Browse Categories Section */}
-      <section aria-labelledby="categories-heading" className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-separator pb-4 gap-3">
+      <section aria-labelledby="categories-heading" className="space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-separator pb-3 gap-2">
           <div>
             <h2 id="categories-heading" className="text-2xl md:text-3xl font-bold text-text">
               Browse Categories
             </h2>
-            <p className="text-xs md:text-sm text-text-secondary mt-1">
+            <p className="text-xs md:text-sm text-text-secondary mt-0.5">
               15 specialized hubs for creators, developers, students, and businesses
             </p>
           </div>
           <Link
             href="/categories/"
-            className="inline-flex items-center justify-center px-4 py-2 rounded-xl border border-separator bg-bg-card hover:bg-bg-subtle text-xs md:text-sm font-semibold text-text hover:text-accent transition-colors min-h-[44px]"
+            className="inline-flex items-center justify-center px-4 py-2 rounded-xl border border-separator bg-bg-card hover:bg-bg-subtle text-xs md:text-sm font-semibold text-text hover:text-accent transition-colors min-h-[40px]"
           >
             View all 15 <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 md:gap-4">
           {categories.map((cat) => (
             <CategoryCard key={cat.slug} category={cat} />
           ))}
@@ -164,13 +164,13 @@ export default function HomePage() {
       </section>
 
       {/* 3. Popular Subscriptions in Pakistan */}
-      <section aria-labelledby="popular-heading" className="space-y-6">
-        <div className="flex items-end justify-between border-b border-separator pb-4">
+      <section aria-labelledby="popular-heading" className="space-y-4">
+        <div className="flex items-end justify-between border-b border-separator pb-3">
           <div>
             <h2 id="popular-heading" className="text-2xl font-bold text-text">
               Popular Subscriptions in Pakistan
             </h2>
-            <p className="text-xs md:text-sm text-text-secondary mt-1">
+            <p className="text-xs md:text-sm text-text-secondary mt-0.5">
               Most requested AI, creative, and entertainment plans with verified warranty
             </p>
           </div>
@@ -182,7 +182,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {popularPlans.map((p) => (
             <PlanRow
               key={p.slug}
@@ -198,26 +198,26 @@ export default function HomePage() {
       </section>
 
       {/* 4. NEW: Blog & AI News Section */}
-      <section aria-labelledby="blog-news-heading" className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-separator pb-4 gap-3">
+      <section aria-labelledby="blog-news-heading" className="space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-separator pb-3 gap-2">
           <div>
             <h2 id="blog-news-heading" className="text-2xl md:text-3xl font-bold text-text">
               Latest Guides &amp; AI News
             </h2>
-            <p className="text-xs md:text-sm text-text-secondary mt-1">
+            <p className="text-xs md:text-sm text-text-secondary mt-0.5">
               Price breakdowns, buying advice, and verified developments for Pakistani digital workers
             </p>
           </div>
           <Link
             href="/blog/"
-            className="inline-flex items-center justify-center px-4 py-2 rounded-xl border border-separator bg-bg-card hover:bg-bg-subtle text-xs md:text-sm font-semibold text-text hover:text-accent transition-colors min-h-[44px]"
+            className="inline-flex items-center justify-center px-4 py-2 rounded-xl border border-separator bg-bg-card hover:bg-bg-subtle text-xs md:text-sm font-semibold text-text hover:text-accent transition-colors min-h-[40px]"
           >
             View all posts <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
           </Link>
         </div>
 
         {/* Guides Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
           {recentGuides.map((guide) => (
             <article
               key={guide.slug}
@@ -237,7 +237,7 @@ export default function HomePage() {
                   </Link>
                 </h3>
                 <p className="text-xs text-text-secondary line-clamp-2 leading-relaxed mb-4">
-                  {guide.summary || guide.metaDesc || guide.desc}
+                  {(guide.summary || guide.metaDesc || guide.desc)?.replace(/\*\*/g, '')}
                 </p>
               </div>
               <Link
@@ -252,12 +252,12 @@ export default function HomePage() {
 
         {/* AI News Subsection if news exists */}
         {recentNews.length > 0 && (
-          <div className="pt-4 space-y-4">
+          <div className="pt-3 space-y-3">
             <div className="flex items-center space-x-2 text-sm font-bold text-text">
               <Newspaper className="w-4 h-4 text-accent" />
               <span>Trending in AI</span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
               {recentNews.map((item) => (
                 <article
                   key={item.slug}
@@ -275,7 +275,7 @@ export default function HomePage() {
                       </Link>
                     </h4>
                     <p className="text-[11px] text-text-secondary line-clamp-2 leading-relaxed mb-2">
-                      {item.summary}
+                      {item.summary?.replace(/\*\*/g, '')}
                     </p>
                   </div>
                   <Link
@@ -292,7 +292,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. How Ordering Works (3 Steps) */}
-      <section aria-labelledby="how-it-works-heading" className="rounded-3xl border border-separator bg-bg-card p-6 md:p-10 space-y-8">
+      <section aria-labelledby="how-it-works-heading" className="rounded-3xl border border-separator bg-bg-card p-6 md:p-8 space-y-5">
         <div className="text-center max-w-xl mx-auto space-y-2">
           <h2 id="how-it-works-heading" className="text-2xl md:text-3xl font-bold text-text">
             How Ordering Works

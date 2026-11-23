@@ -78,11 +78,11 @@ export default function PriceListPage() {
   });
 
   return (
-    <div className="space-y-8 py-2">
+    <div className="space-y-6 py-2">
       <JsonLd schema={schema} />
       <Breadcrumbs items={breadcrumbs} />
 
-      <section className="space-y-4">
+      <section className="space-y-2">
         <h1 className="text-3xl md:text-4xl font-black text-text">
           Digital Subscriptions Price List in Pakistan
         </h1>
@@ -114,9 +114,9 @@ export default function PriceListPage() {
 
       {/* Static Fallback HTML representation (works with JS disabled) */}
       <noscript>
-        <div className="space-y-12">
+        <div className="space-y-6">
           {categoryGroups.map(({ category, plans }) => (
-            <section key={category.slug} id={category.slug} className="space-y-4 pt-4 border-t border-separator">
+            <section key={category.slug} id={category.slug} className="space-y-3 pt-4 border-t border-separator">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-bold text-text">{category.name}</h2>
                 <span className="text-xs text-text-tertiary">{plans.length} plans</span>

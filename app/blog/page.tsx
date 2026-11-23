@@ -58,12 +58,12 @@ export default function BlogIndexPage() {
   };
 
   return (
-    <div className="space-y-12 py-2 max-w-5xl mx-auto">
+    <div className="space-y-6 md:space-y-8 py-2 max-w-5xl mx-auto">
       <JsonLd schema={schema} />
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Header */}
-      <section className="space-y-4">
+      <section className="space-y-3">
         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent-soft text-accent text-xs font-bold uppercase tracking-wider">
           <BookOpen className="w-3.5 h-3.5" />
           <span>Knowledge Base &amp; Guides</span>
@@ -72,19 +72,19 @@ export default function BlogIndexPage() {
           {hub?.h1 || 'PakAITools Blog: 2026 PKR Price Guides & Buying Tips for Digital Subscriptions in Pakistan'}
         </h1>
         <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-3xl">
-          {hub?.intro ||
-            'Explore our 15 category buying guides built specifically for freelancers, students, developers, agencies, and everyday users in Pakistan.'}
+          {(hub?.intro ||
+            'Explore our 15 category buying guides built specifically for freelancers, students, developers, agencies, and everyday users in Pakistan.').replace(/\*\*/g, '')}
         </p>
       </section>
 
       {/* Category Buying Guides (15 Pillars) */}
-      <section aria-labelledby="category-guides-heading" className="space-y-6">
+      <section aria-labelledby="category-guides-heading" className="space-y-4">
         <div className="border-b border-separator pb-3 flex items-center justify-between">
           <div>
             <h2 id="category-guides-heading" className="text-xl md:text-2xl font-bold text-text">
               15 Category Price &amp; Buying Guides
             </h2>
-            <p className="text-xs text-text-secondary mt-1">
+            <p className="text-xs text-text-secondary mt-0.5">
               Complete PKR price tables, warranty checklists, and buyer tips for each category
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function BlogIndexPage() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
           {categoryGuides.map((guide) => (
             <article
               key={guide.slug}
@@ -109,7 +109,7 @@ export default function BlogIndexPage() {
                   </Link>
                 </h3>
                 <p className="text-xs md:text-sm text-text-secondary line-clamp-3 leading-relaxed mb-4">
-                  {guide.summary || guide.metaDesc || guide.desc}
+                  {(guide.summary || guide.metaDesc || guide.desc)?.replace(/\*\*/g, '')}
                 </p>
               </div>
 
@@ -131,17 +131,17 @@ export default function BlogIndexPage() {
 
       {/* Evergreen Tutorials & Comparisons */}
       {evergreenPosts.length > 0 && (
-        <section aria-labelledby="tutorials-heading" className="space-y-6">
+        <section aria-labelledby="tutorials-heading" className="space-y-4">
           <div className="border-b border-separator pb-3">
             <h2 id="tutorials-heading" className="text-xl md:text-2xl font-bold text-text">
               Buyer Guides &amp; Tutorials
             </h2>
-            <p className="text-xs text-text-secondary mt-1">
+            <p className="text-xs text-text-secondary mt-0.5">
               Step-by-step instructions on local payments, duration choices, and cost breakdowns
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
             {evergreenPosts.map((post) => (
               <article
                 key={post.slug}
@@ -157,7 +157,7 @@ export default function BlogIndexPage() {
                     </Link>
                   </h3>
                   <p className="text-xs text-text-secondary line-clamp-3 leading-relaxed mb-3">
-                    {post.desc || post.summary}
+                    {(post.desc || post.summary)?.replace(/\*\*/g, '')}
                   </p>
                 </div>
                 <Link
@@ -174,20 +174,20 @@ export default function BlogIndexPage() {
 
       {/* AI News Section */}
       {news.length > 0 && (
-        <section id="news" aria-labelledby="news-heading" className="space-y-6">
+        <section id="news" aria-labelledby="news-heading" className="space-y-4">
           <div className="border-b border-separator pb-3 flex items-center justify-between">
             <div>
               <h2 id="news-heading" className="text-xl md:text-2xl font-bold text-text flex items-center space-x-2">
                 <Newspaper className="w-5 h-5 text-accent" />
                 <span>Latest AI News &amp; Updates</span>
               </h2>
-              <p className="text-xs text-text-secondary mt-1">
+              <p className="text-xs text-text-secondary mt-0.5">
                 Verified developments in generative AI, models, and tools relevant to Pakistan
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
             {news.map((item) => (
               <article
                 key={item.slug}
@@ -205,7 +205,7 @@ export default function BlogIndexPage() {
                     </Link>
                   </h3>
                   <p className="text-xs text-text-secondary line-clamp-3 leading-relaxed mb-3">
-                    {item.summary}
+                    {item.summary?.replace(/\*\*/g, '')}
                   </p>
                 </div>
                 <Link

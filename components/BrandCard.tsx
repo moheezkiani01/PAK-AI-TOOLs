@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import type { Brand } from '@/lib/types';
 import { SITE } from '@/lib/site.config';
 import { formatPkr } from '@/lib/money';
+import { getProductBySlug } from '@/lib/data';
 
 interface BrandCardProps {
   brand: Brand;
@@ -16,6 +17,15 @@ export function BrandCard({ brand, minPrice }: BrandCardProps) {
     ? `/${brand.categorySlug}/${brand.slug}/`
     : (brand.productUrl || `/product/${brand.productSlug}/`);
 
+  // If minPrice was not passed, resolve price for single plan
+  let effectivePrice = minPrice;
+  if (effectivePrice == null && brand.productSlug) {
+    const prod = getProductBySlug(brand.productSlug);
+    if (prod && typeof prod.price === 'number') {
+      effectivePrice = prod.price;
+    }
+  }
+
   // Initials fallback
   const initials = brand.displayName
     .split(/\s+/)
@@ -23,6 +33,9 @@ export function BrandCard({ brand, minPrice }: BrandCardProps) {
     .join('')
     .slice(0, 2)
     .toUpperCase();
+
+  const planCount = brand.planCount || 1;
+  const countLabel = planCount > 1 ? `${planCount} plans` : '1 plan';
 
   return (
     <Link
@@ -51,13 +64,9 @@ export function BrandCard({ brand, minPrice }: BrandCardProps) {
             {brand.displayName}
           </h4>
           <p className="text-xs text-text-tertiary">
-            {brand.isMultiPlan ? (
-              <>
-                {brand.planCount} plans
-                {minPrice ? ` · from ${formatPkr(minPrice)}` : ''}
-              </>
-            ) : (
-              '1 plan'
+            <span>{countLabel}</span>
+            {effectivePrice != null && (
+              <span> · from {formatPkr(effectivePrice)}</span>
             )}
           </p>
         </div>

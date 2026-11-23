@@ -78,20 +78,20 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
   const schema = getCollectionSchema(hub.h1, hub.url, breadcrumbs, hub.faqs);
 
   return (
-    <div className="space-y-10 py-2">
+    <div className="space-y-6 md:space-y-8 py-2">
       <JsonLd schema={schema} />
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Header & Answer Paragraph */}
-      <section className="space-y-4">
+      <section className="space-y-3">
         <h1 className="text-3xl md:text-4xl font-black text-text">{hub.h1}</h1>
         <p className="text-base text-text-secondary leading-relaxed max-w-3xl">
-          {hub.answer}
+          {hub.answer?.replace(/\*\*/g, '')}
         </p>
       </section>
 
       {/* Plan Comparison Table / Cards */}
-      <section aria-labelledby="plans-table-heading" className="space-y-4">
+      <section aria-labelledby="plans-table-heading" className="space-y-3">
         <div className="flex items-center justify-between border-b border-separator pb-3">
           <h2 id="plans-table-heading" className="text-xl md:text-2xl font-bold text-text">
             Available Plans &amp; Pricing

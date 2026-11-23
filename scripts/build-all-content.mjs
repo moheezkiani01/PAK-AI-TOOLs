@@ -20,6 +20,11 @@ function cleanLinks(text) {
     .replace(/https:\/\/www\.google\.com\/search\?q=/g, '');
 }
 
+function stripSterics(text) {
+  if (!text) return '';
+  return text.replace(/\*\*/g, '').replace(/`/g, '').trim();
+}
+
 function cleanAnswer(ans) {
   if (!ans) return '';
   // Cut off leaked sections starting with numbered instructions
@@ -107,10 +112,10 @@ if (compHubMatch) {
   const desc = (hubText.match(/- \*\*Meta Description:\*\*\s*(.*)/) || [])[1]?.trim();
   const h1 = (hubText.match(/- \*\*H1:\*\*\s*(.*)/) || [])[1]?.trim();
   const introMatch = hubText.match(/\*\*Answer-First Hub Intro:\*\*\s*\n([\s\S]*?)(?=### All Product Comparison Guides)/);
-  if (title) compHub.title = title;
-  if (desc) compHub.desc = desc;
-  if (h1) compHub.h1 = h1;
-  if (introMatch) compHub.intro = cleanLinks(introMatch[1].trim());
+  if (title) compHub.title = stripSterics(title);
+  if (desc) compHub.desc = stripSterics(desc);
+  if (h1) compHub.h1 = stripSterics(h1);
+  if (introMatch) compHub.intro = stripSterics(cleanLinks(introMatch[1].trim()));
 }
 
 const compParts = compRaw.split(/### COMPARISON #\d+:\s*/);
@@ -181,12 +186,12 @@ for (let i = 1; i < compParts.length; i++) {
     id: i,
     category,
     rawTitle,
-    seoTitle,
-    metaDesc,
+    seoTitle: stripSterics(seoTitle),
+    metaDesc: stripSterics(metaDesc),
     slug,
     canonical: `https://pakaitools.store/compare/${slug}/`,
     h1,
-    verdict: cleanLinks(verdict),
+    verdict: stripSterics(cleanLinks(verdict)),
     contentMarkdown: cleanLinks(bodyMd),
     faqs,
     schema,
@@ -220,10 +225,10 @@ if (blogHubMatch) {
   const desc = (hubText.match(/- \*\*Meta Description:\*\*\s*(.*)/) || [])[1]?.trim();
   const h1 = (hubText.match(/- \*\*H1:\*\*\s*(.*)/) || [])[1]?.trim();
   const introMatch = hubText.match(/\*\*Answer-First Hub Intro:\*\*\s*\n([\s\S]*?)(?=### All 15 Category)/);
-  if (title) blogHub.title = title;
-  if (desc) blogHub.desc = desc;
-  if (h1) blogHub.h1 = h1;
-  if (introMatch) blogHub.intro = cleanLinks(introMatch[1].trim());
+  if (title) blogHub.title = stripSterics(title);
+  if (desc) blogHub.desc = stripSterics(desc);
+  if (h1) blogHub.h1 = stripSterics(h1);
+  if (introMatch) blogHub.intro = stripSterics(cleanLinks(introMatch[1].trim()));
 }
 
 const blogParts = blogRaw.split(/### BLOG POST #\d+:\s*/);
@@ -273,12 +278,12 @@ for (let i = 1; i < blogParts.length; i++) {
   blogs.push({
     id: i,
     rawTitle,
-    seoTitle,
-    metaDesc,
+    seoTitle: stripSterics(seoTitle),
+    metaDesc: stripSterics(metaDesc),
     slug,
     canonical: `https://pakaitools.store/blog/${slug}/`,
     h1,
-    summary: cleanLinks(summary),
+    summary: stripSterics(cleanLinks(summary)),
     contentMarkdown: cleanLinks(bodyMd),
     faqs,
     schema,
@@ -297,7 +302,13 @@ if (fs.existsSync(sitePagesPath)) {
   }
 }
 
-const allBlogItems = [...blogs, ...evergreenPosts];
+const allBlogItems = [...blogs, ...evergreenPosts].map(b => ({
+  ...b,
+  summary: stripSterics(b.summary || b.ans || ''),
+  desc: stripSterics(b.desc || ''),
+  ans: stripSterics(b.ans || ''),
+  metaDesc: stripSterics(b.metaDesc || ''),
+}));
 
 fs.writeFileSync(
   path.join(ROOT_DIR, 'data', 'blogs.json'),
