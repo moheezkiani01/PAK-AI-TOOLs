@@ -1,5 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+if (!fs.existsSync(path.join(process.cwd(), '01_catalogue_indexable_pages.txt'))) {
+  console.log('Catalogue txt files not present; using pre-generated data/*.json');
+  process.exit(0);
+}
+
 
 console.log('--- Generating Site Data ---');
 

@@ -9,6 +9,32 @@ out/
 # Environment variables
 .env*.local
 
+# Raw text catalogues & archive files (parsed into data/*.json)
+01_catalogue_indexable_pages.txt
+02_hub_and_category_pages.txt
+03_reserve_merged_and_unlisted.txt
+04_READ_FIRST_launch_plan.txt
+05_owner_notes_archive.txt
+Full catalogue.txt
+Catalogue/
+files.zip
+
+# Raw logo source and extract folders
+brand_logos/
+logo-source-square.png
+pakaitools_website_template.html
+site_pages_extracted.json
+categories.json
+06_url_map_and_redirects.csv
+
+# Duplicate loose images in root (served from public/)
+apple-touch-icon.png
+favicon-*.png
+favicon.ico
+logo-*.png
+logo-*.webp
+og-default.png
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
