@@ -146,9 +146,15 @@ export function cleanMarkdownSource(content: string): string {
     .replace(/https:\/\/www\.google\.com\/search\?q=(\/[^)\s]+)/g, '$1')
     .replace(/https:\/\/www\.google\.com\/search\?q=/g, '');
 
+  // Strip backticks around phone numbers so they don't get trapped inside <code> tags
+  cleaned = cleaned.replace(
+    /`\s*(\+?92\s*321[-\s]*9305619|0321[-\s]*9305619)\s*`/g,
+    '$1'
+  );
+
   // Convert raw unlinked WhatsApp/phone numbers into clickable markdown links
   cleaned = cleaned.replace(
-    /(?:\[([^\]]+)\]\((https:\/\/wa\.me\/[^\)]+)\))|(\+92\s*321\s*9305619|\+923219305619|0321\s*9305619|03219305619)/g,
+    /(?:\[([^\]]+)\]\((https:\/\/wa\.me\/[^\)]+)\))|(\+?92\s*321[-\s]*9305619|0321[-\s]*9305619)/g,
     (match, existingText, existingUrl, rawNumber) => {
       if (existingText && existingUrl) {
         return match;

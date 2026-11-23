@@ -12,6 +12,10 @@ interface RelatedPlansProps {
   maxItems?: number;
 }
 
+/**
+ * RelatedPlans component: prioritizes plans from the same brand first (e.g. Canva Pro plans on Canva pages),
+ * then fills remaining slots with category alternatives.
+ */
 export function RelatedPlans({
   currentSlug,
   brandSlug,

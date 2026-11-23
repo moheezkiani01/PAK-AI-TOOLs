@@ -7,6 +7,10 @@ export interface FaqItem {
   answer: string;
 }
 
+/**
+ * Faq component: guards against empty duplicate FAQ headings.
+ * Returns null if items are empty or contain no valid questions/answers.
+ */
 export function Faq({ items, title = 'Frequently Asked Questions' }: { items: FaqItem[]; title?: string }) {
   const validItems = (items || []).filter(
     (item) => item && typeof item.question === 'string' && item.question.trim().length > 0 && typeof item.answer === 'string' && item.answer.trim().length > 0

@@ -15,7 +15,6 @@ export function renderCell(c: Cell): React.ReactNode {
   if (typeof c === 'number') return String(c);
 
   if (typeof c === 'string') {
-    // If string somehow contains "[object Object]", replace it safely
     if (c === '[object Object]') return '—';
 
     // Parse markdown link [label](url) if present
@@ -44,7 +43,7 @@ export function renderCell(c: Cell): React.ReactNode {
     return c;
   }
 
-  // Object cell handling ({ text, value, href, note })
+  // Cell is an object { text, value, href, note }
   const label = c.text ?? c.value ?? '';
   const note = c.note ? ` (${c.note})` : '';
 
@@ -79,22 +78,25 @@ export function renderCell(c: Cell): React.ReactNode {
   );
 }
 
-export interface ComparisonTableProps {
-  caption?: string;
+export function ComparisonTable({
+  caption,
+  headers,
+  rows,
+  className = '',
+}: {
+  caption: string;
   headers: string[];
   rows: Cell[][];
   className?: string;
-}
-
-export function ComparisonTable({ caption, headers, rows, className = '' }: ComparisonTableProps) {
+}) {
   if (!headers || headers.length === 0 || !rows || rows.length === 0) {
     return null;
   }
 
   return (
-    <div className={`table-container my-6 rounded-xl border border-separator overflow-x-auto shadow-xs ${className}`}>
+    <div className={`overflow-x-auto my-6 rounded-xl border border-separator shadow-xs ${className}`}>
       <table className="w-full text-left border-collapse text-xs md:text-sm">
-        {caption && <caption className="sr-only">{caption}</caption>}
+        <caption className="sr-only">{caption}</caption>
         <thead className="bg-bg-subtle border-b border-separator text-text font-bold">
           <tr>
             {headers.map((h, i) => (
@@ -105,16 +107,16 @@ export function ComparisonTable({ caption, headers, rows, className = '' }: Comp
           </tr>
         </thead>
         <tbody className="divide-y divide-separator bg-bg-card text-text-secondary">
-          {rows.map((row, rIdx) => (
-            <tr key={rIdx} className="hover:bg-bg-subtle/50 transition-colors">
-              {row.map((cell, cIdx) =>
-                cIdx === 0 ? (
-                  <th key={cIdx} scope="row" className="px-4 py-3 font-semibold text-text whitespace-nowrap">
-                    {renderCell(cell)}
+          {rows.map((r, i) => (
+            <tr key={i} className="hover:bg-bg-subtle/50 transition-colors">
+              {r.map((c, j) =>
+                j === 0 ? (
+                  <th key={j} scope="row" className="px-4 py-3 font-semibold text-text whitespace-nowrap">
+                    {renderCell(c)}
                   </th>
                 ) : (
-                  <td key={cIdx} className="px-4 py-3 text-text-secondary">
-                    {renderCell(cell)}
+                  <td key={j} className="px-4 py-3 text-text-secondary">
+                    {renderCell(c)}
                   </td>
                 )
               )}
