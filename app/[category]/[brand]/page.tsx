@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {
   getAllBrandHubs,
   getBrandHub,
+  getBrandBySlug,
   getCategoryBySlug,
   getProductsByBrand,
   getMergedPlansByBrand,
@@ -59,6 +60,7 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
   const { category: catSlug, brand: brandSlug } = await params;
   const hub = getBrandHub(catSlug, brandSlug);
   const category = getCategoryBySlug(catSlug);
+  const brand = getBrandBySlug(brandSlug);
 
   if (!hub || !category) {
     notFound();
@@ -87,7 +89,20 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
 
       {/* Header & Answer Paragraph */}
       <section className="space-y-3">
-        <h1 className="text-3xl md:text-4xl font-black text-text">{hub.h1}</h1>
+        <div className="flex items-center space-x-3.5">
+          {brand?.logo && (
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-separator bg-white flex items-center justify-center p-2 flex-shrink-0 shadow-xs">
+              <img
+                src={brand.logo}
+                alt={brand.displayName}
+                width={48}
+                height={48}
+                className="w-full h-full object-contain rounded-xl"
+              />
+            </div>
+          )}
+          <h1 className="text-3xl md:text-4xl font-black text-text">{hub.h1}</h1>
+        </div>
         <p className="text-base text-text-secondary leading-relaxed max-w-3xl">
           {hub.answer?.replace(/\*\*/g, '')}
         </p>

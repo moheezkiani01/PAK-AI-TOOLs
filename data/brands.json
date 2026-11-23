@@ -367,7 +367,7 @@
     "hubUrl": "/esim/pakistan-esim/",
     "planCount": 5,
     "priority": 10,
-    "logo": null
+    "logo": "/brands/pakistan-esim.png"
   },
   {
     "slug": "expressvpn",

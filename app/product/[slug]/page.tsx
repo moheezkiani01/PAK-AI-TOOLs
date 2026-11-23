@@ -7,6 +7,7 @@ import {
   getProductBySlug,
   getCategoryBySlug,
   getBrandHub,
+  getBrandBySlug,
   getProductsByCategory,
 } from '@/lib/data';
 import { BuyCard } from '@/components/BuyCard';
@@ -66,6 +67,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const category = getCategoryBySlug(product.categorySlug);
   const brandHub = getBrandHub(product.categorySlug, product.brandSlug);
   const hasBrandHub = !!brandHub;
+  const brand = product.brandSlug ? getBrandBySlug(product.brandSlug) : undefined;
 
   // Breadcrumbs with proper casing
   const breadcrumbs = [
@@ -105,9 +107,22 @@ export default async function ProductPage({ params }: ProductPageProps) {
         {/* Left Column: H1, Answer, Content, FAQ, Related */}
         <div className="lg:col-span-7 xl:col-span-8 space-y-8 min-w-0">
           <header className="space-y-4">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-text tracking-tight leading-tight">
-              {product.h1}
-            </h1>
+            <div className="flex items-start space-x-3.5">
+              {brand?.logo && (
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-separator bg-white flex items-center justify-center p-2 flex-shrink-0 shadow-xs mt-1">
+                  <img
+                    src={brand.logo}
+                    alt={brand.displayName}
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-contain rounded-xl"
+                  />
+                </div>
+              )}
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-text tracking-tight leading-tight">
+                {product.h1}
+              </h1>
+            </div>
 
             {/* Answer-first snippet (40-60 words) */}
             <div className="p-4 md:p-5 rounded-2xl bg-accent-soft/40 border border-accent/20">

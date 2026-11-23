@@ -357,7 +357,10 @@ console.log('Saved data/site_pages.json');
 const manifestLines = fs.readFileSync(path.join(ROOT_DIR, 'brand_logos/official_logos_manifest.csv'), 'utf8').trim().split(/\r?\n/);
 const logoMap = {};
 for (let i = 1; i < manifestLines.length; i++) {
-  const parts = manifestLines[i].split(',');
+  const line = manifestLines[i].trim();
+  if (!line) continue;
+  const parts = line.split(',');
+  if (parts.length < 6) continue;
   const brand = parts[2].trim();
   const filename = parts[5].trim();
   logoMap[brand.toLowerCase()] = filename;
