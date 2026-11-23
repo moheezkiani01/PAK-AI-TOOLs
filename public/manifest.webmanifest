@@ -1,0 +1,21 @@
+{
+  "name": "PakAITools",
+  "short_name": "PakAITools",
+  "description": "AI Tools & Digital Subscriptions in Pakistan, Priced in PKR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a6b5b",
+  "icons": [
+    {
+      "src": "/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

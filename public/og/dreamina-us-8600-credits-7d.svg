@@ -1,0 +1,63 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f0e" />
+      <stop offset="60%" stop-color="#141a18" />
+      <stop offset="100%" stop-color="#0a6b5b" />
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#4cc9b0" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#4cc9b0" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+
+  <!-- Subtle Border Frame -->
+  <rect x="40" y="40" width="1120" height="550" rx="24" fill="none" stroke="#2a3531" stroke-width="2" />
+
+  <!-- Header Badge -->
+  <g transform="translate(80, 80)">
+    <rect width="200" height="48" rx="12" fill="#0a6b5b" fill-opacity="0.3" stroke="#4cc9b0" stroke-width="1.5" />
+    <text x="100" y="30" fill="#4cc9b0" font-family="-apple-system, system-ui, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">
+      PakAITools
+    </text>
+  </g>
+
+  <!-- Duration & Warranty Tag -->
+  <g transform="translate(300, 80)">
+    <rect width="280" height="48" rx="12" fill="#1d2522" stroke="#2a3531" stroke-width="1.5" />
+    <text x="140" y="30" fill="#b6c3be" font-family="-apple-system, system-ui, sans-serif" font-size="18" font-weight="600" text-anchor="middle">
+      7 Days (8,600 AI Credits) · 3-Day Warranty (from purchase date)
+    </text>
+  </g>
+
+  <!-- Main Title -->
+  <text x="80" y="240" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="52" font-weight="900" width="1040">
+    <tspan x="80" dy="0">Dreamina AI US – 8,600 Credits (7 Days)</tspan>
+    
+  </text>
+
+  <!-- Subtitle -->
+  <text x="80" y="325" fill="#b6c3be" font-family="-apple-system, system-ui, sans-serif" font-size="26" font-weight="500">
+    Price in Pakistan · Local PKR Payment · Fast Delivery
+  </text>
+
+  <!-- Price Box -->
+  <g transform="translate(80, 380)">
+    <rect width="320" height="74" rx="16" fill="#0a6b5b" />
+    <text x="160" y="47" fill="#ffffff" font-family="-apple-system, system-ui, sans-serif" font-size="34" font-weight="bold" text-anchor="middle">
+      Rs. 11,000
+    </text>
+  </g>
+
+  <!-- Footer Info -->
+  <text x="80" y="550" fill="#97a7a1" font-family="-apple-system, system-ui, sans-serif" font-size="20">
+    JazzCash · EasyPaisa · SadaPay · Raast · WhatsApp Support (+92 321 9305619)
+  </text>
+  <text x="1120" y="550" fill="#4cc9b0" font-family="-apple-system, system-ui, sans-serif" font-size="20" font-weight="bold" text-anchor="end">
+    https://pakaitools.store
+  </text>
+</svg>

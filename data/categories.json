@@ -1,0 +1,294 @@
+[
+  {
+    "order": 1,
+    "name": "AI Chatbots & Assistants",
+    "slug": "ai-chatbots",
+    "url": "/ai-chatbots/",
+    "icon": "Sparkles",
+    "tint": "blue",
+    "brands": 9,
+    "plans": 18,
+    "pages": 14,
+    "mergedRows": 4,
+    "brandHubs": 2,
+    "singlePlanBrands": 7,
+    "sampleBrands": [
+      "ChatGPT",
+      "Google Gemini AI Plus",
+      "Grok Plus",
+      "Kimi AI",
+      "Manus AI Pro"
+    ]
+  },
+  {
+    "order": 2,
+    "name": "Design & Creative",
+    "slug": "design-creative",
+    "url": "/design-creative/",
+    "icon": "Palette",
+    "tint": "amber",
+    "brands": 6,
+    "plans": 17,
+    "pages": 16,
+    "mergedRows": 1,
+    "brandHubs": 5,
+    "singlePlanBrands": 1,
+    "sampleBrands": [
+      "Adobe Creative Cloud",
+      "Canva Pro",
+      "Autodesk All Apps",
+      "Figma",
+      "Meitu"
+    ]
+  },
+  {
+    "order": 3,
+    "name": "Video Editing",
+    "slug": "video-editing",
+    "url": "/video-editing/",
+    "icon": "Film",
+    "tint": "rose",
+    "brands": 3,
+    "plans": 11,
+    "pages": 7,
+    "mergedRows": 4,
+    "brandHubs": 2,
+    "singlePlanBrands": 1,
+    "sampleBrands": [
+      "CapCut",
+      "Wink",
+      "Alight Motion Premium"
+    ]
+  },
+  {
+    "order": 4,
+    "name": "Streaming & Entertainment",
+    "slug": "streaming",
+    "url": "/streaming/",
+    "icon": "Tv",
+    "tint": "red",
+    "brands": 18,
+    "plans": 28,
+    "pages": 28,
+    "mergedRows": 0,
+    "brandHubs": 5,
+    "singlePlanBrands": 13,
+    "sampleBrands": [
+      "Amazon Prime Video",
+      "FPT Play",
+      "Galaxy Play",
+      "iQIYI Premium VIP",
+      "Netflix"
+    ]
+  },
+  {
+    "order": 5,
+    "name": "VPN & Privacy",
+    "slug": "vpn-privacy",
+    "url": "/vpn-privacy/",
+    "icon": "ShieldCheck",
+    "tint": "green",
+    "brands": 11,
+    "plans": 22,
+    "pages": 20,
+    "mergedRows": 2,
+    "brandHubs": 5,
+    "singlePlanBrands": 6,
+    "sampleBrands": [
+      "ExpressVPN",
+      "HMA VPN",
+      "Hotspot Shield VPN Premium",
+      "NordVPN",
+      "Private Internet Access"
+    ]
+  },
+  {
+    "order": 6,
+    "name": "AI Video & Image Generation",
+    "slug": "ai-video-image",
+    "url": "/ai-video-image/",
+    "icon": "WandSparkles",
+    "tint": "violet",
+    "brands": 8,
+    "plans": 21,
+    "pages": 17,
+    "mergedRows": 4,
+    "brandHubs": 4,
+    "singlePlanBrands": 4,
+    "sampleBrands": [
+      "Dreamina AI",
+      "Higgsfield Genjutsu",
+      "Kling AI",
+      "Muse Video API",
+      "OpenArt AI"
+    ]
+  },
+  {
+    "order": 7,
+    "name": "AI Voice & Audio",
+    "slug": "ai-voice-audio",
+    "url": "/ai-voice-audio/",
+    "icon": "AudioLines",
+    "tint": "pink",
+    "brands": 3,
+    "plans": 12,
+    "pages": 9,
+    "mergedRows": 3,
+    "brandHubs": 3,
+    "singlePlanBrands": 0,
+    "sampleBrands": [
+      "ElevenLabs",
+      "MiniMax Voice",
+      "Suno AI"
+    ]
+  },
+  {
+    "order": 8,
+    "name": "Online Learning & Education",
+    "slug": "education",
+    "url": "/education/",
+    "icon": "GraduationCap",
+    "tint": "sky",
+    "brands": 8,
+    "plans": 12,
+    "pages": 12,
+    "mergedRows": 0,
+    "brandHubs": 2,
+    "singlePlanBrands": 6,
+    "sampleBrands": [
+      "Coursera Premium",
+      "Duolingo",
+      "Kahoot!+ Gold",
+      "Quizlet",
+      "Skillshare Membership"
+    ]
+  },
+  {
+    "order": 9,
+    "name": "Productivity & Business Software",
+    "slug": "productivity-software",
+    "url": "/productivity-software/",
+    "icon": "Briefcase",
+    "tint": "teal",
+    "brands": 8,
+    "plans": 15,
+    "pages": 15,
+    "mergedRows": 0,
+    "brandHubs": 4,
+    "singlePlanBrands": 4,
+    "sampleBrands": [
+      "Gamma AI",
+      "LinkedIn Premium Career",
+      "Notion",
+      "Zoom",
+      "Microsoft 365 + Copilot"
+    ]
+  },
+  {
+    "order": 10,
+    "name": "Developer Tools & IDEs",
+    "slug": "developer-tools",
+    "url": "/developer-tools/",
+    "icon": "CodeXml",
+    "tint": "emerald",
+    "brands": 2,
+    "plans": 4,
+    "pages": 4,
+    "mergedRows": 0,
+    "brandHubs": 2,
+    "singlePlanBrands": 0,
+    "sampleBrands": [
+      "JetBrains",
+      "Replit"
+    ]
+  },
+  {
+    "order": 11,
+    "name": "Cloud Storage",
+    "slug": "cloud-storage",
+    "url": "/cloud-storage/",
+    "icon": "Cloud",
+    "tint": "cyan",
+    "brands": 1,
+    "plans": 4,
+    "pages": 4,
+    "mergedRows": 0,
+    "brandHubs": 1,
+    "singlePlanBrands": 0,
+    "sampleBrands": [
+      "Apple iCloud+"
+    ]
+  },
+  {
+    "order": 12,
+    "name": "Antivirus & Cybersecurity",
+    "slug": "antivirus",
+    "url": "/antivirus/",
+    "icon": "ShieldAlert",
+    "tint": "orange",
+    "brands": 1,
+    "plans": 3,
+    "pages": 3,
+    "mergedRows": 0,
+    "brandHubs": 1,
+    "singlePlanBrands": 0,
+    "sampleBrands": [
+      "Kaspersky"
+    ]
+  },
+  {
+    "order": 13,
+    "name": "Antidetect & Proxies",
+    "slug": "antidetect-proxies",
+    "url": "/antidetect-proxies/",
+    "icon": "Fingerprint",
+    "tint": "slate",
+    "brands": 2,
+    "plans": 5,
+    "pages": 5,
+    "mergedRows": 0,
+    "brandHubs": 1,
+    "singlePlanBrands": 1,
+    "sampleBrands": [
+      "GPM Login"
+    ]
+  },
+  {
+    "order": 14,
+    "name": "Travel & eSIMs",
+    "slug": "esim",
+    "url": "/esim/",
+    "icon": "Smartphone",
+    "tint": "indigo",
+    "brands": 1,
+    "plans": 5,
+    "pages": 5,
+    "mergedRows": 0,
+    "brandHubs": 1,
+    "singlePlanBrands": 0,
+    "sampleBrands": [
+      "Pakistan eSIM"
+    ]
+  },
+  {
+    "order": 15,
+    "name": "AI APIs",
+    "slug": "ai-apis",
+    "url": "/ai-apis/",
+    "icon": "Webhook",
+    "tint": "gray",
+    "brands": 6,
+    "plans": 54,
+    "pages": 20,
+    "mergedRows": 34,
+    "brandHubs": 6,
+    "singlePlanBrands": 0,
+    "sampleBrands": [
+      "Claude API",
+      "Cursor API",
+      "Chinese Models API",
+      "DeepSeek API",
+      "Grok API"
+    ]
+  }
+]

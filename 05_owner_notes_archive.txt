@@ -1,0 +1,1160 @@
+OLD BATCH FOOTERS (Questions for owner / linked pages) — archived from the original file, unchanged.
+
+##### Batch footer after product #5 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 1)
+================================================================================
+1. Product #1 (Adobe Creative Cloud All Apps 7 Days): Your raw title said "7 Days full warranty", while the raw body said "Lifetime warranty for usage". Kept as "7-Day Warranty"—confirm if finalized.
+2. Product #2 (Adobe Creative Cloud Pro 4 Months): Your raw title said "2-month warranty" and "(official package)", while the raw body explicitly said "Package warranty is 1 month". Kept the stricter "1-Month Package Warranty" and omitted "official" per Rule 12—confirm final warranty and sourcing.
+3. Pricing Inconsistency Flag (#2 vs #3): Buying Adobe 4 Months three times costs Rs. 25,500 (Rs. 2,125/mo, 1M warranty each), whereas Adobe 1 Year costs Rs. 35,000 (Rs. 2,917/mo, 1Y full warranty + pro-rated refund). Let me know if you want either price adjusted.
+4. Delivery Times Missing (#1–#5): None of the 5 raw descriptions gave exact delivery timeframes—share your real windows so we can replace the general wording without guessing.
+5. Credential Deletion Process: Per Rule 13, confirm whether PakAITools deletes customer credentials after activation so we know whether to state that on own-account upgrade pages in upcoming batches.
+6. Meta Descriptions & Payment Methods: Payment wallet names are kept in Quick Facts, the one-line Payment section, and Meta Descriptions (per original brief)—let me know if you also want them removed from Meta Descriptions.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 1)
+================================================================================
+Store Utility & Hub Pages Needed:
+- `/payment-methods/`
+- `/refund-warranty-policy/`
+- `/design-creative/` (Design & Creative Category Hub)
+- `/design-creative/adobe-creative-cloud/` (Brand Hub targeting "Adobe Creative Cloud price in Pakistan")
+- `/design-creative/canva/` (Brand Hub targeting "Canva Pro price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/capcut-pro-7-days/`
+- `/product/capcut-pro-personal-30-days/`
+- `/product/capcut-pro-vip-12-months/`
+- `/product/figma-pro-1-year/`
+- `/product/gamma-plus-1-month/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/adobe-short-term-vs-long-term-plans-pakistan/`
+- `/blog/semester-design-toolkit-pakistan-pkr/`
+- `/blog/adobe-creative-cloud-agency-guide-pakistan/`
+- `/blog/buy-canva-pro-pakistan-without-credit-card/`
+- `/blog/canva-pro-vs-figma-for-pakistani-freelancers/`
+
+##### Batch footer after product #10 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 2 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #6 (Autodesk All Apps): Raw title says "1 year", while raw description says "3-Year License, 1-Year Warranty". Listed conservatively as "1 Year" duration with a "1-Year Warranty"—confirm whether you want the public listing to state "3-Year License (1-Year Warranty)" instead.
+2. Product #10 (CapCut Pro Space Upgrade – 30 Days): Does this Space invite link carry a device limit (e.g., 1 or 2 devices) that should be stated in Quick Facts and Important Requirements? Raw description did not specify a device limit.
+3. Delivery Times (#6–#10): None of the raw descriptions for Products #6–#10 specified an exact delivery window—share your actual turnaround times when ready.
+4. Still Open From Earlier Batches: Domain `[DOMAIN]`, WhatsApp number `[WHATSAPP_NUMBER]`, price validity date `[PRICE_VALID_UNTIL]`, Adobe #1/#2 final warranty terms, and credential-deletion confirmation.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 2)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/cad-3d-design/` (CAD & 3D Design Category Hub)
+- `/cad-3d-design/autodesk/` (Brand Hub targeting "Autodesk All Apps price in Pakistan")
+- `/video-editing/` (Video Editing Category Hub)
+- `/video-editing/capcut/` (Brand Hub targeting "CapCut Pro price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/capcut-pro-team-1-month/`
+- `/product/capcut-pro-team-3-months/`
+- `/product/wink-vip-ios-30-days/`
+- `/product/alight-motion-premium-1-year/`
+- `/product/windows-10-11-pro-retail-key-online/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/autocad-revit-3ds-max-guide-pakistani-engineers/`
+- `/blog/capcut-pro-auto-captions-guide-pakistan/`
+- `/blog/capcut-pro-templates-for-pakistani-ecommerce-ads/`
+- `/blog/capcut-pro-vs-alight-motion-pakistan/`
+- `/blog/capcut-pro-space-invite-vs-ready-account-pakistan/`
+
+##### Batch footer after product #15 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 3 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #11 (CapCut Pro Team – 1 Month): Raw text had two conflicts: (a) first line said "customer sends email for invite", while the bottom said "Delivery format: Email | Password"; (b) title said "Official Mail". Per Rule 12, "official" was omitted and activation wording was kept general—confirm exact delivery method (own-email invite vs ready Email/Password) and whether it is bought via CapCut's own channel.
+2. Products #13 & #14 (CapCut Pro VIP 6M & 12M): Raw text mentioned "phone and PC" in one line, then warned at the bottom that logging in on 2 devices disables the account and voids warranty. Both are listed strictly as "1 device only (1 Phone OR 1 PC)" to prevent disputes—confirm if this is final.
+3. Product #15 (Amazon Prime Video – 1 Month): Raw title said "1 Month – full warranty", while raw description explicitly stated "25-day warranty" and "25–30 days usage period". Listed strictly as "25-Day Warranty"—confirm if finalized.
+4. Delivery Times (#11–#15): None of the raw descriptions for Products #11–#15 specified exact turnaround times—provide real delivery windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 3)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/streaming/` (Streaming & Entertainment Category Hub)
+- `/streaming/amazon-prime-video/` (Brand Hub targeting "Amazon Prime Video price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/wink-vip-ios-90-days/`
+- `/product/netflix-premium-4k-slot-1-month/`
+- `/product/youtube-premium-1-month-slot/`
+- `/product/iqiyi-premium-3-months/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/capcut-pro-desktop-vs-mobile-workflow-pakistan/`
+- `/blog/capcut-pro-ai-credits-explained-pakistan/`
+- `/blog/single-device-editing-workflow-capcut-pro-pakistan/`
+- `/blog/annual-video-editing-tools-budget-pakistan/`
+- `/blog/amazon-prime-video-vs-netflix-pakistan/`
+
+##### Batch footer after product #20 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 4 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #16 (Apple Music 5 Months): Raw title and top bullet state "1-month warranty", while the bottom activation note states "The link is valid for 24 hours, and the product is under warranty until successful activation." Listed conservatively as "Activation Warranty (link valid 24 hours; covered until successful activation)" to prevent disputes—confirm final warranty wording.
+2. Product #18 (ChatGPT Business Shared 1 Month): Raw text states "Codex is not usable, 9router usage limit is shared, so consider carefully." Confirm whether 9Router is prohibited or partially allowed on this shared plan, and confirm your support hours for sending email login OTP codes.
+3. Upcoming Overlap Alert (#20 vs #21): Product #20 (`ChatGPT Plus VIP – 1 Month`) and upcoming Product #21 (`ChatGPT Plus VIP Pro Apple – 1 Month`) share the exact same Rs. 3,000 price and raw features. Confirm how you want #21 differentiated (or if you want to keep both as separate SKUs) before Batch 5.
+4. Delivery Times (#16–#20): None of the raw descriptions for Products #16–#20 included exact delivery timeframes—share real turnaround windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 4)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/streaming/apple-music/` (Brand Hub targeting "Apple Music price in Pakistan")
+- `/ai-chatbots/` (AI Chatbots & Assistants Category Hub)
+- `/ai-chatbots/chatgpt/` (Brand Hub targeting "ChatGPT price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/spotify-premium-2-months/`
+- `/product/expressvpn-1-month/`
+- `/product/gemini-ai-plus-6-months/`
+- `/product/grok-plus-7-days/`
+- `/product/chatgpt-plus-apple-1-month/`
+- `/product/chatgpt-plus-upgrade-1-month/`
+- `/product/chatgpt-business-slot-1-month/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/apple-music-vs-spotify-vs-youtube-music-pakistan/`
+- `/blog/chatgpt-go-vs-chatgpt-plus-pakistan/`
+- `/blog/shared-vs-dedicated-chatgpt-accounts-pakistan/`
+- `/blog/best-ai-tools-for-ielts-and-university-students-pakistan/`
+- `/blog/chatgpt-plus-dedicated-vs-own-account-upgrade-pakistan/`
+
+##### Batch footer after product #25 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 5 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Products #22 (`ChatGPT Plus Own-Account Upgrade`) & #23 (`ChatGPT Business Own-Email Slot`): Raw text used "official" wording. Per Rule 12, "official" was omitted—confirm if either upgrade is genuinely purchased through OpenAI's own channels so we know whether that wording can ever be used.
+2. Product #22 (`ChatGPT Plus Upgrade – 1 Month`): Raw text mentioned "Save 25%" and collecting `EMAIL + session JSON`. Per Rule 3 and security best practices, the unverified percentage and raw session URL were stripped—confirm if session JSON is still your exact fulfillment process and whether support deletes it immediately after activation.
+3. Product #25 (`Claude API Unlimited 1 Day`) & Upcoming API Pages (#26–#48, #51–#66, #104–#113, #177–#180): Per your rule to omit API prices, `"price"` is intentionally omitted from the JSON-LD `Offer` (keeping `priceCurrency: "PKR"` + `availability: "LimitedAvailability"`). Note that Google Search Console may show an optional "Missing field `price`" warning on price-on-request API pages—confirm if you prefer omitting `price` (recommended for honest price-on-request pages) or using a custom storefront structure without `Offer` on API pages.
+4. Delivery Times (#21, #22, #23, #25): Product #24 had an explicit "within 24 hours" window, while #21, #22, #23, and #25 did not list turnaround times—share real windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 5)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/ai-apis/` (AI APIs Category Hub)
+- `/ai-apis/claude-api/` (Brand Hub targeting "Claude API price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/kimi-plus-1-month/`
+- `/product/manus-ai-pro-4000-credits-1m/`
+- `/product/grok-cursor-x-premium-1-month/`
+- `/product/claude-api-v3-10m-1-day/`
+- `/product/claude-api-v3-100m-1-day/`
+- `/product/cursor-api-400-day-1d/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/chatgpt-plus-apple-vs-standard-dedicated-pakistan/`
+- `/blog/how-to-upgrade-existing-chatgpt-account-pakistan/`
+- `/blog/chatgpt-business-slot-vs-chatgpt-plus-pakistan/`
+- `/blog/chatgpt-pro-vs-chatgpt-plus-who-needs-it-pakistan/`
+- `/blog/claude-api-coding-sprint-guide-pakistan/`
+
+##### Batch footer after product #30 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 6 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. API Delivery Turnaround (#26–#30): None of the raw VIP 3 Claude API descriptions listed an exact delivery timeframe—confirm your real delivery time after payment verification when ready.
+2. SEO Note on Large API Variant Counts (24 Claude API SKUs): Products #25–#48 include 24 closely related Claude API tiers. Confirm whether you want all 24 published as individual indexed product pages (as we are writing here) or if you later plan to consolidate some credit/duration combos as dropdown variants on a smaller number of hub pages to keep crawl budget lean.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 6)
+================================================================================
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/claude-api-v3-50m-30-days/`
+- `/product/claude-api-v2-10m-30-days/`
+- `/product/cursor-api-700-30d/`
+- `/product/deepseek-api-10-1-month/`
+- `/product/grok-api-10m-1m/`
+- `/product/grok-api-50m-3d/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/how-to-test-claude-api-in-pakistan-without-usd-card/`
+- `/blog/claude-api-fyp-project-guide-pakistan/`
+- `/blog/batch-document-extraction-claude-api-pakistan/`
+- `/blog/claude-api-for-n8n-and-langchain-pakistan/`
+- `/blog/refactoring-large-codebases-with-claude-api-pakistan/`
+
+##### Batch footer after product #35 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 7 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Supplier Pricing Anomaly Flag (#34 vs #35 — Rule 2): In your raw supplier list, Product #34 (`Claude API 200M – 7 Days`) was priced higher ($10.63) than Product #35 (`Claude API 200M – 30 Days` at $9.11). Even though API prices are omitted publicly and quoted live on WhatsApp, double-check your supplier cost before quoting #34 (or consider dropping #34 in favor of #35 if the 30-day tier genuinely costs less).
+2. Delivery Times (#31–#35): Still awaiting your confirmed real turnaround window for VIP 3 Claude API keys after payment verification.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 7)
+================================================================================
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/claude-api-v2-50m-30-days/`
+- `/product/claude-api-v2-100m-1-day/`
+- `/product/claude-api-v3-500m-30-days/`
+- `/product/claude-api-v3-1000m-7-days/`
+- `/product/cursor-api-400-day-7d/`
+- `/product/grok-api-50m-1m/`
+- `/product/grok-api-100m-5d/`
+- `/product/grok-api-100m-1m/`
+- `/product/grok-api-200m-1m/`
+- `/product/deepseek-api-100-1-month/`
+- `/product/deepseek-api-200-1-month/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/building-production-rag-apps-claude-api-pakistan/`
+- `/blog/high-volume-llm-batch-processing-guide-pakistan/`
+- `/blog/ai-api-stack-for-pakistani-saas-founders/`
+- `/blog/7-day-ai-agency-sprint-claude-api-pakistan/`
+- `/blog/routing-haiku-sonnet-opus-for-pakistani-startups/`
+
+##### Batch footer after product #40 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 8 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. VIP 2 vs VIP 3 Differentiation (#39–#40 vs #26–#38): Currently VIP 2 is highlighted for its token top-up support on the same key (per raw text), while VIP 3 lists exact sub-version model IDs and CDK redemption. Confirm if there are any other technical differences (e.g., RPM limits or endpoint compatibility) you want highlighted between VIP 2 and VIP 3.
+2. VIP 2 Delivery Turnaround (#39–#40): Confirm your real delivery timeframe for VIP 2 Claude API keys after payment verification.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 8)
+================================================================================
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/claude-api-v2-500m-30-days/`
+- `/product/claude-api-v2-1000m-30-days/`
+- `/product/cursor-api-30000-30d/`
+- `/product/chinese-ai-api-500m-7d/`
+- `/product/qwen-api-10-usd-1-month/`
+- `/product/qwen-api-100-usd-1-month/`
+- `/product/deepseek-api-50-1-month/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/centralized-llm-gateway-for-pakistani-software-houses/`
+- `/blog/synthetic-dataset-generation-with-claude-api-pakistan/`
+- `/blog/enterprise-llm-cost-control-pakistani-it-exporters/`
+- `/blog/claude-api-vip-2-vs-vip-3-pakistan/`
+- `/blog/managing-client-chatbot-api-keys-without-downtime/`
+
+##### Batch footer after product #45 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 9 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #42 (`Claude API 100M Tokens VIP 2 – 3 Days`): Raw supplier title read `"VIP 2.API 100M Claude 3 Tokens Day"`—cleaned as `100M Tokens – 3 Days` with a `3-Day Warranty`. Confirm with your supplier that it is indeed a 3-day duration (and not a typo for Claude 3 model / 1 day).
+2. VIP 2 Top-Up Validity Behavior (#41–#45): When a customer tops up extra tokens onto a 1-day, 3-day, or 7-day VIP 2 key via the redemption portal, does the top-up extend the key's expiration date or only add tokens inside the existing time window? Clarifying this will make the top-up guidance even more accurate.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 9)
+================================================================================
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/claude-api-v2-500m-15-days/`
+- `/product/chinese-ai-api-100m-4d/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/overnight-ecommerce-catalog-enrichment-claude-api/`
+- `/blog/72-hour-ai-mvp-playbook-pakistani-founders/`
+- `/blog/async-python-llm-batch-workers-claude-api/`
+- `/blog/distributed-llm-etl-pipelines-pakistan/`
+- `/blog/software-house-release-week-ai-playbook-pakistan/`
+
+##### Batch footer after product #50 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 10 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #49 (`Coursera Premium – 12 Months`): Raw text listed `"Org+ premium access"` and `"All courses & certificates"`. Per Rule 5 (avoiding eligibility-restricted plan source terms publicly), `"Org+"` was omitted and certificate wording was softened to `"included catalog courses and specializations"` (since degrees/certain partner courses are typically excluded). Confirm if you want any specific catalog boundary noted.
+2. Product #50 (`Grok + Grok Bot + Cursor + X Premium – 1 Month`): Raw text states `"Format: ID | Password | Inbox (Please reset Grok password upon login)"`. Confirm whether Cursor and X Premium share that exact same login/email or receive separate sub-credentials inside the bundle, and confirm whether Cursor includes any specific monthly request limit on this bundle.
+3. Delivery Times (#49–#50): Neither Coursera Premium (#49) nor the 4-in-1 Bundle (#50) listed an exact delivery timeframe—provide real turnaround windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 10)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/education/` (Online Learning & Education Category Hub)
+- `/education/coursera/` (Brand Hub targeting "Coursera Premium price in Pakistan")
+- `/ai-bundles/` (AI Bundles Category Hub)
+- `/ai-bundles/grok-cursor-x-premium/` (Brand Hub targeting "Grok Cursor X Premium price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/udemy-personal-plan-1-month/`
+- `/product/skillshare-30-days/`
+- `/product/duolingo-super-12-months/`
+- `/product/cursor-api-400-day-30d/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/agile-scrum-ai-coding-budgets-pakistan/`
+- `/blog/zero-downtime-llm-key-management-pakistan/`
+- `/blog/scaling-multi-tenant-ai-apps-with-claude-api-pakistan/`
+- `/blog/best-coursera-certificates-for-pakistani-graduates/`
+- `/blog/all-in-one-ai-coding-and-research-stack-pakistan/`
+
+##### Batch footer after product #55 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 11 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Timezone Clarification on "7 PM" Refresh (#51–#53): Your raw supplier descriptions state "200 requests will be provided first, then at 7 PM, 200 more requests will be added." Because your supplier operates in Vietnam Time (UTC+7), confirm whether "7 PM" means 7:00 PM Vietnam Time (5:00 PM PKT) so we can state the exact Pakistan Standard Time (PKT) refresh hour for local buyers.
+2. Cursor Pro Pool Delivery Turnaround (#51–#55): Confirm your real delivery timeframe for Cursor Pro Pool extension credentials after payment verification.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 11)
+================================================================================
+Store Brand Hub Needed:
+- `/ai-apis/cursor-api/` (Brand Hub targeting "Cursor Pro API price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/cursor-api-6500-30d/`
+- `/product/replit-core-40-credits-1-month/`
+- `/product/grok-api-30m-1m/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/cursor-pro-pool-extension-setup-guide-pakistan/`
+- `/blog/shipping-upwork-milestones-faster-with-cursor-ai-pakistan/`
+- `/blog/daily-refresh-vs-pooled-cursor-pro-plans-pakistan/`
+- `/blog/cursor-pro-vs-replit-core-for-pakistani-beginners/`
+- `/blog/cursor-pro-workflow-for-pakistani-full-stack-freelancers/`
+
+##### Batch footer after product #65 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 12 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Products #59–#61 (`Chinese AI Models API – 50M 2D, 100M 4D, 500M 7D`): Your raw descriptions did not state a warranty duration for these three plans. Per Rule 14, I did not guess a warranty and instead wrote "Confirmed on WhatsApp support prior to payment"—provide the exact warranty durations so we can lock them into these 3 listings.
+2. DeepSeek Multi-Model API (#62–#65) vs Qwen Multi-Model API (#177–#180): Notice that both sets of $10/$30/$50/$100 wallet credit packs list the exact same underlying multi-model portal roster (DeepSeek V4.1 Flash, Qwen 3.8 Flash, Claude, GPT-6, GLM, GPT Image). Confirm whether you want both kept as separate brand-targeted SEO pages (catching "DeepSeek API" and "Qwen API" searches separately) or merged later.
+3. Delivery Turnaround (#59–#65): Share real delivery windows for the Chinese AI Models API and DeepSeek Multi-Model API wallet codes when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 12)
+================================================================================
+Store Brand Hubs Needed:
+- `/ai-apis/chinese-models-api/` (Brand Hub targeting "Chinese AI Models API price in Pakistan")
+- `/ai-apis/deepseek-api/` (Brand Hub targeting "DeepSeek API price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/replit-core-300-credits-1-month/`
+- `/product/qwen-api-30-usd-1-month/`
+- `/product/qwen-api-50-usd-1-month/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/high-limit-cursor-pro-vs-claude-api-pakistan/`
+- `/blog/agentic-coding-workflows-for-pakistani-tech-leads/`
+- `/blog/enterprise-ai-coding-benchmarks-pakistan/`
+- `/blog/deepseek-v4-vs-qwen-3-8-max-vs-kimi-k3-pakistan/`
+- `/blog/multi-model-routing-deepseek-qwen-kimi-pakistan/`
+- `/blog/bulk-web-scraping-and-structuring-deepseek-v4-pakistan/`
+- `/blog/all-in-one-multi-model-api-gateway-pakistan/`
+- `/blog/building-multimodal-client-chatbots-in-pakistan/`
+- `/blog/dynamic-llm-routing-flash-vs-frontier-pakistan/`
+- `/blog/multi-vendor-llm-failover-architecture-pakistan/`
+
+##### Batch footer after product #75 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 13 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #68 (`Dreamina Advanced 23,000 Credits – 1 Month`): Raw price came in USD (`$41.89`) with no PKR price set yet. Per Rule 14, I did not invent a PKR price and set it to live PKR quote via WhatsApp—reply with your exact PKR selling price so we can lock it in.
+2. Product #68 (`Dreamina Advanced 23,000 Credits – 1 Month` Warranty): Raw text had `"no warranty"` on line 1 while the title and bottom line specified a `"2-day package warranty"`. Listed as `2-Day Package Warranty`—confirm if final.
+3. Products #71–#74 (`Duolingo Super 3M/6M/12M` & `Duolingo Max 12M`): Raw text used `"official upgrade"`. Per Rule 12, `"official"` was removed—confirm if these upgrades are genuinely bought through Duolingo's own direct billing channels. Also confirm real delivery windows for Duolingo (#71–#74), Dreamina (#67, #69, #70), and ElevenLabs (#75).
+4. Product #75 (`ElevenLabs 131K Redeem Code`): Raw text said `"official partner platform"` and `"full usage support"`. Per Rule 12 & exact warranty rules, softened to `"partner AI voice platform"` and `"Credit Protection Warranty"`—confirm if there is a specific day/month cap on credit-protection warranty (e.g., lifetime of credits vs 30 days).
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 13)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/ai-video-image/` (AI Video & Image Generation Category Hub)
+- `/ai-video-image/dreamina-ai/` (Brand Hub targeting "Dreamina AI price in Pakistan")
+- `/education/duolingo/` (Brand Hub targeting "Duolingo Super price in Pakistan")
+- `/ai-voice-audio/` (AI Voice & Audio Category Hub)
+- `/ai-voice-audio/elevenlabs/` (Brand Hub targeting "ElevenLabs price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/kling-pro-3000-1m/`
+- `/product/kling-premier-8000-1m/`
+- `/product/runway-standard-1-month/`
+- `/product/openart-ai-12k-credits-30d/`
+- `/product/google-veo-3-ultra-45000-credits-1-month/`
+- `/product/quizlet-plus-unlimited-1-year-upgrade/`
+- `/product/elevenlabs-redeem-300k/`
+- `/product/elevenlabs-redeem-1m/`
+- `/product/suno-ai-pro-20-days/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/consolidating-enterprise-ai-api-spend-pakistan/`
+- `/blog/dreamina-seedance-vs-kling-ai-pakistan/`
+- `/blog/ai-video-ads-workflow-pakistani-ecommerce-brands/`
+- `/blog/agency-ai-video-studio-budget-pakistan/`
+- `/blog/batch-ai-filmmaking-seedance-2-5-pakistan/`
+- `/blog/duolingo-for-german-a1-and-europe-scholarships-pakistan/`
+- `/blog/6-month-language-study-plan-pakistani-students/`
+- `/blog/duolingo-super-vs-duolingo-max-pakistan/`
+- `/blog/duolingo-max-ai-speaking-review-pakistan/`
+- `/blog/elevenlabs-voice-credits-vs-creator-accounts-pakistan/`
+
+##### Batch footer after product #85 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 14 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Products #82 (`ExpressVPN 3 Days`) vs #83 (`ExpressVPN 10 Devices 3 Days`) Pricing Overlap (Rule 2): Both SKUs are priced identically at Rs. 300 for 3 days with a 3-day warranty, while #83 explicitly offers up to 10 devices. Confirm whether you want to merge them into a single SKU, price #83 higher (e.g., Rs. 400–450), or clarify a specific device cap on #82 so shoppers aren't confused.
+2. Slugs Containing `-full` (#79 `elevenlabs-offer-3m-full` & #81 `elevenlabs-creator-3m-full`): Kept your original catalogue slugs for continuity while replacing all visible text with exact `"3-Month Warranty"`. Let me know if you prefer cleaner slugs (`elevenlabs-offer-3m-warranty` / `elevenlabs-creator-3m-warranty`) instead.
+3. Product #85 (`ExpressVPN PC Only – 3 Months`): Does this desktop-only login carry a specific device limit (e.g., 1 PC only vs multiple PCs)? Raw text did not state a numeric PC cap—confirm so we can add it cleanly.
+4. Delivery Turnaround (#76–#85): None of the raw descriptions for Products #76–#85 specified exact turnaround windows—share your real delivery times when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 14)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/vpn-privacy/` (VPN & Privacy Category Hub)
+- `/vpn-privacy/expressvpn/` (Brand Hub targeting "ExpressVPN price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/minimax-voice-redeem-131k-non-expiring/`
+- `/product/minimax-voice-redeem-1m-non-expiring/`
+- `/product/suno-ai-premier-1-month/`
+- `/product/expressvpn-pc-5-months/`
+- `/product/expressvpn-1-year/`
+- `/product/nordvpn-3-days/`
+- `/product/nordvpn-10-devices-3-months/`
+- `/product/surfshark-vpn-one-7-days/`
+- `/product/surfshark-vpn-starter-10-devices-2-months/`
+- `/product/hma-vpn-key-android-pc-1m/`
+- `/product/purevpn-max-7-days/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/youtube-automation-voiceover-budget-pakistan/`
+- `/blog/scaling-audiobook-and-youtube-voiceovers-pakistan/`
+- `/blog/elevenlabs-voice-cloning-guide-pakistan/`
+- `/blog/elevenlabs-studio-workflow-for-pakistani-podcasters/`
+- `/blog/buy-elevenlabs-creator-without-card-pakistan/`
+- `/blog/complete-audio-stack-pakistani-youtube-studios/`
+- `/blog/best-vpn-for-ptcl-nayatel-stormfiber-pakistan/`
+- `/blog/best-multi-device-vpn-for-pakistani-families/`
+- `/blog/expressvpn-vs-hma-vpn-monthly-pakistan/`
+- `/blog/best-desktop-vpn-for-pakistani-developers/`
+
+##### Batch footer after product #95 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 15 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #90 (`Figma Pro – 2 Years`): Unlike #88 and #89, your raw text for #90 did not state whether 3,000 Figma AI credits are included—so I did not invent AI credits on #90. Confirm if 3,000 AI credits also apply to #90. (Also confirm if you approve the clean slug `figma-pro-2-years` instead of `figma-pro-edu-2-years` to comply with Rule 5.)
+2. Products #91–#93 (`FPT Play Premium 1M`, `V.VIP1 6M`, `V.VIP1 12M`): Raw text used `"official direct activation"`. Per Rule 12, `"official"` was omitted—confirm if these activations are bought directly through FPT Play's own channels. Also confirm whether Pakistani buyers need a Vietnamese phone number specifically to register on FPT Play, or if Pakistani phone numbers can register directly.
+3. Product #86 (`ExpressVPN PC Only – 5 Months`): Confirm whether this PC-only login carries a 1-PC or multi-PC limit.
+4. Delivery Turnaround (#86–#90, #94–#95): FPT Play (#91–#93) explicitly states `"within minutes"`, while #86–#90 and #94–#95 did not list turnaround windows—provide real delivery times when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 15)
+================================================================================
+Store Brand Hubs Needed:
+- `/design-creative/figma/` (Brand Hub targeting "Figma Pro price in Pakistan")
+- `/streaming/fpt-play/` (Brand Hub targeting "FPT Play price in Pakistan")
+- `/streaming/galaxy-play/` (Brand Hub targeting "Galaxy Play price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/purevpn-random-100-500-days/`
+- `/product/proton-unlimited-1-month/`
+- `/product/notion-plus-2-years/` (clean slug without `edu` for upcoming #162)
+- `/product/tv360-standard-1-month/`
+- `/product/vieon-vip-own-account-30-days/`
+- `/product/vieon-vip-account-12-months/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/split-tunneling-expressvpn-pakistan-remote-work/`
+- `/blog/best-annual-vpn-plans-in-pakistan/`
+- `/blog/figma-pro-dev-mode-handoff-guide-pakistan/`
+- `/blog/how-to-export-backup-figma-files-before-upgrading/`
+- `/blog/building-reusable-design-systems-in-figma-pakistan/`
+- `/blog/watching-fpt-play-and-tv360-from-pakistan-guide/`
+- `/blog/watch-english-premier-league-on-smart-tv-pakistan/`
+- `/blog/full-season-epl-streaming-budget-guide-pakistan/`
+- `/blog/galaxy-play-4k-dolby-setup-guide-pakistan/`
+- `/blog/best-4k-movie-streaming-apps-smart-tv-pakistan/`
+================================================================================
+
+##### Batch footer after product #105 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 16 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #98 (`Google Gemini AI Plus – 6 Months`): Your raw supplier text had a copy-paste conflict—the title and activation steps all stated `Gemini AI Plus (6 Months)`, while one middle bullet mentioned `"Gemini AI Pro up to 18 months"`. Listed cleanly as `Google Gemini AI Plus – 6 Months` to match your title and Rs. 1,000 price—confirm with your supplier if this is final.
+2. "Official" Wording Check (#96–#102): Raw descriptions used `"official"` on Gamma Plus/Pro (#96–#97), Google Gemini AI Plus (#98), and GPM Login keys (#99–#102). Per Rule 12, `"official"` was omitted—confirm if any of these (especially GPM Login `SUB_` license keys) are genuinely bought through the brand's own direct channels so we know whether `"official"` is permitted.
+3. Delivery Turnaround (#96, #97 Option 1, #98–#105): Only Gamma Pro Option 2 listed `"10–24 hours"`—share your real delivery turnaround windows for the remaining Batch 16 products when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 16)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/productivity-ai/` (AI Presentations & Productivity Category Hub)
+- `/productivity-ai/gamma-ai/` (Brand Hub targeting "Gamma AI price in Pakistan")
+- `/ai-chatbots/google-gemini/` (Brand Hub targeting "Google Gemini price in Pakistan")
+- `/antidetect-proxies/` (Antidetect & Proxies Category Hub)
+- `/antidetect-proxies/gpm-login/` (Brand Hub targeting "GPM Login price in Pakistan")
+- `/ai-chatbots/grok-ai/` (Brand Hub targeting "Grok AI price in Pakistan")
+- `/ai-apis/grok-api/` (Brand Hub targeting "Grok API price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/microsoft-365-copilot-1-month/`
+- `/product/notion-business-3-months-full-warranty/`
+- `/product/icloud-2tb-slot-6-months/`
+- `/product/proxyscrape-residential-1gb-non-expiry/`
+- `/product/hotmail-trusted-6-months/`
+- `/product/tiktok-uk-account-full-format/`
+- `/product/grok-api-30m-3d/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/gamma-ai-vs-canva-vs-powerpoint-pakistan/`
+- `/blog/using-gamma-pro-analytics-and-custom-domains-pakistan/`
+- `/blog/google-gemini-ai-plus-vs-chatgpt-go-pakistan/`
+- `/blog/gpm-login-vs-gologin-adspower-pakistan/`
+- `/blog/managing-multiple-client-stores-with-gpm-login-pakistan/`
+- `/blog/web3-and-ad-agency-profile-hygiene-gpm-login/`
+- `/blog/scaling-ecommerce-operations-gpm-login-residential-proxies/`
+- `/blog/grok-plus-vs-chatgpt-go-pakistan/`
+- `/blog/benchmarking-grok-4-7-500k-context-pakistan/`
+- `/blog/grok-api-vs-claude-api-for-pakistani-indie-devs/`
+
+##### Batch footer after product #115 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 17 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #115 (`HMA VPN Activation Key – Android & PC`): Raw description called it `"Official Activation Key Only"`. Per Rule 12, `"official"` was omitted—confirm if bought through HMA's direct channels, and confirm how many simultaneous Android/PC devices one key supports (e.g., 1 device vs 5 devices).
+2. Delivery Turnaround (#106–#115): None of the raw descriptions for Batch 17 specified exact turnaround windows—share your real delivery times for Grok API CDK codes, Higgsfield Genjutsu, and HMA VPN keys when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 17)
+================================================================================
+Store Brand Hubs Needed:
+- `/ai-video-image/higgsfield-ai/` (Brand Hub targeting "Higgsfield AI price in Pakistan")
+- `/vpn-privacy/hma-vpn/` (Brand Hub targeting "HMA VPN price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/kling-ai-65-credits-1m/`
+- `/product/hma-vpn-ios-android-pc-1m/`
+- `/product/hotspot-shield-vpn-7-days/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/pdf-to-json-extraction-with-grok-4-7-pakistan/`
+- `/blog/building-long-context-rag-with-grok-4-7-pakistan/`
+- `/blog/long-context-codebase-audits-grok-4-7-pakistan/`
+- `/blog/building-multi-step-agents-with-grok-4-7-pakistan/`
+- `/blog/monday-to-friday-ai-sprint-workflow-pakistan/`
+- `/blog/deploying-grok-4-7-behind-litellm-for-pakistani-startups/`
+- `/blog/high-volume-batch-etl-with-grok-4-7-pakistan/`
+- `/blog/scaling-production-ai-backends-with-grok-4-7-pakistan/`
+- `/blog/higgsfield-genjutsu-motion-transfer-tutorial-pakistan/`
+- `/blog/best-budget-vpns-under-500-pkr-pakistan/`
+
+##### Batch footer after product #125 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 18 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #116 (`HMA VPN Full Account + Key – 1 Month`): Raw text did not state a warranty duration. Per Rule 14, I did not invent one and wrote "Confirmed on WhatsApp support prior to payment"—confirm if it carries a 1-Month Warranty so we can lock it in. Also confirm simultaneous device count.
+2. Pricing Consistency Flags on Apple iCloud+ (Rule 2):
+   - **#120 (12M Slot at Rs. 12,000) vs #119 (6M Slot at Rs. 5,500):** Buying two 6-month slots costs Rs. 11,000, which is Rs. 1,000 cheaper than the 12-month slot (Rs. 12,000). Consider adjusting #120 (e.g., Rs. 10,000–10,500) so the annual slot gives clear savings.
+   - **#121 (Full Family Organizer Plan – 3 Months at Rs. 12,000):** Apple's direct local Pakistan rate for iCloud+ 2TB is substantially lower for 3 months and already includes inviting 5 family members. Double-check whether your supplier meant **12 Months** for #121 or if you want to revise its PKR price before going live.
+3. Products #123 & #124 (`JetBrains All Products Pack – Ready Account` vs `Assisted Activation`):
+   - Per Rule 5, all `"Education"` / `"Edu"` / `"Student"` / `"non-commercial educational"` wording was stripped and slugs were cleaned to `jetbrains-all-products-pack-1-year` and `jetbrains-all-products-pack-assisted-1-year`. Confirm if you approve those clean slugs and whether #124 upgrades the buyer's own JetBrains account or provisions a fresh account with guided onboarding (since both are priced identically at Rs. 1,200).
+4. Delivery Turnaround (#116–#125): None of the raw descriptions in Batch 18 stated exact delivery timeframes—share real turnaround windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 18)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/vpn-privacy/hotspot-shield/` (Brand Hub targeting "Hotspot Shield VPN price in Pakistan")
+- `/cloud-storage/` (Cloud Storage Category Hub)
+- `/cloud-storage/apple-icloud/` (Brand Hub targeting "Apple iCloud+ 2TB price in Pakistan")
+- `/streaming/iqiyi/` (Brand Hub targeting "iQIYI Premium VIP price in Pakistan")
+- `/developer-tools/` (Developer Tools & IDEs Category Hub)
+- `/developer-tools/jetbrains/` (Brand Hub targeting "JetBrains All Products Pack price in Pakistan")
+- `/education/kahoot/` (Brand Hub targeting "Kahoot!+ Gold price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/pia-vpn-7-days/`
+- `/product/locket-widget-gold-dns-3-months/`
+- `/product/locket-widget-gold-dns-12-months/`
+- `/product/youku-vip-3-months/`
+- `/product/crunchyroll-fan-premium-link-1-month/`
+- `/product/quizlet-plus-unlimited-1-month/` (clean slug without `teacher` per Rule 5 for upcoming #175)
+- `/product/zoom-pro-14-days/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/best-vpns-for-iphone-and-ipad-pakistan/`
+- `/blog/hydra-vs-wireguard-vpn-speed-test-pakistan/`
+- `/blog/how-apple-icloud-family-sharing-keeps-photos-private-pakistan/`
+- `/blog/syncing-4k-iphone-footage-to-macbook-via-icloud-pakistan/`
+- `/blog/annual-apple-ecosystem-backup-guide-pakistan/`
+- `/blog/setting-up-apple-family-sharing-for-pakistani-households/`
+- `/blog/iqiyi-vs-youku-vs-vieon-for-asian-dramas-pakistan/`
+- `/blog/pycharm-pro-vs-vs-code-for-pakistani-python-devs/`
+- `/blog/jetbrains-beginners-setup-guide-pakistan/`
+- `/blog/hosting-200-player-kahoot-quizzes-pakistani-events/`
+=============================================================================
+
+##### Batch footer after product #135 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 19 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #128 (`Kaspersky Premium – 12 Months Own-Account Upgrade`): Raw text used `"Official Own-Account Upgrade"` and slug `kaspersky-premium-official-upgrade-12m`. Per Rule 12, `"official"` was removed from copy and slug (`kaspersky-premium-upgrade-12m`)—confirm if this upgrade is genuinely bought through Kaspersky's own direct channel.
+2. Product #129 (`Kimi AI Plus – 1 Month` at Rs. 7,500) Pricing Flag (Rule 2): As noted in your earlier file, Rs. 7,500 sits above direct USD Kimi Plus pricing and only Rs. 1,500 below Kimi Pro (#130 at Rs. 9,000, which gives double the Agent Credits + Kimi Claw + Goal Mode). Confirm whether you want to keep #129 at Rs. 7,500 or lower it slightly.
+3. Delivery Turnaround (#126–#127, #131–#135): Kaspersky #128 (~5 minutes) and Kimi #129–#130 (1–2 hours) had explicit delivery windows, while #126–#127 and #131–#135 did not—share real turnaround times when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 19)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/antivirus/` (Antivirus & Cybersecurity Category Hub)
+- `/antivirus/kaspersky/` (Brand Hub targeting "Kaspersky price in Pakistan")
+- `/ai-chatbots/kimi-ai/` (Brand Hub targeting "Kimi AI price in Pakistan")
+- `/ai-video-image/kling-ai/` (Brand Hub targeting "Kling AI price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/windows-10-11-pro-permanent-key-byphone/`
+- `/product/minimax-m-plan-explore-1-month/`
+- `/product/kling-standard-1200-1m/`
+- `/product/muse-video-api-vip-1-333-videos/`
+- `/product/openart-ai-4k-credits-30d/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/kaspersky-plus-vs-kaspersky-premium-pakistan/`
+- `/blog/protecting-pakistani-freelancer-pcs-from-remote-access-trojans/`
+- `/blog/my-kaspersky-dashboard-security-guide-pakistan/`
+- `/blog/kimi-ai-vs-manus-ai-autonomous-agents-pakistan/`
+- `/blog/kimi-claw-cloud-browser-agent-guide-pakistan/`
+- `/blog/kling-ai-beginners-prompting-guide-pakistan/`
+- `/blog/kling-ai-standard-vs-runway-standard-pakistan/`
+- `/blog/batch-rendering-youtube-shorts-in-kling-ai-pakistan/`
+- `/blog/kling-ai-extension-login-vs-direct-login-pakistan/`
+- `/blog/mobile-ai-video-creation-with-kling-ai-pakistan/`
+
+##### Batch footer after product #145 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 20 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #145 (`Meitu VIP Own-Account Upgrade – 1 Year`):
+   - Raw supplier title said `(3 devices)`, while raw body explicitly stated `Use on 2 devices` twice. Listed safely as `Up to 2 Devices` to prevent customer disputes—confirm with your supplier if it truly supports 3 devices.
+   - Raw slug/title used `"official"` (`meitu-vip-official-1-year`). Per Rule 12, `"official"` was stripped and slug cleaned to `meitu-vip-upgrade-1-year`—confirm if bought directly through Meitu's own channel.
+2. Product #139 (`LinkedIn Premium Career – 3 Months Promo Link`): Raw text called it `"Official Promotion Link"`. Per Rule 12, `"official"` was omitted—confirm if sourced directly through LinkedIn's official partner/promo channel.
+3. Delivery Turnaround (#136, #139, #143–#145): Kling Pro (#137: 1–3h), Kling Premier (#138: 1–2h), Locket (#140–#141: ~5 min), and Manus (#142: 1–2h) all had explicit delivery windows, while #136, #139, and #143–#145 did not—share real turnaround times when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 20)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/career-networking/` (Career & Professional Networking Category Hub)
+- `/career-networking/linkedin-premium/` (Brand Hub targeting "LinkedIn Premium price in Pakistan")
+- `/social-growth/` (Social & Lifestyle Apps Category Hub)
+- `/social-growth/locket-widget/` (Brand Hub targeting "Locket Widget Gold price in Pakistan")
+- `/ai-chatbots/manus-ai/` (Brand Hub targeting "Manus AI Pro price in Pakistan")
+- `/design-creative/meitu/` (Brand Hub targeting "Meitu VIP price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/meta-muse-ai-1-billion-tokens/`
+- `/product/xingtu-svip-30-days/`
+- `/product/meitu-svip-5-devices-1-month/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/kling-ai-1200-standard-vs-3000-pro-pakistan/`
+- `/blog/character-consistency-using-kling-pro-elements-pakistan/`
+- `/blog/kling-3-0-omni-ai-director-agency-guide-pakistan/`
+- `/blog/landing-remote-jobs-with-linkedin-premium-pakistan/`
+- `/blog/locket-widget-gold-ios-dns-setup-guide-pakistan/`
+- `/blog/locket-widget-gold-3-months-vs-12-months-ios/`
+- `/blog/manus-ai-pro-wide-research-workflows-pakistan/`
+- `/blog/meitu-vip-vs-xingtu-svip-for-pakistani-creators/`
+- `/blog/meitu-vip-plus-vs-meitu-svip-pakistan/`
+- `/blog/meitu-annual-own-account-vs-short-term-passes-pakistan/`
+
+##### Batch footer after product #155 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 21 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #148 (`MiniMax Voice Redeem – 100K Credits`): Raw text did not state a warranty duration or whether the 100K credits are non-expiring. Per Rule 14, I did not invent warranty or expiry terms—confirm both so we can lock them in.
+2. Product #151 (`MiniMax M Plan Explore – 1 Month`): Raw text did not state the delivery format (Ready Account vs Own-Account Upgrade vs Subscription Key)—confirm exact delivery method so we can finalize How It Works and Quick Facts.
+3. Pricing Alert on Netflix (#155 & Upcoming #156–#158 — Rule 2): As flagged in your earlier catalogue notes, local direct Netflix Pakistan billing is substantially lower than foreign-sourced Rs. 1,000/mo slots and Rs. 3,500/mo full accounts. Confirm whether you want to keep these prices (targeting non-card local buyers and overseas Pakistanis) or adjust PKR pricing before publishing #156–#158 in Batch 22.
+4. Delivery Turnaround (#146–#155): None of the Batch 21 raw descriptions stated exact turnaround times—share real delivery windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 21)
+================================================================================
+Store Brand Hubs Needed:
+- `/ai-voice-audio/minimax-voice/` (Brand Hub targeting "MiniMax Voice price in Pakistan")
+- `/ai-chatbots/minimax-ai/` (Brand Hub targeting "MiniMax AI price in Pakistan")
+- `/ai-video-image/muse-video-api/` (Brand Hub targeting "Muse Video API price in Pakistan")
+- `/ai-chatbots/meta-muse-ai/` (Brand Hub targeting "Meta Muse AI price in Pakistan")
+- `/streaming/netflix/` (Brand Hub targeting "Netflix price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/xingtu-svip-7-days/`
+- `/product/netflix-premium-4k-slot-3-months/`
+- `/product/netflix-premium-4k-admin-1-month/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/meitu-svip-for-wedding-and-fashion-teams-pakistan/`
+- `/blog/agency-mobile-retouching-workflow-meitu-svip-pakistan/`
+- `/blog/minimax-speech-vs-elevenlabs-for-storytelling-pakistan/`
+- `/blog/pay-as-you-go-non-expiring-ai-voiceovers-pakistan/`
+- `/blog/producing-full-length-audiobooks-with-minimax-voice-pakistan/`
+- `/blog/minimax-m-plan-explore-vs-kimi-pro-pakistan/`
+- `/blog/bulk-faceless-shorts-production-muse-video-api-pakistan/`
+- `/blog/scaling-agency-ai-reels-with-muse-vip-2-pakistan/`
+- `/blog/testing-meta-muse-ai-secure-vm-agent-from-pakistan/`
+- `/blog/netflix-without-credit-card-pakistan-guide/`
+
+##### Batch footer after product #162 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 22 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Products #161 & #162 (`Notion Plus – 1 Year` & `2 Years`): Per Rule 5, all `"Education"` / `"Edu"` / `"Student account"` / `".edu"` wording was stripped and slugs were cleaned to `notion-plus-1-year` and `notion-plus-2-years` (matching Batch 15's internal link). Confirm you approve these clean slugs.
+2. Product #159 (`NordVPN Premium – 3 Days`): Raw description did not state a simultaneous device limit (unlike #160 which explicitly allows 10 devices). Confirm whether #159 has a specific device limit (e.g., 1 device vs 10 devices) so we can state it clearly.
+3. Delivery Turnaround (#156–#162): None of the Batch 22 raw descriptions specified exact delivery windows—share real turnaround times when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 22)
+================================================================================
+Store Brand Hubs Needed:
+- `/vpn-privacy/nordvpn/` (Brand Hub targeting "NordVPN price in Pakistan")
+- `/productivity-ai/notion/` (Brand Hub targeting "Notion Plus price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/spotify-premium-own-account-6-months/`
+- `/product/notion-business-3-months-1d-warranty/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/netflix-smart-tv-4k-hdr-setup-guide-pakistan/`
+- `/blog/long-term-streaming-bundle-for-overseas-pakistanis/`
+- `/blog/netflix-full-account-vs-single-profile-slot-pakistan/`
+- `/blog/nordvpn-obfuscated-servers-pakistan-guide/`
+- `/blog/nordvpn-10-devices-vs-surfshark-10-devices-pakistan/`
+- `/blog/building-freelance-client-portals-in-notion-plus-pakistan/`
+- `/blog/second-brain-notion-template-pakistani-students-freelancers/`
+
+##### Batch footer after product #172 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 23 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #163 (`Notion Business + AI – 3 Months` at Rs. 1,600): Raw supplier title stated `warranty 1 day` while raw body text said `Warranty: 3 months`. Listed cleanly as `1-Day Activation Warranty` to clearly differentiate it from #164 (`Rs. 3,000`, 3-Month Warranty)—confirm if final.
+2. Products #166 (`OpenArt AI Plus 12K Hotmail` at Rs. 4,200) vs #167 (`OpenArt Plus Direct Email` at Rs. 5,500) Overlap Flag (Rule 2): Both carry 12,000 monthly credits and a 24H/1-day warranty, yet #167 costs Rs. 1,300 more. Check with your supplier whether #167 is an own-email upgrade, a 24K Pro batch, or a duplicate supplier listing so you can clarify or merge them.
+3. Product #168 (`Hotmail Trusted Account – 6-Month Live Tier` at Rs. 15):
+   - Confirm whether "6 months" refers to estimated 6-month live lifespan (kept as `"6-Month Trusted Live Tier"`) or 6-month aged accounts.
+   - Recommend setting a minimum order quantity (e.g., 10 accounts = Rs. 150) for local wallet transfers.
+4. Delivery Turnaround (#163–#172): None of the Batch 23 raw descriptions listed exact turnaround times—share real delivery windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 23)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/ai-video-image/openart-ai/` (Brand Hub targeting "OpenArt AI price in Pakistan")
+- `/email-accounts/` (Email Accounts Category Hub)
+- `/email-accounts/hotmail-outlook/` (Brand Hub targeting "Hotmail accounts price in Pakistan")
+- `/vpn-privacy/pia-vpn/` (Brand Hub targeting "PIA VPN price in Pakistan")
+- `/vpn-privacy/proton-vpn/` (Brand Hub targeting "Proton Unlimited price in Pakistan")
+- `/antidetect-proxies/proxyscrape/` (Brand Hub targeting "ProxyScrape residential proxy price in Pakistan")
+- `/vpn-privacy/purevpn/` (Brand Hub targeting "PureVPN price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/wispr-flow-pro-2-months/`
+- `/product/purevpn-random-500-1000-days/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/notion-ai-meeting-notes-and-agent-guide-pakistan/`
+- `/blog/notion-business-ai-for-pakistani-saas-founders/`
+- `/blog/openart-ai-multi-model-studio-review-pakistan/`
+- `/blog/commercial-ai-product-photography-openart-plus-pakistan/`
+- `/blog/all-in-one-ai-creative-hub-for-pakistani-agencies/`
+- `/blog/email-and-proxy-hygiene-for-qa-automation-pakistan/`
+- `/blog/best-open-source-and-linux-vpns-pakistan/`
+- `/blog/proton-vpn-stealth-protocol-pakistan-guide/`
+- `/blog/rotating-vs-sticky-residential-proxies-guide-pakistan/`
+- `/blog/purevpn-max-wireguard-speed-test-pakistan/`
+
+##### Batch footer after product #182 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 24 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #175 (`Quizlet Plus Unlimited – 1 Month`): Per Rule 5, stripped `"Teacher Edition"` / `"Teacher"` / `"Educator"` plan-source wording and cleaned slug to `quizlet-plus-unlimited-1-month` (matching Batch 18's internal link). Confirm you approve this clean slug and positioning.
+2. PureVPN Device Cap (#173 & #174): Neither raw listing stated a simultaneous device cap on the 100–500D or 500–1,000D no-OTP batches—confirm whether buyers can connect up to 10 devices (standard PureVPN limit) or fewer on these batches.
+3. Delivery Turnaround (#173–#182): None of the Batch 24 raw descriptions specified exact delivery timeframes—share real turnaround windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 24)
+================================================================================
+Store Brand Hubs Needed:
+- `/education/quizlet/` (Brand Hub targeting "Quizlet Plus price in Pakistan")
+- `/ai-apis/qwen-api/` (Brand Hub targeting "Qwen API price in Pakistan")
+- `/developer-tools/replit/` (Brand Hub targeting "Replit Core price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/studocu-premium-1-month/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/purevpn-vs-nordvpn-long-term-pakistan/`
+- `/blog/best-multi-year-vpn-and-antivirus-combo-pakistan/`
+- `/blog/using-quizlet-learn-mode-for-mdcat-and-o-levels-pakistan/`
+- `/blog/mdcat-and-usmle-flashcard-workflow-quizlet-pakistan/`
+- `/blog/using-qwen-3-8-flash-for-fast-coding-in-pakistan/`
+- `/blog/rag-document-pipelines-with-qwen-3-8-flash-pakistan/`
+- `/blog/tiered-model-routing-qwen-claude-gpt6-pakistan/`
+- `/blog/high-throughput-multi-agent-pipelines-qwen-api-pakistan/`
+- `/blog/vibe-coding-saas-mvps-on-replit-core-pakistan/`
+- `/blog/scaling-agency-mvp-delivery-with-replit-300-credits-pakistan/`
+
+##### Batch footer after product #192 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 25 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #185 (`Spotify Premium – 2 Months`): Confirm with your supplier that it is indeed a 2-month account (your raw supplier note had a leftover "1 month" line). Also review the Spotify Pakistan local pricing alert (#185–#188: direct Pakistan Spotify billing is much lower than foreign-sourced Rs. 2,000–5,000 slots, so these position best for overseas Pakistanis & card-free buyers unless you switch to local Pakistan Family slots).
+2. Product #190 (`Suno AI Premier – 1 Month` at Rs. 6,000): Confirm whether delivery uses the exact same Microsoft login + private OTP inbox as Suno Pro (#189) or a standard Email | Password login.
+3. Duplicate Storefront Overlap (#191 vs #192 — Rule 2): Both `Surfshark VPN One – 7 Days` (#191) and `Surfshark VPN One Android/PC/iOS – 7 Days` (#192) are Rs. 350 for 7 days and up to 5 devices (two supplier webmail batches). Recommend merging them into 1 live storefront page and keeping the second supplier as silent backup inventory to avoid cannibalization and buyer confusion.
+4. Delivery Turnaround (#183–#192): None of the Batch 25 raw descriptions stated exact delivery timeframes—share real turnaround windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 25)
+================================================================================
+Store Brand Hubs Needed:
+- `/ai-video-image/runway/` (Brand Hub targeting "Runway AI price in Pakistan")
+- `/education/skillshare/` (Brand Hub targeting "Skillshare price in Pakistan")
+- `/streaming/spotify/` (Brand Hub targeting "Spotify Premium price in Pakistan")
+- `/ai-voice-audio/suno-ai/` (Brand Hub targeting "Suno AI price in Pakistan")
+- `/vpn-privacy/surfshark-vpn/` (Brand Hub targeting "Surfshark VPN price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/brainfm-90-days/`
+- `/product/adguard-vpn-5-7-days/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/runway-gen-4-5-vs-kling-ai-filmmakers-pakistan/`
+- `/blog/skillshare-vs-udemy-for-pakistani-freelance-designers/`
+- `/blog/spotify-premium-vs-apple-music-vs-youtube-music-pakistan/`
+- `/blog/spotify-jam-and-offline-playlists-guide/`
+- `/blog/best-6-month-entertainment-bundle-in-pkr/`
+- `/blog/annual-spotify-wrapped-and-playlist-guide-pakistan/`
+- `/blog/copyright-free-youtube-music-with-suno-pro-pakistan/`
+- `/blog/importing-suno-studio-midi-and-stems-into-fl-studio/`
+- `/blog/surfshark-one-cleanweb-and-rotating-ip-pakistan/`
+- `/blog/setting-up-surfshark-across-android-iphone-and-pc/`
+
+##### Batch footer after product #202 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 26 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #194 (`TikTok UK Account – Full Format`): Raw text did not state a warranty or login-check window—confirm whether it carries a login-only warranty (e.g., 24-hour first-login check) or no warranty so we can lock that in cleanly.
+2. Product #201 (`Windows 10 / 11 Pro Permanent Key – By-Phone CID Bot`):
+   - Warranty mismatch between raw title (`1-Year Warranty`) and description bullet (`1-Month Activation & Key Storage Warranty`). Confirm which exact warranty term applies so buyers never see conflicting information.
+   - Pricing positioning check (Rule 2): Both #200 (1-step Online Retail) and #201 (By-Phone CID Bot) sit at Rs. 1,500—consider pricing #200 slightly higher (e.g., Rs. 1,800) or confirming a longer warranty on #201 to differentiate them clearly.
+3. "Official" Wording Check (#195, #196, #198): Per Rule 12, `"official"` was omitted on TikTok Coins and VieON VIP own-account upgrade—confirm if these top-ups/upgrades are purchased directly through TikTok/VieON's own channels.
+4. Delivery Turnaround (#193–#202): None of the Batch 26 raw descriptions stated exact delivery timeframes—share real turnaround windows when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 26)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/social-growth/tiktok/` (Brand Hub targeting "TikTok coins & services price in Pakistan")
+- `/streaming/tv360/` (Brand Hub targeting "TV360 price in Pakistan")
+- `/streaming/vieon/` (Brand Hub targeting "VieON VIP price in Pakistan")
+- `/software-os/` (Software & Operating Systems Category Hub)
+- `/software-os/microsoft-windows/` (Brand Hub targeting "Windows 11 Pro key price in Pakistan")
+- `/video-editing/wink/` (Brand Hub targeting "Wink VIP price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/tiktok-1000-followers/`
+- `/product/tiktok-5000-followers/`
+- `/product/tiktok-1000-likes/`
+- `/product/tiktok-10000-views/`
+- `/product/tiktok-100000-views/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/surfshark-rotating-ip-and-multihop-guide-pakistan/`
+- `/blog/running-uk-tiktok-creator-rewards-from-pakistan/`
+- `/blog/how-qr-code-tiktok-coin-recharge-works-pakistan/`
+- `/blog/tiktok-live-pk-battle-gifting-guide-pakistan/`
+- `/blog/watch-champions-league-and-la-liga-on-tv360-pakistan/`
+- `/blog/streaming-vieon-4k-asian-dramas-from-pakistan/`
+- `/blog/best-annual-asian-drama-streaming-plans-pakistan/`
+- `/blog/upgrade-windows-11-home-to-pro-cleanly-pakistan/`
+- `/blog/how-windows-cid-bot-activation-works-step-by-step/`
+- `/blog/wink-vip-vs-capcut-pro-ai-video-quality-pakistan/`
+
+===============================================================================
+
+##### Batch footer after product #212 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 27 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Products #209 & #210 (`Zoom Workplace Pro – 14 Days` & `28 Days`): Raw text did not explicitly confirm whether buyers receive a ready provisioned Zoom account or an upgrade applied to their own Zoom account (though "Do NOT change the account password" suggests a ready provisioned account). Confirm exact delivery format so we can state it explicitly in Quick Facts.
+2. Product #211 (`Microsoft 365 + Copilot – 1 Month`): Raw text used `"Official Own-Account Upgrade"`. Per Rule 12, `"official"` was omitted—confirm if this upgrade is purchased directly through Microsoft's own direct channel.
+3. Delivery Turnaround (#203, #205–#207, #209–#212): Xbox (#204: daily 6 AM–9 PM PKT via UltraViewer) and YouTube (#208: up to 8 hours) had explicit delivery windows, while the remaining Batch 27 items did not—share real turnaround times when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 27)
+================================================================================
+Store Category & Brand Hubs Needed:
+- `/gaming/` (Gaming Category Hub)
+- `/gaming/xbox-game-pass/` (Brand Hub targeting "Xbox Game Pass PC price in Pakistan")
+- `/design-creative/xingtu/` (Brand Hub targeting "Xingtu SVIP price in Pakistan")
+- `/streaming/youtube-premium/` (Brand Hub targeting "YouTube Premium price in Pakistan")
+- `/communication-meetings/` (Communication & Meetings Category Hub)
+- `/communication-meetings/zoom-pro/` (Brand Hub targeting "Zoom Pro price in Pakistan")
+- `/productivity-ai/microsoft-365-copilot/` (Brand Hub targeting "Microsoft 365 Copilot price in Pakistan")
+- `/productivity-ai/ilovepdf/` (Brand Hub targeting "iLovePDF Premium price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/alight-motion-premium-1-year/`
+- `/product/scribd-premium-1-month/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/quarterly-iphone-video-editing-stack-pakistan/`
+- `/blog/best-included-pc-games-on-xbox-game-pass-pakistan/`
+- `/blog/how-to-download-and-activate-xingtu-on-iphone-pakistan/`
+- `/blog/budget-mobile-photo-editing-apps-pakistan/`
+- `/blog/xingtu-svip-editorial-portrait-workflow-pakistan/`
+- `/blog/check-google-family-eligibility-before-buying-youtube-premium/`
+- `/blog/online-teaching-toolkit-for-pakistani-tutors-zoom-kahoot/`
+- `/blog/zoom-pro-5-device-stability-setup-guide/`
+- `/blog/using-microsoft-copilot-in-excel-and-word-pakistan/`
+- `/blog/using-ilovepdf-ocr-and-ai-summaries-pakistani-offices/`
+
+##### Batch footer after product #222 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 28 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #220 (`VTV Prime Standard – 2 Months`): Raw text called it `"Official Own-Account Upgrade"`. Per Rule 12, `"official"` was omitted—confirm if this upgrade is genuinely purchased directly through VTV Prime's own billing channel.
+2. Product #218 (`AdGuard VPN – Random 5 to 7 Days`): Raw description did not state a simultaneous device cap (unlike Norton #219 which specifies up to 5 devices). Confirm how many devices buyers can connect on this batch so we can note it explicitly.
+3. Delivery Turnaround (#213–#216, #218–#219, #221–#222): Udemy (#217: 1–2 hours) and VTV Prime (#220: minutes) had explicit turnaround windows, while the rest of Batch 28 did not—share real delivery times when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 28)
+================================================================================
+Store Brand Hubs Needed:
+- `/productivity-ai/brainfm/` (Brand Hub targeting "Brain.fm price in Pakistan")
+- `/education/studocu/` (Brand Hub targeting "Studocu Premium price in Pakistan")
+- `/education/scribd/` (Brand Hub targeting "Scribd Premium price in Pakistan")
+- `/education/udemy/` (Brand Hub targeting "Udemy Personal Plan price in Pakistan")
+- `/vpn-privacy/adguard-vpn/` (Brand Hub targeting "AdGuard VPN price in Pakistan")
+- `/vpn-privacy/norton-vpn/` (Brand Hub targeting "Norton VPN price in Pakistan")
+- `/streaming/vtv-prime/` (Brand Hub targeting "VTV Prime price in Pakistan")
+- `/streaming/youku/` (Brand Hub targeting "Youku VIP price in Pakistan")
+- `/video-editing/alight-motion/` (Brand Hub targeting "Alight Motion Premium price in Pakistan")
+
+Linked Blog Posts Still to Be Written:
+- `/blog/deep-work-focus-audio-for-pakistani-developers-brainfm/`
+- `/blog/night-shift-focus-and-sleep-routine-pakistani-remote-workers/`
+- `/blog/studocu-vs-scribd-for-pakistani-university-students/`
+- `/blog/using-scribd-ai-summaries-for-css-and-thesis-research/`
+- `/blog/best-udemy-personal-plan-ai-and-cloud-courses-pakistan/`
+- `/blog/adguard-vpn-stealth-protocol-vs-proton-stealth-pakistan/`
+- `/blog/securing-public-wifi-laptops-in-pakistan-norton-vs-surfshark/`
+- `/blog/comparing-vtv-prime-tv360-and-fpt-play-pakistan/`
+- `/blog/top-youku-exclusive-cdramas-and-donghua-with-english-subs/`
+- `/blog/alight-motion-vs-capcut-pro-for-pakistani-mobile-editors/`
+
+=============================================================================
+
+##### Batch footer after product #232 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 29 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Product #226 (`Google Veo 3 Ultra – 45,000 Credits`): PKR selling price is still unconfirmed (`Rs. [Confirm Price]`). Per Rule 14, I set it to live PKR quote via WhatsApp and omitted `"price"` from JSON-LD—reply with your final PKR price whenever ready to lock it in.
+2. Product #224 (`Wispr Flow Pro – 2 Months`): Confirm whether it is delivered as a Ready Account (`Email | Password`) or an Own-Account Upgrade so we can lock the exact delivery format into Quick Facts and How It Works.
+3. Product #225 (`Crunchyroll Fan Premium – 1-Month Activation Link` at Rs. 850): Raw text called it `"Official Self-Activation Promo Link"`—stripped `"official"` per Rule 12. Also note the Pakistan local pricing alert (local direct Crunchyroll billing is much lower than Rs. 850 if a buyer already has a working card), so confirm if you want to keep this priced for overseas/international buyers or adjust it.
+4. Refill / Drop Terms (#227–#232 & upcoming #233–#255): Confirm exact supplier refill/drop policies (e.g., No Refill, 30-Day Refill, or Non-Drop) for WhatsApp Channel Followers (#227–#231) and YouTube Subscribers (#232+) so we can replace `"Confirmed on WhatsApp support prior to payment"` with exact terms.
+5. Delivery Turnaround (#223–#232): Share real delivery turnaround windows for all Batch 29 items when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 29)
+================================================================================
+Store Brand Hubs Needed:
+- `/productivity-ai/wispr-flow/` (Brand Hub targeting "Wispr Flow Pro price in Pakistan")
+- `/streaming/crunchyroll/` (Brand Hub targeting "Crunchyroll price in Pakistan")
+- `/ai-video-image/google-veo-3/` (Brand Hub targeting "Google Veo 3 Ultra price in Pakistan")
+- `/social-growth/whatsapp-growth/` (Brand Hub targeting "WhatsApp Channel followers price in Pakistan")
+- `/social-growth/youtube-growth/` (Brand Hub targeting "YouTube subscribers price in Pakistan")
+
+Linked Product Pages Queued in Upcoming Batches:
+- `/product/tiktok-100-followers/`
+- `/product/tiktok-2000-views/`
+- `/product/tiktok-10000-followers/`
+- `/product/youtube-2000-subscribers/`
+- `/product/youtube-5000-subscribers/`
+- `/product/youtube-10000-subscribers/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/90-day-deep-work-habit-with-brainfm-pakistan/`
+- `/blog/dictating-ai-coding-prompts-faster-with-wispr-flow-pakistan/`
+- `/blog/crunchyroll-simulcast-setup-guide-overseas-pakistanis/`
+- `/blog/google-veo-3-ultra-vs-kling-3-0-omni-pakistan/`
+- `/blog/growing-a-whatsapp-channel-for-pakistani-ecommerce-brands/`
+- `/blog/hitting-1k-followers-on-whatsapp-channels-pakistan/`
+- `/blog/building-job-and-deals-whatsapp-channels-pakistan/`
+- `/blog/monetizing-high-authority-whatsapp-channels-pakistan/`
+- `/blog/10k-cross-platform-launch-strategy-pakistani-brands/`
+- `/blog/growing-a-new-youtube-channel-past-1k-in-pakistan/`
+
+##### Batch footer after product #242 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 30 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Refill / Drop Terms (#233–#242): Confirm exact supplier refill/drop policies (e.g., No Refill, 30-Day Refill, or Non-Drop) for YouTube Subscribers (#233–#236) and TikTok Video Views (#237–#242) so we can replace `"Confirmed on WhatsApp support prior to payment"` with exact terms.
+2. Delivery Speed Windows (#233–#242): Share typical start/completion timeframes (e.g., 1–24 hours vs drip-feed over 2–5 days for 10K/100K packs) when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 30)
+================================================================================
+Linked Product Pages Queued in Upcoming Batches (#243–#255):
+- `/product/tiktok-500-likes/`
+- `/product/tiktok-1000-likes/`
+- `/product/tiktok-2000-likes/`
+- `/product/tiktok-10000-likes/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/growing-pakistani-podcast-channels-on-youtube/`
+- `/blog/driving-tiktok-and-instagram-traffic-to-youtube-pakistan/`
+- `/blog/building-brand-authority-on-youtube-for-pakistani-stores/`
+- `/blog/launching-multi-channel-youtube-automation-studios-pakistan/`
+- `/blog/breaking-out-of-tiktok-200-view-jail-pakistan/`
+- `/blog/consistent-1k-profile-grid-strategy-tiktok-pakistan/`
+- `/blog/optimizing-pinned-tiktok-storefront-videos-pakistan/`
+- `/blog/sponsored-tiktok-reels-engagement-ratios-pakistan/`
+- `/blog/flagship-eid-and-11-11-tiktok-campaigns-pakistan/`
+- `/blog/six-figure-tiktok-brand-launch-campaigns-pakistan/`
+
+##### Batch footer after product #252 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 31 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Refill / Drop Terms (#243–#252): Confirm exact supplier refill/drop policies (e.g., No Refill, 30-Day Refill, or Non-Drop) for TikTok Video Likes (#243–#248) and TikTok Followers (#249–#252) so we can replace `"Confirmed on WhatsApp support prior to payment"` with exact terms.
+2. Delivery Speed Windows (#243–#252): Share typical start/completion timeframes (especially for 10K/100K likes) when ready.
+3. Minor Source Math Fixed on #251 (`TikTok 500 Followers` at Rs. 650): Your raw text wrote "saving Rs. 100 compared to ordering five 100-follower packs", whereas 5 × Rs. 200 = Rs. 1,000 (an actual saving of Rs. 350!). Corrected accurately to **Rs. 350** in this listing.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 31)
+================================================================================
+Linked Product Pages Queued in Final Batch 32 (#253–#255):
+- `/product/tiktok-2000-followers/`
+- `/product/tiktok-5000-followers/`
+- `/product/tiktok-10000-followers/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/natural-tiktok-like-to-view-ratios-pakistan/`
+- `/blog/combining-tiktok-1k-likes-with-5k-views-pakistan/`
+- `/blog/using-tiktok-social-proof-to-boost-cod-store-trust-pakistan/`
+- `/blog/preparing-sponsored-tiktok-deliverables-pakistani-influencers/`
+- `/blog/running-viral-tiktok-giveaway-campaigns-pakistan/`
+- `/blog/pr-agency-tiktok-launch-playbook-pakistan/`
+- `/blog/warming-up-a-new-tiktok-profile-in-pakistan/`
+- `/blog/gradual-tiktok-growth-vs-overnight-spikes-pakistan/`
+- `/blog/turning-tiktok-profile-visits-into-whatsapp-customers-pakistan/`
+- `/blog/hitting-1000-tiktok-followers-and-live-eligibility-pakistan/`
+
+##### Batch footer after product #255 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 32 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Refill / Drop Terms (#253–#255): Confirm exact supplier refill/drop policies (e.g., No Refill, 30-Day Refill, or Non-Drop) for TikTok Followers (#253–#255) so we can replace `"Confirmed on WhatsApp support prior to payment"` with exact terms across all social-growth listings (#227–#255).
+2. Delivery Speed Windows (#253–#255): Share typical start/completion timeframes (especially for 5K and 10K follower packs) when ready.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 32)
+================================================================================
+Linked Product Pages Queued:
+- NONE! All 255 product pages (#1 through #255) are now complete!
+
+Linked Blog Posts Still to Be Written (Batch 32):
+- `/blog/building-cosmetic-and-clothing-brands-on-tiktok-pakistan/`
+- `/blog/pitching-brand-deals-as-a-pakistani-tiktok-creator/`
+- `/blog/scaling-pakistani-brands-past-10k-on-tiktok/`
+
+##### Batch footer after product #263 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 33 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Account Type & Device Limits (#256–#259, #261, #263): Confirm whether Avira VPN, HBO Max, Paramount+, ALTBalaji, Chaupal, and Meshy AI Starter are Private accounts, Private profile slots, or Shared accounts, plus exact simultaneous device limits.
+2. Regional VPN Notes (#257, #258, #259, #261): Confirm whether HBO Max, Paramount+, ALTBalaji, and Chaupal require a VPN in Pakistan (and which region works best) so we can state exact setup instructions.
+3. Top-Up Method (#260, #262): Confirm that TikTok 100 Coins uses the same QR-code flow as your 500/1,000 Coin packs, and confirm that Bigo Live 100 Diamonds uses numeric Bigo ID only (no password).
+4. Meshy AI Starter Credit Allowance (#263): Confirm whether it's a fresh private account with full monthly Starter credits or shared credits.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 33)
+================================================================================
+Linked Product Pages Queued in Batch 34 (#264–#268):
+- `/product/pakistan-esim-1gb-7-days/`
+- `/product/pakistan-esim-3gb-15-days/`
+- `/product/pakistan-esim-5gb-30-days/`
+- `/product/pakistan-esim-10gb-30-days/`
+- `/product/pakistan-esim-20gb-30-days/`
+
+Linked Blog Posts Still to Be Written:
+- `/blog/best-budget-vpns-for-pakistani-students-and-streamers/`
+- `/blog/how-to-watch-hbo-max-smoothly-in-pakistan/`
+- `/blog/streaming-paramount-plus-and-live-football-in-pakistan/`
+- `/blog/watching-south-asian-ott-platforms-in-pakistan/`
+- `/blog/how-qr-code-tiktok-coin-recharge-works-in-pakistan/`
+- `/blog/best-punjabi-comedy-movies-on-chaupal-for-pakistan/`
+- `/blog/safe-bigo-live-diamond-top-up-guide-pakistan/`
+- `/blog/using-meshy-ai-with-blender-and-unity-pakistan/`
+
+================================================================================
+
+##### Batch footer after product #269 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 34 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Pakistan eSIM Network & Hotspot Details (#264–#268): Confirm which local Pakistani mobile carrier(s) the eSIM connects to (e.g., Jazz, Zong, Telenor, or multi-network), whether hotspot/tethering is enabled, and whether the 7/15/30-day timer starts upon QR installation or upon first connection in Pakistan.
+2. ChatGPT Plus Shared Access Method (#269): Confirm whether login is via direct email/password, OTP via WhatsApp, or a web portal/cookie extension, plus the maximum device limit per buyer (e.g., 1 device).
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 34)
+================================================================================
+Linked Blog Posts Still to Be Written:
+- `/blog/complete-pakistan-esim-setup-guide-iphone-android/`
+- `/blog/how-much-esim-data-do-you-need-for-pakistan-trip/`
+- `/blog/saving-mobile-data-while-traveling-in-pakistan/`
+- `/blog/remote-work-connectivity-guide-for-pakistan-travelers/`
+- `/blog/digital-nomad-internet-guide-pakistan/`
+- `/blog/chatgpt-plus-shared-vs-private-which-fits-pakistani-students/`
+
+##### Batch footer after product #270 #####
+================================================================================
+QUESTIONS FOR OWNER (BATCH 35 — UNANSWERED ITEMS ONLY)
+================================================================================
+1. Per-Model Message Caps & Privacy (#270): Confirm whether each of the 6 models (Claude Sonnet 5.5, Claude Haiku 5.5, GPT-6.1 Tera, Grok 4.6, Gemini 4, DeepSeek 4.1 Flash Max) has shared rate limits or private chat isolation inside the extension portal.
+
+
+================================================================================
+LINKED PAGES & BLOG POSTS STILL TO BE WRITTEN (BATCH 35)
+================================================================================
+Linked Blog Post Still to Be Written:
+- `/blog/all-in-one-ai-browser-extensions-guide-pakistan/`
+
+=============================================================================

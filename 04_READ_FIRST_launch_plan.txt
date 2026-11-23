@@ -1,0 +1,113 @@
+PAKAITOOLS — LAUNCH & SEO PLAN (read this first)
+Site: https://pakaitools.store | WhatsApp: +92 321 9305619 | Updated: November 22, 2026
+
+FILES IN THIS FOLDER
+01_catalogue_indexable_pages.txt   179 product pages to publish (original numbers, slugs and text kept)
+02_hub_and_category_pages.txt      15 category hubs + 44 brand hubs (new, built from your product data)
+03_reserve_merged_and_unlisted.txt 52 merged plans + 8 unlisted + 31 held (nothing deleted)
+05_owner_notes_archive.txt         old "Questions for owner" / "pages to write" footers, unchanged
+06_url_map_and_redirects.csv       every URL with status, redirect, canonical, sitemap flag (give to developer)
+
+WHAT WAS FIXED (all 270 products checked by script)
+- Placeholders replaced: domain pakaitools.store, WhatsApp +92 321 9305619, price valid until 2027-12-31, last updated November 22, 2026. Zero placeholders left.
+- Slugs, titles, prices, FAQs and schema left as you had them. Quote-only API products still have no price in schema (your choice).
+- 6 stray "(confirm ...)" notes removed. "Business-tier" and "team slot" wording replaced.
+- 9 broken product links replaced with real pages. Every internal link now points to a page that exists (0 broken).
+- Per-product blog links (270 posts) replaced by 15 shared category guides.
+- 25 category names merged into 15 (no two categories share a URL any more).
+- Single-plan brands (43) use Home > Category > Product breadcrumbs; multi-plan brands (44) use Home > Category > Brand hub > Product.
+
+CATEGORIES (15 public)
+  /design-creative/  Design & Creative
+  /video-editing/  Video Editing
+  /streaming/  Streaming & Entertainment
+  /ai-chatbots/  AI Chatbots & Assistants
+  /ai-apis/  AI APIs
+  /education/  Online Learning & Education
+  /ai-video-image/  AI Video & Image Generation
+  /ai-voice-audio/  AI Voice & Audio
+  /vpn-privacy/  VPN & Privacy
+  /productivity-software/  Productivity & Business Software
+  /antidetect-proxies/  Antidetect & Proxies
+  /cloud-storage/  Cloud Storage
+  /developer-tools/  Developer Tools & IDEs
+  /antivirus/  Antivirus & Cybersecurity
+  /esim/  Travel & eSIMs
+Unlisted: /social-apps/ (only caution/held items, not published).
+
+MERGED PLANS (301 redirect to the brand hub, row in hub table, not in sitemap)
+  CapCut: #8, #10, #12, #13
+  ChatGPT: #18, #19, #21, #269
+  Claude API: #26, #28, #29, #30, #31, #32, #33, #34, #36, #37, #38, #39, #40, #41, #42, #43, #44, #45, #46, #48
+  Cursor API: #51, #52, #55, #56, #57
+  DeepSeek API: #63, #65
+  ElevenLabs: #76, #78, #80
+  ExpressVPN: #83, #86
+  Grok API: #104, #106, #107, #108, #110, #111, #112
+  Kling AI: #132, #133, #134, #136
+  Meitu: #146
+
+HELD — DO NOT PUBLISH (31): #168-... see list
+  #168, #194, #227, #228, #229, #230, #231, #232, #233, #234, #235, #236, #237, #238, #239, #240, #241, #242, #243, #244, #245, #246, #247, #248, #249, #250, #251, #252, #253, #254, #255
+  Reason: fake followers/views/likes/subscribers and bulk or cookie-format accounts break TikTok, YouTube, WhatsApp, Google and Meta rules. One complaint or ban can hurt the whole domain, ads and payment accounts.
+
+UNLISTED / CAUTION (8): #140, #141, #195, #196, #200, #201, #260, #262
+  TikTok coins, Bigo diamonds, Windows keys, Locket DNS upgrade. Publish only as noindex direct-link pages, never in menus, sitemap or hubs, and only if your supplier and claims are solid.
+
+STILL NEEDED FROM YOU (cannot be guessed)
+1. Warranty for Adobe 7 Days (7 days?) and Adobe 4 Months (1 month?). Never promise more than your supplier gives.
+2. Real delivery windows per product (pages say "processed during business hours").
+3. Adobe pricing: 4 months = Rs. 2,125/month but 1 year = Rs. 2,917/month. Lower the 1-year price or keep and explain the 12-month refund guarantee.
+4. Only claim "credentials deleted after activation" if you really do it.
+5. Read the Windows, Locket and TikTok coin items once more and decide if you keep them unlisted.
+
+PAGES YOU MUST CREATE BEFORE LAUNCH (every page links to them)
+  /payment-methods/  /refund-warranty-policy/  /about/  /contact/  /privacy-policy/  /terms/  /price-list/
+
+SHARED GUIDES TO WRITE (16, 600+ words each, link to the hubs and plans)
+  1. /blog/design-creative-price-guide-pakistan/  —  Design & Creative Price in Pakistan (2026): Plans, Warranty & How to Choose
+  2. /blog/video-editing-price-guide-pakistan/  —  Video Editing Price in Pakistan (2026): Plans, Warranty & How to Choose
+  3. /blog/streaming-price-guide-pakistan/  —  Streaming & Entertainment Price in Pakistan (2026): Plans, Warranty & How to Choose
+  4. /blog/ai-chatbots-price-guide-pakistan/  —  AI Chatbots & Assistants Price in Pakistan (2026): Plans, Warranty & How to Choose
+  5. /blog/ai-apis-price-guide-pakistan/  —  AI APIs Price in Pakistan (2026): Plans, Warranty & How to Choose
+  6. /blog/education-price-guide-pakistan/  —  Online Learning & Education Price in Pakistan (2026): Plans, Warranty & How to Choose
+  7. /blog/ai-video-image-price-guide-pakistan/  —  AI Video & Image Generation Price in Pakistan (2026): Plans, Warranty & How to Choose
+  8. /blog/ai-voice-audio-price-guide-pakistan/  —  AI Voice & Audio Price in Pakistan (2026): Plans, Warranty & How to Choose
+  9. /blog/vpn-privacy-price-guide-pakistan/  —  VPN & Privacy Price in Pakistan (2026): Plans, Warranty & How to Choose
+  10. /blog/productivity-software-price-guide-pakistan/  —  Productivity & Business Software Price in Pakistan (2026): Plans, Warranty & How to Choose
+  11. /blog/antidetect-proxies-price-guide-pakistan/  —  Antidetect & Proxies Price in Pakistan (2026): Plans, Warranty & How to Choose
+  12. /blog/cloud-storage-price-guide-pakistan/  —  Cloud Storage Price in Pakistan (2026): Plans, Warranty & How to Choose
+  13. /blog/developer-tools-price-guide-pakistan/  —  Developer Tools & IDEs Price in Pakistan (2026): Plans, Warranty & How to Choose
+  14. /blog/antivirus-price-guide-pakistan/  —  Antivirus & Cybersecurity Price in Pakistan (2026): Plans, Warranty & How to Choose
+  15. /blog/esim-price-guide-pakistan/  —  Travel & eSIMs Price in Pakistan (2026): Plans, Warranty & How to Choose
+  16. /blog/buy-subscriptions-in-pakistan-without-credit-card/
+  Brand-level blog ideas stay in each product's "3 blog topic ideas" for later.
+
+ROBOTS.TXT
+User-agent: *
+Allow: /
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /search
+Disallow: /*?sort=
+Disallow: /*?filter=
+Sitemap: https://pakaitools.store/sitemap_index.xml
+
+SITEMAP RULES
+- Include only rows marked in_sitemap = Y in the CSV (home, 15 category hubs, 44 brand hubs, 179 products, guides, utility pages).
+- Never include merged (301), unlisted or held URLs. Use accurate lastmod; update it only when a page truly changes.
+- Split into sitemap_products.xml, sitemap_hubs.xml, sitemap_blog.xml under one sitemap_index.xml.
+
+LAUNCH ORDER
+1. Build the template, then publish utility pages and the 15 category hubs.
+2. Publish brand hubs and the 30 best-selling product pages. Add the 301 redirects from the CSV.
+3. Verify the domain in Google Search Console (DNS method), submit sitemap_index.xml, request indexing for Home and the top hubs.
+4. Publish the remaining products in batches of 30-40 per week; check the Pages report weekly.
+5. Publish the guides, 2-4 per week. After 4-8 weeks read Search Console queries and adjust titles.
+
+TECH CHECKLIST
+- Server-side or static pages (Astro, Next.js, or WordPress + Rank Math). HTTPS, one canonical host, self-referencing canonical on every indexable page.
+- Test 5 pages in Google's Rich Results Test. If MadeToOrder warns, use PreOrder and keep the made-to-order wording on the page.
+- Mobile PageSpeed 90+: WebP images under 100 KB, Cloudflare CDN, two font weights at most.
+- Search for "[" across the live site before launch to be sure no placeholder is left.
+- Hub pages are generated from product data. Hand-edit the top 10 hubs (Adobe, Canva, ChatGPT, CapCut, Netflix, Spotify, ExpressVPN, Duolingo, Notion, Claude API) with a few unique paragraphs for stronger rankings.

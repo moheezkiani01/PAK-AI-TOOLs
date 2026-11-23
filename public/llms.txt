@@ -1,0 +1,33 @@
+# PakAITools
+
+> PakAITools is Pakistan's independent digital subscription store for AI software, design suites, VPNs, developer tools, and streaming plans with PKR pricing, local wallet payments (JazzCash, EasyPaisa, SadaPay, Raast), and 15-minute WhatsApp delivery.
+
+Site: https://pakaitools.store
+WhatsApp: +92 321 9305619
+Founder: Moheez Kiani
+
+## Main Pages
+- [Full Price List](https://pakaitools.store/price-list/): Browse all 231 plans with pricing in PKR and USD.
+- [All 15 Categories](https://pakaitools.store/categories/): Curated category hubs.
+- [Payment Methods](https://pakaitools.store/payment-methods/): How to pay with JazzCash, EasyPaisa, SadaPay, NayaPay, Raast, or Binance.
+- [Refund & Warranty Policy](https://pakaitools.store/refund-warranty-policy/): Upfront warranty, replacement rules, and pro-rated refunds.
+- [About Us](https://pakaitools.store/about/): Background and founder information.
+- [Contact Support](https://pakaitools.store/contact/): Official WhatsApp and email contacts.
+- [Blog & Buying Guides](https://pakaitools.store/blog/): Side-by-side comparisons and buying advice.
+
+## Categories
+- AI Chatbots & Assistants: https://pakaitools.store/ai-chatbots/
+- Design & Creative: https://pakaitools.store/design-creative/
+- Video Editing: https://pakaitools.store/video-editing/
+- Streaming & Entertainment: https://pakaitools.store/streaming/
+- VPN & Privacy: https://pakaitools.store/vpn-privacy/
+- AI Video & Image Generation: https://pakaitools.store/ai-video-image/
+- AI Voice & Audio: https://pakaitools.store/ai-voice-audio/
+- Online Learning & Education: https://pakaitools.store/education/
+- Productivity & Business Software: https://pakaitools.store/productivity-software/
+- Developer Tools & IDEs: https://pakaitools.store/developer-tools/
+- Cloud Storage: https://pakaitools.store/cloud-storage/
+- Antivirus & Cybersecurity: https://pakaitools.store/antivirus/
+- Antidetect & Proxies: https://pakaitools.store/antidetect-proxies/
+- Travel & eSIMs: https://pakaitools.store/esim/
+- AI APIs: https://pakaitools.store/ai-apis/

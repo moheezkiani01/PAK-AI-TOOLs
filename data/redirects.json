@@ -1,0 +1,262 @@
+[
+  {
+    "source": "/product/capcut-pro-team-7-days/",
+    "destination": "/video-editing/capcut/",
+    "permanent": true
+  },
+  {
+    "source": "/product/capcut-pro-upgrade-30-days/",
+    "destination": "/video-editing/capcut/",
+    "permanent": true
+  },
+  {
+    "source": "/product/capcut-pro-team-3-months/",
+    "destination": "/video-editing/capcut/",
+    "permanent": true
+  },
+  {
+    "source": "/product/capcut-pro-vip-6-months/",
+    "destination": "/video-editing/capcut/",
+    "permanent": true
+  },
+  {
+    "source": "/product/chatgpt-business-shared-1-month/",
+    "destination": "/ai-chatbots/chatgpt/",
+    "permanent": true
+  },
+  {
+    "source": "/product/chatgpt-go-3-months/",
+    "destination": "/ai-chatbots/chatgpt/",
+    "permanent": true
+  },
+  {
+    "source": "/product/chatgpt-plus-apple-1-month/",
+    "destination": "/ai-chatbots/chatgpt/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-10m-1-day/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-20m-1-day/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-20m-30-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-50m-1-day/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-50m-30-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-100m-1-day/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-100m-30-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-200m-7-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-500m-30-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-1000m-7-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v3-1000m-30-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v2-10m-30-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v2-50m-30-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v2-100m-1-day/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v2-100m-3-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v2-200m-1-day/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v2-500m-1-day/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v2-500m-7-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v2-500m-15-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/claude-api-v2-1000m-30-days/",
+    "destination": "/ai-apis/claude-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/cursor-api-400-day-1d/",
+    "destination": "/ai-apis/cursor-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/cursor-api-400-day-7d/",
+    "destination": "/ai-apis/cursor-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/cursor-api-1300-30d/",
+    "destination": "/ai-apis/cursor-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/cursor-api-6500-30d/",
+    "destination": "/ai-apis/cursor-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/cursor-api-13000-30d/",
+    "destination": "/ai-apis/cursor-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/deepseek-api-30-1-month/",
+    "destination": "/ai-apis/deepseek-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/deepseek-api-100-1-month/",
+    "destination": "/ai-apis/deepseek-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/elevenlabs-redeem-300k/",
+    "destination": "/ai-voice-audio/elevenlabs/",
+    "permanent": true
+  },
+  {
+    "source": "/product/elevenlabs-offer-3m-5d/",
+    "destination": "/ai-voice-audio/elevenlabs/",
+    "permanent": true
+  },
+  {
+    "source": "/product/elevenlabs-creator-3m-1m/",
+    "destination": "/ai-voice-audio/elevenlabs/",
+    "permanent": true
+  },
+  {
+    "source": "/product/expressvpn-10-devices-3-days/",
+    "destination": "/vpn-privacy/expressvpn/",
+    "permanent": true
+  },
+  {
+    "source": "/product/expressvpn-pc-5-months/",
+    "destination": "/vpn-privacy/expressvpn/",
+    "permanent": true
+  },
+  {
+    "source": "/product/grok-api-10m-3d/",
+    "destination": "/ai-apis/grok-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/grok-api-30m-3d/",
+    "destination": "/ai-apis/grok-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/grok-api-30m-1m/",
+    "destination": "/ai-apis/grok-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/grok-api-50m-3d/",
+    "destination": "/ai-apis/grok-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/grok-api-100m-5d/",
+    "destination": "/ai-apis/grok-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/grok-api-100m-1m/",
+    "destination": "/ai-apis/grok-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/grok-api-200m-5d/",
+    "destination": "/ai-apis/grok-api/",
+    "permanent": true
+  },
+  {
+    "source": "/product/kling-standard-660-1m/",
+    "destination": "/ai-video-image/kling-ai/",
+    "permanent": true
+  },
+  {
+    "source": "/product/kling-standard-800-1m/",
+    "destination": "/ai-video-image/kling-ai/",
+    "permanent": true
+  },
+  {
+    "source": "/product/kling-standard-1000-1100-ext-1m/",
+    "destination": "/ai-video-image/kling-ai/",
+    "permanent": true
+  },
+  {
+    "source": "/product/kling-standard-1200-1m/",
+    "destination": "/ai-video-image/kling-ai/",
+    "permanent": true
+  },
+  {
+    "source": "/product/meitu-svip-5-devices-7-days/",
+    "destination": "/design-creative/meitu/",
+    "permanent": true
+  },
+  {
+    "source": "/product/chatgpt-plus-shared-1-month/",
+    "destination": "/ai-chatbots/chatgpt/",
+    "permanent": true
+  }
+]
