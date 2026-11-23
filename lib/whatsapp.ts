@@ -6,8 +6,34 @@ export function buildWhatsAppLink(message: string): string {
 }
 
 export function getGeneralWhatsAppMessage(pageUrl?: string): string {
-  const url = pageUrl ? `\nPage: ${pageUrl}` : '';
-  return `Hi PakAITools 👋 I need help choosing a plan.${url}`;
+  if (!pageUrl || pageUrl === SITE.domain || pageUrl === `${SITE.domain}/`) {
+    return 'Hi PakAITools, I need help choosing a plan.';
+  }
+  return `Hi PakAITools, I need help choosing a plan. Page: ${pageUrl}`;
+}
+
+export function getCategoryWhatsAppMessage(categoryName: string, pageUrl: string): string {
+  return `Hi PakAITools, I'm looking at ${categoryName}. Can you help me choose a plan? Page: ${pageUrl}`;
+}
+
+export function getBrandWhatsAppMessage(brandName: string, pageUrl: string): string {
+  return `Hi PakAITools, I'm interested in ${brandName} plans. Can you help me choose? Page: ${pageUrl}`;
+}
+
+export function getPriceListWhatsAppMessage(pageUrl: string): string {
+  return `Hi PakAITools, I'm checking the price list. Can you help me choose a plan? Page: ${pageUrl}`;
+}
+
+export function getBlogWhatsAppMessage(postTitle: string, pageUrl: string): string {
+  return `Hi PakAITools, I read "${postTitle}" and want help choosing a plan. Page: ${pageUrl}`;
+}
+
+export function getComparisonWhatsAppMessage(title: string, pageUrl: string): string {
+  return `Hi PakAITools, I'm comparing ${title} and want help choosing a plan. Page: ${pageUrl}`;
+}
+
+export function getPolicyWhatsAppMessage(pageName: string, pageUrl: string): string {
+  return `Hi PakAITools, I have a question about ${pageName}. Page: ${pageUrl}`;
 }
 
 export function getProductWhatsAppMessage(
@@ -17,14 +43,10 @@ export function getProductWhatsAppMessage(
   pageUrl: string,
   isUsd = false
 ): string {
-  if (price === null) {
-    return `Hi PakAITools 👋 Please share today's price for: ${planName}\nPage: ${pageUrl}`;
-  }
-
-  const priceText = formatPkr(price);
-  let msg = `Hi PakAITools 👋 I want to order:\n• Plan: ${planName}\n• Price: ${priceText} (${duration})\n• Page: ${pageUrl}\nPayment method: ____`;
+  const priceText = price !== null ? formatPkr(price) : 'Live quote';
+  let msg = `Hi PakAITools, I want to order:\nPlan: ${planName}\nPrice: ${priceText}\nDuration: ${duration}\nPage: ${pageUrl}\nPayment method: ____`;
   if (isUsd) {
-    msg += '\nI am paying by Binance.';
+    msg += '\n(Paying by Binance/crypto)';
   }
   return msg;
 }

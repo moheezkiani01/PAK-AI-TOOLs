@@ -12,11 +12,18 @@ import { buildWhatsAppLink, getProductWhatsAppMessage } from '@/lib/whatsapp';
 import { PriceListClient } from './PriceListClient';
 
 export const metadata: Metadata = {
-  title: 'Full Price List (All 231 Plans in PKR) | PakAITools',
+  title: 'Full Price List (All 231 Plans in PKR)',
   description:
     'Complete price list for 231 digital plans in Pakistan: AI tools, design apps, VPNs, streaming, developer accounts. Pay in PKR via JazzCash, EasyPaisa, SadaPay.',
   alternates: {
     canonical: 'https://pakaitools.store/price-list/',
+  },
+  openGraph: {
+    title: 'Full Price List (All 231 Plans in PKR)',
+    description:
+      'Complete price list for 231 digital plans in Pakistan: AI tools, design apps, VPNs, streaming, developer accounts. Pay in PKR via JazzCash, EasyPaisa, SadaPay.',
+    url: 'https://pakaitools.store/price-list/',
+    images: ['/og-default.png'],
   },
 };
 

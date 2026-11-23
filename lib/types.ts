@@ -100,14 +100,57 @@ export interface BrandHub {
 }
 
 export interface BlogPost {
+  id?: number;
   slug: string;
+  title?: string;
+  rawTitle?: string;
+  seoTitle?: string;
+  metaDesc?: string;
+  desc?: string;
+  h1?: string;
+  summary?: string;
+  ans?: string;
+  contentMarkdown?: string;
+  md?: string;
+  faqs?: Array<{ question: string; answer: string }>;
+  faq?: Array<[string, string]>;
+  type?: string;
+  date?: string;
+  plans?: string[];
+  src?: string;
+  schema?: any;
+}
+
+export interface ComparisonItem {
+  id: number;
+  category: string;
+  rawTitle: string;
+  seoTitle: string;
+  metaDesc: string;
+  slug: string;
+  canonical: string;
+  h1: string;
+  verdict: string;
+  contentMarkdown: string;
+  faqs: Array<{ question: string; answer: string }>;
+  schema?: any;
+  date: string;
+}
+
+export interface ComparisonHub {
   title: string;
   desc: string;
-  type: 'guide' | 'comparison' | 'howto' | 'roundup';
-  date: string;
-  ans: string;
-  plans: string[];
-  src: string;
-  md: string;
-  faq: Array<[string, string]>;
+  h1: string;
+  intro: string;
 }
+
+export interface NewsArticle {
+  title: string;
+  slug: string;
+  date: string;
+  summary: string;
+  tags: string[];
+  sources: Array<{ name: string; url: string }>;
+  content: string;
+}
+

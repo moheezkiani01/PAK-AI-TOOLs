@@ -16,6 +16,7 @@ interface PlanRowProps {
   warranty: string;
   isMerged?: boolean;
   redirectTo?: string;
+  parentHubUrl?: string;
 }
 
 export function PlanRow({
@@ -27,10 +28,12 @@ export function PlanRow({
   warranty,
   isMerged = false,
   redirectTo,
+  parentHubUrl,
 }: PlanRowProps) {
   const { currency } = useCurrency();
+  const targetUrl = redirectTo || parentHubUrl || '/';
   const pageUrl = isMerged
-    ? `https://pakaitools.store${redirectTo || '/'}`
+    ? `https://pakaitools.store${targetUrl}`
     : `https://pakaitools.store/product/${slug}/`;
 
   const waLink = buildWhatsAppLink(

@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://pakaitools.store/categories/',
   },
+  openGraph: {
+    title: 'All Categories – AI Tools, Design, VPN & Subscriptions in Pakistan',
+    description:
+      'Browse all 15 digital categories in Pakistan: AI Chatbots, Design & Creative, Video Editing, Streaming, VPN & Privacy, APIs, Developer Tools and more.',
+    url: 'https://pakaitools.store/categories/',
+    images: ['/og-default.png'],
+  },
 };
 
 export default function CategoriesPage() {

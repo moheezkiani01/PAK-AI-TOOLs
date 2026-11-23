@@ -8,7 +8,23 @@ const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 const categories = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'categories.json'), 'utf8'));
 const products = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'products.json'), 'utf8'));
 const hubs = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'hubs.json'), 'utf8'));
-const sitePages = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'site_pages.json'), 'utf8'));
+
+let comparisons = [];
+if (fs.existsSync(path.join(DATA_DIR, 'comparisons.json'))) {
+  const compData = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'comparisons.json'), 'utf8'));
+  comparisons = compData.items || [];
+}
+
+let blogs = [];
+if (fs.existsSync(path.join(DATA_DIR, 'blogs.json'))) {
+  const blogData = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'blogs.json'), 'utf8'));
+  blogs = blogData.items || [];
+}
+
+let news = [];
+if (fs.existsSync(path.join(DATA_DIR, 'news.json'))) {
+  news = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'news.json'), 'utf8')) || [];
+}
 
 const DOMAIN = 'https://pakaitools.store';
 const DATE = '2026-11-22';
@@ -30,7 +46,7 @@ ${productUrls.join('\n')}
 </urlset>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_products.xml'), productsXml);
 
-// 2. Hubs Sitemap (Category Hubs + Brand Hubs + Categories list)
+// 2. Hubs Sitemap (Category Hubs + Brand Hubs + Static pages)
 const hubUrls = [
   urlXml(`${DOMAIN}/`, DATE, '1.0', 'daily'),
   urlXml(`${DOMAIN}/categories/`, DATE, '0.8', 'weekly'),
@@ -57,10 +73,25 @@ ${hubUrls.join('\n')}
 </urlset>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_hubs.xml'), hubsXml);
 
-// 3. Blog Sitemap
+// 3. Comparisons Sitemap (20 comparison items + hub)
+const compareUrls = [urlXml(`${DOMAIN}/compare/`, DATE, '0.8', 'weekly')];
+comparisons.forEach((c) => {
+  compareUrls.push(urlXml(`${DOMAIN}/compare/${c.slug}/`, c.date || DATE, '0.8', 'monthly'));
+});
+
+const compareXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${compareUrls.join('\n')}
+</urlset>`;
+fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_compare.xml'), compareXml);
+
+// 4. Blog Sitemap (21 guides + 3 news items + hub)
 const blogUrls = [urlXml(`${DOMAIN}/blog/`, DATE, '0.7', 'weekly')];
-(sitePages.blog || []).forEach((b) => {
+blogs.forEach((b) => {
   blogUrls.push(urlXml(`${DOMAIN}/blog/${b.slug}/`, b.date || DATE, '0.7', 'monthly'));
+});
+news.forEach((n) => {
+  blogUrls.push(urlXml(`${DOMAIN}/blog/news/${n.slug}/`, n.date || DATE, '0.7', 'monthly'));
 });
 
 const blogXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -69,7 +100,7 @@ ${blogUrls.join('\n')}
 </urlset>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_blog.xml'), blogXml);
 
-// 4. Sitemap Index
+// 5. Sitemap Index (4 sub-sitemaps)
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
@@ -81,10 +112,14 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
     <lastmod>${DATE}</lastmod>
   </sitemap>
   <sitemap>
+    <loc>${DOMAIN}/sitemap_compare.xml</loc>
+    <lastmod>${DATE}</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>${DOMAIN}/sitemap_blog.xml</loc>
     <lastmod>${DATE}</lastmod>
   </sitemap>
 </sitemapindex>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_index.xml'), indexXml);
 
-console.log('Saved split sitemaps: sitemap_products.xml, sitemap_hubs.xml, sitemap_blog.xml, and sitemap_index.xml in public/!');
+console.log('Saved split sitemaps: sitemap_products.xml, sitemap_hubs.xml, sitemap_compare.xml, sitemap_blog.xml, and sitemap_index.xml in public/!');

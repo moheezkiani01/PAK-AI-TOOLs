@@ -9,11 +9,30 @@ const categories = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'categories.js
 const products = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'products.json'), 'utf8'));
 const mergedPlans = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'merged_plans.json'), 'utf8'));
 const hubs = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'hubs.json'), 'utf8'));
-const sitePages = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'site_pages.json'), 'utf8'));
+
+let comparisons = [];
+if (fs.existsSync(path.join(DATA_DIR, 'comparisons.json'))) {
+  const compData = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'comparisons.json'), 'utf8'));
+  comparisons = compData.items || [];
+}
+
+let blogs = [];
+if (fs.existsSync(path.join(DATA_DIR, 'blogs.json'))) {
+  const blogData = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'blogs.json'), 'utf8'));
+  blogs = blogData.items || [];
+} else if (fs.existsSync(path.join(DATA_DIR, 'site_pages.json'))) {
+  const sp = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'site_pages.json'), 'utf8'));
+  blogs = sp.blog || [];
+}
+
+let news = [];
+if (fs.existsSync(path.join(DATA_DIR, 'news.json'))) {
+  news = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'news.json'), 'utf8')) || [];
+}
 
 const index = [];
 
-// Products (179)
+// 1. Products (179)
 for (const p of products) {
   index.push({
     title: p.name,
@@ -26,7 +45,7 @@ for (const p of products) {
   });
 }
 
-// Merged plans (52)
+// 2. Merged plans (52)
 for (const mp of mergedPlans) {
   index.push({
     title: mp.name,
@@ -39,7 +58,7 @@ for (const mp of mergedPlans) {
   });
 }
 
-// Brand hubs (44)
+// 3. Brand hubs (44)
 for (const bh of hubs.brands) {
   index.push({
     title: bh.name,
@@ -50,7 +69,7 @@ for (const bh of hubs.brands) {
   });
 }
 
-// Categories (15)
+// 4. Categories (15)
 for (const cat of categories) {
   index.push({
     title: cat.name,
@@ -61,13 +80,34 @@ for (const cat of categories) {
   });
 }
 
-// Blog posts (18)
-for (const bp of sitePages.blog || []) {
+// 5. Comparisons (20)
+for (const c of comparisons) {
   index.push({
-    title: bp.title,
+    title: c.rawTitle || c.h1 || c.seoTitle,
+    url: `/compare/${c.slug}/`,
+    type: 'comparison',
+    category: c.category,
+    keywords: `${c.rawTitle} ${c.seoTitle} ${c.h1} ${c.slug}`.toLowerCase(),
+  });
+}
+
+// 6. Blog posts (21)
+for (const bp of blogs) {
+  index.push({
+    title: bp.seoTitle || bp.title || bp.h1,
     url: `/blog/${bp.slug}/`,
     type: 'guide',
-    keywords: `${bp.title} ${bp.desc}`.toLowerCase(),
+    keywords: `${bp.title || ''} ${bp.seoTitle || ''} ${bp.desc || bp.summary || ''}`.toLowerCase(),
+  });
+}
+
+// 7. AI News (3)
+for (const n of news) {
+  index.push({
+    title: n.title,
+    url: `/blog/news/${n.slug}/`,
+    type: 'news',
+    keywords: `${n.title} ${n.summary} ${n.tags.join(' ')}`.toLowerCase(),
   });
 }
 

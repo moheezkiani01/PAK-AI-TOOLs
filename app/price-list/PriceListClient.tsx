@@ -27,6 +27,25 @@ interface CategoryGroup {
   plans: PlanItem[];
 }
 
+function formatDisplayName(name: string): string {
+  if (name === name.toUpperCase() && /[A-Z]{4,}/.test(name)) {
+    return name
+      .toLowerCase()
+      .split(' ')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ')
+      .replace(/\bVip\b/g, 'VIP')
+      .replace(/\bAi\b/g, 'AI')
+      .replace(/\bApi\b/g, 'API')
+      .replace(/\bVpn\b/g, 'VPN')
+      .replace(/\bPkr\b/g, 'PKR')
+      .replace(/\bUsd\b/g, 'USD')
+      .replace(/\bIos\b/g, 'iOS')
+      .replace(/\bEsim\b/g, 'eSIM');
+  }
+  return name;
+}
+
 export function PriceListClient({ categoryGroups }: { categoryGroups: CategoryGroup[] }) {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
@@ -135,36 +154,45 @@ export function PriceListClient({ categoryGroups }: { categoryGroups: CategoryGr
                           href={p.url}
                           className="font-semibold text-sm md:text-base text-text hover:text-accent hover:underline"
                         >
-                          {p.name}
+                          {formatDisplayName(p.name)}
                         </Link>
                         <div className="flex flex-wrap items-center gap-2 mt-1 text-xs text-text-tertiary">
                           <span className="font-medium text-text-secondary">{p.duration}</span>
                           <span>·</span>
                           <span>{p.warranty}</span>
                           {p.isMerged && (
-                            <span className="text-xs px-1.5 py-0.5 rounded bg-bg-subtle text-text-tertiary">
-                              Brand hub plan
+                            <span className="text-[11px] px-2 py-0.5 rounded-full bg-accent-soft text-accent font-semibold">
+                              Brand Hub
                             </span>
                           )}
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between sm:justify-end space-x-4 flex-shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-separator">
+                      <div className="flex items-center justify-between sm:justify-end space-x-3 flex-shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-separator">
                         <div className="text-left sm:text-right">
                           <PriceText pkr={p.price} className="text-sm md:text-base" />
                         </div>
 
-                        <div>
+                        <div className="flex items-center space-x-2">
                           {p.isMerged ? (
-                            <a
-                              href={waLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center bg-accent text-accent-on px-3 py-1.5 rounded-lg text-xs font-semibold hover:opacity-95 transition-opacity min-h-[36px]"
-                            >
-                              <MessageCircle className="w-3.5 h-3.5 mr-1" />
-                              Order
-                            </a>
+                            <>
+                              <Link
+                                href={p.url}
+                                className="inline-flex items-center bg-bg-subtle text-text hover:text-accent border border-separator px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-colors min-h-[36px]"
+                              >
+                                View plans
+                                <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                              </Link>
+                              <a
+                                href={waLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center bg-[#25D366] text-white px-3 py-1.5 rounded-lg text-xs font-semibold hover:opacity-95 transition-opacity min-h-[36px]"
+                              >
+                                <MessageCircle className="w-3.5 h-3.5 mr-1" />
+                                Order
+                              </a>
+                            </>
                           ) : (
                             <Link
                               href={p.url}

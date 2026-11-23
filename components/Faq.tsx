@@ -1,7 +1,8 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+import { renderMarkdown } from '@/lib/markdown';
 
-interface FaqItem {
+export interface FaqItem {
   question: string;
   answer: string;
 }
@@ -24,9 +25,10 @@ export function Faq({ items, title = 'Frequently Asked Questions' }: { items: Fa
               <span>{item.question}</span>
               <ChevronDown className="w-4 h-4 ml-2 transition-transform duration-200 group-open:rotate-180 text-text-tertiary flex-shrink-0" />
             </summary>
-            <div className="mt-3 pt-3 border-t border-separator text-sm text-text-secondary leading-relaxed">
-              {item.answer}
-            </div>
+            <div
+              className="mt-3 pt-3 border-t border-separator text-sm text-text-secondary leading-relaxed catalogue-content"
+              dangerouslySetInnerHTML={{ __html: renderMarkdown(item.answer) }}
+            />
           </details>
         ))}
       </div>

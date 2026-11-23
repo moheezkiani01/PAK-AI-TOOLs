@@ -7,8 +7,20 @@ export const SITE = {
   email: 'support@aitoolspak.com',
   pkrPerUsd: 280,
   rateDate: '2026-11-22',
+  rateDateDisplay: 'November 22, 2026',
   pricesReviewedOn: '2026-11-22',
+  pricesReviewedDisplay: 'November 22, 2026',
   priceValidUntil: '2027-12-31',
   showBrandLogos: true,
   deliveryText: 'Within 15 minutes after payment verification',
+  paymentMethods: [
+    'JazzCash',
+    'EasyPaisa',
+    'SadaPay',
+    'NayaPay',
+    'UBL (bank transfer)',
+    'Binance (international)',
+  ],
+  paymentMethodsText:
+    'JazzCash, EasyPaisa, SadaPay, NayaPay, UBL (bank transfer) and Binance (international)',
 } as const;

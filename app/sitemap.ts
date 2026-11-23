@@ -1,5 +1,12 @@
 import type { MetadataRoute } from 'next';
-import { getCategories, getAllBrandHubs, getProducts, getBlogPosts } from '@/lib/data';
+import {
+  getCategories,
+  getAllBrandHubs,
+  getProducts,
+  getBlogPosts,
+  getComparisons,
+  getNewsArticles,
+} from '@/lib/data';
 import { SITE } from '@/lib/site.config';
 
 export const dynamic = 'force-static';
@@ -26,6 +33,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: lastMod,
       changeFrequency: 'daily',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/compare/`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/payment-methods/`,
@@ -63,12 +82,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.4,
     },
-    {
-      url: `${baseUrl}/blog/`,
-      lastModified: lastMod,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
   ];
 
   // 15 Category Hubs
@@ -101,11 +114,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // Blog posts
+  // 20 Comparisons
+  getComparisons().forEach((c) => {
+    urls.push({
+      url: `${baseUrl}/compare/${c.slug}/`,
+      lastModified: new Date(c.date || SITE.pricesReviewedOn),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    });
+  });
+
+  // 21 Blog posts & guides
   getBlogPosts().forEach((bp) => {
     urls.push({
       url: `${baseUrl}/blog/${bp.slug}/`,
-      lastModified: new Date(bp.date),
+      lastModified: new Date(bp.date || SITE.pricesReviewedOn),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  });
+
+  // 3 AI News articles
+  getNewsArticles().forEach((n) => {
+    urls.push({
+      url: `${baseUrl}/blog/news/${n.slug}/`,
+      lastModified: new Date(n.date || SITE.pricesReviewedOn),
       changeFrequency: 'monthly',
       priority: 0.7,
     });

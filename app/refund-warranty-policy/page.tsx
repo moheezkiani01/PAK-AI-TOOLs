@@ -5,24 +5,21 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Faq } from '@/components/Faq';
 import { JsonLd } from '@/components/JsonLd';
 import { getBreadcrumbSchema } from '@/lib/schema';
-
-function formatMd(md: string): string {
-  if (!md) return '';
-  return md
-    .replace(/^## (.*$)/gim, '<h2 class="text-xl md:text-2xl font-bold text-text mt-8 mb-3">$1</h2>')
-    .replace(/^### (.*$)/gim, '<h3 class="text-lg font-bold text-text mt-6 mb-2">$1</h3>')
-    .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" class="text-accent underline">$1</a>')
-    .replace(/\n\n/g, '<br/><br/>');
-}
+import { renderMarkdown } from '@/lib/markdown';
 
 export const metadata: Metadata = {
-  title: 'Refund & Warranty Policy | PakAITools',
+  title: 'Refund & Warranty Policy',
   description:
     'Read PakAITools refund and warranty rules. Every plan shows its replacement warranty duration before you pay. Verified replacement and PKR refund policy.',
   alternates: {
     canonical: 'https://pakaitools.store/refund-warranty-policy/',
+  },
+  openGraph: {
+    title: 'Refund & Warranty Policy',
+    description:
+      'Read PakAITools refund and warranty rules. Every plan shows its replacement warranty duration before you pay. Verified replacement and PKR refund policy.',
+    url: 'https://pakaitools.store/refund-warranty-policy/',
+    images: ['/og-default.png'],
   },
 };
 
@@ -50,8 +47,8 @@ export default function RefundPolicyPage() {
       </section>
 
       <div
-        className="rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4 text-text-secondary text-sm md:text-base leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2"
-        dangerouslySetInnerHTML={{ __html: formatMd(page?.c || '') }}
+        className="catalogue-content rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4 text-text-secondary text-sm md:text-base leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: renderMarkdown(page?.c || '') }}
       />
 
       {faqs.length > 0 && <Faq items={faqs} />}

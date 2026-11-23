@@ -6,17 +6,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { SITE } from '@/lib/site.config';
 import { MessageCircle, Mail } from 'lucide-react';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
-
-function formatMd(md: string): string {
-  if (!md) return '';
-  return md
-    .replace(/^## (.*$)/gim, '<h2 class="text-xl md:text-2xl font-bold text-text mt-8 mb-3">$1</h2>')
-    .replace(/^### (.*$)/gim, '<h3 class="text-lg font-bold text-text mt-6 mb-2">$1</h3>')
-    .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" class="text-accent underline">$1</a>')
-    .replace(/\n\n/g, '<br/><br/>');
-}
+import { renderMarkdown } from '@/lib/markdown';
 
 export const metadata: Metadata = {
   title: 'Contact PakAITools – WhatsApp & Email Support',
@@ -24,6 +14,13 @@ export const metadata: Metadata = {
     'Contact PakAITools on WhatsApp (+92 321 9305619) or email support@aitoolspak.com for orders, questions, and warranty assistance.',
   alternates: {
     canonical: 'https://pakaitools.store/contact/',
+  },
+  openGraph: {
+    title: 'Contact PakAITools – WhatsApp & Email Support',
+    description:
+      'Contact PakAITools on WhatsApp (+92 321 9305619) or email support@aitoolspak.com for orders, questions, and warranty assistance.',
+    url: 'https://pakaitools.store/contact/',
+    images: ['/og-default.png'],
   },
 };
 
@@ -63,36 +60,36 @@ export default function ContactPage() {
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-6 rounded-2xl border border-separator bg-bg-card hover:border-whatsapp hover:shadow-card transition-all flex items-start space-x-4"
+          className="p-6 rounded-2xl border border-separator bg-bg-card hover:border-accent transition-all flex items-start space-x-4 group"
         >
-          <div className="w-12 h-12 rounded-xl bg-whatsapp/10 text-whatsapp flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-whatsapp text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
             <MessageCircle className="w-6 h-6" />
           </div>
           <div>
-            <h2 className="font-bold text-text text-base">WhatsApp Support</h2>
-            <p className="text-xs text-text-tertiary mt-1 mb-2">Fastest response during business hours</p>
-            <span className="font-bold text-whatsapp text-sm md:text-base">{SITE.whatsappDisplay}</span>
+            <h3 className="font-bold text-text text-base">WhatsApp Support</h3>
+            <p className="text-xs text-text-secondary mt-1">Instant replies for orders &amp; queries</p>
+            <span className="text-xs font-bold text-accent mt-2 block">{SITE.whatsappDisplay}</span>
           </div>
         </a>
 
         <a
           href={`mailto:${SITE.email}`}
-          className="p-6 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card transition-all flex items-start space-x-4"
+          className="p-6 rounded-2xl border border-separator bg-bg-card hover:border-accent transition-all flex items-start space-x-4 group"
         >
-          <div className="w-12 h-12 rounded-xl bg-accent-soft text-accent flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-accent text-accent-on flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
             <Mail className="w-6 h-6" />
           </div>
           <div>
-            <h2 className="font-bold text-text text-base">Email Support</h2>
-            <p className="text-xs text-text-tertiary mt-1 mb-2">Official support and billing queries</p>
-            <span className="font-bold text-accent text-sm md:text-base">{SITE.email}</span>
+            <h3 className="font-bold text-text text-base">Email Support</h3>
+            <p className="text-xs text-text-secondary mt-1">Formal inquiries and agency orders</p>
+            <span className="text-xs font-bold text-accent mt-2 block">{SITE.email}</span>
           </div>
         </a>
       </div>
 
       <div
-        className="rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4 text-text-secondary text-sm md:text-base leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2"
-        dangerouslySetInnerHTML={{ __html: formatMd(page?.c || '') }}
+        className="catalogue-content rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4 text-text-secondary text-sm md:text-base leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: renderMarkdown(page?.c || '') }}
       />
     </div>
   );

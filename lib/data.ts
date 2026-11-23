@@ -4,8 +4,22 @@ import hubsData from '@/data/hubs.json';
 import mergedPlansData from '@/data/merged_plans.json';
 import brandsData from '@/data/brands.json';
 import sitePagesData from '@/data/site_pages.json';
+import comparisonsData from '@/data/comparisons.json';
+import blogsData from '@/data/blogs.json';
+import newsData from '@/data/news.json';
 
-import type { Category, Brand, Product, MergedPlan, CategoryHub, BrandHub, BlogPost } from './types';
+import type {
+  Category,
+  Brand,
+  Product,
+  MergedPlan,
+  CategoryHub,
+  BrandHub,
+  BlogPost,
+  ComparisonItem,
+  ComparisonHub,
+  NewsArticle,
+} from './types';
 
 export function getCategories(): Category[] {
   return categoriesData as Category[];
@@ -69,11 +83,36 @@ export function getSitePages() {
   return sitePagesData as any;
 }
 
+export function getBlogHub() {
+  return (blogsData as any).hub;
+}
+
 export function getBlogPosts(): BlogPost[] {
-  const bp = (sitePagesData as any)?.blog;
+  const bp = (blogsData as any)?.items;
   return Array.isArray(bp) ? bp : [];
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return getBlogPosts().find((b) => b.slug === slug);
+}
+
+export function getComparisons(): ComparisonItem[] {
+  const items = (comparisonsData as any)?.items;
+  return Array.isArray(items) ? items : [];
+}
+
+export function getComparisonHub(): ComparisonHub {
+  return (comparisonsData as any).hub;
+}
+
+export function getComparisonBySlug(slug: string): ComparisonItem | undefined {
+  return getComparisons().find((c) => c.slug === slug);
+}
+
+export function getNewsArticles(): NewsArticle[] {
+  return (newsData as NewsArticle[]) || [];
+}
+
+export function getNewsArticleBySlug(slug: string): NewsArticle | undefined {
+  return getNewsArticles().find((n) => n.slug === slug);
 }

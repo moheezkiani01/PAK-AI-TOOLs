@@ -3,16 +3,36 @@ import { marked } from 'marked';
 // Configure marked with custom renderer
 const renderer = new marked.Renderer();
 
-// Custom Table Renderer: wraps table in responsive overflow-x container
-renderer.table = function ({ header, rows }) {
+// Custom Table Renderer: wraps table in responsive overflow-x container and renders cells cleanly
+renderer.table = function (token) {
+  let headerCells = '';
+  if (token.header) {
+    for (let s = 0; s < token.header.length; s++) {
+      headerCells += this.tablecell(token.header[s]);
+    }
+  }
+  const headerRow = this.tablerow({ text: headerCells });
+
+  let bodyRows = '';
+  if (token.rows) {
+    for (let s = 0; s < token.rows.length; s++) {
+      const row = token.rows[s];
+      let rowCells = '';
+      for (let i = 0; i < row.length; i++) {
+        rowCells += this.tablecell(row[i]);
+      }
+      bodyRows += this.tablerow({ text: rowCells });
+    }
+  }
+
   return `
-    <div class="table-container my-6 rounded-xl border border-separator overflow-hidden shadow-xs">
+    <div class="table-container my-6 rounded-xl border border-separator overflow-x-auto shadow-xs">
       <table class="w-full text-left border-collapse text-xs md:text-sm">
         <thead class="bg-bg-subtle border-b border-separator text-text font-bold">
-          ${header}
+          ${headerRow}
         </thead>
         <tbody class="divide-y divide-separator bg-bg-card text-text-secondary">
-          ${rows}
+          ${bodyRows}
         </tbody>
       </table>
     </div>
@@ -23,11 +43,12 @@ renderer.tablerow = function ({ text }) {
   return `<tr class="hover:bg-bg-subtle/50 transition-colors">${text}</tr>`;
 };
 
-renderer.tablecell = function ({ text, header, align }) {
-  const tag = header ? 'th' : 'td';
-  const alignClass = align ? `text-${align}` : 'text-left';
-  const paddingClass = header ? 'px-4 py-3 font-semibold text-text' : 'px-4 py-3 text-text-secondary';
-  return `<${tag} class="${alignClass} ${paddingClass}">${text}</${tag}>`;
+renderer.tablecell = function (cell: any) {
+  const content = this.parser.parseInline(cell.tokens || []) || cell.text;
+  const tag = cell.header ? 'th' : 'td';
+  const alignClass = cell.align ? ` text-${cell.align}` : ' text-left';
+  const paddingClass = cell.header ? 'px-4 py-3 font-semibold text-text' : 'px-4 py-3 text-text-secondary';
+  return `<${tag} class="${alignClass} ${paddingClass}">${content}</${tag}>`;
 };
 
 // Custom Headings Renderer
@@ -45,18 +66,23 @@ renderer.heading = function ({ text, depth }) {
 };
 
 // Custom List Renderers
-renderer.list = function ({ ordered, items }) {
-  const tag = ordered ? 'ol' : 'ul';
-  const listClass = ordered ? 'list-decimal pl-5 space-y-2 my-4 text-text-secondary' : 'list-disc pl-5 space-y-2 my-4 text-text-secondary';
+renderer.list = function (token: any) {
+  const tag = token.ordered ? 'ol' : 'ul';
+  const listClass = token.ordered
+    ? 'list-decimal pl-5 space-y-2 my-4 text-text-secondary'
+    : 'list-disc pl-5 space-y-2 my-4 text-text-secondary';
   let body = '';
-  for (const item of items) {
-    body += renderer.listitem(item);
+  if (token.items) {
+    for (const item of token.items) {
+      body += this.listitem(item);
+    }
   }
   return `<${tag} class="${listClass}">${body}</${tag}>`;
 };
 
-renderer.listitem = function ({ text }) {
-  return `<li class="leading-relaxed pl-1">${text}</li>`;
+renderer.listitem = function (item: any) {
+  const content = this.parser.parse(item.tokens || []);
+  return `<li class="leading-relaxed pl-1">${content}</li>`;
 };
 
 // Custom Paragraph Renderer
@@ -66,10 +92,17 @@ renderer.paragraph = function ({ text }) {
 
 // Custom Link Renderer
 renderer.link = function ({ href, title, text }) {
+  let cleanHref = href || '#';
+  // Strip search redirects
+  cleanHref = cleanHref
+    .replace(/^https:\/\/www\.google\.com\/search\?q=%2F/, '/')
+    .replace(/^https:\/\/www\.google\.com\/search\?q=\//, '/')
+    .replace(/^https:\/\/www\.google\.com\/search\?q=/, '');
+
   const titleAttr = title ? ` title="${title}"` : '';
-  const isExternal = href?.startsWith('http') && !href?.includes('pakaitools.store');
+  const isExternal = cleanHref.startsWith('http') && !cleanHref.includes('pakaitools.store');
   const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-  return `<a href="${href}" class="text-accent underline font-medium hover:opacity-80 transition-opacity"${titleAttr}${targetAttr}>${text}</a>`;
+  return `<a href="${cleanHref}" class="text-accent underline font-medium hover:opacity-80 transition-opacity"${titleAttr}${targetAttr}>${text}</a>`;
 };
 
 // Custom Strong & Em
@@ -83,7 +116,22 @@ marked.setOptions({
   breaks: true,
 });
 
+export function cleanMarkdownSource(content: string): string {
+  if (!content) return '';
+  return content
+    .replace(/https:\/\/www\.google\.com\/search\?q=%2F([^)]+)%2F/g, '/$1/')
+    .replace(/https:\/\/www\.google\.com\/search\?q=(\/[^)\s]+)/g, '$1')
+    .replace(/https:\/\/www\.google\.com\/search\?q=/g, '');
+}
+
 export function renderMarkdown(content: string): string {
   if (!content) return '';
-  return marked.parse(content) as string;
+  const cleaned = cleanMarkdownSource(content);
+  return marked.parse(cleaned) as string;
+}
+
+export function renderInline(content: string): string {
+  if (!content) return '';
+  const cleaned = cleanMarkdownSource(content);
+  return marked.parseInline(cleaned) as string;
 }

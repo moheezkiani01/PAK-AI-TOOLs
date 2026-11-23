@@ -3,6 +3,7 @@
 import React from 'react';
 import { useCurrency } from './CurrencyContext';
 import { formatPkr, formatUsd } from '@/lib/money';
+import { SITE } from '@/lib/site.config';
 
 interface PriceTextProps {
   pkr: number | null;
@@ -26,14 +27,24 @@ export function PriceText({ pkr, className = '', showApprox = true }: PriceTextP
         <>
           <span className="font-bold text-text">{pkrFormatted}</span>
           {showApprox && (
-            <span className="text-xs text-text-tertiary">≈ {usdFormatted}</span>
+            <span
+              className="text-[11px] text-text-tertiary cursor-help"
+              title={`approx., rate as of ${SITE.rateDateDisplay} ($1 = Rs. ${SITE.pkrPerUsd})`}
+            >
+              ≈ {usdFormatted}*
+            </span>
           )}
         </>
       ) : (
         <>
           <span className="font-bold text-text">{usdFormatted}</span>
           {showApprox && (
-            <span className="text-xs text-text-tertiary">≈ {pkrFormatted}</span>
+            <span
+              className="text-[11px] text-text-tertiary cursor-help"
+              title={`approx., rate as of ${SITE.rateDateDisplay} ($1 = Rs. ${SITE.pkrPerUsd})`}
+            >
+              ≈ {pkrFormatted}
+            </span>
           )}
         </>
       )}

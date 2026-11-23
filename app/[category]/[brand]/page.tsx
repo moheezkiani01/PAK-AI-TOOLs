@@ -16,7 +16,8 @@ import { Faq } from '@/components/Faq';
 import { JsonLd } from '@/components/JsonLd';
 import { getCollectionSchema } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
-import { ShieldCheck, ArrowRight, BookOpen } from 'lucide-react';
+import { ShieldCheck, ArrowRight, BookOpen, Scale } from 'lucide-react';
+import { SITE } from '@/lib/site.config';
 
 interface BrandHubPageProps {
   params: Promise<{ category: string; brand: string }>;
@@ -36,11 +37,19 @@ export async function generateMetadata({ params }: BrandHubPageProps): Promise<M
 
   if (!hub) return {};
 
+  const cleanTitle = hub.seoTitle.replace(/\s*\|\s*PakAITools\s*$/i, '');
+
   return {
-    title: hub.seoTitle,
+    title: cleanTitle,
     description: hub.metaDesc,
     alternates: {
       canonical: `https://pakaitools.store/${catSlug}/${brandSlug}/`,
+    },
+    openGraph: {
+      title: cleanTitle,
+      description: hub.metaDesc,
+      url: `https://pakaitools.store/${catSlug}/${brandSlug}/`,
+      images: ['/og-default.png'],
     },
   };
 }
@@ -103,11 +112,10 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
               price={p.price}
               duration={p.duration}
               warranty={p.warranty}
-              isMerged={false}
             />
           ))}
 
-          {/* Merged plans second */}
+          {/* Merged/Unlisted reserve plans with direct order link */}
           {mergedPlans.map((mp) => (
             <PlanRow
               key={mp.slug}
@@ -118,44 +126,37 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
               duration={mp.duration}
               warranty={mp.warranty}
               isMerged={true}
-              redirectTo={mp.redirectTo}
+              parentHubUrl={hub.url}
             />
           ))}
         </div>
       </section>
 
-      {/* Rich Markdown Content if available */}
+      {/* Compare Before Buying Callout */}
+      <div className="p-4 rounded-xl border border-separator bg-bg-card flex items-center justify-between gap-3">
+        <div className="flex items-center space-x-2.5">
+          <Scale className="w-5 h-5 text-accent flex-shrink-0" />
+          <span className="text-xs md:text-sm font-semibold text-text">
+            Compare {hub.name.replace(/ Price in Pakistan$/i, '')} against competing alternatives
+          </span>
+        </div>
+        <Link
+          href="/compare/"
+          className="inline-flex items-center text-xs font-bold text-accent hover:underline whitespace-nowrap"
+        >
+          View comparisons <ArrowRight className="w-3.5 h-3.5 ml-1" />
+        </Link>
+      </div>
+
+      {/* Markdown Content (How to choose, specs, caveats) */}
       {hub.contentMarkdown && (
         <section className="rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4">
           <div
-            className="prose max-w-none text-text-secondary text-sm md:text-base leading-relaxed"
+            className="catalogue-content space-y-4 text-text-secondary text-sm md:text-base leading-relaxed"
             dangerouslySetInnerHTML={{ __html: renderMarkdown(hub.contentMarkdown) }}
           />
         </section>
       )}
-
-      {/* Related Category Guide Link */}
-      <section className="p-5 rounded-2xl border border-separator bg-bg-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-accent-soft text-accent flex items-center justify-center flex-shrink-0">
-            <BookOpen className="w-5 h-5" />
-          </div>
-          <div>
-            <h3 className="font-bold text-text text-sm md:text-base">
-              Comparing {category.name} Subscriptions?
-            </h3>
-            <p className="text-xs text-text-secondary">
-              Read our in-depth buying guides and plan comparisons in the blog.
-            </p>
-          </div>
-        </div>
-        <Link
-          href={`/blog/${category.slug}-price-guide-pakistan/`}
-          className="bg-bg-subtle text-text hover:text-accent border border-separator px-4 py-2 rounded-xl font-bold text-xs whitespace-nowrap min-h-[40px] flex items-center transition-colors"
-        >
-          View Guide <ArrowRight className="w-3.5 h-3.5 ml-1" />
-        </Link>
-      </section>
 
       {/* FAQs */}
       {hub.faqs && hub.faqs.length > 0 && <Faq items={hub.faqs} />}
@@ -163,18 +164,18 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
       {/* Related Brands in same Category */}
       {relatedBrands.length > 0 && (
         <section aria-labelledby="related-brands-heading" className="space-y-4 pt-4 border-t border-separator">
-          <h2 id="related-brands-heading" className="text-lg font-bold text-text">
-            Related {category.name} Brands
+          <h2 id="related-brands-heading" className="text-lg md:text-xl font-bold text-text">
+            Other {category.name} Brands
           </h2>
-          <div className="flex flex-wrap gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {relatedBrands.map((b) => (
               <Link
                 key={b.slug}
-                href={b.isMultiPlan ? `/${category.slug}/${b.slug}/` : (b.productUrl || `/product/${b.productSlug}/`)}
-                className="px-3.5 py-2 rounded-xl border border-separator bg-bg-card hover:border-accent text-xs md:text-sm font-semibold text-text transition-colors flex items-center"
+                href={b.hubUrl || `/${category.slug}/${b.slug}/`}
+                className="p-3.5 rounded-xl border border-separator bg-bg-card hover:border-accent transition-colors flex items-center justify-between"
               >
-                {b.displayName}
-                <ArrowRight className="w-3.5 h-3.5 ml-1 text-text-tertiary" />
+                <span className="font-semibold text-xs md:text-sm text-text">{b.displayName}</span>
+                <ArrowRight className="w-4 h-4 text-accent" />
               </Link>
             ))}
           </div>
@@ -185,7 +186,7 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
       <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
         <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
         <p>
-          Trust Notice: PakAITools is an independent reseller. Brand names belong to their respective owners. Every order includes local PKR payment with WhatsApp delivery.
+          Trust Notice: PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with {hub.name.replace(/ Price in Pakistan$/i, '')}. All trademarks and brand names are property of their respective owners. Support: {SITE.whatsappDisplay}.
         </p>
       </div>
     </div>

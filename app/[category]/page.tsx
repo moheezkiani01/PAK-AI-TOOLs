@@ -16,6 +16,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { getCollectionSchema } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck, BookOpen, ArrowRight } from 'lucide-react';
+import { SITE } from '@/lib/site.config';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -35,14 +36,21 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   if (!cat) return {};
 
-  const title = hub?.seoTitle || `${cat.name} Price in Pakistan – Plans in PKR`;
+  const rawTitle = hub?.seoTitle || `${cat.name} Price in Pakistan – Plans in PKR`;
+  const cleanTitle = rawTitle.replace(/\s*\|\s*PakAITools\s*$/i, '');
   const description = hub?.metaDesc || `Compare ${cat.name} plans in Pakistan. Local PKR payment, warranty per plan, WhatsApp support.`;
 
   return {
-    title,
+    title: cleanTitle,
     description,
     alternates: {
       canonical: `https://pakaitools.store/${cat.slug}/`,
+    },
+    openGraph: {
+      title: cleanTitle,
+      description,
+      url: `https://pakaitools.store/${cat.slug}/`,
+      images: ['/og-default.png'],
     },
   };
 }
@@ -87,14 +95,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </p>
       </section>
 
-      {/* Brand Grid */}
+      {/* Brand Grid (Single clean heading) */}
       <section aria-labelledby="brands-grid-heading" className="space-y-4">
         <h2 id="brands-grid-heading" className="text-xl md:text-2xl font-bold text-text">
           Brands in {category.name}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
           {brands.map((brand) => {
-            // Find min price for multi-plan brands
             const brandProducts = products.filter((p) => p.brandSlug === brand.slug);
             const prices = brandProducts.map((p) => p.price).filter((pr): pr is number => pr !== null);
             const minPrice = prices.length > 0 ? Math.min(...prices) : null;
@@ -103,11 +110,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
-      {/* Rich Markdown Content if available */}
+      {/* Rich Markdown Content if available (without duplicate Brand grid) */}
       {hub?.contentMarkdown && (
         <section className="rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4">
           <div
-            className="prose max-w-none text-text-secondary text-sm md:text-base leading-relaxed"
+            className="catalogue-content space-y-4 text-text-secondary text-sm md:text-base leading-relaxed"
             dangerouslySetInnerHTML={{ __html: renderMarkdown(hub.contentMarkdown) }}
           />
         </section>
@@ -143,7 +150,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
         <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
         <p>
-          Trust Notice: PakAITools is an independent Pakistani reseller. Brand names belong to their respective owners. Every order includes local PKR payment with WhatsApp delivery.
+          Trust Notice: PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with any brand in {category.name}. All product names, logos, and brands are property of their respective owners. Have questions? WhatsApp Support: {SITE.whatsappDisplay}.
         </p>
       </div>
     </div>

@@ -1,0 +1,22 @@
+{
+  "title": "DeepSeek-V3 Released: 671B Parameter Open Model Matches Top Frontier LLMs",
+  "slug": "deepseek-v3-open-weights-breakthrough",
+  "date": "2026-11-18",
+  "summary": "DeepSeek has officially released DeepSeek-V3, featuring 671B total parameters with exceptional coding, mathematics, and multilingual reasoning at unprecedented low token costs.",
+  "tags": [
+    "DeepSeek",
+    "Open Weights",
+    "AI APIs"
+  ],
+  "sources": [
+    {
+      "name": "DeepSeek AI Technical Report",
+      "url": "https://github.com/deepseek-ai/DeepSeek-V3"
+    },
+    {
+      "name": "Hugging Face Model Card",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3"
+    }
+  ],
+  "content": "## What Happened\nDeepSeek AI has launched **DeepSeek-V3**, an open-architecture Mixture-of-Experts (MoE) foundation model with 671 billion total parameters, activating only 37 billion parameters per token for blazing fast inference speeds.\n\n## Performance & Benchmarks\n- **Coding & Math:** DeepSeek-V3 matches or exceeds proprietary frontier models across HumanEval, SWE-bench, and MATH benchmarks.\n- **Multi-Token Prediction:** Implements innovative speculative multi-token prediction to double tokens-per-second output.\n- **Ultra-Low Inference Cost:** Dramatically undercuts traditional frontier token prices, making full-scale agentic coding accessible to individual developers.\n\n## What This Means in Pakistan\nPakistani software developers and computer science students can leverage DeepSeek Multi-Model API keys directly through PakAITools without foreign card requirements:\n- Build AI applications, chatbots, and autonomous agents at a fraction of USD costs.\n- Pay in PKR via JazzCash, EasyPaisa, SadaPay, or NayaPay.\n- Full 1-month replacement warranty on wallet codes and API allocations.\n\n## Sources\n- [DeepSeek-V3 GitHub Repository](https://github.com/deepseek-ai/DeepSeek-V3)\n- [DeepSeek Official Architecture Paper](https://github.com/deepseek-ai/DeepSeek-V3/blob/main/DeepSeek_V3.pdf)"
+}

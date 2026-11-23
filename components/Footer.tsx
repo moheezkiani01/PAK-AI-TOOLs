@@ -40,13 +40,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/compare/" className="hover:text-accent transition-colors">
+                  Product Comparisons
+                </Link>
+              </li>
+              <li>
                 <Link href="/categories/" className="hover:text-accent transition-colors">
                   All Categories
                 </Link>
               </li>
               <li>
                 <Link href="/blog/" className="hover:text-accent transition-colors">
-                  Blog & Guides
+                  Blog &amp; Guides
                 </Link>
               </li>
             </ul>

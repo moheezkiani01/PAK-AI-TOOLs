@@ -3,8 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Grid, Tag, MessageCircle } from 'lucide-react';
-import { SITE } from '@/lib/site.config';
+import { Home, Grid, Tag } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppFab';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 
 export function TabBar() {
@@ -45,10 +45,11 @@ export function TabBar() {
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] text-text-secondary hover:text-whatsapp transition-colors"
+          aria-label="Chat on WhatsApp"
+          className="flex flex-col items-center justify-center flex-1 h-full min-h-[44px] text-text-secondary hover:text-[#25D366] transition-colors"
         >
-          <MessageCircle className="w-5 h-5 mb-0.5 text-whatsapp" />
-          <span className="text-[11px]">Support</span>
+          <WhatsAppIcon className="w-5 h-5 mb-0.5 text-[#25D366]" />
+          <span className="text-[11px] font-medium">Support</span>
         </a>
       </div>
     </nav>

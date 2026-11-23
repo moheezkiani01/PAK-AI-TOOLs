@@ -9,11 +9,18 @@ import { useCurrency } from './CurrencyContext';
 interface StickyOrderBarProps {
   planName: string;
   price: number | null;
-  duration: string;
-  slug: string;
+  duration?: string;
+  slug?: string;
+  pageUrl?: string;
 }
 
-export function StickyOrderBar({ planName, price, duration, slug }: StickyOrderBarProps) {
+export function StickyOrderBar({
+  planName,
+  price,
+  duration = '1 Month',
+  slug = '',
+  pageUrl: initialPageUrl,
+}: StickyOrderBarProps) {
   const [visible, setVisible] = useState(false);
   const { currency } = useCurrency();
 
@@ -35,7 +42,11 @@ export function StickyOrderBar({ planName, price, duration, slug }: StickyOrderB
 
   if (!visible) return null;
 
-  const pageUrl = typeof window !== 'undefined' ? window.location.href : `https://pakaitools.store/product/${slug}/`;
+  const pageUrl =
+    initialPageUrl ||
+    (typeof window !== 'undefined'
+      ? window.location.href
+      : `https://pakaitools.store/product/${slug}/`);
   const waLink = buildWhatsAppLink(
     getProductWhatsAppMessage(planName, price, duration, pageUrl, currency === 'USD')
   );

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: '%s | PakAITools',
   },
   description:
-    'Buy AI tools, design apps, VPNs and streaming plans in Pakistan with PKR pricing. Pay by JazzCash, EasyPaisa, SadaPay, Raast or Binance. Fast delivery.',
+    'Buy AI tools, design apps, VPNs and streaming plans in Pakistan with PKR pricing. Pay by JazzCash, EasyPaisa, SadaPay, NayaPay, UBL (bank transfer) and Binance (international). Fast delivery.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },

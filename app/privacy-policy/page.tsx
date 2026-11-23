@@ -4,24 +4,21 @@ import { getSitePages } from '@/lib/data';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { JsonLd } from '@/components/JsonLd';
 import { getBreadcrumbSchema } from '@/lib/schema';
-
-function formatMd(md: string): string {
-  if (!md) return '';
-  return md
-    .replace(/^## (.*$)/gim, '<h2 class="text-xl md:text-2xl font-bold text-text mt-8 mb-3">$1</h2>')
-    .replace(/^### (.*$)/gim, '<h3 class="text-lg font-bold text-text mt-6 mb-2">$1</h3>')
-    .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" class="text-accent underline">$1</a>')
-    .replace(/\n\n/g, '<br/><br/>');
-}
+import { renderMarkdown } from '@/lib/markdown';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | PakAITools',
+  title: 'Privacy Policy',
   description:
     'Read how PakAITools protects your data. We never retain customer account passwords after provisioning and collect minimal details for order verification.',
   alternates: {
     canonical: 'https://pakaitools.store/privacy-policy/',
+  },
+  openGraph: {
+    title: 'Privacy Policy',
+    description:
+      'Read how PakAITools protects your data. We never retain customer account passwords after provisioning and collect minimal details for order verification.',
+    url: 'https://pakaitools.store/privacy-policy/',
+    images: ['/og-default.png'],
   },
 };
 
@@ -42,13 +39,13 @@ export default function PrivacyPolicyPage() {
           {page?.h || 'Privacy Policy'}
         </h1>
         <p className="text-base text-text-secondary leading-relaxed bg-bg-card p-4 rounded-xl border border-separator">
-          {page?.a || 'PakAITools is committed to protecting your privacy and treating your personal information with strict security.'}
+          {page?.a}
         </p>
       </section>
 
       <div
-        className="rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4 text-text-secondary text-sm md:text-base leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2"
-        dangerouslySetInnerHTML={{ __html: formatMd(page?.c || '') }}
+        className="catalogue-content rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4 text-text-secondary text-sm md:text-base leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: renderMarkdown(page?.c || '') }}
       />
     </div>
   );

@@ -16,7 +16,8 @@ interface BuyCardProps {
   accountType?: string;
   deliveryTime?: string;
   paymentMethods?: string;
-  slug: string;
+  slug?: string;
+  pageUrl?: string;
   brandSlug?: string;
   hasBrandHub?: boolean;
   categorySlug?: string;
@@ -31,12 +32,19 @@ export function BuyCard({
   deliveryTime = SITE.deliveryText,
   paymentMethods,
   slug,
+  pageUrl: initialPageUrl,
   brandSlug,
   hasBrandHub = false,
   categorySlug,
 }: BuyCardProps) {
   const { currency } = useCurrency();
-  const pageUrl = typeof window !== 'undefined' ? window.location.href : `${SITE.domain}/product/${slug}/`;
+  const pageUrl =
+    initialPageUrl ||
+    (typeof window !== 'undefined'
+      ? window.location.href
+      : slug
+      ? `${SITE.domain}/product/${slug}/`
+      : `${SITE.domain}/`);
   const waLink = buildWhatsAppLink(
     getProductWhatsAppMessage(planName, price, duration, pageUrl, currency === 'USD')
   );
