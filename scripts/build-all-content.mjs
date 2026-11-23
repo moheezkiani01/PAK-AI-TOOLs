@@ -78,7 +78,7 @@ if (fs.existsSync(hubsPath)) {
 }
 
 // ---------------------------------------------------------------------
-// 2. Clean data/products.json of duplicate empty FAQ heading
+// 2. Clean data/products.json of duplicate empty FAQ heading and duplicate H1/H2
 // ---------------------------------------------------------------------
 const productsPath = path.join(ROOT_DIR, 'data', 'products.json');
 if (fs.existsSync(productsPath)) {
@@ -87,10 +87,25 @@ if (fs.existsSync(productsPath)) {
     if (p.contentMarkdown) {
       // Remove trailing "## Frequently Asked Questions" heading since page renders <Faq> component
       p.contentMarkdown = p.contentMarkdown.replace(/##\s*Frequently Asked Questions[\s\S]*$/i, '').trim();
+
+      // Replace duplicate H2 that repeats H1 with question-style H2
+      const lines = p.contentMarkdown.split('\n');
+      const h1Clean = (p.h1 || '').trim().toLowerCase();
+      const namePriceClean = ((p.name || '') + ' price in pakistan').trim().toLowerCase();
+      for (let i = 0; i < lines.length; i++) {
+        if (lines[i].startsWith('## ')) {
+          const headingText = lines[i].replace(/^##\s+/, '').trim().toLowerCase();
+          if (headingText === h1Clean || headingText === namePriceClean) {
+            lines[i] = `## How Much Does ${p.name} Cost in Pakistan?`;
+            break;
+          }
+        }
+      }
+      p.contentMarkdown = lines.join('\n');
     }
   }
   fs.writeFileSync(productsPath, JSON.stringify(products, null, 2), 'utf8');
-  console.log('Cleaned data/products.json (duplicate FAQ headings stripped from markdown)');
+  console.log('Cleaned data/products.json (duplicate FAQ headings stripped and duplicate H2s replaced with questions)');
 }
 
 // ---------------------------------------------------------------------

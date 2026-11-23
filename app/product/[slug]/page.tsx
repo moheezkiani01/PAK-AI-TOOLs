@@ -16,12 +16,64 @@ import { StickyOrderBar } from '@/components/StickyOrderBar';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Faq } from '@/components/Faq';
 import { JsonLd } from '@/components/JsonLd';
+import { ComparisonTable } from '@/components/ComparisonTable';
+import { RelatedPlans } from '@/components/RelatedPlans';
 import { getProductSchema } from '@/lib/schema';
 import { buildWhatsAppLink, getProductWhatsAppMessage } from '@/lib/whatsapp';
 import { renderMarkdown } from '@/lib/markdown';
 import { WhatsAppIcon } from '@/components/WhatsAppFab';
 import { ShieldCheck, ArrowRight, Scale } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
+
+function fixDuplicateH2(md: string, h1: string, productName: string): string {
+  const lines = md.split('\n');
+  const h1Clean = h1.trim().toLowerCase();
+  const namePriceClean = `${productName.toLowerCase()} price in pakistan`;
+
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].startsWith('## ')) {
+      const headingText = lines[i].replace(/^##\s+/, '').trim().toLowerCase();
+      if (headingText === h1Clean || headingText === namePriceClean) {
+        lines[i] = `## How Much Does ${productName} Cost in Pakistan?`;
+        break; // Only replace the duplicate H2
+      }
+    }
+  }
+  return lines.join('\n');
+}
+
+function extractComparisonSection(md: string) {
+  const match = md.match(/##\s*([^#\n]+?\s+vs\s+[^#\n]+)\s*\n([\s\S]*?)(?=\n##|$)/i);
+  if (!match) return null;
+
+  const title = match[1].trim();
+  const sectionContent = match[2].trim();
+
+  const lines = sectionContent.split('\n').map((l) => l.trim());
+  const tableLines = lines.filter((l) => l.startsWith('|') && l.endsWith('|'));
+  if (tableLines.length < 2) return null;
+
+  const headers = tableLines[0]
+    .split('|')
+    .slice(1, -1)
+    .map((h) => h.trim());
+
+  const rows: string[][] = [];
+  for (let i = 2; i < tableLines.length; i++) {
+    rows.push(
+      tableLines[i]
+        .split('|')
+        .slice(1, -1)
+        .map((c) => c.trim())
+    );
+  }
+
+  const startIndex = match.index ?? 0;
+  const before = md.substring(0, startIndex).trim();
+  const after = md.substring(startIndex + match[0].length).trim();
+
+  return { title, headers, rows, before, after };
+}
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -81,11 +133,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const schema = getProductSchema(product, breadcrumbs, brand?.logo);
 
   // Related plans: same-brand plans first, then same-category alternatives
-  const sameBrandPlans = getProductsByBrand(product.brandSlug).filter((p) => p.slug !== product.slug);
-  const sameCategoryPlans = getProductsByCategory(product.categorySlug).filter(
-    (p) => p.slug !== product.slug && p.brandSlug !== product.brandSlug
-  );
-  const relatedPlans = [...sameBrandPlans, ...sameCategoryPlans].slice(0, 3);
+  const sameBrandPlans = getProductsByBrand(product.brandSlug);
+  const sameCategoryPlans = getProductsByCategory(product.categorySlug);
 
   const fullWaLink = buildWhatsAppLink(
     getProductWhatsAppMessage(
@@ -96,9 +145,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
     )
   );
 
-  // Strip duplicate empty FAQ heading from markdown body
-  const cleanedMd = (product.contentMarkdown || '').replace(/##\s*Frequently Asked Questions[\s\S]*$/i, '').trim();
-  const htmlContent = renderMarkdown(cleanedMd);
+  // 1. Strip duplicate empty FAQ heading from markdown body
+  let cleanedMd = (product.contentMarkdown || '').replace(/##\s*Frequently Asked Questions[\s\S]*$/i, '').trim();
+
+  // 2. Fix duplicate H2 that repeats H1: make it an organic question-style H2
+  cleanedMd = fixDuplicateH2(cleanedMd, product.h1, product.name);
+
+  // 3. Extract comparison section if present to render through ComparisonTable
+  const compSection = extractComparisonSection(cleanedMd);
 
   return (
     <div className="py-2 space-y-6">
@@ -177,10 +231,37 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
           {/* Markdown Body Text formatted as structured blocks with responsive tables */}
           <div className="rounded-2xl border border-separator bg-bg-card p-5 md:p-8 space-y-6">
-            <div
-              className="catalogue-content space-y-6"
-              dangerouslySetInnerHTML={{ __html: htmlContent }}
-            />
+            {compSection ? (
+              <>
+                {compSection.before && (
+                  <div
+                    className="catalogue-content space-y-6"
+                    dangerouslySetInnerHTML={{ __html: renderMarkdown(compSection.before) }}
+                  />
+                )}
+                <div className="pt-2">
+                  <h2 className="text-xl md:text-2xl font-bold text-text mb-3 pt-2 border-t border-separator/40 first:border-t-0 first:pt-0">
+                    {compSection.title}
+                  </h2>
+                  <ComparisonTable
+                    caption={compSection.title}
+                    headers={compSection.headers}
+                    rows={compSection.rows}
+                  />
+                </div>
+                {compSection.after && (
+                  <div
+                    className="catalogue-content space-y-6"
+                    dangerouslySetInnerHTML={{ __html: renderMarkdown(compSection.after) }}
+                  />
+                )}
+              </>
+            ) : (
+              <div
+                className="catalogue-content space-y-6"
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(cleanedMd) }}
+              />
+            )}
           </div>
 
           {/* Second Order Button full-width right after details */}
@@ -215,34 +296,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </Link>
           </div>
 
-          {/* Related Plans */}
-          {relatedPlans.length > 0 && (
-            <section aria-labelledby="related-heading" className="space-y-4 pt-6 border-t border-separator">
-              <h2 id="related-heading" className="text-xl font-bold text-text">
-                Related Subscriptions
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {relatedPlans.map((rp) => (
-                  <Link
-                    key={rp.slug}
-                    href={`/product/${rp.slug}/`}
-                    className="p-4 rounded-xl border border-separator bg-bg-card hover:border-accent transition-all flex flex-col justify-between"
-                  >
-                    <div>
-                      <h3 className="font-bold text-xs md:text-sm text-text line-clamp-2 mb-1">
-                        {rp.name}
-                      </h3>
-                      <span className="text-xs text-text-tertiary">{rp.duration}</span>
-                    </div>
-                    <div className="mt-3 flex items-center justify-between text-xs font-semibold text-accent">
-                      <span>View details</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
+          {/* Related Plans (Same-brand first, then category alternatives) */}
+          <RelatedPlans
+            currentSlug={product.slug}
+            brandSlug={product.brandSlug}
+            categorySlug={product.categorySlug}
+            sameBrandPlans={sameBrandPlans}
+            sameCategoryPlans={sameCategoryPlans}
+          />
 
           {/* Trust notice */}
           <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">

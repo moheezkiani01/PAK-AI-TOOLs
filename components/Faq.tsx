@@ -8,7 +8,11 @@ export interface FaqItem {
 }
 
 export function Faq({ items, title = 'Frequently Asked Questions' }: { items: FaqItem[]; title?: string }) {
-  if (!items || items.length === 0) return null;
+  const validItems = (items || []).filter(
+    (item) => item && typeof item.question === 'string' && item.question.trim().length > 0 && typeof item.answer === 'string' && item.answer.trim().length > 0
+  );
+
+  if (validItems.length === 0) return null;
 
   return (
     <section className="my-8" aria-labelledby="faq-heading">
@@ -16,7 +20,7 @@ export function Faq({ items, title = 'Frequently Asked Questions' }: { items: Fa
         {title}
       </h2>
       <div className="space-y-3">
-        {items.map((item, idx) => (
+        {validItems.map((item, idx) => (
           <details
             key={idx}
             className="group rounded-xl border border-separator bg-bg-card p-4 transition-colors open:bg-bg-subtle"

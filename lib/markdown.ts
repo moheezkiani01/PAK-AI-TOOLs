@@ -44,7 +44,25 @@ renderer.tablerow = function ({ text }) {
 };
 
 renderer.tablecell = function (cell: any) {
-  const content = this.parser.parseInline(cell.tokens || []) || cell.text;
+  let content = this.parser.parseInline(cell.tokens || []) || cell.text;
+
+  // Safe cell rendering: guard against [object Object] and object payloads
+  if (content === null || content === undefined) {
+    content = '—';
+  } else if (typeof content === 'object') {
+    const label = (content as any).text ?? (content as any).value ?? (content as any).label ?? '';
+    const note = (content as any).note ? ` (${(content as any).note})` : '';
+    if ((content as any).href) {
+      content = `<a href="${(content as any).href}" class="text-accent underline font-semibold hover:opacity-80">${label}</a>${note}`;
+    } else {
+      content = `${label}${note}` || '—';
+    }
+  } else if (typeof content === 'string') {
+    if (content.includes('[object Object]')) {
+      content = content.replace(/\[object Object\]/g, '—');
+    }
+  }
+
   const tag = cell.header ? 'th' : 'td';
   const alignClass = cell.align ? ` text-${cell.align}` : ' text-left';
   const paddingClass = cell.header ? 'px-4 py-3 font-semibold text-text' : 'px-4 py-3 text-text-secondary';
