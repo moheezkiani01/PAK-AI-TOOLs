@@ -18,6 +18,7 @@ import { getCollectionSchema } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck, ArrowRight, BookOpen, Scale } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
+import { buildWhatsAppLink, getBrandWhatsAppMessage } from '@/lib/whatsapp';
 
 interface BrandHubPageProps {
   params: Promise<{ category: string; brand: string }>;
@@ -68,6 +69,8 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
   const relatedBrands = getBrandsByCategory(catSlug)
     .filter((b) => b.slug !== brandSlug)
     .slice(0, 3);
+
+  const pageUrl = `https://pakaitools.store${hub.url}`;
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
@@ -186,7 +189,15 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
       <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
         <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
         <p>
-          Trust Notice: PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with {hub.name.replace(/ Price in Pakistan$/i, '')}. All trademarks and brand names are property of their respective owners. Support: {SITE.whatsappDisplay}.
+          Trust Notice: PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with {hub.name.replace(/ Price in Pakistan$/i, '')}. All trademarks and brand names are property of their respective owners. Support:{' '}
+          <a
+            href={buildWhatsAppLink(getBrandWhatsAppMessage(hub.name.replace(/ Price in Pakistan$/i, ''), pageUrl))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline font-semibold hover:opacity-80"
+          >
+            {SITE.whatsappDisplay}
+          </a>.
         </p>
       </div>
     </div>

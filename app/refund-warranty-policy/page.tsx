@@ -6,6 +6,9 @@ import { Faq } from '@/components/Faq';
 import { JsonLd } from '@/components/JsonLd';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
+import { ShieldCheck } from 'lucide-react';
+import { SITE } from '@/lib/site.config';
+import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 
 export const metadata: Metadata = {
   title: 'Refund & Warranty Policy',
@@ -52,6 +55,22 @@ export default function RefundPolicyPage() {
       />
 
       {faqs.length > 0 && <Faq items={faqs} />}
+
+      {/* Trust Notice */}
+      <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
+        <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+        <p>
+          Trust Notice: Last Updated: November 22, 2026. Every active plan on PakAITools includes replacement warranty. Need help with warranty claims? WhatsApp Support:{' '}
+          <a
+            href={buildWhatsAppLink(getGeneralWhatsAppMessage('https://pakaitools.store/refund-warranty-policy/'))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline font-semibold hover:opacity-80"
+          >
+            {SITE.whatsappDisplay}
+          </a>.
+        </p>
+      </div>
     </div>
   );
 }

@@ -52,17 +52,19 @@ renderer.tablecell = function (cell: any) {
 };
 
 // Custom Headings Renderer
-renderer.heading = function ({ text, depth }) {
+renderer.heading = function (token: any) {
+  const depth = token.depth;
+  const content = this.parser.parseInline(token.tokens || []) || token.text;
   if (depth === 2) {
-    return `<h2 class="text-xl md:text-2xl font-bold text-text mt-8 mb-3 pt-2 border-t border-separator/40 first:border-t-0 first:pt-0">${text}</h2>`;
+    return `<h2 class="text-xl md:text-2xl font-bold text-text mt-8 mb-3 pt-2 border-t border-separator/40 first:border-t-0 first:pt-0">${content}</h2>`;
   }
   if (depth === 3) {
-    return `<h3 class="text-lg md:text-xl font-bold text-text mt-6 mb-2">${text}</h3>`;
+    return `<h3 class="text-lg md:text-xl font-bold text-text mt-6 mb-2">${content}</h3>`;
   }
   if (depth === 4) {
-    return `<h4 class="text-base font-bold text-text mt-4 mb-2">${text}</h4>`;
+    return `<h4 class="text-base font-bold text-text mt-4 mb-2">${content}</h4>`;
   }
-  return `<h${depth} class="font-bold text-text my-2">${text}</h${depth}>`;
+  return `<h${depth} class="font-bold text-text my-2">${content}</h${depth}>`;
 };
 
 // Custom List Renderers
@@ -85,29 +87,32 @@ renderer.listitem = function (item: any) {
   return `<li class="leading-relaxed pl-1">${content}</li>`;
 };
 
-// Custom Paragraph Renderer
-renderer.paragraph = function ({ text }) {
-  return `<p class="leading-relaxed text-text-secondary my-3.5">${text}</p>`;
+// Custom Paragraph Renderer - preserves inline links and formatting
+renderer.paragraph = function (token: any) {
+  const content = this.parser.parseInline(token.tokens || []) || token.text;
+  return `<p class="leading-relaxed text-text-secondary my-3.5">${content}</p>`;
 };
 
 // Custom Link Renderer
-renderer.link = function ({ href, title, text }) {
-  let cleanHref = href || '#';
+renderer.link = function (token: any) {
+  let cleanHref = token.href || '#';
   // Strip search redirects
   cleanHref = cleanHref
     .replace(/^https:\/\/www\.google\.com\/search\?q=%2F/, '/')
     .replace(/^https:\/\/www\.google\.com\/search\?q=\//, '/')
     .replace(/^https:\/\/www\.google\.com\/search\?q=/, '');
 
-  const titleAttr = title ? ` title="${title}"` : '';
+  const titleAttr = token.title ? ` title="${token.title}"` : '';
   const isExternal = cleanHref.startsWith('http') && !cleanHref.includes('pakaitools.store');
   const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-  return `<a href="${cleanHref}" class="text-accent underline font-medium hover:opacity-80 transition-opacity"${titleAttr}${targetAttr}>${text}</a>`;
+  const content = this.parser.parseInline(token.tokens || []) || token.text;
+  return `<a href="${cleanHref}" class="text-accent underline font-medium hover:opacity-80 transition-opacity"${titleAttr}${targetAttr}>${content}</a>`;
 };
 
 // Custom Strong & Em
-renderer.strong = function ({ text }) {
-  return `<strong class="font-bold text-text">${text}</strong>`;
+renderer.strong = function (token: any) {
+  const content = this.parser.parseInline(token.tokens || []) || token.text;
+  return `<strong class="font-bold text-text">${content}</strong>`;
 };
 
 marked.setOptions({
@@ -118,10 +123,23 @@ marked.setOptions({
 
 export function cleanMarkdownSource(content: string): string {
   if (!content) return '';
-  return content
+  let cleaned = content
     .replace(/https:\/\/www\.google\.com\/search\?q=%2F([^)]+)%2F/g, '/$1/')
     .replace(/https:\/\/www\.google\.com\/search\?q=(\/[^)\s]+)/g, '$1')
     .replace(/https:\/\/www\.google\.com\/search\?q=/g, '');
+
+  // Convert raw unlinked WhatsApp/phone numbers into clickable markdown links
+  cleaned = cleaned.replace(
+    /(?:\[([^\]]+)\]\((https:\/\/wa\.me\/[^\)]+)\))|(\+92\s*321\s*9305619|\+923219305619|0321\s*9305619|03219305619)/g,
+    (match, existingText, existingUrl, rawNumber) => {
+      if (existingText && existingUrl) {
+        return match;
+      }
+      return `[${rawNumber}](https://wa.me/923219305619?text=Hi%20PakAITools%2C%20I%20have%20a%20question.)`;
+    }
+  );
+
+  return cleaned;
 }
 
 export function renderMarkdown(content: string): string {

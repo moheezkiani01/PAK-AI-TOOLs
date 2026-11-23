@@ -168,6 +168,7 @@ if (fs.existsSync(OUT_DIR)) {
   let leakedFailures = 0;
   let ogUrlFailures = 0;
   let doubleTitleFailures = 0;
+  let unparsedLinkFailures = 0;
 
   function scanDir(dir) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -237,6 +238,13 @@ if (fs.existsSync(OUT_DIR)) {
             doubleTitleFailures++;
           }
         }
+
+        // 7. Check for unparsed raw markdown links like [Text](/url/)
+        const unparsedLink = content.match(/\[([A-Za-z0-9\s&;]+)\]\((?:\/[a-z0-9\-_/]+|https?:\/\/[^\)]+)\)/);
+        if (unparsedLink) {
+          error(`File ${relPath} contains unparsed markdown link: "${unparsedLink[0]}"`);
+          unparsedLinkFailures++;
+        }
       }
     }
   }
@@ -296,6 +304,8 @@ if (fs.existsSync(OUT_DIR)) {
   } else {
     warn(`_headers missing from out/`);
   }
+
+  if (unparsedLinkFailures === 0) ok('Zero unparsed markdown links across all static HTML pages');
 }
 
 console.log('\n==============================================');

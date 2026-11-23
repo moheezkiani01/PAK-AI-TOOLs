@@ -7,6 +7,8 @@ import { JsonLd } from '@/components/JsonLd';
 import { getBreadcrumbSchema } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 import { SITE } from '@/lib/site.config';
+import { ShieldCheck } from 'lucide-react';
+import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 
 export const metadata: Metadata = {
   title: 'Payment Methods in Pakistan – JazzCash, EasyPaisa & SadaPay',
@@ -53,6 +55,22 @@ export default function PaymentMethodsPage() {
       />
 
       {faqs.length > 0 && <Faq items={faqs} />}
+
+      {/* Trust Notice */}
+      <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
+        <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+        <p>
+          Trust Notice: Last Updated: November 22, 2026. All payments are verified manually via WhatsApp screenshot transfer. Have questions regarding payments? WhatsApp Support:{' '}
+          <a
+            href={buildWhatsAppLink(getGeneralWhatsAppMessage('https://pakaitools.store/payment-methods/'))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline font-semibold hover:opacity-80"
+          >
+            {SITE.whatsappDisplay}
+          </a>.
+        </p>
+      </div>
     </div>
   );
 }

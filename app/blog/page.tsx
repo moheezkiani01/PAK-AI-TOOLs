@@ -6,6 +6,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { JsonLd } from '@/components/JsonLd';
 import { ArrowRight, Calendar, BookOpen, Newspaper, ShieldCheck } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
+import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 
 export const metadata: Metadata = {
   title: 'Blog — 2026 PKR Price Guides & AI Tool Tips Pakistan',
@@ -224,7 +225,15 @@ export default function BlogIndexPage() {
       <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
         <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
         <p>
-          Trust Notice: Last Updated: November 22, 2026. PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with any featured software brand. Have questions? WhatsApp Support: {SITE.whatsappDisplay}.
+          Trust Notice: Last Updated: November 22, 2026. PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with any featured software brand. Have questions? WhatsApp Support:{' '}
+          <a
+            href={buildWhatsAppLink(getGeneralWhatsAppMessage('https://pakaitools.store/blog/'))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline font-semibold hover:opacity-80"
+          >
+            {SITE.whatsappDisplay}
+          </a>.
         </p>
       </div>
     </div>

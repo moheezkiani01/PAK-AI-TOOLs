@@ -151,7 +151,15 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
       <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
         <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
         <p>
-          Trust Notice: Last Updated: November 22, 2026. PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with any brand compared on this page. Review our{' '}
+          Trust Notice: Last Updated: November 22, 2026. PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with any brand compared on this page. Have questions? WhatsApp Support:{' '}
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline font-semibold hover:opacity-80"
+          >
+            {SITE.whatsappDisplay}
+          </a>. Review our{' '}
           <Link href="/refund-warranty-policy/" className="text-accent underline">
             Refund &amp; Warranty Policy
           </Link>

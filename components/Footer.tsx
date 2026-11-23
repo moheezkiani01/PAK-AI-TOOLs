@@ -107,10 +107,10 @@ export function Footer() {
             <p className="text-xs text-text-secondary">
               WhatsApp:{' '}
               <a
-                href={`https://wa.me/${SITE.whatsapp}`}
+                href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hi PakAITools, I have a question.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent hover:underline font-semibold"
+                className="text-accent underline hover:opacity-80 font-semibold"
               >
                 {SITE.whatsappDisplay}
               </a>

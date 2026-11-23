@@ -7,8 +7,8 @@ import { PriceText } from '@/components/PriceText';
 import { JsonLd } from '@/components/JsonLd';
 import { getCollectionSchema } from '@/lib/schema';
 import { SITE } from '@/lib/site.config';
-import { Search, ArrowRight, MessageCircle } from 'lucide-react';
-import { buildWhatsAppLink, getProductWhatsAppMessage } from '@/lib/whatsapp';
+import { Search, ArrowRight, MessageCircle, ShieldCheck } from 'lucide-react';
+import { buildWhatsAppLink, getProductWhatsAppMessage, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { PriceListClient } from './PriceListClient';
 
 export const metadata: Metadata = {
@@ -142,6 +142,21 @@ export default function PriceListPage() {
           ))}
         </div>
       </noscript>
+      {/* Trust Notice */}
+      <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
+        <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+        <p>
+          Trust Notice: Last Updated: November 22, 2026. All 231 plans feature live PKR pricing with local payment methods (JazzCash, EasyPaisa, SadaPay) and WhatsApp delivery. Have questions? WhatsApp Support:{' '}
+          <a
+            href={buildWhatsAppLink(getGeneralWhatsAppMessage('https://pakaitools.store/price-list/'))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline font-semibold hover:opacity-80"
+          >
+            {SITE.whatsappDisplay}
+          </a>.
+        </p>
+      </div>
     </div>
   );
 }

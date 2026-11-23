@@ -17,6 +17,7 @@ import { getCollectionSchema } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck, BookOpen, ArrowRight } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
+import { buildWhatsAppLink, getCategoryWhatsAppMessage } from '@/lib/whatsapp';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -154,7 +155,15 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
         <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
         <p>
-          Trust Notice: PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with any brand in {category.name}. All product names, logos, and brands are property of their respective owners. Have questions? WhatsApp Support: {SITE.whatsappDisplay}.
+          Trust Notice: PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with any brand in {category.name}. All product names, logos, and brands are property of their respective owners. Have questions? WhatsApp Support:{' '}
+          <a
+            href={buildWhatsAppLink(getCategoryWhatsAppMessage(category.name, `https://pakaitools.store/${category.slug}/`))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline font-semibold hover:opacity-80"
+          >
+            {SITE.whatsappDisplay}
+          </a>.
         </p>
       </div>
     </div>

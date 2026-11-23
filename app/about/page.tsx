@@ -5,6 +5,8 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { JsonLd } from '@/components/JsonLd';
 import { SITE } from '@/lib/site.config';
 import { renderMarkdown } from '@/lib/markdown';
+import { ShieldCheck } from 'lucide-react';
+import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 
 export const metadata: Metadata = {
   title: 'About PakAITools – AI Tools & Subscriptions in PKR',
@@ -59,6 +61,22 @@ export default function AboutPage() {
         className="catalogue-content rounded-2xl border border-separator bg-bg-card p-6 md:p-8 space-y-4 text-text-secondary text-sm md:text-base leading-relaxed"
         dangerouslySetInnerHTML={{ __html: renderMarkdown(page?.c || '') }}
       />
+
+      {/* Trust Notice */}
+      <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
+        <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+        <p>
+          Trust Notice: PakAITools is founded by {SITE.founder} to provide secure, local software access across Pakistan. Have questions? WhatsApp Support:{' '}
+          <a
+            href={buildWhatsAppLink(getGeneralWhatsAppMessage('https://pakaitools.store/about/'))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline font-semibold hover:opacity-80"
+          >
+            {SITE.whatsappDisplay}
+          </a>.
+        </p>
+      </div>
     </div>
   );
 }

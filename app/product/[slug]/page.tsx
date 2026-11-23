@@ -140,7 +140,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <span className="font-bold text-text block text-xs uppercase tracking-wider mb-0.5">
                     {field}
                   </span>
-                  <span className="text-text-secondary">{details}</span>
+                  {field.toLowerCase().includes('support') || details.includes('9305619') ? (
+                    <a
+                      href={fullWaLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent underline font-semibold hover:opacity-80"
+                    >
+                      {details}
+                    </a>
+                  ) : (
+                    <span className="text-text-secondary">{details}</span>
+                  )}
                 </div>
               ))}
             </div>
@@ -219,7 +230,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
             <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
             <p>
-              Trust Notice: PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with this brand. Have questions? Contact WhatsApp Support ({SITE.whatsappDisplay}) or review our{' '}
+              Trust Notice: PakAITools is an independent reseller and is not affiliated with, endorsed by, or officially partnered with this brand. Have questions? Contact WhatsApp Support (
+              <a
+                href={fullWaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent underline font-semibold hover:opacity-80"
+              >
+                {SITE.whatsappDisplay}
+              </a>
+              ) or review our{' '}
               <Link href="/refund-warranty-policy/" className="text-accent underline">
                 Refund &amp; Warranty Policy
               </Link>
