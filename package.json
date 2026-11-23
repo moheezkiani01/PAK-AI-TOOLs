@@ -11,7 +11,7 @@
     "build": "npm run prebuild && next build && node scripts/validate.mjs",
     "validate": "node scripts/validate.mjs",
     "preview": "npx serve out",
-    "deploy": "npx wrangler pages deploy out"
+    "deploy": "npx wrangler deploy"
   },
   "dependencies": {
     "clsx": "^2.1.1",
