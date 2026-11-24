@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Search, ChevronDown, Tag, Scale, BookOpen, CreditCard, Sparkles } from 'lucide-react';
+import { Menu, X, Search, ChevronDown, Tag, Scale, BookOpen, CreditCard, Sparkles, Home } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
+import { HomeLink } from './HomeLink';
 import { CurrencyToggle } from './CurrencyToggle';
 import { ThemeToggle } from './ThemeToggle';
 import { SearchModal } from './SearchModal';
@@ -96,6 +97,9 @@ export function Header() {
 
           {/* Desktop Navigation (Focused, spacious, clean) */}
           <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-5 text-sm font-medium text-text-secondary">
+            {/* Home Link (First item) */}
+            <HomeLink />
+
             {/* Categories Mega Dropdown */}
             <div
               className="relative"
@@ -294,6 +298,20 @@ export function Header() {
 
               {/* Core Links Grid */}
               <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href="/"
+                  aria-label="Home"
+                  aria-current={pathname === '/' ? 'page' : undefined}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`col-span-2 p-3 rounded-xl border border-separator bg-bg-subtle text-xs font-bold transition-colors flex items-center space-x-2 min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                    pathname === '/'
+                      ? 'text-accent border-accent/40 bg-accent/5'
+                      : 'text-text hover:text-accent hover:border-accent'
+                  }`}
+                >
+                  <Home className="w-4 h-4 text-accent" aria-hidden="true" />
+                  <span>Home</span>
+                </Link>
                 <Link
                   href="/price-list/"
                   onClick={() => setMobileMenuOpen(false)}

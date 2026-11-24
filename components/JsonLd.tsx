@@ -1,12 +1,22 @@
 import React from 'react';
 
-export function JsonLd({ schema }: { schema: any }) {
-  if (!schema) return null;
-  const payload = schema['@context'] ? schema : { '@context': 'https://schema.org', ...schema };
+interface JsonLdProps {
+  data?: any;
+  schema?: any;
+}
+
+export function JsonLd({ data, schema }: JsonLdProps) {
+  const content = data ?? schema;
+  if (!content) return null;
+  const payload = content['@context'] ? content : { '@context': 'https://schema.org', ...content };
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(payload) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(payload).replace(/</g, '\\u003c'),
+      }}
     />
   );
 }
+
+export default JsonLd;

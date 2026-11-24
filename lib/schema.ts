@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { SITE, SITE_URL } from './site.config';
 import type { Product, CategoryHub, BrandHub, BlogPost } from './types';
+import type { AINewsPost } from './ai-news';
 import { getBrandBySlug, getCategoryBySlug } from './data';
 
 export function getOrganizationSchema() {
@@ -230,3 +231,103 @@ export function getContactSchema(breadcrumbs: Array<{ name: string; url: string 
     ],
   };
 }
+
+export function getNewsArticleSchema(
+  post: AINewsPost,
+  breadcrumbs: Array<{ name: string; url: string }>
+) {
+  const canonicalUrl = `${SITE_URL}/ai-news/${post.slug}/`;
+  const imageUrl = post.image.src.startsWith('http')
+    ? post.image.src
+    : `${SITE_URL}${post.image.src.startsWith('/') ? '' : '/'}${post.image.src}`;
+
+  const articleNode: any = {
+    '@type': 'NewsArticle',
+    '@id': `${canonicalUrl}#article`,
+    headline: post.title,
+    description: post.description,
+    image: [imageUrl],
+    datePublished: post.datePublished,
+    dateModified: post.dateModified,
+    author: {
+      '@type': 'Person',
+      name: post.author.name,
+      ...(post.author.url ? { url: post.author.url } : {}),
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/icon-192.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+  };
+
+  const graph: any[] = [
+    getOrganizationSchema(),
+    getWebSiteSchema(),
+    articleNode,
+    getBreadcrumbSchema(breadcrumbs),
+  ];
+
+  if (post.faq && post.faq.length > 0) {
+    const faqSchema = getFaqSchema(
+      post.faq.map((f) => ({ question: f.q, answer: f.a }))
+    );
+    if (faqSchema) graph.push(faqSchema);
+  }
+
+  return wrapInGraph(graph);
+}
+
+export function getAINewsHubSchema(
+  posts: AINewsPost[],
+  breadcrumbs: Array<{ name: string; url: string }>,
+  pageNumber: number = 1
+) {
+  const canonicalUrl =
+    pageNumber === 1
+      ? `${SITE_URL}/ai-news/`
+      : `${SITE_URL}/ai-news/page/${pageNumber}/`;
+
+  const collectionNode: any = {
+    '@type': 'CollectionPage',
+    '@id': canonicalUrl,
+    url: canonicalUrl,
+    name:
+      pageNumber === 1
+        ? 'AI News for Pakistan | PakAITools'
+        : `AI News for Pakistan - Page ${pageNumber} | PakAITools`,
+    description:
+      'Verified AI news, price shifts, and local impact for Pakistani freelancers, businesses, and developers.',
+  };
+
+  const graph: any[] = [
+    getOrganizationSchema(),
+    getWebSiteSchema(),
+    collectionNode,
+    getBreadcrumbSchema(breadcrumbs),
+  ];
+
+  if (posts.length > 0) {
+    const itemListNode = {
+      '@type': 'ItemList',
+      itemListElement: posts.map((post, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        url: `${SITE_URL}/ai-news/${post.slug}/`,
+        name: post.title,
+      })),
+    };
+    graph.push(itemListNode);
+  }
+
+  return wrapInGraph(graph);
+}
+

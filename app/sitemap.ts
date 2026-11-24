@@ -6,6 +6,7 @@ import {
   getBlogPosts,
   getComparisons,
 } from '@/lib/data';
+import { getPublishedAINewsPosts } from '@/lib/ai-news';
 import { SITE } from '@/lib/site.config';
 
 export const dynamic = 'force-static';
@@ -151,6 +152,51 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...(lastmod ? { lastModified: new Date(lastmod) } : {}),
       changeFrequency: 'monthly',
       priority: 0.7,
+    });
+  });
+
+  // AI News: Hub, paginated pages, and published articles only (drafts excluded)
+  const publishedNews = getPublishedAINewsPosts();
+  const newsDates = publishedNews
+    .map((p) => p.dateModified || p.datePublished)
+    .filter(Boolean)
+    .sort()
+    .reverse();
+  const newestNewsDate = newsDates[0] || null;
+
+  urls.push({
+    url: `${baseUrl}/ai-news/`,
+    ...(newestNewsDate ? { lastModified: new Date(newestNewsDate) } : {}),
+    changeFrequency: 'daily',
+    priority: 0.8,
+  });
+
+  const NEWS_PER_PAGE = 12;
+  const totalNewsPages = Math.ceil(publishedNews.length / NEWS_PER_PAGE);
+  if (totalNewsPages > 1) {
+    for (let p = 2; p <= totalNewsPages; p++) {
+      const pageSlice = publishedNews.slice((p - 1) * NEWS_PER_PAGE, p * NEWS_PER_PAGE);
+      const pageDates = pageSlice
+        .map((n) => n.dateModified || n.datePublished)
+        .filter(Boolean)
+        .sort()
+        .reverse();
+      const pageNewest = pageDates[0] || null;
+      urls.push({
+        url: `${baseUrl}/ai-news/page/${p}/`,
+        ...(pageNewest ? { lastModified: new Date(pageNewest) } : {}),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+      });
+    }
+  }
+
+  publishedNews.forEach((np) => {
+    urls.push({
+      url: `${baseUrl}/ai-news/${np.slug}/`,
+      lastModified: new Date(np.dateModified),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     });
   });
 

@@ -148,6 +148,7 @@ const requiredSitemaps = [
   'sitemap_hubs.xml',
   'sitemap_compare.xml',
   'sitemap_blog.xml',
+  'sitemap_news.xml',
 ];
 for (const sm of requiredSitemaps) {
   if (fs.existsSync(path.join(PUBLIC_DIR, sm))) {

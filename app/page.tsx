@@ -17,6 +17,7 @@ import { CategoryCard } from '@/components/CategoryCard';
 import { PlanRow } from '@/components/PlanRow';
 import { Faq } from '@/components/Faq';
 import { HeroSearch } from '@/components/HeroSearch';
+import { AINewsSection } from '@/components/AINewsSection';
 import { WhatsAppIcon } from '@/components/WhatsAppFab';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
@@ -261,6 +262,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* AI News Section */}
+      <AINewsSection />
 
       {/* 5. How Ordering Works (3 Steps) */}
       <section aria-labelledby="how-it-works-heading" className="rounded-3xl border border-separator bg-bg-card p-6 md:p-8 space-y-5">

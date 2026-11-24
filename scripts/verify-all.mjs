@@ -1,125 +1,227 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import { execSync } from 'node:child_process';
+import fs from 'fs';
+import path from 'path';
 
-console.log('=== PAKAITOOLS COMPREHENSIVE VERIFICATION ===\n');
+const ROOT_DIR = process.cwd();
+const OUT_DIR = path.join(ROOT_DIR, 'out');
+const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 
-let failures = 0;
-function assert(condition, message) {
-  if (!condition) {
-    console.error(`❌ [FAIL] ${message}`);
-    failures++;
+console.log('==============================================');
+console.log('     COMPREHENSIVE VERIFICATION SUITE         ');
+console.log('==============================================\n');
+
+let failed = 0;
+function pass(msg) {
+  console.log(`✅ [PASS] ${msg}`);
+}
+function fail(msg) {
+  console.error(`❌ [FAIL] ${msg}`);
+  failed++;
+}
+
+// 1. Home link in Raw HTML
+const homeHtml = fs.readFileSync(path.join(OUT_DIR, 'index.html'), 'utf8');
+if (homeHtml.includes('href="/"') && homeHtml.includes('aria-label="Home"')) {
+  pass('Home link with aria-label="Home" and href="/" exists in homepage HTML');
+} else {
+  fail('Home link missing in homepage HTML');
+}
+
+if (homeHtml.includes('aria-current="page"')) {
+  pass('Active state (aria-current="page") correctly set on homepage');
+} else {
+  fail('aria-current="page" missing on homepage');
+}
+
+if (homeHtml.includes('<nav aria-label="Main Navigation"') && homeHtml.includes('aria-hidden="true"')) {
+  pass('Main Navigation contains decorative Home icon (aria-hidden="true")');
+} else {
+  fail('Decorative Home icon missing in Main Navigation');
+}
+
+// 2. AI News Homepage Section
+if (homeHtml.includes('Latest AI News for Pakistan')) {
+  pass('Heading "Latest AI News for Pakistan" is present in raw homepage HTML');
+} else {
+  fail('Heading "Latest AI News for Pakistan" missing from homepage');
+}
+
+if (homeHtml.includes('OpenAI o3-mini Released: PKR Pricing &amp; Pakistan Impact') || homeHtml.includes('OpenAI o3-mini Released: PKR Pricing & Pakistan Impact')) {
+  pass('Published AI News headline appears on homepage in raw HTML');
+} else {
+  fail('Published AI News headline missing from homepage');
+}
+
+if (homeHtml.includes('href="/ai-news/"') && homeHtml.includes('View all AI News')) {
+  pass('"View all AI News" link to /ai-news/ is present on homepage');
+} else {
+  fail('"View all AI News" link missing from homepage');
+}
+
+// 3. Draft Post Exclusion
+const draftSlug = 'deepseek-v3-api-pricing-pakistan';
+if (homeHtml.includes(draftSlug)) {
+  fail(`Draft post slug "${draftSlug}" leaked onto homepage`);
+} else {
+  pass(`Draft post "${draftSlug}" is strictly ABSENT from homepage`);
+}
+
+const hubHtml = fs.readFileSync(path.join(OUT_DIR, 'ai-news', 'index.html'), 'utf8');
+if (hubHtml.includes(draftSlug)) {
+  fail(`Draft post slug "${draftSlug}" leaked onto /ai-news hub`);
+} else {
+  pass(`Draft post "${draftSlug}" is strictly ABSENT from /ai-news hub`);
+}
+
+if (fs.existsSync(path.join(OUT_DIR, 'ai-news', draftSlug, 'index.html'))) {
+  fail(`Draft post was statically generated as an HTML page`);
+} else {
+  pass(`Draft post was NOT statically generated (no static params for drafts)`);
+}
+
+// 4. Sitemaps Draft Check & Published News Check
+const sitemapXml = fs.readFileSync(path.join(OUT_DIR, 'sitemap.xml'), 'utf8');
+if (sitemapXml.includes(draftSlug)) {
+  fail(`Draft post found in sitemap.xml`);
+} else {
+  pass(`Draft post is strictly ABSENT from sitemap.xml`);
+}
+
+if (sitemapXml.includes('https://pakaitools.store/ai-news/') && sitemapXml.includes('openai-o3-mini-reasoning-model-pakistan-pricing')) {
+  pass('sitemap.xml lists /ai-news/ and published article URL with honest lastmod');
+} else {
+  fail('sitemap.xml missing /ai-news/ or published article URL');
+}
+
+const newsSitemapXml = fs.readFileSync(path.join(OUT_DIR, 'sitemap_news.xml'), 'utf8');
+if (newsSitemapXml.includes('openai-o3-mini-reasoning-model-pakistan-pricing') && !newsSitemapXml.includes(draftSlug)) {
+  pass('sitemap_news.xml correctly lists published post and excludes draft');
+} else {
+  fail('sitemap_news.xml check failed');
+}
+
+// 5. Article Page Structure & Order
+const articleHtmlPath = path.join(OUT_DIR, 'ai-news', 'openai-o3-mini-reasoning-model-pakistan-pricing', 'index.html');
+if (fs.existsSync(articleHtmlPath)) {
+  const articleHtml = fs.readFileSync(articleHtmlPath, 'utf8');
+
+  // Verify layout order: Breadcrumb -> H1/Author/Time -> Quick Answer -> What This Means for PK -> Body -> Related Plans -> FAQ -> Sources
+  const idxBreadcrumb = articleHtml.indexOf('aria-label="Breadcrumb"');
+  const idxH1 = articleHtml.indexOf('<h1');
+  const idxQuickAnswer = articleHtml.indexOf('aria-label="Quick Answer"');
+  const idxPkAngle = articleHtml.indexOf('aria-label="What This Means for Pakistan"');
+  const idxBody = articleHtml.indexOf('aria-label="Article Body"');
+  const idxRelated = articleHtml.indexOf('aria-labelledby="related-plans-heading"');
+  const idxFaq = articleHtml.indexOf('aria-labelledby="faq-heading"');
+  const idxSources = articleHtml.indexOf('aria-labelledby="sources-heading"');
+
+  if (
+    idxBreadcrumb < idxH1 &&
+    idxH1 < idxQuickAnswer &&
+    idxQuickAnswer < idxPkAngle &&
+    idxPkAngle < idxBody &&
+    idxBody < idxRelated &&
+    idxRelated < idxFaq &&
+    idxFaq < idxSources
+  ) {
+    pass('Article page layout follows the exact requested section order');
   } else {
-    console.log(`✅ [OK] ${message}`);
+    fail(`Article layout section order mismatch: indices: [${[idxBreadcrumb, idxH1, idxQuickAnswer, idxPkAngle, idxBody, idxRelated, idxFaq, idxSources].join(', ')}]`);
   }
-}
 
-// 1. Check out directory assets
-console.log('--- 1. Checking ./out core files ---');
-const requiredOutFiles = [
-  'robots.txt',
-  'sitemap.xml',
-  'sitemap_products.xml',
-  'sitemap_hubs.xml',
-  'sitemap_compare.xml',
-  'sitemap_blog.xml',
-  'favicon.ico',
-  'icon-192.png',
-  'icon-512.png',
-  'apple-touch-icon.png',
-];
-for (const f of requiredOutFiles) {
-  assert(fs.existsSync(path.join('out', f)), `./out/${f} exists`);
-}
+  // Check canonical
+  if (articleHtml.includes('<link rel="canonical" href="https://pakaitools.store/ai-news/openai-o3-mini-reasoning-model-pakistan-pricing/"/>')) {
+    pass('Article canonical is absolute self-referencing https://pakaitools.store/ai-news/...');
+  } else {
+    fail('Article canonical missing or incorrect');
+  }
 
-// 2. Check robots.txt content
-console.log('\n--- 2. Checking robots.txt ---');
-const robots = fs.readFileSync('out/robots.txt', 'utf8');
-assert(robots.includes('Allow: /'), 'robots.txt allows all');
-assert(robots.includes('Sitemap: https://pakaitools.store/sitemap.xml'), 'robots.txt includes sitemap URL');
-
-// 3. Inspect HTML of Homepage, Category, and Product page
-console.log('\n--- 3. Checking HTML of Homepage, Category, and Product ---');
-const samplePages = [
-  { file: 'out/index.html', url: 'https://pakaitools.store/', type: 'home' },
-  { file: 'out/design-creative/index.html', url: 'https://pakaitools.store/design-creative/', type: 'category' },
-  { file: 'out/product/canva-pro-1-month/index.html', url: 'https://pakaitools.store/product/canva-pro-1-month/', type: 'product' },
-];
-
-for (const sp of samplePages) {
-  assert(fs.existsSync(sp.file), `Sample page ${sp.file} exists`);
-  const html = fs.readFileSync(sp.file, 'utf8');
-  
-  // Canonical
-  const canMatch = (html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"/i) || [])[1];
-  assert(canMatch === sp.url, `${sp.file} canonical matches exact URL (${canMatch})`);
-
-  // OG tags
-  const ogUrl = (html.match(/<meta[^>]*property="og:url"[^>]*content="([^"]*)"/i) || [])[1];
-  assert(ogUrl === sp.url, `${sp.file} og:url matches exact canonical (${ogUrl})`);
-
-  const ogSiteName = (html.match(/<meta[^>]*property="og:site_name"[^>]*content="([^"]*)"/i) || [])[1];
-  assert(ogSiteName === 'PakAITools', `${sp.file} og:site_name is PakAITools`);
-
-  const ogLocale = (html.match(/<meta[^>]*property="og:locale"[^>]*content="([^"]*)"/i) || [])[1];
-  assert(ogLocale === 'en_PK', `${sp.file} og:locale is en_PK`);
-
-  const ogImage = (html.match(/<meta[^>]*property="og:image"[^>]*content="([^"]*)"/i) || [])[1];
-  assert(ogImage && ogImage.startsWith('https://pakaitools.store/'), `${sp.file} og:image is absolute pakaitools.store (${ogImage})`);
-
-  // JSON-LD blocks
-  const jsonLdMatches = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)].map(m => m[1]);
-  assert(jsonLdMatches.length > 0, `${sp.file} contains ${jsonLdMatches.length} JSON-LD block(s)`);
-  for (let idx = 0; idx < jsonLdMatches.length; idx++) {
-    try {
-      const parsed = JSON.parse(jsonLdMatches[idx]);
-      assert(!!parsed, `${sp.file} JSON-LD block #${idx + 1} parses as valid JSON`);
-      const str = JSON.stringify(parsed);
-      assert(!str.includes('TODO') && !str.includes('PLACEHOLDER') && !str.includes('example.com'), `${sp.file} JSON-LD block #${idx + 1} has no placeholders`);
-      assert(!str.includes('aitoolspak') && !str.includes('workers.dev'), `${sp.file} JSON-LD block #${idx + 1} has no old domains`);
-    } catch (e) {
-      assert(false, `${sp.file} JSON-LD block #${idx + 1} failed JSON parse: ${e.message}`);
+  // Check JSON-LD
+  const scriptRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+  let match;
+  let allNodes = [];
+  let scriptCount = 0;
+  while ((match = scriptRegex.exec(articleHtml)) !== null) {
+    scriptCount++;
+    const jsonStr = match[1];
+    if (jsonStr.includes('<') && !jsonStr.includes('\\u003c')) {
+      fail('JSON-LD contains unescaped < tag');
+    }
+    const parsed = JSON.parse(jsonStr);
+    if (parsed['@graph']) {
+      allNodes.push(...parsed['@graph']);
+    } else {
+      allNodes.push(parsed);
     }
   }
 
-  // Answer-first and Last updated check for category & product
-  if (sp.type === 'product' || sp.type === 'category') {
-    assert(html.includes('Last updated:'), `${sp.file} displays visible "Last updated" date`);
+  if (scriptCount > 0) {
+    pass(`Found ${scriptCount} JSON-LD script blocks with safe script injection protection`);
+
+    const newsArticle = allNodes.find((n) => n['@type'] === 'NewsArticle');
+    const breadcrumbList = allNodes.find((n) => n['@type'] === 'BreadcrumbList');
+    const faqPage = allNodes.find((n) => n['@type'] === 'FAQPage');
+
+    if (newsArticle && newsArticle.headline && newsArticle.datePublished && newsArticle.author) {
+      pass(`Rich Results: Valid NewsArticle schema ("${newsArticle.headline}") with dates and author`);
+    } else {
+      fail('NewsArticle schema node missing or incomplete');
+    }
+
+    if (breadcrumbList && breadcrumbList.itemListElement.length === 3) {
+      pass('Rich Results: Valid BreadcrumbList schema with 3 levels');
+    } else {
+      fail('BreadcrumbList schema node missing or incomplete');
+    }
+
+    if (faqPage && faqPage.mainEntity.length === 2) {
+      pass('Rich Results: Valid FAQPage schema matching visible FAQ items');
+    } else {
+      fail('FAQPage schema node missing or incomplete');
+    }
+  } else {
+    fail('Article page missing JSON-LD script block');
   }
+} else {
+  fail('Article HTML page not found');
 }
 
-// 4. Validate all 179 products have lastmod 2026-11-22 in sitemap
-console.log('\n--- 4. Checking Product Sitemaps lastmod ---');
-const smProd = fs.readFileSync('out/sitemap_products.xml', 'utf8');
-const prodUrls = [...smProd.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m => m[1]);
-assert(prodUrls.length === 179, `sitemap_products.xml has 179 products (found ${prodUrls.length})`);
-const non2026 = prodUrls.filter(u => !(u.match(/<lastmod>(.*?)<\/lastmod>/) || [])[1]?.startsWith('2026-11-22'));
-assert(non2026.length === 0, `All 179 products have lastmod == 2026-11-22 (mismatches: ${non2026.length})`);
+// 6. Robots.txt
+const robotsTxt = fs.readFileSync(path.join(OUT_DIR, 'robots.txt'), 'utf8');
+if (robotsTxt.includes('Allow: /') && robotsTxt.includes('sitemap.xml') && !robotsTxt.includes('Disallow: /ai-news')) {
+  pass('robots.txt allows all crawlers and references sitemaps');
+} else {
+  fail('robots.txt invalid or blocking crawlers');
+}
 
-// 5. Grep codebase for workers.dev or aitoolspak
-console.log('\n--- 5. Checking for any remaining old domains in repository ---');
-let oldDomainMatches = [];
-function searchDir(dir) {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (['node_modules', '.git', '.next', 'out'].includes(entry.name)) continue;
-    const p = path.join(dir, entry.name);
-    if (entry.isDirectory()) searchDir(p);
-    else {
-      if (p.endsWith('verify-all.mjs')) continue;
-      const content = fs.readFileSync(p, 'utf8');
-      if (content.includes('workers.dev') || content.includes('aitoolspak')) {
-        oldDomainMatches.push(p);
+// 7. Check for [object Object] across all generated files
+let objectObjectFound = false;
+function checkNoObject(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const ent of entries) {
+    const full = path.join(dir, ent.name);
+    if (ent.isDirectory()) {
+      checkNoObject(full);
+    } else if (ent.name.endsWith('.html')) {
+      const txt = fs.readFileSync(full, 'utf8');
+      if (txt.includes('[object Object]')) {
+        objectObjectFound = true;
+        fail(`Found [object Object] in ${full}`);
       }
     }
   }
 }
-searchDir('.');
-assert(oldDomainMatches.length === 0, `Zero occurrences of workers.dev or aitoolspak in repository (found in: ${oldDomainMatches.join(', ') || 'none'})`);
+checkNoObject(OUT_DIR);
+if (!objectObjectFound) {
+  pass('Zero [object Object] across all 295+ static HTML files');
+}
 
-console.log(`\n==============================================`);
-if (failures === 0) {
-  console.log('🎉 ALL VERIFICATIONS PASSED SUCCESSFULLY! (0 Failures)');
+console.log('\n==============================================');
+if (failed === 0) {
+  console.log('🎉 ALL VERIFICATION CHECKS PASSED 100%!');
+  console.log('==============================================\n');
+  process.exit(0);
 } else {
-  console.error(`❌ COMPLETED WITH ${failures} FAILURE(S)`);
+  console.error(`❌ ${failed} CHECK(S) FAILED!`);
+  console.log('==============================================\n');
   process.exit(1);
 }

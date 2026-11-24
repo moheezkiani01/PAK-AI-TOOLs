@@ -16,4 +16,8 @@
     <loc>https://pakaitools.store/sitemap_blog.xml</loc>
     <lastmod>2026-11-23</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>https://pakaitools.store/sitemap_news.xml</loc>
+    <lastmod>2026-11-24</lastmod>
+  </sitemap>
 </sitemapindex>

@@ -21,7 +21,13 @@ if (fs.existsSync(path.join(DATA_DIR, 'blogs.json'))) {
   blogs = blogData.items || [];
 }
 
-const DOMAIN = 'https://pakaitools.store';
+let aiNews = [];
+if (fs.existsSync(path.join(DATA_DIR, 'ai-news.json'))) {
+  const rawNews = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'ai-news.json'), 'utf8'));
+  aiNews = rawNews.filter((p) => !p.draft);
+}
+
+const DOMAIN = (process.env.NEXT_PUBLIC_SITE_URL || 'https://pakaitools.store').replace(/\/+$/, '');
 
 function urlXml(loc, lastmod, priority = '0.8', changefreq = 'weekly') {
   const lastmodTag = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : '';
@@ -128,7 +134,41 @@ ${blogUrls.join('\n')}
 </urlset>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_blog.xml'), blogXml);
 
-// 5. Sitemap Index (4 sub-sitemaps)
+// 5. News Sitemap (published items only + hub)
+const newsDates = aiNews
+  .map((n) => (n.dateModified || n.datePublished || '').split('T')[0])
+  .filter(Boolean)
+  .sort()
+  .reverse();
+const newestNewsDate = newsDates[0] || null;
+
+const newsUrls = [urlXml(`${DOMAIN}/ai-news/`, newestNewsDate, '0.8', 'daily')];
+const NEWS_PER_PAGE = 12;
+const totalNewsPages = Math.ceil(aiNews.length / NEWS_PER_PAGE);
+if (totalNewsPages > 1) {
+  for (let p = 2; p <= totalNewsPages; p++) {
+    const pageSlice = aiNews.slice((p - 1) * NEWS_PER_PAGE, p * NEWS_PER_PAGE);
+    const pageDates = pageSlice
+      .map((n) => (n.dateModified || n.datePublished || '').split('T')[0])
+      .filter(Boolean)
+      .sort()
+      .reverse();
+    const pageNewest = pageDates[0] || null;
+    newsUrls.push(urlXml(`${DOMAIN}/ai-news/page/${p}/`, pageNewest, '0.7', 'weekly'));
+  }
+}
+aiNews.forEach((n) => {
+  const lastmod = (n.dateModified || n.datePublished || '').split('T')[0] || null;
+  newsUrls.push(urlXml(`${DOMAIN}/ai-news/${n.slug}/`, lastmod, '0.8', 'weekly'));
+});
+
+const newsXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${newsUrls.join('\n')}
+</urlset>`;
+fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_news.xml'), newsXml);
+
+// 6. Sitemap Index (5 sub-sitemaps)
 // Each sub-sitemap uses its newest real lastmod
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -144,15 +184,18 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
   <sitemap>
     <loc>${DOMAIN}/sitemap_blog.xml</loc>${newestBlogDate ? `\n    <lastmod>${newestBlogDate}</lastmod>` : ''}
   </sitemap>
+  <sitemap>
+    <loc>${DOMAIN}/sitemap_news.xml</loc>${newestNewsDate ? `\n    <lastmod>${newestNewsDate}</lastmod>` : ''}
+  </sitemap>
 </sitemapindex>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_index.xml'), indexXml);
 
-// 6. Full combined Sitemap (sitemap.xml)
-const allUrls = [...hubUrls, ...productUrls, ...compareUrls, ...blogUrls];
+// 7. Full combined Sitemap (sitemap.xml)
+const allUrls = [...hubUrls, ...productUrls, ...compareUrls, ...blogUrls, ...newsUrls];
 const fullSitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allUrls.join('\n')}
 </urlset>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), fullSitemapXml);
 
-console.log('Saved split sitemaps: sitemap_products.xml, sitemap_hubs.xml, sitemap_compare.xml, sitemap_blog.xml, sitemap_index.xml, and sitemap.xml in public/!');
+console.log('Saved split sitemaps: sitemap_products.xml, sitemap_hubs.xml, sitemap_compare.xml, sitemap_blog.xml, sitemap_news.xml, sitemap_index.xml, and sitemap.xml in public/!');

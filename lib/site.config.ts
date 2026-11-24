@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://pakaitools.store';
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://pakaitools.store').replace(/\/+$/, '');
 
 export const SITE = {
   domain: SITE_URL,
