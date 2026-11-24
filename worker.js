@@ -3,12 +3,8 @@ export default {
     const url = new URL(request.url);
     const host = url.hostname.toLowerCase();
 
-    // 301 Redirect any traffic from *.workers.dev or www.pakaitools.store to apex https://pakaitools.store
-    if (
-      host !== 'pakaitools.store' &&
-      !host.includes('localhost') &&
-      !host.includes('127.0.0.1')
-    ) {
+    // 301 Redirect www.pakaitools.store to apex https://pakaitools.store
+    if (host === 'www.pakaitools.store') {
       url.protocol = 'https:';
       url.hostname = 'pakaitools.store';
       url.port = '';
