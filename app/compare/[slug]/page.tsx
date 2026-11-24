@@ -6,6 +6,7 @@ import { getComparisons, getComparisonBySlug } from '@/lib/data';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Faq } from '@/components/Faq';
 import { JsonLd } from '@/components/JsonLd';
+import { wrapInGraph, getBreadcrumbSchema } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 import { buildWhatsAppLink, getComparisonWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
@@ -63,29 +64,20 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
   const fullUrl = `https://pakaitools.store/compare/${comp.slug}/`;
   const waLink = buildWhatsAppLink(getComparisonWhatsAppMessage(comp.seoTitle, fullUrl));
 
-  const schema = comp.schema || {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Article',
-        headline: comp.h1,
-        datePublished: '2026-11-22',
-        dateModified: '2026-11-22',
-        author: { '@type': 'Organization', name: SITE.name },
-        publisher: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
-        mainEntityOfPage: fullUrl,
-      },
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: breadcrumbs.map((b, idx) => ({
-          '@type': 'ListItem',
-          position: idx + 1,
-          name: b.name,
-          item: `${SITE.domain}${b.url}`,
-        })),
-      },
-    ],
+  const articleNode = {
+    '@type': 'Article',
+    headline: comp.h1,
+    datePublished: '2026-11-22',
+    dateModified: '2026-11-22',
+    author: { '@type': 'Organization', name: SITE.name },
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+    mainEntityOfPage: fullUrl,
   };
+
+  const schema = wrapInGraph([
+    articleNode,
+    getBreadcrumbSchema(breadcrumbs),
+  ]);
 
   const bodyHtml = renderMarkdown(comp.contentMarkdown);
 

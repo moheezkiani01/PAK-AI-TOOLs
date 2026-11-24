@@ -5,8 +5,6 @@ import { Footer } from '@/components/Footer';
 import { TabBar } from '@/components/TabBar';
 import { WhatsAppFab } from '@/components/WhatsAppFab';
 import { CurrencyProvider } from '@/components/CurrencyContext';
-import { JsonLd } from '@/components/JsonLd';
-import { getOrganizationSchema, getWebSiteSchema } from '@/lib/schema';
 import { SITE } from '@/lib/site.config';
 
 export const viewport: Viewport = {
@@ -57,15 +55,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const orgSchema = getOrganizationSchema();
-  const siteSchema = getWebSiteSchema();
-
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <JsonLd schema={orgSchema} />
-        <JsonLd schema={siteSchema} />
-      </head>
+      <head />
       <body className="antialiased flex flex-col min-h-screen">
         <a href="#main" className="skip-link">
           Skip to main content

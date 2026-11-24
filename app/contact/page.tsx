@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { getSitePages } from '@/lib/data';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { JsonLd } from '@/components/JsonLd';
+import { getContactSchema } from '@/lib/schema';
 import { SITE } from '@/lib/site.config';
 import { MessageCircle, Mail } from 'lucide-react';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
@@ -32,12 +33,7 @@ export default function ContactPage() {
     { name: 'Contact', url: '/contact/' },
   ];
 
-  const contactSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    name: 'Contact PakAITools',
-    url: `${SITE.domain}/contact/`,
-  };
+  const contactSchema = getContactSchema(breadcrumbs);
 
   const waUrl = buildWhatsAppLink(getGeneralWhatsAppMessage());
 

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { getSitePages } from '@/lib/data';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { JsonLd } from '@/components/JsonLd';
+import { getAboutSchema } from '@/lib/schema';
 import { SITE } from '@/lib/site.config';
 import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck } from 'lucide-react';
@@ -32,17 +33,7 @@ export default function AboutPage() {
     { name: 'About', url: '/about/' },
   ];
 
-  const aboutSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'AboutPage',
-    name: 'About PakAITools',
-    url: `${SITE.domain}/about/`,
-    mainEntity: {
-      '@type': 'Person',
-      name: SITE.founder,
-      jobTitle: 'Founder',
-    },
-  };
+  const aboutSchema = getAboutSchema(breadcrumbs);
 
   return (
     <div className="max-w-4xl mx-auto py-2 space-y-8">

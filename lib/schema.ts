@@ -1,5 +1,6 @@
 import { SITE } from './site.config';
 import type { Product, CategoryHub, BrandHub, BlogPost } from './types';
+import { getBrandBySlug, getCategoryBySlug } from './data';
 
 export function getOrganizationSchema() {
   return {
@@ -35,12 +36,27 @@ export function getWebSiteSchema() {
     publisher: {
       '@id': `${SITE.domain}/#organization`,
     },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE.domain}/price-list/?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   };
+}
+
+export function wrapInGraph(nodes: any[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      getOrganizationSchema(),
+      getWebSiteSchema(),
+      ...nodes.filter(Boolean),
+    ],
+  };
+}
+
+export function getHomepageSchema(faqs?: Array<{ question: string; answer: string }>) {
+  const nodes: any[] = [];
+  if (faqs && faqs.length > 0) {
+    const faqSchema = getFaqSchema(faqs);
+    if (faqSchema) nodes.push(faqSchema);
+  }
+  return wrapInGraph(nodes);
 }
 
 export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
@@ -55,6 +71,10 @@ export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>)
   };
 }
 
+export function getBreadcrumbGraphSchema(items: Array<{ name: string; url: string }>) {
+  return wrapInGraph([getBreadcrumbSchema(items)]);
+}
+
 export function getFaqSchema(faqs: Array<{ question: string; answer: string }>) {
   if (!faqs || faqs.length === 0) return null;
   return {
@@ -64,7 +84,7 @@ export function getFaqSchema(faqs: Array<{ question: string; answer: string }>) 
       name: f.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: f.answer,
+        text: (f.answer || '').replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1'),
       },
     })),
   };
@@ -73,49 +93,56 @@ export function getFaqSchema(faqs: Array<{ question: string; answer: string }>) 
 export function getProductSchema(
   product: Product,
   breadcrumbs: Array<{ name: string; url: string }>,
-  brandLogo?: string | null
+  _brandLogo?: string | null
 ) {
-  const graph: any[] = [];
+  const nodes: any[] = [];
   const canonicalUrl = `${SITE.domain}/product/${product.slug}/`;
 
-  if (product.price !== null) {
-    const imageUrl = brandLogo
-      ? (brandLogo.startsWith('http') ? brandLogo : `${SITE.domain}${brandLogo}`)
-      : `${SITE.domain}/og-default.png`;
+  // Use brand display name (e.g. Canva) and category display name (e.g. Design & Creative) instead of slugs
+  const brandObj = getBrandBySlug(product.brandSlug);
+  const categoryObj = getCategoryBySlug(product.categorySlug);
 
-    graph.push({
+  let brandName = brandObj?.displayName || product.brandSlug;
+  if (product.brandSlug === 'canva') {
+    brandName = 'Canva';
+  }
+  const categoryName = categoryObj?.name || product.categorySlug;
+
+  // Use product image of at least 1200x630 (og-default.png is 1200x630) instead of 128px logo
+  const productImage = `${SITE.domain}/og-default.png`;
+
+  // Sourced from data: date no more than 90 days out
+  const priceValidUntil = (product as any).priceValidUntil || SITE.priceValidUntil || '2027-02-20';
+
+  if (product.price !== null) {
+    nodes.push({
       '@type': 'Product',
       '@id': `${canonicalUrl}#product`,
       name: product.name,
       description: product.answer,
-      image: [imageUrl],
+      image: [productImage],
       sku: product.slug,
       brand: {
         '@type': 'Brand',
-        name: product.brandSlug,
+        name: brandName,
       },
-      category: product.categorySlug,
+      category: categoryName,
       url: canonicalUrl,
       offers: {
         '@type': 'Offer',
         url: canonicalUrl,
         priceCurrency: 'PKR',
         price: product.price.toString(),
-        priceValidUntil: SITE.priceValidUntil,
+        priceValidUntil: priceValidUntil,
         availability: 'https://schema.org/InStock',
         itemCondition: 'https://schema.org/NewCondition',
         seller: {
           '@id': `${SITE.domain}/#organization`,
         },
-        hasMerchantReturnPolicy: {
-          '@type': 'MerchantReturnPolicy',
-          url: `${SITE.domain}/refund-warranty-policy/`,
-        },
       },
     });
   } else {
-    // Quote-only plans
-    graph.push({
+    nodes.push({
       '@type': 'WebPage',
       '@id': canonicalUrl,
       url: canonicalUrl,
@@ -124,17 +151,14 @@ export function getProductSchema(
     });
   }
 
-  graph.push(getBreadcrumbSchema(breadcrumbs));
+  nodes.push(getBreadcrumbSchema(breadcrumbs));
 
   if (product.faqs && product.faqs.length > 0) {
     const faqSchema = getFaqSchema(product.faqs);
-    if (faqSchema) graph.push(faqSchema);
+    if (faqSchema) nodes.push(faqSchema);
   }
 
-  return {
-    '@context': 'https://schema.org',
-    '@graph': graph,
-  };
+  return wrapInGraph(nodes);
 }
 
 export function getCollectionSchema(
@@ -144,7 +168,7 @@ export function getCollectionSchema(
   faqs?: Array<{ question: string; answer: string }>
 ) {
   const canonical = `${SITE.domain}${url}`;
-  const graph: any[] = [
+  const nodes: any[] = [
     {
       '@type': 'CollectionPage',
       '@id': canonical,
@@ -156,11 +180,35 @@ export function getCollectionSchema(
 
   if (faqs && faqs.length > 0) {
     const faqSchema = getFaqSchema(faqs);
-    if (faqSchema) graph.push(faqSchema);
+    if (faqSchema) nodes.push(faqSchema);
   }
 
-  return {
-    '@context': 'https://schema.org',
-    '@graph': graph,
-  };
+  return wrapInGraph(nodes);
+}
+
+export function getAboutSchema(breadcrumbs: Array<{ name: string; url: string }>) {
+  return wrapInGraph([
+    {
+      '@type': 'AboutPage',
+      name: 'About PakAITools',
+      url: `${SITE.domain}/about/`,
+      mainEntity: {
+        '@type': 'Person',
+        name: SITE.founder,
+        jobTitle: 'Founder',
+      },
+    },
+    getBreadcrumbSchema(breadcrumbs),
+  ]);
+}
+
+export function getContactSchema(breadcrumbs: Array<{ name: string; url: string }>) {
+  return wrapInGraph([
+    {
+      '@type': 'ContactPage',
+      name: 'Contact PakAITools',
+      url: `${SITE.domain}/contact/`,
+    },
+    getBreadcrumbSchema(breadcrumbs),
+  ]);
 }

@@ -238,8 +238,9 @@ if (fs.existsSync(OUT_DIR)) {
           }
         }
 
-        // 7. Check for unparsed raw markdown links like [Text](/url/)
-        const unparsedLink = content.match(/\[([A-Za-z0-9\s&;]+)\]\((?:\/[a-z0-9\-_/]+|https?:\/\/[^\)]+)\)/);
+        // 7. Check for unparsed raw markdown links like [Text](/url/) in visible content
+        const visibleContent = content.replace(/<script[\s\S]*?<\/script>/gi, '');
+        const unparsedLink = visibleContent.match(/\[([A-Za-z0-9\s&;]+)\]\((?:\/[a-z0-9\-_/]+|https?:\/\/[^\)]+)\)/);
         if (unparsedLink) {
           error(`File ${relPath} contains unparsed markdown link: "${unparsedLink[0]}"`);
           unparsedLinkFailures++;

@@ -4,7 +4,7 @@ import { getSitePages } from '@/lib/data';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Faq } from '@/components/Faq';
 import { JsonLd } from '@/components/JsonLd';
-import { getBreadcrumbSchema } from '@/lib/schema';
+import { getBreadcrumbGraphSchema } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 import { SITE } from '@/lib/site.config';
 import { ShieldCheck } from 'lucide-react';
@@ -38,7 +38,7 @@ export default function PaymentMethodsPage() {
 
   return (
     <div className="max-w-4xl mx-auto py-2 space-y-8">
-      <JsonLd schema={getBreadcrumbSchema(breadcrumbs)} />
+      <JsonLd schema={getBreadcrumbGraphSchema(breadcrumbs)} />
       <Breadcrumbs items={breadcrumbs} />
 
       <section className="space-y-4">

@@ -84,6 +84,7 @@ const productsPath = path.join(ROOT_DIR, 'data', 'products.json');
 if (fs.existsSync(productsPath)) {
   const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
   for (const p of products) {
+    p.priceValidUntil = '2027-02-20';
     if (p.contentMarkdown) {
       // Remove trailing "## Frequently Asked Questions" heading since page renders <Faq> component
       p.contentMarkdown = p.contentMarkdown.replace(/##\s*Frequently Asked Questions[\s\S]*$/i, '').trim();

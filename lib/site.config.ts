@@ -10,7 +10,7 @@ export const SITE = {
   rateDateDisplay: 'November 22, 2026',
   pricesReviewedOn: '2026-11-22',
   pricesReviewedDisplay: 'November 22, 2026',
-  priceValidUntil: '2027-12-31',
+  priceValidUntil: '2027-02-20',
   showBrandLogos: true,
   deliveryText: 'Within 15 minutes after payment verification',
   paymentMethods: [

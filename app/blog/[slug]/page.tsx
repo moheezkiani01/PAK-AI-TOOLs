@@ -6,6 +6,7 @@ import { getBlogPosts, getBlogPostBySlug, getProductBySlug } from '@/lib/data';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Faq } from '@/components/Faq';
 import { JsonLd } from '@/components/JsonLd';
+import { wrapInGraph, getBreadcrumbSchema, getFaqSchema } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 import { buildWhatsAppLink, getBlogWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
@@ -78,9 +79,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     faqs = post.faq.map(([q, a]) => ({ question: q, answer: a }));
   }
 
-  // Schema: BlogPosting + Breadcrumbs + FAQ
-  const schema = post.schema || {
-    '@context': 'https://schema.org',
+  // Schema: Single @graph with Organization, WebSite, BlogPosting, Breadcrumbs, FAQ
+  const blogPostingNode = {
     '@type': 'BlogPosting',
     headline: h1Text,
     description: post.metaDesc || post.desc || summaryText,
@@ -102,6 +102,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     dateModified: postDate,
     mainEntityOfPage: fullUrl,
   };
+
+  const faqNode = (post as any).faqs ? getFaqSchema((post as any).faqs) : null;
+  const schema = wrapInGraph([
+    blogPostingNode,
+    getBreadcrumbSchema(breadcrumbs),
+    faqNode,
+  ]);
 
   // Substitute shortcodes if legacy evergreen post
   let rawBody = post.contentMarkdown || post.md || '';
