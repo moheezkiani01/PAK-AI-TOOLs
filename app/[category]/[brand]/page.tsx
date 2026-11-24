@@ -104,9 +104,21 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
           )}
           <h1 className="text-3xl md:text-4xl font-black text-text">{hub.h1}</h1>
         </div>
-        <p className="text-base text-text-secondary leading-relaxed max-w-3xl">
-          {hub.answer?.replace(/\*\*/g, '')}
-        </p>
+        <div className="p-4 md:p-5 rounded-2xl bg-accent-soft/40 border border-accent/20 space-y-3">
+          <p className="text-sm md:text-base text-text leading-relaxed font-medium">
+            {hub.answer?.replace(/\*\*/g, '')}
+          </p>
+          <div className="flex flex-wrap items-center gap-3 text-xs text-text-secondary pt-2 border-t border-accent/15">
+            <span className="flex items-center">
+              <ShieldCheck className="w-3.5 h-3.5 mr-1 text-accent" />
+              Verified Warranty
+            </span>
+            <span>·</span>
+            <span>Delivery: Within 15 minutes</span>
+            <span>·</span>
+            <span>Last updated: {products.map((p) => p.updatedAt).filter(Boolean).sort().reverse()[0] || '2026-11-22'}</span>
+          </div>
+        </div>
       </section>
 
       {/* Plan Comparison Table / Cards */}

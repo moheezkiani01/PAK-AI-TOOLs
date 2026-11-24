@@ -162,6 +162,16 @@ if (fs.existsSync(OUT_DIR) && fs.existsSync(path.join(PUBLIC_DIR, 'sitemap.xml')
   fs.copyFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), path.join(OUT_DIR, 'sitemap.xml'));
 }
 
+// Validate required favicons
+const requiredFavicons = ['favicon.ico', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
+for (const fav of requiredFavicons) {
+  if (fs.existsSync(path.join(PUBLIC_DIR, fav))) {
+    ok(`public/${fav} exists`);
+  } else {
+    error(`public/${fav} is missing`);
+  }
+}
+
 // 11. Validate Out Directory (Static Export)
 if (fs.existsSync(OUT_DIR)) {
   console.log('\n--- Validating Static Export in out/ ---');

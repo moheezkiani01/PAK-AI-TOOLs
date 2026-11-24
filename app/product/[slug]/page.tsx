@@ -224,10 +224,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
 
             {/* Answer-first snippet (40-60 words) */}
-            <div className="p-4 md:p-5 rounded-2xl bg-accent-soft/40 border border-accent/20">
+            <div className="p-4 md:p-5 rounded-2xl bg-accent-soft/40 border border-accent/20 space-y-3">
               <p className="text-sm md:text-base text-text leading-relaxed font-medium">
                 {product.answer}
               </p>
+              <div className="flex flex-wrap items-center gap-3 text-xs text-text-secondary pt-2 border-t border-accent/15">
+                <span className="flex items-center">
+                  <ShieldCheck className="w-3.5 h-3.5 mr-1 text-accent" />
+                  Warranty: {product.warranty}
+                </span>
+                <span>·</span>
+                <span>Delivery: {product.deliveryTime || 'Within 15 minutes'}</span>
+                <span>·</span>
+                <span>Last updated: {product.updatedAt || '2026-11-22'}</span>
+              </div>
             </div>
           </header>
 

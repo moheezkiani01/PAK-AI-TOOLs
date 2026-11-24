@@ -112,3 +112,22 @@ await Promise.all(
 );
 console.log(`Successfully generated ${products.length} 1200x630 PNG share cards in public/og/!`);
 
+// Ensure standard favicons exist
+const logoSrc = path.join(PUBLIC_DIR, 'logo-source-square.png');
+if (fs.existsSync(logoSrc)) {
+  const icoPath = path.join(PUBLIC_DIR, 'favicon.ico');
+  const icon192Path = path.join(PUBLIC_DIR, 'icon-192.png');
+  const icon512Path = path.join(PUBLIC_DIR, 'icon-512.png');
+  const appleTouchPath = path.join(PUBLIC_DIR, 'apple-touch-icon.png');
+
+  if (!fs.existsSync(icoPath) || !fs.existsSync(icon192Path) || !fs.existsSync(icon512Path) || !fs.existsSync(appleTouchPath)) {
+    console.log('Generating required favicon files from logo-source-square.png...');
+    await sharp(logoSrc).resize(192, 192).png().toFile(icon192Path);
+    await sharp(logoSrc).resize(512, 512).png().toFile(icon512Path);
+    await sharp(logoSrc).resize(180, 180).png().toFile(appleTouchPath);
+    const icoBuf = await sharp(logoSrc).resize(48, 48).png().toBuffer();
+    fs.writeFileSync(icoPath, icoBuf);
+    console.log('Favicons generated successfully!');
+  }
+}
+

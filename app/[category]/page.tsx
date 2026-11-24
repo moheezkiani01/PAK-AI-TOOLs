@@ -87,14 +87,26 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Header & Answer Paragraph */}
-      <section className="space-y-2">
+      <section className="space-y-3">
         <h1 className="text-3xl md:text-4xl font-black text-text">
           {hub?.h1 || `${category.name} Price in Pakistan`}
         </h1>
-        <p className="text-base text-text-secondary leading-relaxed max-w-3xl">
-          {(hub?.answer ||
-            `PakAITools lists ${category.brands} brands and ${category.plans} plans in ${category.name} for Pakistan. Compare plans by duration, device allowance, and warranty before you order.`).replace(/\*\*/g, '')}
-        </p>
+        <div className="p-4 md:p-5 rounded-2xl bg-accent-soft/40 border border-accent/20 space-y-3">
+          <p className="text-sm md:text-base text-text leading-relaxed font-medium">
+            {(hub?.answer ||
+              `PakAITools lists ${category.brands} verified brands and ${category.plans} plans in ${category.name} with fixed PKR pricing for Pakistan. Every plan includes guaranteed warranty coverage, no credit card required, and private WhatsApp delivery within 15 minutes after payment verification.`).replace(/\*\*/g, '')}
+          </p>
+          <div className="flex flex-wrap items-center gap-3 text-xs text-text-secondary pt-2 border-t border-accent/15">
+            <span className="flex items-center">
+              <ShieldCheck className="w-3.5 h-3.5 mr-1 text-accent" />
+              Verified Warranty on Every Plan
+            </span>
+            <span>·</span>
+            <span>Delivery: Within 15 minutes</span>
+            <span>·</span>
+            <span>Last updated: {products.map((p) => p.updatedAt).filter(Boolean).sort().reverse()[0] || '2026-11-22'}</span>
+          </div>
+        </div>
       </section>
 
       {/* Brand Grid (Single clean heading) */}

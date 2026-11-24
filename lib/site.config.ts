@@ -1,5 +1,8 @@
+export const SITE_URL = 'https://pakaitools.store';
+
 export const SITE = {
-  domain: 'https://pakaitools.store',
+  domain: SITE_URL,
+  url: SITE_URL,
   name: 'PakAITools',
   founder: 'Moheez Kiani',
   whatsapp: '923219305619',

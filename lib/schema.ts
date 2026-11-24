@@ -1,17 +1,18 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { SITE } from './site.config';
+import { SITE, SITE_URL } from './site.config';
 import type { Product, CategoryHub, BrandHub, BlogPost } from './types';
 import { getBrandBySlug, getCategoryBySlug } from './data';
 
 export function getOrganizationSchema() {
   return {
     '@type': 'Organization',
-    '@id': `${SITE.domain}/#organization`,
+    '@id': `${SITE_URL}/#organization`,
     name: SITE.name,
-    url: SITE.domain,
-    logo: `${SITE.domain}/icon-192.png`,
-    email: SITE.email,
+    url: SITE_URL,
+    logo: `${SITE_URL}/icon-192.png`,
+    email: 'support@pakaitools.store',
+    telephone: '+92-321-9305619',
     founder: {
       '@type': 'Person',
       name: SITE.founder,
@@ -19,9 +20,10 @@ export function getOrganizationSchema() {
     areaServed: 'PK',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: `+${SITE.whatsapp}`,
+      telephone: '+92-321-9305619',
       contactType: 'customer support',
-      email: SITE.email,
+      email: 'support@pakaitools.store',
+      areaServed: 'PK',
       availableLanguage: ['English', 'Urdu'],
     },
   };
@@ -30,13 +32,13 @@ export function getOrganizationSchema() {
 export function getWebSiteSchema() {
   return {
     '@type': 'WebSite',
-    '@id': `${SITE.domain}/#website`,
-    url: SITE.domain,
+    '@id': `${SITE_URL}/#website`,
+    url: SITE_URL,
     name: SITE.name,
-    alternateName: ['Pak AI Tools', 'pakaitools.store'],
+    alternateName: 'Pak AI Tools',
     inLanguage: 'en-PK',
     publisher: {
-      '@id': `${SITE.domain}/#organization`,
+      '@id': `${SITE_URL}/#organization`,
     },
   };
 }
@@ -69,7 +71,7 @@ export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>)
       '@type': 'ListItem',
       position: idx + 1,
       name: item.name,
-      item: item.url.startsWith('http') ? item.url : `${SITE.domain}${item.url}`,
+      item: item.url.startsWith('http') ? item.url : `${SITE_URL}${item.url}`,
     })),
   };
 }
@@ -102,7 +104,7 @@ export function getProductSchema(
   _brandLogo?: string | null
 ) {
   const graph: any[] = [];
-  const canonicalUrl = `${SITE.domain}/product/${product.slug}/`;
+  const canonicalUrl = `${SITE_URL}/product/${product.slug}/`;
 
   // Use brand display name (e.g. "Canva") and category display name (e.g. "Design & Creative")
   const brandObj = getBrandBySlug(product.brandSlug);
@@ -118,8 +120,8 @@ export function getProductSchema(
   const ogPngPath = path.join(process.cwd(), 'public', 'og', `${product.slug}.png`);
   const hasCustomOg = fs.existsSync(ogPngPath);
   const productImage = hasCustomOg
-    ? `${SITE.domain}/og/${product.slug}.png`
-    : `${SITE.domain}/og-default.png`;
+    ? `${SITE_URL}/og/${product.slug}.png`
+    : `${SITE_URL}/og-default.png`;
 
   // Price valid until date: no more than 90 days out, sourced from product or site config data
   const priceValidUntil = (product as any).priceValidUntil || SITE.priceValidUntil || '2027-02-20';
@@ -132,7 +134,7 @@ export function getProductSchema(
     availability: product.price !== null ? 'https://schema.org/InStock' : 'https://schema.org/LimitedAvailability',
     itemCondition: 'https://schema.org/NewCondition',
     seller: {
-      '@id': `${SITE.domain}/#organization`,
+      '@id': `${SITE_URL}/#organization`,
     },
   };
   if (product.price !== null) {
@@ -174,7 +176,7 @@ export function getCollectionSchema(
   breadcrumbs: Array<{ name: string; url: string }>,
   faqs?: Array<{ question: string; answer: string }>
 ) {
-  const canonical = `${SITE.domain}${url}`;
+  const canonical = `${SITE_URL}${url}`;
   const graph: any[] = [
     {
       '@type': 'CollectionPage',
@@ -203,7 +205,7 @@ export function getAboutSchema(breadcrumbs: Array<{ name: string; url: string }>
       {
         '@type': 'AboutPage',
         name: 'About PakAITools',
-        url: `${SITE.domain}/about/`,
+        url: `${SITE_URL}/about/`,
         mainEntity: {
           '@type': 'Person',
           name: SITE.founder,
@@ -222,7 +224,7 @@ export function getContactSchema(breadcrumbs: Array<{ name: string; url: string 
       {
         '@type': 'ContactPage',
         name: 'Contact PakAITools',
-        url: `${SITE.domain}/contact/`,
+        url: `${SITE_URL}/contact/`,
       },
       getBreadcrumbSchema(breadcrumbs),
     ],
