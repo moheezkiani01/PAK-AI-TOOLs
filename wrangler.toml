@@ -1,12 +1,13 @@
 name = "pak-ai-tools"
 main = "worker.js"
 compatibility_date = "2024-11-01"
+workers_dev = true
 
-# Main domain + www (Cloudflare creates DNS records and SSL automatically)
-routes = [
-  { pattern = "pakaitools.store", custom_domain = true },
-  { pattern = "www.pakaitools.store", custom_domain = true }
-]
+# Custom domains: enable after adding pakaitools.store zone in Cloudflare
+# routes = [
+#   { pattern = "pakaitools.store", custom_domain = true },
+#   { pattern = "www.pakaitools.store", custom_domain = true }
+# ]
 
 [assets]
 directory = "./out"
