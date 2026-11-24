@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { execSync } from 'node:child_process';
 
 console.log('==============================================');
 console.log('       PAKAITOOLS BUILD & DATA VALIDATION     ');
@@ -324,6 +325,13 @@ if (fs.existsSync(OUT_DIR)) {
   }
 
   if (unparsedLinkFailures === 0) ok('Zero unparsed markdown links across all static HTML pages');
+
+  // Verify brand grid links & canonicals on homepage
+  try {
+    execSync('node scripts/check-brand-links.mjs', { stdio: 'inherit' });
+  } catch (err) {
+    error('Brand grid links check failed');
+  }
 }
 
 console.log('\n==============================================');

@@ -81,7 +81,29 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
     { name: hub.name.replace(/ Price in Pakistan$/i, ''), url: hub.url },
   ];
 
-  const schema = getCollectionSchema(hub.h1, hub.url, breadcrumbs, hub.faqs);
+  const allBrandPlans = [...products, ...mergedPlans];
+  const validPrices = allBrandPlans
+    .map((p) => p.price)
+    .filter((pr): pr is number => typeof pr === 'number' && pr > 0);
+
+  const minPrice = validPrices.length > 0 ? Math.min(...validPrices) : null;
+  const maxPrice = validPrices.length > 0 ? Math.max(...validPrices) : null;
+
+  const schema = getCollectionSchema(
+    hub.h1,
+    hub.url,
+    breadcrumbs,
+    hub.faqs,
+    minPrice !== null
+      ? {
+          brandName: brand?.displayName || hub.name,
+          lowPrice: minPrice,
+          highPrice: maxPrice ?? minPrice,
+          offerCount: allBrandPlans.length,
+          description: hub.answer,
+        }
+      : undefined
+  );
 
   return (
     <div className="space-y-6 md:space-y-8 py-2">

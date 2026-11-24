@@ -22,6 +22,10 @@ import { WhatsAppIcon } from '@/components/WhatsAppFab';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
 import { baseOg } from '@/lib/seo';
+import { getBrandGridData, getLastPriceUpdate, getBrandGridJsonLd } from '@/lib/brand-grid';
+import { CategoryBrandSection } from '@/components/CategoryBrandSection';
+import { JsonLd } from '@/components/JsonLd';
+import { getFaqSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'AI Tools & Digital Subscriptions in Pakistan | PakAITools',
@@ -95,8 +99,23 @@ export default function HomePage() {
     },
   ];
 
+  const brandGridGroups = getBrandGridData();
+  const priceUpdate = getLastPriceUpdate();
+  const brandGridJsonLd = getBrandGridJsonLd(brandGridGroups);
+  const homeFaqJsonLd = getFaqSchema(homeFaqs);
+
+  const homeGraph = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...brandGridJsonLd,
+      ...(homeFaqJsonLd ? [homeFaqJsonLd] : []),
+    ],
+  };
+
   return (
     <div className="space-y-8 md:space-y-10 py-2">
+      <JsonLd data={homeGraph} />
+
       {/* 1. Hero Section (Above the fold) */}
       <section className="text-center max-w-3xl mx-auto space-y-4 pt-2 md:pt-4">
         <h1 className="text-3xl md:text-5xl font-black text-text tracking-tight leading-tight">
@@ -146,31 +165,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Browse Categories Section */}
-      <section aria-labelledby="categories-heading" className="space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-separator pb-3 gap-2">
-          <div>
-            <h2 id="categories-heading" className="text-2xl md:text-3xl font-bold text-text">
-              Browse Categories
-            </h2>
-            <p className="text-xs md:text-sm text-text-secondary mt-0.5">
-              15 specialized hubs for creators, developers, students, and businesses
-            </p>
+      {/* 2. Verified PKR Brands by Category Grid */}
+      <div className="space-y-8 md:space-y-10">
+        {/* Verification & Trust Banner */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl border border-separator bg-bg-card/70 text-xs text-text-secondary gap-2">
+          <div className="flex items-center space-x-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
+            <span>
+              Prices verified &amp; updated:{' '}
+              <time dateTime={priceUpdate.dateIso} className="font-semibold text-text">
+                {priceUpdate.dateDisplay}
+              </time>
+            </span>
           </div>
-          <Link
-            href="/categories/"
-            className="inline-flex items-center justify-center px-4 py-2 rounded-xl border border-separator bg-bg-card hover:bg-bg-subtle text-xs md:text-sm font-semibold text-text hover:text-accent transition-colors min-h-[40px]"
-          >
-            View all 15 <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-          </Link>
+          <p className="text-text-tertiary">
+            PakAITools is an independent reseller and is not affiliated with OpenAI, Google, Anthropic, xAI or other brand owners.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 md:gap-4">
-          {categories.map((cat) => (
-            <CategoryCard key={cat.slug} category={cat} />
+        {/* 15 Brand Category Sections */}
+        <div className="space-y-10 md:space-y-12">
+          {brandGridGroups.map((group, idx) => (
+            <CategoryBrandSection
+              key={group.slug}
+              group={group}
+              isFirstCategory={idx === 0}
+            />
           ))}
         </div>
-      </section>
+      </div>
 
       {/* 3. Popular Subscriptions in Pakistan */}
       <section aria-labelledby="popular-heading" className="space-y-4">

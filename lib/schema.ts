@@ -175,7 +175,14 @@ export function getCollectionSchema(
   title: string,
   url: string,
   breadcrumbs: Array<{ name: string; url: string }>,
-  faqs?: Array<{ question: string; answer: string }>
+  faqs?: Array<{ question: string; answer: string }>,
+  aggregateOffer?: {
+    brandName: string;
+    lowPrice: number;
+    highPrice: number;
+    offerCount: number;
+    description: string;
+  }
 ) {
   const canonical = `${SITE_URL}${url}`;
   const graph: any[] = [
@@ -187,6 +194,28 @@ export function getCollectionSchema(
     },
     getBreadcrumbSchema(breadcrumbs),
   ];
+
+  if (aggregateOffer && aggregateOffer.offerCount > 0) {
+    graph.push({
+      '@type': 'Product',
+      '@id': `${canonical}#product`,
+      name: title,
+      description: aggregateOffer.description,
+      brand: {
+        '@type': 'Brand',
+        name: aggregateOffer.brandName,
+      },
+      offers: {
+        '@type': 'AggregateOffer',
+        priceCurrency: 'PKR',
+        lowPrice: aggregateOffer.lowPrice,
+        highPrice: aggregateOffer.highPrice,
+        offerCount: aggregateOffer.offerCount,
+        availability: 'https://schema.org/InStock',
+        url: canonical,
+      },
+    });
+  }
 
   if (faqs && faqs.length > 0) {
     const faqSchema = getFaqSchema(faqs);
