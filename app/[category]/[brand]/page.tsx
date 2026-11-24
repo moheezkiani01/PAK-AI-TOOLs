@@ -20,6 +20,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck, ArrowRight, BookOpen, Scale } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getBrandWhatsAppMessage } from '@/lib/whatsapp';
+import { baseOg } from '@/lib/seo';
 
 interface BrandHubPageProps {
   params: Promise<{ category: string; brand: string }>;
@@ -48,10 +49,10 @@ export async function generateMetadata({ params }: BrandHubPageProps): Promise<M
       canonical: `https://pakaitools.store/${catSlug}/${brandSlug}/`,
     },
     openGraph: {
+      ...baseOg,
       title: cleanTitle,
       description: hub.metaDesc,
       url: `https://pakaitools.store/${catSlug}/${brandSlug}/`,
-      images: ['/og-default.png'],
     },
   };
 }
@@ -148,6 +149,9 @@ export default async function BrandHubPage({ params }: BrandHubPageProps) {
             />
           ))}
         </div>
+        <p className="mt-2.5 text-xs text-text-tertiary">
+          *USD amount is approximate and changes with the exchange rate. Orders are priced in PKR.
+        </p>
       </section>
 
       {/* Compare Before Buying Callout */}

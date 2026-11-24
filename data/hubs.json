@@ -1067,7 +1067,7 @@
   ],
   "brands": [
     {
-      "name": "CLAUDE API",
+      "name": "Claude API",
       "url": "/ai-apis/claude-api/",
       "categorySlug": "ai-apis",
       "brandSlug": "claude-api",
@@ -1096,7 +1096,7 @@
       ]
     },
     {
-      "name": "CURSOR API",
+      "name": "Cursor API",
       "url": "/ai-apis/cursor-api/",
       "categorySlug": "ai-apis",
       "brandSlug": "cursor-api",
@@ -1125,7 +1125,7 @@
       ]
     },
     {
-      "name": "CHINESE MODELS API",
+      "name": "Chinese Models API",
       "url": "/ai-apis/chinese-models-api/",
       "categorySlug": "ai-apis",
       "brandSlug": "chinese-models-api",
@@ -1154,7 +1154,7 @@
       ]
     },
     {
-      "name": "DEEPSEEK API",
+      "name": "DeepSeek API",
       "url": "/ai-apis/deepseek-api/",
       "categorySlug": "ai-apis",
       "brandSlug": "deepseek-api",
@@ -1183,7 +1183,7 @@
       ]
     },
     {
-      "name": "GROK API",
+      "name": "Grok API",
       "url": "/ai-apis/grok-api/",
       "categorySlug": "ai-apis",
       "brandSlug": "grok-api",
@@ -1212,7 +1212,7 @@
       ]
     },
     {
-      "name": "QWEN API",
+      "name": "Qwen API",
       "url": "/ai-apis/qwen-api/",
       "categorySlug": "ai-apis",
       "brandSlug": "qwen-api",
@@ -1241,7 +1241,7 @@
       ]
     },
     {
-      "name": "CHATGPT",
+      "name": "ChatGPT",
       "url": "/ai-chatbots/chatgpt/",
       "categorySlug": "ai-chatbots",
       "brandSlug": "chatgpt",
@@ -1270,7 +1270,7 @@
       ]
     },
     {
-      "name": "KIMI AI",
+      "name": "Kimi AI",
       "url": "/ai-chatbots/kimi-ai/",
       "categorySlug": "ai-chatbots",
       "brandSlug": "kimi-ai",
@@ -1299,7 +1299,7 @@
       ]
     },
     {
-      "name": "DREAMINA AI",
+      "name": "Dreamina AI",
       "url": "/ai-video-image/dreamina-ai/",
       "categorySlug": "ai-video-image",
       "brandSlug": "dreamina-ai",
@@ -1328,7 +1328,7 @@
       ]
     },
     {
-      "name": "KLING AI",
+      "name": "Kling AI",
       "url": "/ai-video-image/kling-ai/",
       "categorySlug": "ai-video-image",
       "brandSlug": "kling-ai",
@@ -1357,7 +1357,7 @@
       ]
     },
     {
-      "name": "MUSE VIDEO API",
+      "name": "Muse Video API",
       "url": "/ai-video-image/muse-video-api/",
       "categorySlug": "ai-video-image",
       "brandSlug": "muse-video-api",
@@ -1386,7 +1386,7 @@
       ]
     },
     {
-      "name": "OPENART AI",
+      "name": "OpenArt AI",
       "url": "/ai-video-image/openart-ai/",
       "categorySlug": "ai-video-image",
       "brandSlug": "openart-ai",
@@ -1415,7 +1415,7 @@
       ]
     },
     {
-      "name": "ELEVENLABS",
+      "name": "ElevenLabs",
       "url": "/ai-voice-audio/elevenlabs/",
       "categorySlug": "ai-voice-audio",
       "brandSlug": "elevenlabs",
@@ -1444,7 +1444,7 @@
       ]
     },
     {
-      "name": "MINIMAX VOICE",
+      "name": "MiniMax Voice",
       "url": "/ai-voice-audio/minimax-voice/",
       "categorySlug": "ai-voice-audio",
       "brandSlug": "minimax-voice",
@@ -1473,7 +1473,7 @@
       ]
     },
     {
-      "name": "SUNO AI",
+      "name": "Suno AI",
       "url": "/ai-voice-audio/suno-ai/",
       "categorySlug": "ai-voice-audio",
       "brandSlug": "suno-ai",
@@ -1502,7 +1502,7 @@
       ]
     },
     {
-      "name": "GPM LOGIN",
+      "name": "GPM Login",
       "url": "/antidetect-proxies/gpm-login/",
       "categorySlug": "antidetect-proxies",
       "brandSlug": "gpm-login",
@@ -1531,7 +1531,7 @@
       ]
     },
     {
-      "name": "KASPERSKY",
+      "name": "Kaspersky",
       "url": "/antivirus/kaspersky/",
       "categorySlug": "antivirus",
       "brandSlug": "kaspersky",
@@ -1560,7 +1560,7 @@
       ]
     },
     {
-      "name": "APPLE ICLOUD+",
+      "name": "Apple iCloud+",
       "url": "/cloud-storage/apple-icloud/",
       "categorySlug": "cloud-storage",
       "brandSlug": "apple-icloud",
@@ -1589,7 +1589,7 @@
       ]
     },
     {
-      "name": "ADOBE CREATIVE CLOUD",
+      "name": "Adobe Creative Cloud",
       "url": "/design-creative/adobe-creative-cloud/",
       "categorySlug": "design-creative",
       "brandSlug": "adobe-creative-cloud",
@@ -1618,7 +1618,7 @@
       ]
     },
     {
-      "name": "CANVA PRO",
+      "name": "Canva Pro",
       "url": "/design-creative/canva/",
       "categorySlug": "design-creative",
       "brandSlug": "canva",
@@ -1647,7 +1647,7 @@
       ]
     },
     {
-      "name": "FIGMA",
+      "name": "Figma",
       "url": "/design-creative/figma/",
       "categorySlug": "design-creative",
       "brandSlug": "figma",
@@ -1676,7 +1676,7 @@
       ]
     },
     {
-      "name": "MEITU",
+      "name": "Meitu",
       "url": "/design-creative/meitu/",
       "categorySlug": "design-creative",
       "brandSlug": "meitu",
@@ -1705,7 +1705,7 @@
       ]
     },
     {
-      "name": "XINGTU",
+      "name": "Xingtu",
       "url": "/design-creative/xingtu/",
       "categorySlug": "design-creative",
       "brandSlug": "xingtu",
@@ -1734,7 +1734,7 @@
       ]
     },
     {
-      "name": "JETBRAINS",
+      "name": "JetBrains",
       "url": "/developer-tools/jetbrains/",
       "categorySlug": "developer-tools",
       "brandSlug": "jetbrains",
@@ -1763,7 +1763,7 @@
       ]
     },
     {
-      "name": "REPLIT",
+      "name": "Replit",
       "url": "/developer-tools/replit/",
       "categorySlug": "developer-tools",
       "brandSlug": "replit",
@@ -1792,7 +1792,7 @@
       ]
     },
     {
-      "name": "DUOLINGO",
+      "name": "Duolingo",
       "url": "/education/duolingo/",
       "categorySlug": "education",
       "brandSlug": "duolingo",
@@ -1821,7 +1821,7 @@
       ]
     },
     {
-      "name": "QUIZLET",
+      "name": "Quizlet",
       "url": "/education/quizlet/",
       "categorySlug": "education",
       "brandSlug": "quizlet",
@@ -1850,7 +1850,7 @@
       ]
     },
     {
-      "name": "GAMMA AI",
+      "name": "Gamma AI",
       "url": "/productivity-software/gamma-ai/",
       "categorySlug": "productivity-software",
       "brandSlug": "gamma-ai",
@@ -1879,7 +1879,7 @@
       ]
     },
     {
-      "name": "NOTION",
+      "name": "Notion",
       "url": "/productivity-software/notion/",
       "categorySlug": "productivity-software",
       "brandSlug": "notion",
@@ -1908,7 +1908,7 @@
       ]
     },
     {
-      "name": "ZOOM",
+      "name": "Zoom",
       "url": "/productivity-software/zoom-pro/",
       "categorySlug": "productivity-software",
       "brandSlug": "zoom-pro",
@@ -1937,7 +1937,7 @@
       ]
     },
     {
-      "name": "BRAIN.FM",
+      "name": "Brain.fm",
       "url": "/productivity-software/brainfm/",
       "categorySlug": "productivity-software",
       "brandSlug": "brainfm",
@@ -1966,7 +1966,7 @@
       ]
     },
     {
-      "name": "FPT PLAY",
+      "name": "FPT Play",
       "url": "/streaming/fpt-play/",
       "categorySlug": "streaming",
       "brandSlug": "fpt-play",
@@ -1995,7 +1995,7 @@
       ]
     },
     {
-      "name": "GALAXY PLAY",
+      "name": "Galaxy Play",
       "url": "/streaming/galaxy-play/",
       "categorySlug": "streaming",
       "brandSlug": "galaxy-play",
@@ -2024,7 +2024,7 @@
       ]
     },
     {
-      "name": "NETFLIX",
+      "name": "Netflix",
       "url": "/streaming/netflix/",
       "categorySlug": "streaming",
       "brandSlug": "netflix",
@@ -2053,7 +2053,7 @@
       ]
     },
     {
-      "name": "SPOTIFY",
+      "name": "Spotify",
       "url": "/streaming/spotify/",
       "categorySlug": "streaming",
       "brandSlug": "spotify",
@@ -2082,7 +2082,7 @@
       ]
     },
     {
-      "name": "VIEON",
+      "name": "VieON",
       "url": "/streaming/vieon/",
       "categorySlug": "streaming",
       "brandSlug": "vieon",
@@ -2111,7 +2111,7 @@
       ]
     },
     {
-      "name": "PAKISTAN ESIM",
+      "name": "Pakistan eSIM",
       "url": "/esim/pakistan-esim/",
       "categorySlug": "esim",
       "brandSlug": "pakistan-esim",
@@ -2140,7 +2140,7 @@
       ]
     },
     {
-      "name": "EXPRESSVPN",
+      "name": "ExpressVPN",
       "url": "/vpn-privacy/expressvpn/",
       "categorySlug": "vpn-privacy",
       "brandSlug": "expressvpn",
@@ -2198,7 +2198,7 @@
       ]
     },
     {
-      "name": "NORDVPN",
+      "name": "NordVPN",
       "url": "/vpn-privacy/nordvpn/",
       "categorySlug": "vpn-privacy",
       "brandSlug": "nordvpn",
@@ -2227,7 +2227,7 @@
       ]
     },
     {
-      "name": "PUREVPN",
+      "name": "PureVPN",
       "url": "/vpn-privacy/purevpn/",
       "categorySlug": "vpn-privacy",
       "brandSlug": "purevpn",
@@ -2256,7 +2256,7 @@
       ]
     },
     {
-      "name": "SURFSHARK VPN",
+      "name": "Surfshark VPN",
       "url": "/vpn-privacy/surfshark-vpn/",
       "categorySlug": "vpn-privacy",
       "brandSlug": "surfshark-vpn",
@@ -2285,7 +2285,7 @@
       ]
     },
     {
-      "name": "CAPCUT",
+      "name": "CapCut",
       "url": "/video-editing/capcut/",
       "categorySlug": "video-editing",
       "brandSlug": "capcut",
@@ -2314,7 +2314,7 @@
       ]
     },
     {
-      "name": "WINK",
+      "name": "Wink",
       "url": "/video-editing/wink/",
       "categorySlug": "video-editing",
       "brandSlug": "wink",

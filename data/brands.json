@@ -1,7 +1,7 @@
 [
   {
     "slug": "claude-api",
-    "displayName": "CLAUDE API",
+    "displayName": "Claude API",
     "categorySlug": "ai-apis",
     "isMultiPlan": true,
     "hubUrl": "/ai-apis/claude-api/",
@@ -11,7 +11,7 @@
   },
   {
     "slug": "cursor-api",
-    "displayName": "CURSOR API",
+    "displayName": "Cursor API",
     "categorySlug": "ai-apis",
     "isMultiPlan": true,
     "hubUrl": "/ai-apis/cursor-api/",
@@ -21,7 +21,7 @@
   },
   {
     "slug": "chinese-models-api",
-    "displayName": "CHINESE MODELS API",
+    "displayName": "Chinese Models API",
     "categorySlug": "ai-apis",
     "isMultiPlan": true,
     "hubUrl": "/ai-apis/chinese-models-api/",
@@ -31,7 +31,7 @@
   },
   {
     "slug": "deepseek-api",
-    "displayName": "DEEPSEEK API",
+    "displayName": "DeepSeek API",
     "categorySlug": "ai-apis",
     "isMultiPlan": true,
     "hubUrl": "/ai-apis/deepseek-api/",
@@ -41,7 +41,7 @@
   },
   {
     "slug": "grok-api",
-    "displayName": "GROK API",
+    "displayName": "Grok API",
     "categorySlug": "ai-apis",
     "isMultiPlan": true,
     "hubUrl": "/ai-apis/grok-api/",
@@ -51,7 +51,7 @@
   },
   {
     "slug": "qwen-api",
-    "displayName": "QWEN API",
+    "displayName": "Qwen API",
     "categorySlug": "ai-apis",
     "isMultiPlan": true,
     "hubUrl": "/ai-apis/qwen-api/",
@@ -61,7 +61,7 @@
   },
   {
     "slug": "chatgpt",
-    "displayName": "CHATGPT",
+    "displayName": "ChatGPT",
     "categorySlug": "ai-chatbots",
     "isMultiPlan": true,
     "hubUrl": "/ai-chatbots/chatgpt/",
@@ -71,7 +71,7 @@
   },
   {
     "slug": "kimi-ai",
-    "displayName": "KIMI AI",
+    "displayName": "Kimi AI",
     "categorySlug": "ai-chatbots",
     "isMultiPlan": true,
     "hubUrl": "/ai-chatbots/kimi-ai/",
@@ -81,7 +81,7 @@
   },
   {
     "slug": "dreamina-ai",
-    "displayName": "DREAMINA AI",
+    "displayName": "Dreamina AI",
     "categorySlug": "ai-video-image",
     "isMultiPlan": true,
     "hubUrl": "/ai-video-image/dreamina-ai/",
@@ -91,7 +91,7 @@
   },
   {
     "slug": "kling-ai",
-    "displayName": "KLING AI",
+    "displayName": "Kling AI",
     "categorySlug": "ai-video-image",
     "isMultiPlan": true,
     "hubUrl": "/ai-video-image/kling-ai/",
@@ -101,7 +101,7 @@
   },
   {
     "slug": "muse-video-api",
-    "displayName": "MUSE VIDEO API",
+    "displayName": "Muse Video API",
     "categorySlug": "ai-video-image",
     "isMultiPlan": true,
     "hubUrl": "/ai-video-image/muse-video-api/",
@@ -111,7 +111,7 @@
   },
   {
     "slug": "openart-ai",
-    "displayName": "OPENART AI",
+    "displayName": "OpenArt AI",
     "categorySlug": "ai-video-image",
     "isMultiPlan": true,
     "hubUrl": "/ai-video-image/openart-ai/",
@@ -121,7 +121,7 @@
   },
   {
     "slug": "elevenlabs",
-    "displayName": "ELEVENLABS",
+    "displayName": "ElevenLabs",
     "categorySlug": "ai-voice-audio",
     "isMultiPlan": true,
     "hubUrl": "/ai-voice-audio/elevenlabs/",
@@ -131,7 +131,7 @@
   },
   {
     "slug": "minimax-voice",
-    "displayName": "MINIMAX VOICE",
+    "displayName": "MiniMax Voice",
     "categorySlug": "ai-voice-audio",
     "isMultiPlan": true,
     "hubUrl": "/ai-voice-audio/minimax-voice/",
@@ -141,7 +141,7 @@
   },
   {
     "slug": "suno-ai",
-    "displayName": "SUNO AI",
+    "displayName": "Suno AI",
     "categorySlug": "ai-voice-audio",
     "isMultiPlan": true,
     "hubUrl": "/ai-voice-audio/suno-ai/",
@@ -151,7 +151,7 @@
   },
   {
     "slug": "gpm-login",
-    "displayName": "GPM LOGIN",
+    "displayName": "GPM Login",
     "categorySlug": "antidetect-proxies",
     "isMultiPlan": true,
     "hubUrl": "/antidetect-proxies/gpm-login/",
@@ -161,7 +161,7 @@
   },
   {
     "slug": "kaspersky",
-    "displayName": "KASPERSKY",
+    "displayName": "Kaspersky",
     "categorySlug": "antivirus",
     "isMultiPlan": true,
     "hubUrl": "/antivirus/kaspersky/",
@@ -171,7 +171,7 @@
   },
   {
     "slug": "apple-icloud",
-    "displayName": "APPLE ICLOUD+",
+    "displayName": "Apple iCloud+",
     "categorySlug": "cloud-storage",
     "isMultiPlan": true,
     "hubUrl": "/cloud-storage/apple-icloud/",
@@ -181,7 +181,7 @@
   },
   {
     "slug": "adobe-creative-cloud",
-    "displayName": "ADOBE CREATIVE CLOUD",
+    "displayName": "Adobe Creative Cloud",
     "categorySlug": "design-creative",
     "isMultiPlan": true,
     "hubUrl": "/design-creative/adobe-creative-cloud/",
@@ -191,7 +191,7 @@
   },
   {
     "slug": "canva",
-    "displayName": "CANVA PRO",
+    "displayName": "Canva Pro",
     "categorySlug": "design-creative",
     "isMultiPlan": true,
     "hubUrl": "/design-creative/canva/",
@@ -201,7 +201,7 @@
   },
   {
     "slug": "figma",
-    "displayName": "FIGMA",
+    "displayName": "Figma",
     "categorySlug": "design-creative",
     "isMultiPlan": true,
     "hubUrl": "/design-creative/figma/",
@@ -211,7 +211,7 @@
   },
   {
     "slug": "meitu",
-    "displayName": "MEITU",
+    "displayName": "Meitu",
     "categorySlug": "design-creative",
     "isMultiPlan": true,
     "hubUrl": "/design-creative/meitu/",
@@ -221,7 +221,7 @@
   },
   {
     "slug": "xingtu",
-    "displayName": "XINGTU",
+    "displayName": "Xingtu",
     "categorySlug": "design-creative",
     "isMultiPlan": true,
     "hubUrl": "/design-creative/xingtu/",
@@ -231,7 +231,7 @@
   },
   {
     "slug": "jetbrains",
-    "displayName": "JETBRAINS",
+    "displayName": "JetBrains",
     "categorySlug": "developer-tools",
     "isMultiPlan": true,
     "hubUrl": "/developer-tools/jetbrains/",
@@ -241,7 +241,7 @@
   },
   {
     "slug": "replit",
-    "displayName": "REPLIT",
+    "displayName": "Replit",
     "categorySlug": "developer-tools",
     "isMultiPlan": true,
     "hubUrl": "/developer-tools/replit/",
@@ -251,7 +251,7 @@
   },
   {
     "slug": "duolingo",
-    "displayName": "DUOLINGO",
+    "displayName": "Duolingo",
     "categorySlug": "education",
     "isMultiPlan": true,
     "hubUrl": "/education/duolingo/",
@@ -261,7 +261,7 @@
   },
   {
     "slug": "quizlet",
-    "displayName": "QUIZLET",
+    "displayName": "Quizlet",
     "categorySlug": "education",
     "isMultiPlan": true,
     "hubUrl": "/education/quizlet/",
@@ -271,7 +271,7 @@
   },
   {
     "slug": "gamma-ai",
-    "displayName": "GAMMA AI",
+    "displayName": "Gamma AI",
     "categorySlug": "productivity-software",
     "isMultiPlan": true,
     "hubUrl": "/productivity-software/gamma-ai/",
@@ -281,7 +281,7 @@
   },
   {
     "slug": "notion",
-    "displayName": "NOTION",
+    "displayName": "Notion",
     "categorySlug": "productivity-software",
     "isMultiPlan": true,
     "hubUrl": "/productivity-software/notion/",
@@ -291,7 +291,7 @@
   },
   {
     "slug": "zoom-pro",
-    "displayName": "ZOOM",
+    "displayName": "Zoom",
     "categorySlug": "productivity-software",
     "isMultiPlan": true,
     "hubUrl": "/productivity-software/zoom-pro/",
@@ -301,7 +301,7 @@
   },
   {
     "slug": "brainfm",
-    "displayName": "BRAIN.FM",
+    "displayName": "Brain.fm",
     "categorySlug": "productivity-software",
     "isMultiPlan": true,
     "hubUrl": "/productivity-software/brainfm/",
@@ -311,7 +311,7 @@
   },
   {
     "slug": "fpt-play",
-    "displayName": "FPT PLAY",
+    "displayName": "FPT Play",
     "categorySlug": "streaming",
     "isMultiPlan": true,
     "hubUrl": "/streaming/fpt-play/",
@@ -321,7 +321,7 @@
   },
   {
     "slug": "galaxy-play",
-    "displayName": "GALAXY PLAY",
+    "displayName": "Galaxy Play",
     "categorySlug": "streaming",
     "isMultiPlan": true,
     "hubUrl": "/streaming/galaxy-play/",
@@ -331,7 +331,7 @@
   },
   {
     "slug": "netflix",
-    "displayName": "NETFLIX",
+    "displayName": "Netflix",
     "categorySlug": "streaming",
     "isMultiPlan": true,
     "hubUrl": "/streaming/netflix/",
@@ -341,7 +341,7 @@
   },
   {
     "slug": "spotify",
-    "displayName": "SPOTIFY",
+    "displayName": "Spotify",
     "categorySlug": "streaming",
     "isMultiPlan": true,
     "hubUrl": "/streaming/spotify/",
@@ -351,7 +351,7 @@
   },
   {
     "slug": "vieon",
-    "displayName": "VIEON",
+    "displayName": "VieON",
     "categorySlug": "streaming",
     "isMultiPlan": true,
     "hubUrl": "/streaming/vieon/",
@@ -361,7 +361,7 @@
   },
   {
     "slug": "pakistan-esim",
-    "displayName": "PAKISTAN ESIM",
+    "displayName": "Pakistan eSIM",
     "categorySlug": "esim",
     "isMultiPlan": true,
     "hubUrl": "/esim/pakistan-esim/",
@@ -371,7 +371,7 @@
   },
   {
     "slug": "expressvpn",
-    "displayName": "EXPRESSVPN",
+    "displayName": "ExpressVPN",
     "categorySlug": "vpn-privacy",
     "isMultiPlan": true,
     "hubUrl": "/vpn-privacy/expressvpn/",
@@ -391,7 +391,7 @@
   },
   {
     "slug": "nordvpn",
-    "displayName": "NORDVPN",
+    "displayName": "NordVPN",
     "categorySlug": "vpn-privacy",
     "isMultiPlan": true,
     "hubUrl": "/vpn-privacy/nordvpn/",
@@ -401,7 +401,7 @@
   },
   {
     "slug": "purevpn",
-    "displayName": "PUREVPN",
+    "displayName": "PureVPN",
     "categorySlug": "vpn-privacy",
     "isMultiPlan": true,
     "hubUrl": "/vpn-privacy/purevpn/",
@@ -411,7 +411,7 @@
   },
   {
     "slug": "surfshark-vpn",
-    "displayName": "SURFSHARK VPN",
+    "displayName": "Surfshark VPN",
     "categorySlug": "vpn-privacy",
     "isMultiPlan": true,
     "hubUrl": "/vpn-privacy/surfshark-vpn/",
@@ -421,7 +421,7 @@
   },
   {
     "slug": "capcut",
-    "displayName": "CAPCUT",
+    "displayName": "CapCut",
     "categorySlug": "video-editing",
     "isMultiPlan": true,
     "hubUrl": "/video-editing/capcut/",
@@ -431,7 +431,7 @@
   },
   {
     "slug": "wink",
-    "displayName": "WINK",
+    "displayName": "Wink",
     "categorySlug": "video-editing",
     "isMultiPlan": true,
     "hubUrl": "/video-editing/wink/",

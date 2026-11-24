@@ -8,6 +8,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/privacy-policy/',
   },
   openGraph: {
+    ...baseOg,
     title: 'Privacy Policy',
     description:
       'Read how PakAITools protects your data. We never retain customer account passwords after provisioning and collect minimal details for order verification.',
     url: 'https://pakaitools.store/privacy-policy/',
-    images: ['/og-default.png'],
   },
 };
 

@@ -10,6 +10,7 @@ import { SITE } from '@/lib/site.config';
 import { Search, ArrowRight, MessageCircle, ShieldCheck } from 'lucide-react';
 import { buildWhatsAppLink, getProductWhatsAppMessage, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { PriceListClient } from './PriceListClient';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Full Price List (All 231 Plans in PKR)',
@@ -19,11 +20,11 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/price-list/',
   },
   openGraph: {
+    ...baseOg,
     title: 'Full Price List (All 231 Plans in PKR)',
     description:
       'Complete price list for 231 digital plans in Pakistan: AI tools, design apps, VPNs, streaming, developer accounts. Pay in PKR via JazzCash, EasyPaisa, SadaPay.',
     url: 'https://pakaitools.store/price-list/',
-    images: ['/og-default.png'],
   },
 };
 
@@ -142,6 +143,12 @@ export default function PriceListPage() {
           ))}
         </div>
       </noscript>
+
+      {/* USD Footnote */}
+      <p className="text-xs text-text-tertiary">
+        *USD amount is approximate and changes with the exchange rate. Orders are priced in PKR.
+      </p>
+
       {/* Trust Notice */}
       <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
         <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />

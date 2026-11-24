@@ -211,6 +211,9 @@ export function PriceListClient({ categoryGroups }: { categoryGroups: CategoryGr
             </section>
           ))
         )}
+        <p className="mt-4 text-xs text-text-tertiary">
+          *USD amount is approximate and changes with the exchange rate. Orders are priced in PKR.
+        </p>
       </div>
     </div>
   );

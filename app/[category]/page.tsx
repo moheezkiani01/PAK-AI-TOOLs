@@ -18,6 +18,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck, BookOpen, ArrowRight } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getCategoryWhatsAppMessage } from '@/lib/whatsapp';
+import { baseOg } from '@/lib/seo';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -48,10 +49,10 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       canonical: `https://pakaitools.store/${cat.slug}/`,
     },
     openGraph: {
+      ...baseOg,
       title: cleanTitle,
       description,
       url: `https://pakaitools.store/${cat.slug}/`,
-      images: ['/og-default.png'],
     },
   };
 }

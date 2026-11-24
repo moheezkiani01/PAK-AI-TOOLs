@@ -9,6 +9,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { SITE } from '@/lib/site.config';
 import { ShieldCheck } from 'lucide-react';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Payment Methods in Pakistan – JazzCash, EasyPaisa & SadaPay',
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/payment-methods/',
   },
   openGraph: {
+    ...baseOg,
     title: 'Payment Methods in Pakistan – JazzCash, EasyPaisa & SadaPay',
     description:
       'Pay for AI tools and subscriptions in Pakistan with JazzCash, EasyPaisa, SadaPay, NayaPay, UBL (bank transfer) and Binance (international). No credit card needed. WhatsApp delivery.',
     url: 'https://pakaitools.store/payment-methods/',
-    images: ['/og-default.png'],
   },
 };
 

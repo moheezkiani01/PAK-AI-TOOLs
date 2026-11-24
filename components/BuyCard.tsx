@@ -61,6 +61,9 @@ export function BuyCard({
             Price in Pakistan
           </span>
           <PriceText pkr={price} className="text-2xl md:text-3xl" />
+          <p className="mt-1.5 text-[11px] text-text-tertiary">
+            *USD amount is approximate and changes with the exchange rate. Orders are priced in PKR.
+          </p>
         </div>
         <span className="text-xs px-2.5 py-1 rounded-full bg-accent-soft text-accent font-semibold">
           {duration}

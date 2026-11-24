@@ -41,6 +41,23 @@ for (let i = 1; i < urlMapLines.length; i++) {
     });
   }
 }
+
+const newsRedirects = [
+  { source: '/blog/news/openai-operator-autonomous-agent/', destination: '/blog/', permanent: true },
+  { source: '/blog/news/openai-operator-autonomous-agent', destination: '/blog/', permanent: true },
+  { source: '/blog/news/deepseek-v3-open-weights-breakthrough/', destination: '/blog/', permanent: true },
+  { source: '/blog/news/deepseek-v3-open-weights-breakthrough', destination: '/blog/', permanent: true },
+  { source: '/blog/news/claude-hybrid-reasoning-architecture/', destination: '/blog/', permanent: true },
+  { source: '/blog/news/claude-hybrid-reasoning-architecture', destination: '/blog/', permanent: true },
+  { source: '/blog/news/', destination: '/blog/', permanent: true },
+  { source: '/blog/news', destination: '/blog/', permanent: true }
+];
+for (const nr of newsRedirects) {
+  if (!redirects.some((r) => r.source === nr.source)) {
+    redirects.push(nr);
+  }
+}
+
 fs.writeFileSync(path.join(DATA_DIR, 'redirects.json'), JSON.stringify(redirects, null, 2));
 console.log(`Saved data/redirects.json (${redirects.length} redirects)`);
 
@@ -290,11 +307,59 @@ for (let i = 1; i < catBlocks.length; i += 3) {
   });
 }
 
+// Canonical brand title casing map (Task 8)
+const BRAND_NAMES = {
+  'claude-api': 'Claude API',
+  'cursor-api': 'Cursor API',
+  'chinese-models-api': 'Chinese Models API',
+  'deepseek-api': 'DeepSeek API',
+  'grok-api': 'Grok API',
+  'qwen-api': 'Qwen API',
+  'chatgpt': 'ChatGPT',
+  'kimi-ai': 'Kimi AI',
+  'dreamina-ai': 'Dreamina AI',
+  'kling-ai': 'Kling AI',
+  'muse-video-api': 'Muse Video API',
+  'openart-ai': 'OpenArt AI',
+  'elevenlabs': 'ElevenLabs',
+  'minimax-voice': 'MiniMax Voice',
+  'suno-ai': 'Suno AI',
+  'gpm-login': 'GPM Login',
+  'kaspersky': 'Kaspersky',
+  'apple-icloud': 'Apple iCloud+',
+  'adobe-creative-cloud': 'Adobe Creative Cloud',
+  'canva': 'Canva Pro',
+  'figma': 'Figma',
+  'meitu': 'Meitu',
+  'xingtu': 'Xingtu',
+  'jetbrains': 'JetBrains',
+  'replit': 'Replit',
+  'duolingo': 'Duolingo',
+  'quizlet': 'Quizlet',
+  'gamma-ai': 'Gamma AI',
+  'notion': 'Notion',
+  'zoom-pro': 'Zoom',
+  'brainfm': 'Brain.fm',
+  'fpt-play': 'FPT Play',
+  'galaxy-play': 'Galaxy Play',
+  'netflix': 'Netflix',
+  'spotify': 'Spotify',
+  'vieon': 'VieON',
+  'pakistan-esim': 'Pakistan eSIM',
+  'expressvpn': 'ExpressVPN',
+  'hma-vpn': 'HMA VPN',
+  'nordvpn': 'NordVPN',
+  'purevpn': 'PureVPN',
+  'surfshark-vpn': 'Surfshark VPN',
+  'capcut': 'CapCut',
+  'wink': 'Wink',
+};
+
 // Brand hubs
 const brandBlocks = hubsContent.split(/={40,}\r?\nBRAND HUB:\s*(.*?)\s*\((.*?)\)\r?\n={40,}/g);
 const brandHubs = [];
 for (let i = 1; i < brandBlocks.length; i += 3) {
-  const name = brandBlocks[i].trim();
+  const rawName = brandBlocks[i].trim();
   const url = brandBlocks[i+1].trim();
   const body = brandBlocks[i+2];
 
@@ -322,9 +387,10 @@ for (let i = 1; i < brandBlocks.length; i += 3) {
   const urlParts = url.replace(/^\/|\/$/g, '').split('/');
   const categorySlug = urlParts[0] || '';
   const brandSlug = urlParts[1] || '';
+  const cleanBrandName = BRAND_NAMES[brandSlug] || rawName;
 
   brandHubs.push({
-    name,
+    name: cleanBrandName,
     url,
     categorySlug,
     brandSlug,
@@ -410,7 +476,7 @@ const brandsMap = new Map();
 // Add from brandHubs (multi-plan)
 for (const bh of brandHubs) {
   const key = bh.brandSlug;
-  const cleanDisplay = SHORT_NAMES[key] || bh.name.replace(/ Price in Pakistan$/i, '');
+  const cleanDisplay = BRAND_NAMES[key] || SHORT_NAMES[key] || bh.name.replace(/ Price in Pakistan$/i, '');
   brandsMap.set(key, {
     slug: key,
     displayName: cleanDisplay,

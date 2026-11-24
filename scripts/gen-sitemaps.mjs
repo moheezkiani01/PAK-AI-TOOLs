@@ -85,13 +85,10 @@ ${compareUrls.join('\n')}
 </urlset>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_compare.xml'), compareXml);
 
-// 4. Blog Sitemap (21 guides + 3 news items + hub)
+// 4. Blog Sitemap (21 guides + hub)
 const blogUrls = [urlXml(`${DOMAIN}/blog/`, DATE, '0.7', 'weekly')];
 blogs.forEach((b) => {
   blogUrls.push(urlXml(`${DOMAIN}/blog/${b.slug}/`, b.date || DATE, '0.7', 'monthly'));
-});
-news.forEach((n) => {
-  blogUrls.push(urlXml(`${DOMAIN}/blog/news/${n.slug}/`, n.date || DATE, '0.7', 'monthly'));
 });
 
 const blogXml = `<?xml version="1.0" encoding="UTF-8"?>

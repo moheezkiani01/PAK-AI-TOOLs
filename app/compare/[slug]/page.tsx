@@ -10,6 +10,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { buildWhatsAppLink, getComparisonWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
 import { ShieldCheck, MessageCircle, ArrowRight, Scale, CheckCircle2 } from 'lucide-react';
+import { baseOg } from '@/lib/seo';
 
 interface ComparisonPageProps {
   params: Promise<{ slug: string }>;
@@ -37,10 +38,10 @@ export async function generateMetadata({ params }: ComparisonPageProps): Promise
       canonical: `https://pakaitools.store/compare/${comp.slug}/`,
     },
     openGraph: {
+      ...baseOg,
       title: cleanTitle,
       description: comp.metaDesc,
       url: `https://pakaitools.store/compare/${comp.slug}/`,
-      images: ['/og-default.png'],
     },
   };
 }

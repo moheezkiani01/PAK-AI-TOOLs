@@ -7,6 +7,7 @@ import { SITE } from '@/lib/site.config';
 import { MessageCircle, Mail } from 'lucide-react';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { renderMarkdown } from '@/lib/markdown';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Contact PakAITools – WhatsApp & Email Support',
@@ -16,11 +17,11 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/contact/',
   },
   openGraph: {
+    ...baseOg,
     title: 'Contact PakAITools – WhatsApp & Email Support',
     description:
       'Contact PakAITools on WhatsApp (+92 321 9305619) or email support@pakaitools.store for orders, questions, and warranty assistance.',
     url: 'https://pakaitools.store/contact/',
-    images: ['/og-default.png'],
   },
 };
 

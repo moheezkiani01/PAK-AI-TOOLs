@@ -9,6 +9,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Refund & Warranty Policy',
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/refund-warranty-policy/',
   },
   openGraph: {
+    ...baseOg,
     title: 'Refund & Warranty Policy',
     description:
       'Read PakAITools refund and warranty rules. Every plan shows its replacement warranty duration before you pay. Verified replacement and PKR refund policy.',
     url: 'https://pakaitools.store/refund-warranty-policy/',
-    images: ['/og-default.png'],
   },
 };
 

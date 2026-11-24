@@ -101,15 +101,5 @@ for (const bp of blogs) {
   });
 }
 
-// 7. AI News (3)
-for (const n of news) {
-  index.push({
-    title: n.title,
-    url: `/blog/news/${n.slug}/`,
-    type: 'news',
-    keywords: `${n.title} ${n.summary} ${n.tags.join(' ')}`.toLowerCase(),
-  });
-}
-
 fs.writeFileSync(path.join(PUBLIC_DIR, 'search-index.json'), JSON.stringify(index));
 console.log(`Saved public/search-index.json with ${index.length} searchable items!`);

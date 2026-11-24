@@ -8,6 +8,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/terms/',
   },
   openGraph: {
+    ...baseOg,
     title: 'Terms of Service',
     description:
       'PakAITools terms of service for digital subscriptions, account provisioning, warranty, and customer responsibilities in Pakistan.',
     url: 'https://pakaitools.store/terms/',
-    images: ['/og-default.png'],
   },
 };
 

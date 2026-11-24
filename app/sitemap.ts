@@ -5,7 +5,6 @@ import {
   getProducts,
   getBlogPosts,
   getComparisons,
-  getNewsArticles,
 } from '@/lib/data';
 import { SITE } from '@/lib/site.config';
 
@@ -129,16 +128,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     urls.push({
       url: `${baseUrl}/blog/${bp.slug}/`,
       lastModified: new Date(bp.date || SITE.pricesReviewedOn),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    });
-  });
-
-  // 3 AI News articles
-  getNewsArticles().forEach((n) => {
-    urls.push({
-      url: `${baseUrl}/blog/news/${n.slug}/`,
-      lastModified: new Date(n.date || SITE.pricesReviewedOn),
       changeFrequency: 'monthly',
       priority: 0.7,
     });

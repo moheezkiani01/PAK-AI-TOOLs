@@ -10,6 +10,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { buildWhatsAppLink, getBlogWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
 import { ShieldCheck, MessageCircle, Calendar, BookOpen, CheckCircle2 } from 'lucide-react';
+import { baseOg } from '@/lib/seo';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -39,10 +40,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       canonical: `https://pakaitools.store/blog/${post.slug}/`,
     },
     openGraph: {
+      ...baseOg,
       title: cleanTitle,
       description: desc,
       url: `https://pakaitools.store/blog/${post.slug}/`,
-      images: ['/og-default.png'],
     },
   };
 }

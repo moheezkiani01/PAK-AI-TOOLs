@@ -12,7 +12,7 @@ import {
   Newspaper,
   BookOpen,
 } from 'lucide-react';
-import { getCategories, getProducts, getSitePages, getBlogPosts, getNewsArticles } from '@/lib/data';
+import { getCategories, getProducts, getSitePages, getBlogPosts } from '@/lib/data';
 import { CategoryCard } from '@/components/CategoryCard';
 import { PlanRow } from '@/components/PlanRow';
 import { Faq } from '@/components/Faq';
@@ -20,6 +20,7 @@ import { HeroSearch } from '@/components/HeroSearch';
 import { WhatsAppIcon } from '@/components/WhatsAppFab';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'AI Tools & Digital Subscriptions in Pakistan | PakAITools',
@@ -29,11 +30,11 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/',
   },
   openGraph: {
+    ...baseOg,
     title: 'AI Tools & Digital Subscriptions in Pakistan | PakAITools',
     description:
       'Buy AI tools, design apps, VPNs and streaming plans in Pakistan with PKR pricing. Pay by JazzCash, EasyPaisa, SadaPay, NayaPay, UBL (bank transfer) and Binance (international). Fast delivery.',
     url: 'https://pakaitools.store/',
-    images: ['/og-default.png'],
   },
 };
 
@@ -42,7 +43,6 @@ export default function HomePage() {
   const products = getProducts();
   const sitePages = getSitePages();
   const blogPosts = getBlogPosts();
-  const news = getNewsArticles();
 
   const h1Text = sitePages?.home?.h || 'AI Tools & Digital Subscriptions in Pakistan, Priced in PKR';
   const answerText =
@@ -66,8 +66,6 @@ export default function HomePage() {
 
   // Recent Guides for Homepage
   const recentGuides = blogPosts.slice(0, 3);
-  // Recent News for Homepage
-  const recentNews = news.slice(0, 3);
 
   const homeFaqs = [
     {
@@ -205,17 +203,20 @@ export default function HomePage() {
             />
           ))}
         </div>
+        <p className="text-xs text-text-tertiary text-center sm:text-left mt-2">
+          *USD amount is approximate and changes with the exchange rate. Orders are priced in PKR.
+        </p>
       </section>
 
-      {/* 4. NEW: Blog & AI News Section */}
+      {/* 4. Blog Guides Section */}
       <section aria-labelledby="blog-news-heading" className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-separator pb-3 gap-2">
           <div>
             <h2 id="blog-news-heading" className="text-2xl md:text-3xl font-bold text-text">
-              Latest Guides &amp; AI News
+              Latest Buying Guides &amp; Pricing Breakdowns
             </h2>
             <p className="text-xs md:text-sm text-text-secondary mt-0.5">
-              Price breakdowns, buying advice, and verified developments for Pakistani digital workers
+              Price breakdowns, buying advice, and verified subscription tips for Pakistani digital workers
             </p>
           </div>
           <Link
@@ -259,46 +260,6 @@ export default function HomePage() {
             </article>
           ))}
         </div>
-
-        {/* AI News Subsection if news exists */}
-        {recentNews.length > 0 && (
-          <div className="pt-3 space-y-3">
-            <div className="flex items-center space-x-2 text-sm font-bold text-text">
-              <Newspaper className="w-4 h-4 text-accent" />
-              <span>Trending in AI</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
-              {recentNews.map((item) => (
-                <article
-                  key={item.slug}
-                  className="p-4 rounded-xl border border-separator bg-bg-subtle/60 hover:border-accent transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center space-x-2 text-[11px] text-text-tertiary mb-1.5">
-                      <time dateTime={item.date}>{item.date}</time>
-                      <span>·</span>
-                      <span className="font-semibold text-accent">{item.tags[0]}</span>
-                    </div>
-                    <h4 className="text-xs md:text-sm font-bold text-text leading-snug mb-1.5 line-clamp-2">
-                      <Link href={`/blog/news/${item.slug}/`} className="hover:text-accent hover:underline">
-                        {item.title}
-                      </Link>
-                    </h4>
-                    <p className="text-[11px] text-text-secondary line-clamp-2 leading-relaxed mb-2">
-                      {item.summary?.replace(/\*\*/g, '')}
-                    </p>
-                  </div>
-                  <Link
-                    href={`/blog/news/${item.slug}/`}
-                    className="inline-flex items-center text-[11px] font-bold text-accent hover:underline"
-                  >
-                    Read story →
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
-        )}
       </section>
 
       {/* 5. How Ordering Works (3 Steps) */}

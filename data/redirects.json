@@ -258,5 +258,45 @@
     "source": "/product/chatgpt-plus-shared-1-month/",
     "destination": "/ai-chatbots/chatgpt/",
     "permanent": true
+  },
+  {
+    "source": "/blog/news/openai-operator-autonomous-agent/",
+    "destination": "/blog/",
+    "permanent": true
+  },
+  {
+    "source": "/blog/news/openai-operator-autonomous-agent",
+    "destination": "/blog/",
+    "permanent": true
+  },
+  {
+    "source": "/blog/news/deepseek-v3-open-weights-breakthrough/",
+    "destination": "/blog/",
+    "permanent": true
+  },
+  {
+    "source": "/blog/news/deepseek-v3-open-weights-breakthrough",
+    "destination": "/blog/",
+    "permanent": true
+  },
+  {
+    "source": "/blog/news/claude-hybrid-reasoning-architecture/",
+    "destination": "/blog/",
+    "permanent": true
+  },
+  {
+    "source": "/blog/news/claude-hybrid-reasoning-architecture",
+    "destination": "/blog/",
+    "permanent": true
+  },
+  {
+    "source": "/blog/news/",
+    "destination": "/blog/",
+    "permanent": true
+  },
+  {
+    "source": "/blog/news",
+    "destination": "/blog/",
+    "permanent": true
   }
 ]

@@ -7,6 +7,7 @@ import { SITE } from '@/lib/site.config';
 import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck } from 'lucide-react';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'About PakAITools – AI Tools & Subscriptions in PKR',
@@ -16,11 +17,11 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/about/',
   },
   openGraph: {
+    ...baseOg,
     title: 'About PakAITools – AI Tools & Subscriptions in PKR',
     description:
       'Learn about PakAITools, founded by Moheez Kiani to provide affordable AI software, design subscriptions, and VPNs in Pakistan with PKR payments.',
     url: 'https://pakaitools.store/about/',
-    images: ['/og-default.png'],
   },
 };
 

@@ -1,12 +1,13 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getBlogPosts, getBlogHub, getNewsArticles } from '@/lib/data';
+import { getBlogPosts, getBlogHub } from '@/lib/data';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { JsonLd } from '@/components/JsonLd';
-import { ArrowRight, Calendar, BookOpen, Newspaper, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Calendar, BookOpen, ShieldCheck } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Blog — 2026 PKR Price Guides & AI Tool Tips Pakistan',
@@ -16,18 +17,17 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/blog/',
   },
   openGraph: {
+    ...baseOg,
     title: 'Blog — 2026 PKR Price Guides & AI Tool Tips Pakistan',
     description:
       'Read 2026 PKR price guides, warranty checklists, and buying advice for AI chatbots, APIs, video/voice tools, Adobe, VPNs, Netflix, Spotify & Pakistan eSIMs.',
     url: 'https://pakaitools.store/blog/',
-    images: ['/og-default.png'],
   },
 };
 
 export default function BlogIndexPage() {
   const hub = getBlogHub();
   const allPosts = getBlogPosts();
-  const news = getNewsArticles();
 
   const categoryGuides = allPosts.filter((p) => p.slug.endsWith('-price-guide-pakistan'));
   const evergreenPosts = allPosts.filter((p) => !p.slug.endsWith('-price-guide-pakistan'));
@@ -166,54 +166,6 @@ export default function BlogIndexPage() {
                   className="inline-flex items-center text-xs font-bold text-accent hover:underline mt-2"
                 >
                   Read article <ArrowRight className="w-3 h-3 ml-1" />
-                </Link>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* AI News Section */}
-      {news.length > 0 && (
-        <section id="news" aria-labelledby="news-heading" className="space-y-4">
-          <div className="border-b border-separator pb-3 flex items-center justify-between">
-            <div>
-              <h2 id="news-heading" className="text-xl md:text-2xl font-bold text-text flex items-center space-x-2">
-                <Newspaper className="w-5 h-5 text-accent" />
-                <span>Latest AI News &amp; Updates</span>
-              </h2>
-              <p className="text-xs text-text-secondary mt-0.5">
-                Verified developments in generative AI, models, and tools relevant to Pakistan
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
-            {news.map((item) => (
-              <article
-                key={item.slug}
-                className="p-5 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center space-x-2 text-xs text-text-tertiary mb-2">
-                    <time dateTime={item.date}>{item.date}</time>
-                    <span>·</span>
-                    <span className="font-semibold text-accent">{item.tags[0]}</span>
-                  </div>
-                  <h3 className="text-sm md:text-base font-bold text-text leading-snug mb-2">
-                    <Link href={`/blog/news/${item.slug}/`} className="hover:text-accent hover:underline">
-                      {item.title}
-                    </Link>
-                  </h3>
-                  <p className="text-xs text-text-secondary line-clamp-3 leading-relaxed mb-3">
-                    {item.summary?.replace(/\*\*/g, '')}
-                  </p>
-                </div>
-                <Link
-                  href={`/blog/news/${item.slug}/`}
-                  className="inline-flex items-center text-xs font-bold text-accent hover:underline mt-2"
-                >
-                  Read story <ArrowRight className="w-3 h-3 ml-1" />
                 </Link>
               </article>
             ))}

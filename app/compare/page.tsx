@@ -7,6 +7,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { ArrowRight, Scale, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
+import { baseOg } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Compare AI Tools & Subscriptions in Pakistan (2026)',
@@ -16,11 +17,11 @@ export const metadata: Metadata = {
     canonical: 'https://pakaitools.store/compare/',
   },
   openGraph: {
+    ...baseOg,
     title: 'Compare AI Tools & Subscriptions in Pakistan (2026)',
     description:
       'Compare ChatGPT, Claude, Kling AI, ElevenLabs, Adobe, CapCut, VPNs, Netflix, Spotify & Pakistan eSIM plans side by side in PKR. Local payment & warranty.',
     url: 'https://pakaitools.store/compare/',
-    images: ['/og-default.png'],
   },
 };
 

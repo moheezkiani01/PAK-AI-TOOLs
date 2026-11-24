@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     locale: 'en_PK',
     url: SITE.domain,
     siteName: SITE.name,
-    images: [{ url: '/og-default.png', width: 1200, height: 630, alt: SITE.name }],
+    images: [{ url: '/og-default.png', width: 1200, height: 630, alt: 'PakAITools: AI tools and subscriptions in Pakistan, priced in PKR' }],
   },
   twitter: {
     card: 'summary_large_image',

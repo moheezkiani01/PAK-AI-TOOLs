@@ -24,18 +24,33 @@ import { renderMarkdown } from '@/lib/markdown';
 import { WhatsAppIcon } from '@/components/WhatsAppFab';
 import { ShieldCheck, ArrowRight, Scale } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
+import { baseOg } from '@/lib/seo';
 
-function fixDuplicateH2(md: string, h1: string, productName: string): string {
+function fixDuplicateH2(
+  md: string,
+  h1: string,
+  productName: string,
+  brandName?: string,
+  duration?: string
+): string {
   const lines = md.split('\n');
   const h1Clean = h1.trim().toLowerCase();
   const namePriceClean = `${productName.toLowerCase()} price in pakistan`;
+  const durationShort = duration ? duration.split(/[\(\[\—\-]/)[0].trim().toLowerCase() : '';
+  const newH2 = brandName && durationShort
+    ? `How much does ${brandName} ${durationShort} cost in Pakistan?`
+    : `How much does ${productName} cost in Pakistan?`;
 
   for (let i = 0; i < lines.length; i++) {
     if (lines[i].startsWith('## ')) {
       const headingText = lines[i].replace(/^##\s+/, '').trim().toLowerCase();
-      if (headingText === h1Clean || headingText === namePriceClean) {
-        lines[i] = `## How Much Does ${productName} Cost in Pakistan?`;
-        break; // Only replace the duplicate H2
+      if (
+        headingText === h1Clean ||
+        headingText === namePriceClean ||
+        headingText.startsWith('how much does ')
+      ) {
+        lines[i] = `## ${newH2}`;
+        break; // Only replace the target duplicate H2
       }
     }
   }
@@ -101,10 +116,10 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       canonical: `https://pakaitools.store/product/${product.slug}/`,
     },
     openGraph: {
+      ...baseOg,
       title: cleanTitle,
       description: product.metaDesc,
       url: `https://pakaitools.store/product/${product.slug}/`,
-      images: ['/og-default.png'],
     },
   };
 }
@@ -148,8 +163,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
   // 1. Strip duplicate empty FAQ heading from markdown body
   let cleanedMd = (product.contentMarkdown || '').replace(/##\s*Frequently Asked Questions[\s\S]*$/i, '').trim();
 
-  // 2. Fix duplicate H2 that repeats H1: make it an organic question-style H2
-  cleanedMd = fixDuplicateH2(cleanedMd, product.h1, product.name);
+  // 2. Fix duplicate H2 that repeats H1: make it an organic question-style H2 (Brand + duration)
+  const brandDisplayName = brand?.displayName || (brandHub ? brandHub.name.replace(/ Price in Pakistan$/i, '') : undefined);
+  cleanedMd = fixDuplicateH2(cleanedMd, product.h1, product.name, brandDisplayName, product.duration);
 
   // 3. Extract comparison section if present to render through ComparisonTable
   const compSection = extractComparisonSection(cleanedMd);
