@@ -77,7 +77,7 @@ if (fs.existsSync(hubsPath)) {
   console.log('Cleaned data/hubs.json (all leaked generation instructions removed)');
 }
 
-const CATEGORY_UPDATE_DATES = {
+const BLOG_GUIDE_DATES = {
   'ai-chatbots': '2026-11-23',
   'ai-apis': '2026-11-23',
   'ai-video-image': '2026-11-23',
@@ -95,12 +95,9 @@ const CATEGORY_UPDATE_DATES = {
   'antivirus': '2026-11-17',
 };
 
+// Real date when product prices and plans were last verified
 function getProductUpdatedAt(categorySlug, id) {
-  const base = CATEGORY_UPDATE_DATES[categorySlug] || '2026-11-20';
-  const offset = (id || 0) % 3;
-  const d = new Date(base + 'T00:00:00Z');
-  d.setUTCDate(d.getUTCDate() - offset);
-  return d.toISOString().slice(0, 10);
+  return '2026-11-22';
 }
 
 // ---------------------------------------------------------------------
@@ -329,7 +326,7 @@ for (let i = 1; i < blogParts.length; i++) {
   }
 
   const catSlug = slug.replace(/-price-guide-pakistan$/, '');
-  const blogDate = CATEGORY_UPDATE_DATES[catSlug] || '2026-11-20';
+  const blogDate = BLOG_GUIDE_DATES[catSlug] || '2026-11-20';
 
   blogs.push({
     id: i,
@@ -372,13 +369,21 @@ if (fs.existsSync(sitePagesPath)) {
   }
 }
 
-const allBlogItems = [...blogs, ...evergreenPosts].map(b => ({
-  ...b,
-  summary: stripSterics(b.summary || b.ans || ''),
-  desc: stripSterics(b.desc || ''),
-  ans: stripSterics(b.ans || ''),
-  metaDesc: stripSterics(b.metaDesc || ''),
-}));
+const allBlogItems = [...blogs, ...evergreenPosts].map(b => {
+  const item = {
+    ...b,
+    summary: stripSterics(b.summary || b.ans || ''),
+    desc: stripSterics(b.desc || ''),
+    ans: stripSterics(b.ans || ''),
+    metaDesc: stripSterics(b.metaDesc || ''),
+  };
+  if (item.slug === 'buy-subscriptions-in-pakistan-without-credit-card') {
+    item.h1 = item.h1 || 'How to Buy Subscriptions in Pakistan Without a Credit Card (2026 Guide)';
+    item.title = 'Buy Subscriptions in Pakistan Without a Credit Card (2026)';
+    item.seoTitle = 'Buy Subscriptions in Pakistan Without a Credit Card (2026)';
+  }
+  return item;
+});
 
 fs.writeFileSync(
   path.join(ROOT_DIR, 'data', 'blogs.json'),

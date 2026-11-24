@@ -30,12 +30,15 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   if (!post) return {};
 
-  const rawTitle = post.seoTitle || post.title || 'Buying Guide';
-  const cleanTitle = optimizeSeoTitle(rawTitle);
+  const isNoSuffix = slug === 'buy-subscriptions-in-pakistan-without-credit-card';
+  const rawTitle = isNoSuffix
+    ? 'Buy Subscriptions in Pakistan Without a Credit Card (2026)'
+    : (post.seoTitle || post.title || 'Buying Guide');
+  const cleanTitle = isNoSuffix ? rawTitle : optimizeSeoTitle(rawTitle);
   const desc = post.metaDesc || post.desc || '';
 
   return {
-    title: cleanTitle,
+    title: isNoSuffix ? { absolute: cleanTitle } : cleanTitle,
     description: desc,
     alternates: {
       canonical: `https://pakaitools.store/blog/${post.slug}/`,
@@ -45,6 +48,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: cleanTitle,
       description: desc,
       url: `https://pakaitools.store/blog/${post.slug}/`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: cleanTitle,
+      description: desc,
     },
   };
 }
@@ -66,7 +74,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const breadcrumbs = [
     { name: 'Home', url: '/' },
     { name: 'Blog', url: '/blog/' },
-    { name: title, url: `/blog/${post.slug}/` },
+    { name: h1Text, url: `/blog/${post.slug}/` },
   ];
 
   const waLink = buildWhatsAppLink(getBlogWhatsAppMessage(title, fullUrl));

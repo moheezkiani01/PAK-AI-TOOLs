@@ -14,7 +14,9 @@ const guides = [];
 // 1. Master Payment Guide
 guides.push({
   slug: 'buy-subscriptions-in-pakistan-without-credit-card',
-  title: 'How to Buy Subscriptions in Pakistan Without a Credit Card (2026 Guide)',
+  h1: 'How to Buy Subscriptions in Pakistan Without a Credit Card (2026 Guide)',
+  title: 'Buy Subscriptions in Pakistan Without a Credit Card (2026)',
+  seoTitle: 'Buy Subscriptions in Pakistan Without a Credit Card (2026)',
   desc: 'Step-by-step guide on paying for ChatGPT, Canva, Adobe, Netflix, and developer tools using JazzCash, EasyPaisa, SadaPay, and Raast.',
   type: 'howto',
   date: '2026-11-22',

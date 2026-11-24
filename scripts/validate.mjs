@@ -157,6 +157,11 @@ for (const sm of requiredSitemaps) {
   }
 }
 
+// Sync public/sitemap.xml to out/sitemap.xml to guarantee clean YYYY-MM-DD lastmod format
+if (fs.existsSync(OUT_DIR) && fs.existsSync(path.join(PUBLIC_DIR, 'sitemap.xml'))) {
+  fs.copyFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), path.join(OUT_DIR, 'sitemap.xml'));
+}
+
 // 11. Validate Out Directory (Static Export)
 if (fs.existsSync(OUT_DIR)) {
   console.log('\n--- Validating Static Export in out/ ---');

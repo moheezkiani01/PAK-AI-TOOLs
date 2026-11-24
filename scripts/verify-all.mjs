@@ -1,70 +1,104 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+
+console.log('=== VERIFYING SITEMAPS, DATES, TITLES & ASSETS ===\n');
 
 // 1. Sitemaps check
-for (const sitemapName of ['sitemap.xml', 'sitemap_products.xml', 'sitemap_hubs.xml', 'sitemap_compare.xml', 'sitemap_blog.xml']) {
-  const file = path.join('out', sitemapName);
-  if (!fs.existsSync(file)) {
-    console.error(`Missing ${file}`);
-    continue;
-  }
-  const content = fs.readFileSync(file, 'utf8');
-  const dates = [...content.matchAll(/<lastmod>(.*?)<\/lastmod>/g)].map(m => m[1]);
-  const uniqueDates = [...new Set(dates)].sort();
-  console.log(`${sitemapName}: total <lastmod> entries = ${dates.length}, unique dates = ${uniqueDates.length}:`, uniqueDates);
-}
-
 const sm = fs.readFileSync('out/sitemap.xml', 'utf8');
-const staticPages = ['/about/', '/contact/', '/terms/', '/privacy-policy/', '/payment-methods/', '/refund-warranty-policy/'];
-const urlBlocks = [...sm.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m => m[1]);
+const smProducts = fs.readFileSync('out/sitemap_products.xml', 'utf8');
+const smHubs = fs.readFileSync('out/sitemap_hubs.xml', 'utf8');
+const smCompare = fs.readFileSync('out/sitemap_compare.xml', 'utf8');
+const smBlog = fs.readFileSync('out/sitemap_blog.xml', 'utf8');
+
+// Check products lastmod
+const prodUrls = [...smProducts.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m => m[1]);
+console.log(`Total products in sitemap_products.xml: ${prodUrls.length}`);
+let prod2026Count = 0;
+let prodMismatch = 0;
+for (const p of prodUrls) {
+  const loc = (p.match(/<loc>(.*?)<\/loc>/) || [])[1];
+  const lastmod = (p.match(/<lastmod>(.*?)<\/lastmod>/) || [])[1];
+  if (lastmod === '2026-11-22') {
+    prod2026Count++;
+  } else {
+    prodMismatch++;
+    console.error(`Product lastmod mismatch for ${loc}: ${lastmod}`);
+  }
+}
+console.log(`Products with lastmod == 2026-11-22: ${prod2026Count}/${prodUrls.length} (Mismatches: ${prodMismatch})`);
+
+// Check static pages in sitemap.xml and sitemap_hubs.xml
+const staticPages = [
+  '/about/',
+  '/contact/',
+  '/terms/',
+  '/privacy-policy/',
+  '/payment-methods/',
+  '/refund-warranty-policy/',
+];
+const requiredPages = [
+  '/price-list/',
+  '/compare/',
+  '/blog/',
+  '/categories/',
+];
+
+console.log('\n--- Checking Static and Hub Pages in sitemap.xml ---');
+const smUrls = [...sm.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m => m[1]);
 for (const sp of staticPages) {
-  const block = urlBlocks.find(b => b.includes(`<loc>https://pakaitools.store${sp}</loc>`));
+  const block = smUrls.find(b => b.includes(`<loc>https://pakaitools.store${sp}</loc>`));
   const hasLastmod = block ? block.includes('<lastmod>') : false;
-  console.log(`Static page ${sp} has lastmod: ${hasLastmod}`);
+  console.log(`Static page ${sp}: present = ${!!block}, has <lastmod> = ${hasLastmod} (should be false)`);
 }
 
-// 2. Product images check
-let prodCount = 0;
-let ogMatch = 0;
-let twMatch = 0;
-let schemaMatch = 0;
-const prodsDir = path.join('out', 'product');
-for (const dir of fs.readdirSync(prodsDir)) {
-  const p = path.join(prodsDir, dir, 'index.html');
-  if (fs.existsSync(p)) {
-    prodCount++;
-    const html = fs.readFileSync(p, 'utf8');
-    const expected = `https://pakaitools.store/og/${dir}.png`;
-    if (html.includes(`<meta property="og:image" content="${expected}"`)) ogMatch++;
-    if (html.includes(`<meta name="twitter:image" content="${expected}"`)) twMatch++;
-    if (html.includes(expected)) schemaMatch++;
+for (const rp of requiredPages) {
+  const block = smUrls.find(b => b.includes(`<loc>https://pakaitools.store${rp}</loc>`));
+  console.log(`Page ${rp}: present = ${!!block}`);
+}
+
+console.log('\n--- Checking sitemap_hubs.xml count ---');
+const hubUrls = [...smHubs.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m => m[1]);
+const hubLastmodCount = hubUrls.filter(b => b.includes('<lastmod>')).length;
+console.log(`Total URLs in sitemap_hubs.xml: ${hubUrls.length} (Expected: 68)`);
+console.log(`Total <lastmod> tags in sitemap_hubs.xml: ${hubLastmodCount} (Expected: 62)`);
+
+// 2. Blog posts check: exact date shown on the page
+console.log('\n--- Checking Blog Posts <lastmod> vs HTML displayed date ---');
+const blogUrls = [...smBlog.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m => m[1]);
+let blogMatch = 0;
+let blogTotal = 0;
+for (const b of blogUrls) {
+  const loc = (b.match(/<loc>(.*?)<\/loc>/) || [])[1];
+  const lastmod = (b.match(/<lastmod>(.*?)<\/lastmod>/) || [])[1];
+  if (!loc || loc.endsWith('/blog/')) continue;
+  blogTotal++;
+  const slug = loc.replace('https://pakaitools.store/blog/', '').replace(/\/$/, '');
+  const htmlPath = path.join('out', 'blog', slug, 'index.html');
+  if (fs.existsSync(htmlPath)) {
+    const html = fs.readFileSync(htmlPath, 'utf8');
+    // Check if the html contains the date
+    const dateOnPage = html.includes(`Last Updated: <!-- -->${lastmod}`) || html.includes(`Last Updated: ${lastmod}`);
+    if (dateOnPage) {
+      blogMatch++;
+    } else {
+      console.warn(`Blog ${slug} date mismatch! sitemap has ${lastmod}`);
+    }
   }
 }
-console.log(`Product pages: ${prodCount}`);
-console.log(`og:image matches: ${ogMatch}/${prodCount}`);
-console.log(`twitter:image matches: ${twMatch}/${prodCount}`);
-console.log(`schema image matches: ${schemaMatch}/${prodCount}`);
+console.log(`Blog posts matching HTML date: ${blogMatch}/${blogTotal}`);
 
-// 3. Changed titles across products between a1fc0af and current
-const oldProds = JSON.parse(execSync('git show a1fc0af:data/products.json', { maxBuffer: 20 * 1024 * 1024 }).toString());
-const newProds = JSON.parse(fs.readFileSync('data/products.json', 'utf8'));
+// 3. Check buy-subscriptions-in-pakistan-without-credit-card
+console.log('\n--- Checking buy-subscriptions-in-pakistan-without-credit-card ---');
+const blogHtmlPath = path.join('out', 'blog', 'buy-subscriptions-in-pakistan-without-credit-card', 'index.html');
+if (fs.existsSync(blogHtmlPath)) {
+  const html = fs.readFileSync(blogHtmlPath, 'utf8');
+  const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  const ogTitleMatch = html.match(/<meta property="og:title" content="([^"]*)"/i);
+  const twTitleMatch = html.match(/<meta name="twitter:title" content="([^"]*)"/i);
+  const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
 
-const diffs = [];
-for (let i = 0; i < oldProds.length; i++) {
-  const o = oldProds[i];
-  const n = newProds.find(p => p.slug === o.slug);
-  if (n && o.seoTitle !== n.seoTitle) {
-    diffs.push({
-      slug: o.slug,
-      before: o.seoTitle,
-      after: n.seoTitle,
-    });
-  }
+  console.log('Title:         ', titleMatch ? titleMatch[1] : 'NONE');
+  console.log('OG Title:      ', ogTitleMatch ? ogTitleMatch[1] : 'NONE');
+  console.log('Twitter Title: ', twTitleMatch ? twTitleMatch[1] : 'NONE');
+  console.log('H1:            ', h1Match ? h1Match[1].replace(/<[^>]+>/g, '').trim() : 'NONE');
 }
-console.log(`Total changed product titles: ${diffs.length}`);
-diffs.forEach((d, idx) => {
-  console.log(`${idx + 1}. [${d.slug}]`);
-  console.log(`   Before (${d.before.length} chars): "${d.before}"`);
-  console.log(`   After  (${d.after.length} chars):  "${d.after}"`);
-});
