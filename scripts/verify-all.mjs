@@ -45,10 +45,19 @@ if (homeHtml.includes('Latest AI News for Pakistan')) {
   fail('Heading "Latest AI News for Pakistan" missing from homepage');
 }
 
-if (homeHtml.includes('OpenAI o3-mini Released: PKR Pricing &amp; Pakistan Impact') || homeHtml.includes('OpenAI o3-mini Released: PKR Pricing & Pakistan Impact')) {
-  pass('Published AI News headline appears on homepage in raw HTML');
-} else {
-  fail('Published AI News headline missing from homepage');
+const publishedSlugs = [
+  'adobe-max-2026-creative-agent-cx-coworker',
+  'openai-images-2-6-animated-gifs-svg-2026',
+  'google-gemini-4-hydrogen-carbon-model-card-2026',
+  'openai-o3-mini-reasoning-model-pakistan-pricing',
+];
+
+for (const slug of publishedSlugs) {
+  if (homeHtml.includes(slug)) {
+    pass(`Published article "${slug}" appears on homepage`);
+  } else {
+    fail(`Published article "${slug}" missing from homepage`);
+  }
 }
 
 if (homeHtml.includes('href="/ai-news/"') && homeHtml.includes('View all AI News')) {
