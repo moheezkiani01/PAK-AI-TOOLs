@@ -11,7 +11,7 @@ import {
   Calendar,
   User,
 } from 'lucide-react';
-import { getPublishedAINewsPosts, getAINewsPostBySlug } from '@/lib/ai-news';
+import { getAllAINewsPosts, getAINewsPostBySlug } from '@/lib/ai-news';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { JsonLd } from '@/components/JsonLd';
 import { getNewsArticleSchema } from '@/lib/schema';
@@ -27,15 +27,15 @@ interface AINewsArticlePageProps {
 }
 
 export async function generateStaticParams() {
-  const published = getPublishedAINewsPosts();
-  return published.map((p) => ({
+  const posts = getAllAINewsPosts();
+  return posts.map((p) => ({
     slug: p.slug,
   }));
 }
 
 export async function generateMetadata({ params }: AINewsArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getAINewsPostBySlug(slug, false);
+  const post = getAINewsPostBySlug(slug, true);
 
   if (!post) {
     return {};
@@ -50,6 +50,14 @@ export async function generateMetadata({ params }: AINewsArticlePageProps): Prom
   return {
     title: cleanTitle,
     description: post.description,
+    ...(post.draft
+      ? {
+          robots: {
+            index: false,
+            follow: false,
+          },
+        }
+      : {}),
     alternates: {
       canonical: canonicalUrl,
     },
@@ -82,7 +90,7 @@ export async function generateMetadata({ params }: AINewsArticlePageProps): Prom
 
 export default async function AINewsArticlePage({ params }: AINewsArticlePageProps) {
   const { slug } = await params;
-  const post = getAINewsPostBySlug(slug, false);
+  const post = getAINewsPostBySlug(slug, true);
 
   if (!post) {
     notFound();

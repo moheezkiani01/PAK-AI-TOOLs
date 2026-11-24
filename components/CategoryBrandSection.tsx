@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { CategoryGroup } from '@/lib/brand-grid';
-import { BrandCard } from './BrandCard';
+import { BrandGrid } from './BrandGrid';
 
 interface CategoryBrandSectionProps {
   group: CategoryGroup;
@@ -10,7 +10,7 @@ interface CategoryBrandSectionProps {
 }
 
 /**
- * Renders an accessible, crawl-friendly category section with 6-8 brand cards.
+ * Renders an accessible, crawl-friendly category section with up to 8 equal-size brand cards.
  * Uses semantic section, h2, ul/li markup with a responsive 1->2->3 column grid.
  */
 export function CategoryBrandSection({
@@ -36,13 +36,7 @@ export function CategoryBrandSection({
         </Link>
       </div>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 md:gap-4 list-none p-0 m-0">
-        {group.brands.map((brand, idx) => (
-          <li key={brand.slug} className="m-0 p-0">
-            <BrandCard brand={brand} priority={isFirstCategory && idx < 3} />
-          </li>
-        ))}
-      </ul>
+      <BrandGrid brands={group.brands} priorityCount={isFirstCategory ? 3 : 0} />
     </section>
   );
 }

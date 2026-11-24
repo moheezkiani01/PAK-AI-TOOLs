@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { CategoryIcon } from './IconHelper';
 import type { Category } from '@/lib/types';
+import { pluralize } from '@/lib/format';
+import { getCategoryCounts } from '@/lib/data';
 
 export function CategoryCard({ category }: { category: Category }) {
   // Soft tint background styles based on tint
@@ -24,6 +26,9 @@ export function CategoryCard({ category }: { category: Category }) {
   };
 
   const style = tintClasses[category.tint] || tintClasses.blue;
+  const counts = getCategoryCounts(category.slug);
+  const brandCount = counts.brandCount || category.brands;
+  const planCount = counts.planCount || category.plans;
 
   return (
     <Link
@@ -35,7 +40,7 @@ export function CategoryCard({ category }: { category: Category }) {
           <CategoryIcon name={category.icon} className="w-7 h-7" />
         </div>
         <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-bg-card border border-separator text-text-secondary">
-          {category.brands} brands · {category.plans} plans
+          {pluralize(brandCount, 'brand')} · {pluralize(planCount, 'plan')}
         </span>
       </div>
 

@@ -102,7 +102,7 @@ export function Footer() {
               About Store
             </h3>
             <p className="text-xs text-text-tertiary leading-relaxed mb-3">
-              {SITE.name} is Pakistan&apos;s digital tools reseller. Pay locally in PKR with JazzCash, EasyPaisa, SadaPay, or Binance with WhatsApp support.
+              {SITE.name} is Pakistan&apos;s digital tools reseller. Pay locally in PKR with {SITE.paymentMethodsText}. WhatsApp delivery within 15 minutes.
             </p>
             <p className="text-xs text-text-secondary">
               WhatsApp:{' '}

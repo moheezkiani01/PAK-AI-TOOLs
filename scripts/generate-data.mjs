@@ -502,8 +502,8 @@ for (const p of products) {
     const catSlug = parentParts[0];
     const brandSlug = p.brandSlug || p.slug;
     if (!brandsMap.has(brandSlug)) {
-      // Find clean brand name
-      let bName = p.name.split('–')[0].split('-')[0].trim();
+      // Find clean brand name without chopping hyphenated phrases like 4-in-1 or All-in-One
+      let bName = p.name.split(/\s+[–—]\s+/)[0].trim();
       const short = SHORT_NAMES[brandSlug] || bName;
       brandsMap.set(brandSlug, {
         slug: brandSlug,

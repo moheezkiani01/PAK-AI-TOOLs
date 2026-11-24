@@ -1,3 +1,5 @@
+import { getActivePaymentMethods, getPaymentMethodsText } from './payment-methods';
+
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://pakaitools.store').replace(/\/+$/, '');
 
 export const SITE = {
@@ -16,14 +18,6 @@ export const SITE = {
   priceValidUntil: '2027-02-20',
   showBrandLogos: true,
   deliveryText: 'Within 15 minutes after payment verification',
-  paymentMethods: [
-    'JazzCash',
-    'EasyPaisa',
-    'SadaPay',
-    'NayaPay',
-    'UBL (bank transfer)',
-    'Binance (international)',
-  ],
-  paymentMethodsText:
-    'JazzCash, EasyPaisa, SadaPay, NayaPay, UBL (bank transfer) and Binance (international)',
+  paymentMethods: getActivePaymentMethods().map((m) => m.name),
+  paymentMethodsText: getPaymentMethodsText(),
 } as const;

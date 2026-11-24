@@ -35,10 +35,11 @@ export interface AINewsPost {
   pkAngle: string; // what this means for Pakistani users / PKR pricing
   body: string; // MDX or Markdown / HTML
   image: AINewsImage;
+  eventDate: string; // ISO YYYY-MM-DD: when the real event actually happened
   datePublished: string; // ISO 8601
   dateModified: string; // ISO 8601, change ONLY on real edits
   author: AINewsAuthor;
-  sources: AINewsSource[]; // cited primary sources
+  sources: AINewsSource[]; // cited primary sources (required, length >= 1)
   relatedProducts: AINewsRelatedProduct[]; // links to PakAITools price/product pages
   faq?: AINewsFaqItem[];
   draft?: boolean; // drafts are excluded everywhere

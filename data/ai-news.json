@@ -56,7 +56,8 @@
         "a": "Adobe announced connectors in OpenAI and Anthropic on November 10, 2026, and previewed local MCP support that allows compatible third-party AI agents to perform reversible edits on native project files, with a private beta scheduled for early 2027."
       }
     ],
-    "draft": false
+    "draft": true,
+    "eventDate": "2026-11-10T09:00:00.000Z"
   },
   {
     "slug": "openai-images-2-6-animated-gifs-svg-2026",
@@ -111,7 +112,8 @@
         "a": "gpt-image-2.6-flare is built for speed and fast layout drafts (as fast as six seconds on low quality), while gpt-image-2.6-sunburst is designed for higher visual detail and multi-step consistency."
       }
     ],
-    "draft": false
+    "draft": true,
+    "eventDate": "2026-11-04T12:00:00.000Z"
   },
   {
     "slug": "google-gemini-4-hydrogen-carbon-model-card-2026",
@@ -166,7 +168,8 @@
         "a": "Gemini 4 Carbon is optimized for deep, multi-step reasoning and autonomous agent tasks, whereas Gemini 4 Hydrogen is tuned for fast, low-latency everyday queries, coding assistance, and real-time search synthesis."
       }
     ],
-    "draft": false
+    "draft": true,
+    "eventDate": "2026-11-12T10:00:00.000Z"
   },
   {
     "slug": "openai-o3-mini-reasoning-model-pakistan-pricing",
@@ -225,7 +228,8 @@
         "a": "You can buy a verified ChatGPT Plus subscription on PakAITools using JazzCash, EasyPaisa, SadaPay, NayaPay, or local bank transfer with activation in under 15 minutes."
       }
     ],
-    "draft": false
+    "draft": true,
+    "eventDate": "2025-01-31T18:00:00.000Z"
   },
   {
     "slug": "deepseek-v3-api-pricing-pakistan",
@@ -284,6 +288,7 @@
         "a": "DeepSeek V3 scores 82.6% on HumanEval, rivaling GPT-4o (81.4%) while running at roughly one-tenth the per-token cost."
       }
     ],
-    "draft": true
+    "draft": true,
+    "eventDate": "2024-12-26T12:00:00.000Z"
   }
 ]

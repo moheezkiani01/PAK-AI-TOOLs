@@ -22,7 +22,12 @@ import { WhatsAppIcon } from '@/components/WhatsAppFab';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
 import { baseOg } from '@/lib/seo';
-import { getBrandGridData, getLastPriceUpdate, getBrandGridJsonLd } from '@/lib/brand-grid';
+import {
+  HOME_GRID_CATEGORIES,
+  getBrandGridData,
+  getLastPriceUpdate,
+  getBrandGridJsonLd,
+} from '@/lib/brand-grid';
 import { CategoryBrandSection } from '@/components/CategoryBrandSection';
 import { JsonLd } from '@/components/JsonLd';
 import { getFaqSchema } from '@/lib/schema';
@@ -30,7 +35,7 @@ import { getFaqSchema } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'AI Tools & Digital Subscriptions in Pakistan | PakAITools',
   description:
-    'Buy AI tools, design apps, VPNs and streaming plans in Pakistan with PKR pricing. Pay by JazzCash, EasyPaisa, SadaPay, NayaPay, UBL (bank transfer) and Binance (international). Fast delivery.',
+    'Buy AI tools, VPNs, design apps and streaming plans in Pakistan at fixed PKR prices. Pay via JazzCash, EasyPaisa or SadaPay. Fast delivery.',
   alternates: {
     canonical: 'https://pakaitools.store/',
   },
@@ -38,8 +43,15 @@ export const metadata: Metadata = {
     ...baseOg,
     title: 'AI Tools & Digital Subscriptions in Pakistan | PakAITools',
     description:
-      'Buy AI tools, design apps, VPNs and streaming plans in Pakistan with PKR pricing. Pay by JazzCash, EasyPaisa, SadaPay, NayaPay, UBL (bank transfer) and Binance (international). Fast delivery.',
+      'Buy AI tools, VPNs, design apps and streaming plans in Pakistan at fixed PKR prices. Pay via JazzCash, EasyPaisa or SadaPay. Fast delivery.',
     url: 'https://pakaitools.store/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Tools & Digital Subscriptions in Pakistan | PakAITools',
+    description:
+      'Buy AI tools, VPNs, design apps and streaming plans in Pakistan at fixed PKR prices. Pay via JazzCash, EasyPaisa or SadaPay. Fast delivery.',
+    images: ['https://pakaitools.store/og-default.png'],
   },
 };
 
@@ -99,7 +111,7 @@ export default function HomePage() {
     },
   ];
 
-  const brandGridGroups = getBrandGridData();
+  const brandGridGroups = getBrandGridData(HOME_GRID_CATEGORIES);
   const priceUpdate = getLastPriceUpdate();
   const brandGridJsonLd = getBrandGridJsonLd(brandGridGroups);
   const homeFaqJsonLd = getFaqSchema(homeFaqs);
@@ -165,7 +177,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Verified PKR Brands by Category Grid */}
+      {/* 2. Browse Categories (15 Curated Categories) */}
+      <section aria-labelledby="categories-heading" className="space-y-4">
+        <div className="flex items-end justify-between border-b border-separator pb-3">
+          <div>
+            <h2 id="categories-heading" className="text-2xl font-bold text-text">
+              Browse Categories
+            </h2>
+            <p className="text-xs md:text-sm text-text-secondary mt-0.5">
+              15 curated software and subscription categories priced in Pakistani Rupees
+            </p>
+          </div>
+          <Link
+            href="/categories/"
+            className="text-xs md:text-sm font-semibold text-accent hover:underline flex items-center"
+          >
+            All 15 Categories <ArrowRight className="w-3.5 h-3.5 ml-1" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+          {categories.map((cat) => (
+            <CategoryCard key={cat.slug} category={cat} />
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Verified PKR Brands by Category Grid (Top Commercial Categories) */}
       <div className="space-y-8 md:space-y-10">
         {/* Verification & Trust Banner */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl border border-separator bg-bg-card/70 text-xs text-text-secondary gap-2">
@@ -183,7 +221,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* 15 Brand Category Sections */}
+        {/* Top Brand Category Sections */}
         <div className="space-y-10 md:space-y-12">
           {brandGridGroups.map((group, idx) => (
             <CategoryBrandSection
@@ -195,7 +233,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 3. Popular Subscriptions in Pakistan */}
+      {/* 4. Popular Subscriptions in Pakistan */}
       <section aria-labelledby="popular-heading" className="space-y-4">
         <div className="flex items-end justify-between border-b border-separator pb-3">
           <div>
@@ -228,7 +266,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="text-xs text-text-tertiary text-center sm:text-left mt-2">
-          *USD amount is approximate and changes with the exchange rate. Orders are priced in PKR.
+          *USD equivalent is approximate, based on a reference rate of $1 = Rs. 280. All orders are billed in fixed Pakistani Rupees (PKR).
         </p>
       </section>
 

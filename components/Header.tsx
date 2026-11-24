@@ -225,6 +225,18 @@ export function Header() {
               <span>WhatsApp</span>
             </a>
 
+            {/* Mobile Home Icon */}
+            <Link
+              href="/"
+              aria-label="Home"
+              aria-current={pathname === '/' ? 'page' : undefined}
+              className={`lg:hidden p-2 rounded-xl border border-separator text-text min-h-[40px] min-w-[40px] flex items-center justify-center bg-bg-card hover:bg-bg-subtle transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                pathname === '/' ? 'text-accent border-accent/40 bg-accent/5' : ''
+              }`}
+            >
+              <Home className="w-4 h-4" aria-hidden="true" />
+            </Link>
+
             {/* Mobile hamburger button */}
             <button
               type="button"

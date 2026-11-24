@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import type { BrandCardData } from '@/lib/brand-grid';
 import type { Brand } from '@/lib/types';
 import { formatPkr } from '@/lib/money';
+import { pluralize } from '@/lib/format';
 
 interface BrandCardProps {
   brand: BrandCardData | Brand;
@@ -13,13 +14,25 @@ interface BrandCardProps {
 }
 
 /**
- * Server component rendering a single brand card.
- * Accessible, crawl-friendly: entire card is one <a> link with no nested links.
- * Works seamlessly with both BrandCardData and raw Brand models.
+ * Server component rendering an equal-size, accessible brand card.
+ * - Entire card is one single <Link> with 96px minimum height (h-full in grid).
+ * - Fixed 56x56 logo tile with uniform padding and normalized sizing.
+ * - Max 2-line name with line-clamp-2 and full name in title attribute.
+ * - Always 1-line truncated meta text with pluralize helper.
+ * - Decorative aria-hidden arrow.
+ * - Visible focus ring (focus-visible:ring-accent).
  */
 export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps) {
-  // Normalize brand properties whether from brand-grid or raw Brand
-  const name = 'displayName' in brand ? brand.displayName : brand.name;
+  // Normalize brand properties whether from brand-grid or raw Brand model
+  const fullName =
+    ('name' in brand && brand.name
+      ? brand.name
+      : 'displayName' in brand && brand.displayName
+      ? brand.displayName
+      : '') || '';
+  const displayName =
+    ('displayName' in brand && brand.displayName ? brand.displayName : '') || fullName;
+
   const href =
     'href' in brand
       ? brand.href
@@ -27,17 +40,16 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
       ? `/${brand.categorySlug}/${brand.slug}/`
       : (brand.productUrl || `/product/${brand.productSlug}/`);
 
+  const rawLogo = 'logo' in brand ? brand.logo : null;
   const logoSrc =
-    'logo' in brand
-      ? typeof brand.logo === 'object' && brand.logo !== null
-        ? brand.logo.src
-        : (brand.logo as string | null) || ''
+    typeof rawLogo === 'object' && rawLogo !== null && 'src' in rawLogo
+      ? rawLogo.src
+      : typeof rawLogo === 'string'
+      ? rawLogo
       : '';
 
-  const logoAlt =
-    'logo' in brand && typeof brand.logo === 'object' && brand.logo !== null && 'alt' in brand.logo
-      ? brand.logo.alt
-      : `${name} logo`;
+  const cleanNameForAlt = fullName.replace(/[\(\+\-\&]$/, '').trim();
+  const logoAlt = `${cleanNameForAlt} logo`;
 
   const lowestPrice =
     minPrice !== undefined
@@ -47,11 +59,11 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
       : null;
 
   const planCount = brand.planCount || 1;
-  const countLabel = planCount > 1 ? `${planCount} plans` : '1 plan';
+  const countLabel = pluralize(planCount, 'plan');
 
-  // Initials fallback when brand has no logo image
+  // Accessible 2-letter uppercase initials fallback
   const initials =
-    name
+    displayName
       .replace(/[^a-zA-Z0-9 ]/g, '')
       .trim()
       .split(/\s+/)
@@ -63,45 +75,46 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
   return (
     <Link
       href={href}
-      className="group flex items-center justify-between p-3.5 md:p-4 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-all min-h-[64px]"
+      title={fullName}
+      aria-label={`${displayName}, ${countLabel}${lowestPrice != null ? `, from ${formatPkr(lowestPrice)}` : ''}`}
+      className="group flex items-center justify-between p-4 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-all min-h-[96px] h-full w-full"
     >
-      <div className="flex items-center space-x-3.5 min-w-0 pr-2">
-        {/* Brand Logo or Initials Fallback */}
-        <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl border border-separator bg-white flex items-center justify-center p-1.5 flex-shrink-0 overflow-hidden shadow-xs">
-          {logoSrc ? (
-            <Image
-              src={logoSrc}
-              alt={logoAlt}
-              width={40}
-              height={40}
-              loading={priority ? undefined : 'lazy'}
-              priority={priority}
-              className="object-contain w-full h-full"
-            />
-          ) : (
-            <span className="text-xs md:text-sm font-bold text-accent" aria-hidden="true">
-              {initials}
-            </span>
-          )}
-        </div>
-
-        <div className="min-w-0">
-          <h3 className="font-bold text-text text-sm md:text-base group-hover:text-accent transition-colors leading-snug line-clamp-2">
-            {name}
-          </h3>
-          <p className="text-xs text-text-tertiary mt-0.5">
-            <span>{countLabel}</span>
-            {lowestPrice != null ? (
-              <span> · from {formatPkr(lowestPrice)}</span>
-            ) : (
-              <span> · quote on request</span>
-            )}
-          </p>
-        </div>
+      {/* 1. Normalized Fixed 56x56 Logo Tile */}
+      <div className="w-14 h-14 min-w-[56px] min-h-[56px] rounded-xl border border-separator bg-white dark:bg-bg-subtle flex items-center justify-center p-2 flex-shrink-0 overflow-hidden shadow-xs">
+        {logoSrc ? (
+          <Image
+            src={logoSrc}
+            alt={logoAlt}
+            width={40}
+            height={40}
+            loading={priority ? undefined : 'lazy'}
+            priority={priority}
+            className="object-contain max-w-[40px] max-h-[40px] w-auto h-auto"
+          />
+        ) : (
+          <span className="text-sm font-bold text-accent" aria-hidden="true">
+            {initials}
+          </span>
+        )}
       </div>
 
-      {/* Decorative arrow icon */}
-      <div className="flex-shrink-0 ml-2" aria-hidden="true">
+      {/* 2. Text Block (min-width: 0, flex: 1) */}
+      <div className="min-w-0 flex-1 ml-3.5 mr-2">
+        <h3 className="font-semibold text-text text-sm md:text-base group-hover:text-accent transition-colors leading-snug line-clamp-2">
+          {displayName}
+        </h3>
+        <p className="text-xs text-text-tertiary truncate mt-0.5">
+          <span>{countLabel}</span>
+          {lowestPrice != null ? (
+            <span> · from {formatPkr(lowestPrice)}</span>
+          ) : (
+            <span> · quote on request</span>
+          )}
+        </p>
+      </div>
+
+      {/* 3. Decorative Arrow Icon (flex: none, aria-hidden="true") */}
+      <div className="flex-shrink-0" aria-hidden="true">
         <span className="w-8 h-8 rounded-full bg-bg-subtle flex items-center justify-center text-text-tertiary group-hover:bg-accent group-hover:text-accent-on transition-colors">
           <ArrowRight className="w-4 h-4" />
         </span>
