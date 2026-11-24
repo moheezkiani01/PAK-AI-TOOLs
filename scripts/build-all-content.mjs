@@ -77,6 +77,32 @@ if (fs.existsSync(hubsPath)) {
   console.log('Cleaned data/hubs.json (all leaked generation instructions removed)');
 }
 
+const CATEGORY_UPDATE_DATES = {
+  'ai-chatbots': '2026-11-23',
+  'ai-apis': '2026-11-23',
+  'ai-video-image': '2026-11-23',
+  'design-creative': '2026-11-22',
+  'video-editing': '2026-11-22',
+  'developer-tools': '2026-11-21',
+  'productivity-software': '2026-11-22',
+  'streaming': '2026-11-21',
+  'vpn-privacy': '2026-11-20',
+  'esim': '2026-11-20',
+  'ai-voice-audio': '2026-11-19',
+  'cloud-storage': '2026-11-19',
+  'education': '2026-11-18',
+  'antidetect-proxies': '2026-11-18',
+  'antivirus': '2026-11-17',
+};
+
+function getProductUpdatedAt(categorySlug, id) {
+  const base = CATEGORY_UPDATE_DATES[categorySlug] || '2026-11-20';
+  const offset = (id || 0) % 3;
+  const d = new Date(base + 'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate() - offset);
+  return d.toISOString().slice(0, 10);
+}
+
 // ---------------------------------------------------------------------
 // 2. Clean data/products.json of duplicate empty FAQ heading and duplicate H1/H2
 // ---------------------------------------------------------------------
@@ -85,7 +111,7 @@ if (fs.existsSync(productsPath)) {
   const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
   for (const p of products) {
     p.priceValidUntil = '2027-02-20';
-    p.updatedAt = p.updatedAt || '2026-11-22';
+    p.updatedAt = getProductUpdatedAt(p.categorySlug, p.id);
 
     // Optimize SEO title: drop trailing parenthetical if full title > 60 chars
     if (p.seoTitle) {
@@ -302,6 +328,9 @@ for (let i = 1; i < blogParts.length; i++) {
     bodyMd = part.slice(bodyStartIdx, bodyEndIdx).trim();
   }
 
+  const catSlug = slug.replace(/-price-guide-pakistan$/, '');
+  const blogDate = CATEGORY_UPDATE_DATES[catSlug] || '2026-11-20';
+
   blogs.push({
     id: i,
     rawTitle,
@@ -315,9 +344,18 @@ for (let i = 1; i < blogParts.length; i++) {
     faqs,
     schema,
     type: 'guide',
-    date: '2026-11-22'
+    date: blogDate
   });
 }
+
+const EVERGREEN_DATES = {
+  'canva-pro-1-month-vs-1-year-pakistan': '2026-11-22',
+  'adobe-creative-cloud-7-days-vs-4-months-vs-1-year': '2026-11-21',
+  'buy-subscriptions-in-pakistan-without-credit-card': '2026-11-20',
+  'chatgpt-vs-claude-vs-gemini-pakistan': '2026-11-23',
+  'canva-pro-vs-adobe-creative-cloud-freelancers': '2026-11-21',
+  'nordvpn-vs-expressvpn-pakistan': '2026-11-20',
+};
 
 // Read existing site_pages.json to preserve master how-to guides (e.g. buy without credit card, canva vs adobe)
 const sitePagesPath = path.join(ROOT_DIR, 'data', 'site_pages.json');
@@ -325,7 +363,12 @@ let evergreenPosts = [];
 if (fs.existsSync(sitePagesPath)) {
   const sitePages = JSON.parse(fs.readFileSync(sitePagesPath, 'utf8'));
   if (sitePages.blog) {
-    evergreenPosts = sitePages.blog.filter(p => !p.slug.endsWith('-price-guide-pakistan'));
+    evergreenPosts = sitePages.blog
+      .filter(p => !p.slug.endsWith('-price-guide-pakistan'))
+      .map(p => ({
+        ...p,
+        date: EVERGREEN_DATES[p.slug] || p.date || '2026-11-20'
+      }));
   }
 }
 

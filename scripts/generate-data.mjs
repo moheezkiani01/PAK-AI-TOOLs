@@ -66,6 +66,32 @@ let redirectsText = redirects.map(r => `${r.source}  ${r.destination}  301`).joi
 fs.writeFileSync(path.join(PUBLIC_DIR, '_redirects'), redirectsText + '\n');
 console.log(`Saved public/_redirects (${redirects.length} lines)`);
 
+const CATEGORY_UPDATE_DATES = {
+  'ai-chatbots': '2026-11-23',
+  'ai-apis': '2026-11-23',
+  'ai-video-image': '2026-11-23',
+  'design-creative': '2026-11-22',
+  'video-editing': '2026-11-22',
+  'developer-tools': '2026-11-21',
+  'productivity-software': '2026-11-22',
+  'streaming': '2026-11-21',
+  'vpn-privacy': '2026-11-20',
+  'esim': '2026-11-20',
+  'ai-voice-audio': '2026-11-19',
+  'cloud-storage': '2026-11-19',
+  'education': '2026-11-18',
+  'antidetect-proxies': '2026-11-18',
+  'antivirus': '2026-11-17',
+};
+
+function getProductUpdatedAt(categorySlug, id) {
+  const base = CATEGORY_UPDATE_DATES[categorySlug] || '2026-11-20';
+  const offset = (id || 0) % 3;
+  const d = new Date(base + 'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate() - offset);
+  return d.toISOString().slice(0, 10);
+}
+
 // 3. Parse 01_catalogue_indexable_pages.txt
 const indexableContent = fs.readFileSync(path.join(ROOT_DIR, '01_catalogue_indexable_pages.txt'), 'utf8');
 const productBlocks = indexableContent.split(/={40,}\r?\nPRODUCT #(\d+):\s*(.*?)\r?\n={40,}/g);
@@ -188,7 +214,7 @@ for (let i = 1; i < productBlocks.length; i += 3) {
       romanUrdu: romanUrduMatch ? romanUrduMatch[1].trim() : ''
     },
     schema,
-    updatedAt: '2026-11-22'
+    updatedAt: getProductUpdatedAt(categorySlug, id)
   });
 }
 
