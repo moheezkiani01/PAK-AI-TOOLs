@@ -51,9 +51,8 @@ export function BuyCard({
 
   return (
     <aside
-      id="product-buy-card"
       aria-label="Order summary"
-      className="rounded-2xl border border-separator bg-bg-card p-5 md:p-6 shadow-card"
+      className="product-buy-card rounded-2xl border border-separator bg-bg-card p-5 md:p-6 shadow-card"
     >
       <div className="flex items-baseline justify-between mb-4 border-b border-separator pb-4">
         <div>

@@ -18,8 +18,6 @@ import { PlanRow } from '@/components/PlanRow';
 import { Faq } from '@/components/Faq';
 import { HeroSearch } from '@/components/HeroSearch';
 import { WhatsAppIcon } from '@/components/WhatsAppFab';
-import { JsonLd } from '@/components/JsonLd';
-import { getHomepageSchema } from '@/lib/schema';
 import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
 import { baseOg } from '@/lib/seo';
@@ -96,11 +94,8 @@ export default function HomePage() {
     },
   ];
 
-  const schema = getHomepageSchema(homeFaqs);
-
   return (
     <div className="space-y-8 md:space-y-10 py-2">
-      <JsonLd schema={schema} />
       {/* 1. Hero Section (Above the fold) */}
       <section className="text-center max-w-3xl mx-auto space-y-4 pt-2 md:pt-4">
         <h1 className="text-3xl md:text-5xl font-black text-text tracking-tight leading-tight">

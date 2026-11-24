@@ -25,7 +25,7 @@ export function StickyOrderBar({
   const { currency } = useCurrency();
 
   useEffect(() => {
-    const buyCard = document.getElementById('product-buy-card');
+    const buyCard = document.querySelector('.product-buy-card');
     if (!buyCard) return;
 
     const observer = new IntersectionObserver(

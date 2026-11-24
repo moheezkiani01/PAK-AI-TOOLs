@@ -108,6 +108,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   if (!product) return {};
 
   const cleanTitle = product.seoTitle.replace(/\s*\|\s*PakAITools\s*$/i, '');
+  const { type: _ogType, ...baseOgWithoutType } = baseOg;
 
   return {
     title: cleanTitle,
@@ -116,7 +117,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       canonical: `https://pakaitools.store/product/${product.slug}/`,
     },
     openGraph: {
-      ...baseOg,
+      ...baseOgWithoutType,
       title: cleanTitle,
       description: product.metaDesc,
       url: `https://pakaitools.store/product/${product.slug}/`,
@@ -172,6 +173,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className="py-2 space-y-6">
+      <meta property="og:type" content="product" />
       <JsonLd schema={schema} />
       <Breadcrumbs items={breadcrumbs} />
 
@@ -223,7 +225,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="rounded-2xl border border-separator bg-bg-card p-5 space-y-3">
             <h2 className="text-lg md:text-xl font-bold text-text mb-3">Quick Facts</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm">
-              {Object.entries(product.quickFacts).map(([field, details]) => (
+              {Object.entries(product.quickFacts)
+                .filter(([field, details]) => field.trim().toLowerCase() !== 'field' && (details || '').trim().toLowerCase() !== 'details')
+                .map(([field, details]) => (
                 <div key={field} className="p-2.5 rounded-lg bg-bg-subtle border border-separator/60">
                   <span className="font-bold text-text block text-xs uppercase tracking-wider mb-0.5">
                     {field}

@@ -39,24 +39,25 @@ export function getWebSiteSchema() {
   };
 }
 
-export function wrapInGraph(nodes: any[]) {
+/**
+ * Site-wide schema containing Organization and WebSite in a single @graph with @context.
+ * Placed in layout <head> so every page has Organization and WebSite.
+ */
+export function getSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
       getOrganizationSchema(),
       getWebSiteSchema(),
-      ...nodes.filter(Boolean),
     ],
   };
 }
 
-export function getHomepageSchema(faqs?: Array<{ question: string; answer: string }>) {
-  const nodes: any[] = [];
-  if (faqs && faqs.length > 0) {
-    const faqSchema = getFaqSchema(faqs);
-    if (faqSchema) nodes.push(faqSchema);
-  }
-  return wrapInGraph(nodes);
+export function wrapInGraph(nodes: any[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': nodes.filter(Boolean),
+  };
 }
 
 export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
@@ -72,7 +73,10 @@ export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>)
 }
 
 export function getBreadcrumbGraphSchema(items: Array<{ name: string; url: string }>) {
-  return wrapInGraph([getBreadcrumbSchema(items)]);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [getBreadcrumbSchema(items)],
+  };
 }
 
 export function getFaqSchema(faqs: Array<{ question: string; answer: string }>) {
@@ -95,10 +99,10 @@ export function getProductSchema(
   breadcrumbs: Array<{ name: string; url: string }>,
   _brandLogo?: string | null
 ) {
-  const nodes: any[] = [];
+  const graph: any[] = [];
   const canonicalUrl = `${SITE.domain}/product/${product.slug}/`;
 
-  // Use brand display name (e.g. Canva) and category display name (e.g. Design & Creative) instead of slugs
+  // Use brand display name (e.g. "Canva") and category display name (e.g. "Design & Creative")
   const brandObj = getBrandBySlug(product.brandSlug);
   const categoryObj = getCategoryBySlug(product.categorySlug);
 
@@ -108,14 +112,14 @@ export function getProductSchema(
   }
   const categoryName = categoryObj?.name || product.categorySlug;
 
-  // Use product image of at least 1200x630 (og-default.png is 1200x630) instead of 128px logo
+  // Image of at least 600x600 or 1200x630 (og-default.png is 1200x630) instead of 128px logo
   const productImage = `${SITE.domain}/og-default.png`;
 
-  // Sourced from data: date no more than 90 days out
+  // Price valid until date: no more than 90 days out, sourced from product or site config data
   const priceValidUntil = (product as any).priceValidUntil || SITE.priceValidUntil || '2027-02-20';
 
   if (product.price !== null) {
-    nodes.push({
+    graph.push({
       '@type': 'Product',
       '@id': `${canonicalUrl}#product`,
       name: product.name,
@@ -142,7 +146,7 @@ export function getProductSchema(
       },
     });
   } else {
-    nodes.push({
+    graph.push({
       '@type': 'WebPage',
       '@id': canonicalUrl,
       url: canonicalUrl,
@@ -151,14 +155,17 @@ export function getProductSchema(
     });
   }
 
-  nodes.push(getBreadcrumbSchema(breadcrumbs));
+  graph.push(getBreadcrumbSchema(breadcrumbs));
 
   if (product.faqs && product.faqs.length > 0) {
     const faqSchema = getFaqSchema(product.faqs);
-    if (faqSchema) nodes.push(faqSchema);
+    if (faqSchema) graph.push(faqSchema);
   }
 
-  return wrapInGraph(nodes);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': graph,
+  };
 }
 
 export function getCollectionSchema(
@@ -168,7 +175,7 @@ export function getCollectionSchema(
   faqs?: Array<{ question: string; answer: string }>
 ) {
   const canonical = `${SITE.domain}${url}`;
-  const nodes: any[] = [
+  const graph: any[] = [
     {
       '@type': 'CollectionPage',
       '@id': canonical,
@@ -180,35 +187,44 @@ export function getCollectionSchema(
 
   if (faqs && faqs.length > 0) {
     const faqSchema = getFaqSchema(faqs);
-    if (faqSchema) nodes.push(faqSchema);
+    if (faqSchema) graph.push(faqSchema);
   }
 
-  return wrapInGraph(nodes);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': graph,
+  };
 }
 
 export function getAboutSchema(breadcrumbs: Array<{ name: string; url: string }>) {
-  return wrapInGraph([
-    {
-      '@type': 'AboutPage',
-      name: 'About PakAITools',
-      url: `${SITE.domain}/about/`,
-      mainEntity: {
-        '@type': 'Person',
-        name: SITE.founder,
-        jobTitle: 'Founder',
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'AboutPage',
+        name: 'About PakAITools',
+        url: `${SITE.domain}/about/`,
+        mainEntity: {
+          '@type': 'Person',
+          name: SITE.founder,
+          jobTitle: 'Founder',
+        },
       },
-    },
-    getBreadcrumbSchema(breadcrumbs),
-  ]);
+      getBreadcrumbSchema(breadcrumbs),
+    ],
+  };
 }
 
 export function getContactSchema(breadcrumbs: Array<{ name: string; url: string }>) {
-  return wrapInGraph([
-    {
-      '@type': 'ContactPage',
-      name: 'Contact PakAITools',
-      url: `${SITE.domain}/contact/`,
-    },
-    getBreadcrumbSchema(breadcrumbs),
-  ]);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'ContactPage',
+        name: 'Contact PakAITools',
+        url: `${SITE.domain}/contact/`,
+      },
+      getBreadcrumbSchema(breadcrumbs),
+    ],
+  };
 }
