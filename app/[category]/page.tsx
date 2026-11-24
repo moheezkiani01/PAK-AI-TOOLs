@@ -8,8 +8,10 @@ import {
   getCategoryHub,
   getBrandsByCategory,
   getProductsByCategory,
+  getCategoryCounts,
 } from '@/lib/data';
 import { BrandCard } from '@/components/BrandCard';
+import { BrandGrid } from '@/components/BrandGrid';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Faq } from '@/components/Faq';
 import { JsonLd } from '@/components/JsonLd';
@@ -19,6 +21,7 @@ import { ShieldCheck, BookOpen, ArrowRight } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getCategoryWhatsAppMessage } from '@/lib/whatsapp';
 import { baseOg, optimizeSeoTitle } from '@/lib/seo';
+import { pluralize } from '@/lib/format';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -66,6 +69,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
+  const counts = getCategoryCounts(catSlug);
   const brands = getBrandsByCategory(catSlug);
   const products = getProductsByCategory(catSlug);
 
@@ -74,12 +78,30 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     { name: category.name, url: `/${category.slug}/` },
   ];
 
+  // B8 Content Uniqueness: Check if category has verified unique FAQs (hide templated generic FAQs)
+  const isTemplatedFaq = !hub?.faqs || hub.faqs.some((f) => f.question.startsWith('What is the price of '));
+  const uniqueFaqs = isTemplatedFaq ? undefined : hub.faqs;
+
   const schema = getCollectionSchema(
     hub?.h1 || `${category.name} Price in Pakistan`,
     `/${category.slug}/`,
     breadcrumbs,
-    hub?.faqs
+    uniqueFaqs
   );
+
+  const brandsWithPrices = brands.map((brand) => {
+    const brandProducts = products.filter(
+      (p) => p.brandSlug === brand.slug || p.slug === brand.productSlug
+    );
+    const prices = brandProducts
+      .map((p) => p.price)
+      .filter((pr): pr is number => pr !== null && typeof pr === 'number');
+    const minPrice = prices.length > 0 ? Math.min(...prices) : null;
+    return {
+      ...brand,
+      minPrice,
+    };
+  });
 
   return (
     <div className="space-y-6 md:space-y-8 py-2">
@@ -94,7 +116,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <div className="p-4 md:p-5 rounded-2xl bg-accent-soft/40 border border-accent/20 space-y-3">
           <p className="text-sm md:text-base text-text leading-relaxed font-medium">
             {(hub?.answer ||
-              `PakAITools lists ${category.brands} verified brands and ${category.plans} plans in ${category.name} with fixed PKR pricing for Pakistan. Every plan includes guaranteed warranty coverage, no credit card required, and private WhatsApp delivery within 15 minutes after payment verification.`).replace(/\*\*/g, '')}
+              `PakAITools lists ${pluralize(counts.brandCount, 'verified brand')} and ${pluralize(counts.planCount, 'plan')} in ${category.name} with fixed PKR pricing for Pakistan. Every plan includes guaranteed warranty coverage, no credit card required, and private WhatsApp delivery within 15 minutes after payment verification.`).replace(/\*\*/g, '')}
           </p>
           <div className="flex flex-wrap items-center gap-3 text-xs text-text-secondary pt-2 border-t border-accent/15">
             <span className="flex items-center">
@@ -109,23 +131,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
-      {/* Brand Grid (Single clean heading) */}
+      {/* Brand Grid (Equal-size cards) */}
       <section aria-labelledby="brands-grid-heading" className="space-y-3">
         <h2 id="brands-grid-heading" className="text-xl md:text-2xl font-bold text-text">
           Brands in {category.name}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-          {brands.map((brand) => {
-            const brandProducts = products.filter(
-              (p) => p.brandSlug === brand.slug || p.slug === brand.productSlug
-            );
-            const prices = brandProducts
-              .map((p) => p.price)
-              .filter((pr): pr is number => pr !== null && typeof pr === 'number');
-            const minPrice = prices.length > 0 ? Math.min(...prices) : null;
-            return <BrandCard key={brand.slug} brand={brand} minPrice={minPrice} />;
-          })}
-        </div>
+        <BrandGrid brands={brandsWithPrices} />
       </section>
 
       {/* Rich Markdown Content if available (without duplicate Brand grid) */}
@@ -161,8 +172,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </Link>
       </section>
 
-      {/* FAQs */}
-      {hub?.faqs && hub.faqs.length > 0 && <Faq items={hub.faqs} />}
+      {/* FAQs (Rendered only when verified unique FAQs exist) */}
+      {uniqueFaqs && uniqueFaqs.length > 0 && <Faq items={uniqueFaqs} />}
 
       {/* Trust Notice */}
       <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">

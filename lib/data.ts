@@ -79,6 +79,16 @@ export function getProductsByCategory(categorySlug: string): Product[] {
   return (productsData as Product[]).filter((p) => p.categorySlug === categorySlug);
 }
 
+export function getCategoryCounts(categorySlug: string): { brandCount: number; planCount: number } {
+  const brands = getBrandsByCategory(categorySlug);
+  const products = getProductsByCategory(categorySlug);
+  const merged = getMergedPlans().filter((mp) => mp.categorySlug === categorySlug);
+  return {
+    brandCount: brands.length,
+    planCount: products.length + merged.length,
+  };
+}
+
 export function getSitePages() {
   return sitePagesData as any;
 }

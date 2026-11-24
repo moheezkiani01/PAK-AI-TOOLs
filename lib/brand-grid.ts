@@ -8,7 +8,8 @@ import type { Category, Brand, Product, MergedPlan } from './types';
 
 export type BrandCardData = {
   slug: string;
-  name: string;              // search-friendly name, e.g. "ChatGPT Plus"
+  name: string;              // full search-friendly name
+  displayName?: string;      // optional compact display name (<= 32 chars)
   href: string;              // internal URL, matches canonical exactly
   logo: { src: string; alt: string; width: number; height: number };
   planCount: number;
@@ -26,7 +27,7 @@ export type CategoryGroup = {
   totalBrandCount: number;
 };
 
-// Priority commercial category ordering (AI Chatbots first)
+// Priority commercial category ordering
 export const CATEGORY_COMMERCIAL_ORDER: string[] = [
   'ai-chatbots',
   'design-creative',
@@ -43,6 +44,14 @@ export const CATEGORY_COMMERCIAL_ORDER: string[] = [
   'antivirus',
   'antidetect-proxies',
   'esim',
+];
+
+// Top categories featured on the homepage brand grid
+export const HOME_GRID_CATEGORIES: string[] = [
+  'ai-chatbots',
+  'ai-video-image',
+  'ai-apis',
+  'design-creative',
 ];
 
 // Plain, factual 2-3 sentence intros for each category hub (AEO/GEO)
@@ -93,7 +102,7 @@ export function getLastPriceUpdate(): { dateIso: string; dateDisplay: string } {
  * Returns the structured Brand Grid categories and their top 6-8 brands
  * derived strictly from the canonical data sources.
  */
-export function getBrandGridData(): CategoryGroup[] {
+export function getBrandGridData(categorySlugs: string[] = CATEGORY_COMMERCIAL_ORDER): CategoryGroup[] {
   const brands = brandsData as Brand[];
   const categories = categoriesData as Category[];
   const products = productsData as Product[];
@@ -106,7 +115,7 @@ export function getBrandGridData(): CategoryGroup[] {
 
   const result: CategoryGroup[] = [];
 
-  for (const catSlug of CATEGORY_COMMERCIAL_ORDER) {
+  for (const catSlug of categorySlugs) {
     const cat = categoryMap.get(catSlug);
     if (!cat) continue;
 
@@ -144,19 +153,21 @@ export function getBrandGridData(): CategoryGroup[] {
       const lowestPricePkr = validPrices.length > 0 ? Math.min(...validPrices) : null;
       const planCount = activePlans.length || b.planCount || 1;
 
-      // Single-plan brands link to /product/${productSlug}/ to avoid thin content;
-      // Multi-plan brands link to /${categorySlug}/${brandSlug}/
+      // Single-plan brands link to /product/${productSlug}/; multi-plan link to /${catSlug}/${b.slug}/
       const href = b.isMultiPlan
         ? `/${catSlug}/${b.slug}/`
         : (b.productUrl || `/product/${b.productSlug}/`);
 
+      const cleanName = (b.displayName || b.slug).trim();
+
       return {
         slug: b.slug,
-        name: b.displayName,
+        name: cleanName,
+        displayName: cleanName,
         href,
         logo: {
           src: b.logo || '',
-          alt: `${b.displayName} logo`,
+          alt: `${cleanName} logo`,
           width: 40,
           height: 40,
         },
@@ -186,10 +197,10 @@ export function getBrandGridData(): CategoryGroup[] {
 }
 
 /**
- * Builds ItemList structured data for all visible brand cards across the grid.
+ * Builds ItemList structured data for visible brand cards across the grid.
  */
 export function getBrandGridJsonLd(groups: CategoryGroup[]) {
-  const itemLists = groups.map((group) => {
+  return groups.map((group) => {
     return {
       '@type': 'ItemList',
       '@id': `${SITE_URL}/#itemlist-${group.slug}`,
@@ -204,6 +215,4 @@ export function getBrandGridJsonLd(groups: CategoryGroup[]) {
       })),
     };
   });
-
-  return itemLists;
 }

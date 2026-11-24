@@ -334,6 +334,127 @@ if (fs.existsSync(OUT_DIR)) {
   }
 }
 
+// 12. Validate Displayed Names (Parentheses, Dangling Chars, Max Length)
+console.log('\n--- Validating Brand & Product Names ---');
+let nameFailures = 0;
+const brandsList = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'brands.json'), 'utf8'));
+for (const b of brandsList) {
+  const nameToCheck = (b.displayName || b.name || '').trim();
+  const openCount = (nameToCheck.match(/\(/g) || []).length;
+  const closeCount = (nameToCheck.match(/\)/g) || []).length;
+  if (openCount !== closeCount) {
+    error(`Brand "${b.slug}" has unbalanced parentheses: "${nameToCheck}"`);
+    nameFailures++;
+  }
+  if (/[\(\-\&]$|\s\+$/.test(nameToCheck)) {
+    error(`Brand "${b.slug}" ends with a dangling character: "${nameToCheck}"`);
+    nameFailures++;
+  }
+  if (nameToCheck.length > 60) {
+    warn(`Brand "${b.slug}" name exceeds 60 chars (${nameToCheck.length} chars): "${nameToCheck}"`);
+  }
+}
+for (const p of products) {
+  const nameToCheck = (p.displayName || p.name || '').trim();
+  const openCount = (nameToCheck.match(/\(/g) || []).length;
+  const closeCount = (nameToCheck.match(/\)/g) || []).length;
+  if (openCount !== closeCount) {
+    error(`Product "${p.slug}" has unbalanced parentheses: "${nameToCheck}"`);
+    nameFailures++;
+  }
+  if (/[\(\-\&]$|\s\+$/.test(nameToCheck)) {
+    error(`Product "${p.slug}" ends with a dangling character: "${nameToCheck}"`);
+    nameFailures++;
+  }
+}
+if (nameFailures === 0) {
+  ok('All brand and product names have balanced parentheses and zero dangling characters');
+}
+
+// 13. Validate Category Brand & Plan Counts (Displayed vs Data Truth)
+console.log('\n--- Validating Category Counts Truth ---');
+let countFailures = 0;
+for (const cat of categories) {
+  const actualBrands = brandsList.filter((b) => b.categorySlug === cat.slug).length;
+  const actualPlans =
+    products.filter((p) => p.categorySlug === cat.slug).length +
+    mergedPlans.filter((mp) => mp.categorySlug === cat.slug).length;
+
+  if (cat.brands !== actualBrands) {
+    error(`Category "${cat.slug}" displayed brands (${cat.brands}) !== actual rendered brands (${actualBrands})`);
+    countFailures++;
+  }
+  if (cat.plans !== actualPlans) {
+    error(`Category "${cat.slug}" displayed plans (${cat.plans}) !== actual rendered plans (${actualPlans})`);
+    countFailures++;
+  }
+}
+if (countFailures === 0) {
+  ok('All 15 category brand and plan counts match rendered data exactly');
+}
+
+// 14. Validate AI News Quality Guardrails (eventDate, sources, recency)
+console.log('\n--- Validating AI News Integrity ---');
+const aiNewsFile = path.join(DATA_DIR, 'ai-news.json');
+if (fs.existsSync(aiNewsFile)) {
+  const aiNews = JSON.parse(fs.readFileSync(aiNewsFile, 'utf8'));
+  let newsFailures = 0;
+  for (const item of aiNews) {
+    if (!item.draft) {
+      if (!item.sources || !Array.isArray(item.sources) || item.sources.length === 0) {
+        error(`Published news "${item.slug}" has empty sources`);
+        newsFailures++;
+      }
+      if (!item.eventDate) {
+        error(`Published news "${item.slug}" is missing required eventDate`);
+        newsFailures++;
+      } else {
+        const eventTime = new Date(item.eventDate).getTime();
+        const pubTime = new Date(item.datePublished).getTime();
+        const diffDays = (pubTime - eventTime) / (1000 * 60 * 60 * 24);
+        const isBreaking = /news|breaking|released/i.test(`${item.title} ${item.slug}`);
+        if (isBreaking && diffDays > 60) {
+          error(`News "${item.slug}" eventDate is ${Math.round(diffDays)} days before published date (> 60 days limit)`);
+          newsFailures++;
+        }
+      }
+    }
+  }
+  if (newsFailures === 0) {
+    ok(`AI News validation passed across ${aiNews.length} items`);
+  }
+}
+
+// 15. Check Guide Prices vs Products Truth
+console.log('\n--- Checking Blog Guide Prices vs Product Data ---');
+let priceMismatches = 0;
+let pricesChecked = 0;
+const prodBySlug = new Map(products.map((p) => [p.slug, p]));
+for (const b of blogs) {
+  const lines = (b.contentMarkdown || '').split('\n');
+  for (const l of lines) {
+    const linkMatch = l.match(/\/product\/([a-z0-9\-]+)\//);
+    const priceMatch = l.match(/Rs\.?\s*([\d,]+)/i);
+    if (linkMatch && priceMatch) {
+      const slug = linkMatch[1];
+      const tablePrice = parseInt(priceMatch[1].replace(/,/g, ''), 10);
+      const matchedProd = prodBySlug.get(slug);
+      if (matchedProd && matchedProd.price !== null) {
+        pricesChecked++;
+        if (matchedProd.price !== tablePrice) {
+          warn(`Price mismatch in guide "${b.slug}": product "${slug}" table price Rs. ${tablePrice} !== catalog Rs. ${matchedProd.price}`);
+          priceMismatches++;
+        }
+      }
+    }
+  }
+}
+if (priceMismatches === 0) {
+  ok(`Guide prices checked against product data (${pricesChecked} prices verified, 0 discrepancies)`);
+} else {
+  warn(`Found ${priceMismatches} price difference(s) between blog tables and product catalog`);
+}
+
 console.log('\n==============================================');
 if (errors === 0) {
   console.log(`🎉 ALL VALIDATIONS PASSED! (0 Errors, ${warnings} Warnings)`);

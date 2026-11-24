@@ -261,25 +261,31 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm">
               {Object.entries(product.quickFacts)
                 .filter(([field, details]) => field.trim().toLowerCase() !== 'field' && (details || '').trim().toLowerCase() !== 'details')
-                .map(([field, details]) => (
-                <div key={field} className="p-2.5 rounded-lg bg-bg-subtle border border-separator/60">
-                  <span className="font-bold text-text block text-xs uppercase tracking-wider mb-0.5">
-                    {field}
-                  </span>
-                  {field.toLowerCase().includes('support') || details.includes('9305619') ? (
-                    <a
-                      href={fullWaLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent underline font-semibold hover:opacity-80"
-                    >
-                      {details}
-                    </a>
-                  ) : (
-                    <span className="text-text-secondary">{details}</span>
-                  )}
-                </div>
-              ))}
+                .map(([field, details]) => {
+                  let displayDetails = details;
+                  if (field.toLowerCase().includes('payment')) {
+                    displayDetails = 'JazzCash, EasyPaisa, SadaPay, NayaPay, Raast / UBL, Binance Pay (USDT)';
+                  }
+                  return (
+                    <div key={field} className="p-2.5 rounded-lg bg-bg-subtle border border-separator/60">
+                      <span className="font-bold text-text block text-xs uppercase tracking-wider mb-0.5">
+                        {field}
+                      </span>
+                      {field.toLowerCase().includes('support') || details.includes('9305619') ? (
+                        <a
+                          href={fullWaLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent underline font-semibold hover:opacity-80"
+                        >
+                          {details}
+                        </a>
+                      ) : (
+                        <span className="text-text-secondary">{displayDetails}</span>
+                      )}
+                    </div>
+                  );
+                })}
             </div>
           </div>
 
