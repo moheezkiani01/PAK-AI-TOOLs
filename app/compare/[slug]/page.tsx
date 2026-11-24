@@ -11,7 +11,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { buildWhatsAppLink, getComparisonWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
 import { ShieldCheck, MessageCircle, ArrowRight, Scale, CheckCircle2 } from 'lucide-react';
-import { baseOg } from '@/lib/seo';
+import { baseOg, optimizeSeoTitle } from '@/lib/seo';
 
 interface ComparisonPageProps {
   params: Promise<{ slug: string }>;
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ComparisonPageProps): Promise
 
   if (!comp) return {};
 
-  const cleanTitle = (comp.seoTitle || comp.rawTitle || 'Comparison').replace(/\s*\|\s*PakAITools\s*$/i, '');
+  const cleanTitle = optimizeSeoTitle(comp.seoTitle || comp.rawTitle || 'Comparison');
 
   return {
     title: cleanTitle,

@@ -187,7 +187,8 @@ for (let i = 1; i < productBlocks.length; i += 3) {
       longTail: longTailMatch ? longTailMatch[1].trim() : '',
       romanUrdu: romanUrduMatch ? romanUrduMatch[1].trim() : ''
     },
-    schema
+    schema,
+    updatedAt: '2026-11-22'
   });
 }
 

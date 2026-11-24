@@ -1,4 +1,6 @@
 import React from 'react';
+import fs from 'node:fs';
+import path from 'node:path';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -24,7 +26,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { WhatsAppIcon } from '@/components/WhatsAppFab';
 import { ShieldCheck, ArrowRight, Scale } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
-import { baseOg } from '@/lib/seo';
+import { baseOg, optimizeSeoTitle } from '@/lib/seo';
 
 function fixDuplicateH2(
   md: string,
@@ -107,8 +109,16 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
   if (!product) return {};
 
-  const cleanTitle = product.seoTitle.replace(/\s*\|\s*PakAITools\s*$/i, '');
+  const cleanTitle = optimizeSeoTitle(product.seoTitle);
   const { type: _ogType, ...baseOgWithoutType } = baseOg;
+
+  // Requirement 2: Use each product's own PNG for og:image, twitter:image and Product schema image.
+  // Fall back to /og-default.png if the file is missing. Use the absolute https://pakaitools.store/... URL.
+  const ogPngPath = path.join(process.cwd(), 'public', 'og', `${product.slug}.png`);
+  const hasCustomOg = fs.existsSync(ogPngPath);
+  const imageUrl = hasCustomOg
+    ? `https://pakaitools.store/og/${product.slug}.png`
+    : `https://pakaitools.store/og-default.png`;
 
   return {
     title: cleanTitle,
@@ -121,6 +131,20 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       title: cleanTitle,
       description: product.metaDesc,
       url: `https://pakaitools.store/product/${product.slug}/`,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${cleanTitle} | PakAITools`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: cleanTitle,
+      description: product.metaDesc,
+      images: [imageUrl],
     },
   };
 }

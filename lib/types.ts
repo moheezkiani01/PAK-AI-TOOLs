@@ -55,6 +55,8 @@ export interface Product {
     romanUrdu: string;
   };
   schema: any;
+  updatedAt?: string;
+  ogImage?: string;
 }
 
 export interface MergedPlan {

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import sharp from 'sharp';
 
 const ROOT_DIR = process.cwd();
 const DATA_DIR = path.join(ROOT_DIR, 'data');
@@ -96,3 +97,18 @@ for (const p of products) {
 }
 
 console.log(`Saved ${products.length} SVG OG cards in public/og/!`);
+
+console.log(`Converting ${products.length} SVG cards to 1200x630 PNGs at build time using sharp...`);
+await Promise.all(
+  products.map(async (p) => {
+    const svgPath = path.join(OG_DIR, `${p.slug}.svg`);
+    const pngPath = path.join(OG_DIR, `${p.slug}.png`);
+    const svgBuffer = fs.readFileSync(svgPath);
+    await sharp(svgBuffer)
+      .resize(1200, 630)
+      .png({ compressionLevel: 8 })
+      .toFile(pngPath);
+  })
+);
+console.log(`Successfully generated ${products.length} 1200x630 PNG share cards in public/og/!`);
+

@@ -18,7 +18,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck, BookOpen, ArrowRight } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getCategoryWhatsAppMessage } from '@/lib/whatsapp';
-import { baseOg } from '@/lib/seo';
+import { baseOg, optimizeSeoTitle } from '@/lib/seo';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   if (!cat) return {};
 
   const rawTitle = hub?.seoTitle || `${cat.name} Price in Pakistan – Plans in PKR`;
-  const cleanTitle = rawTitle.replace(/\s*\|\s*PakAITools\s*$/i, '');
+  const cleanTitle = optimizeSeoTitle(rawTitle);
   const description = hub?.metaDesc || `Compare ${cat.name} plans in Pakistan. Local PKR payment, warranty per plan, WhatsApp support.`;
 
   return {

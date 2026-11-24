@@ -85,6 +85,17 @@ if (fs.existsSync(productsPath)) {
   const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
   for (const p of products) {
     p.priceValidUntil = '2027-02-20';
+    p.updatedAt = p.updatedAt || '2026-11-22';
+
+    // Optimize SEO title: drop trailing parenthetical if full title > 60 chars
+    if (p.seoTitle) {
+      let clean = p.seoTitle.replace(/\s*\|\s*PakAITools\s*$/i, '').trim();
+      const full = `${clean} | PakAITools`;
+      if (full.length > 60 && /\s*\([^)]+\)\s*$/.test(clean)) {
+        clean = clean.replace(/\s*\([^)]+\)\s*$/, '').trim();
+        p.seoTitle = `${clean} | PakAITools`;
+      }
+    }
     if (p.contentMarkdown) {
       // Remove trailing "## Frequently Asked Questions" heading since page renders <Faq> component
       p.contentMarkdown = p.contentMarkdown.replace(/##\s*Frequently Asked Questions[\s\S]*$/i, '').trim();

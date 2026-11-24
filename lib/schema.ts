@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { SITE } from './site.config';
 import type { Product, CategoryHub, BrandHub, BlogPost } from './types';
 import { getBrandBySlug, getCategoryBySlug } from './data';
@@ -112,48 +114,46 @@ export function getProductSchema(
   }
   const categoryName = categoryObj?.name || product.categorySlug;
 
-  // Image of at least 600x600 or 1200x630 (og-default.png is 1200x630) instead of 128px logo
-  const productImage = `${SITE.domain}/og-default.png`;
+  // Requirement 2: Use each product's own PNG for Product schema image. Fall back to /og-default.png if missing.
+  const ogPngPath = path.join(process.cwd(), 'public', 'og', `${product.slug}.png`);
+  const hasCustomOg = fs.existsSync(ogPngPath);
+  const productImage = hasCustomOg
+    ? `${SITE.domain}/og/${product.slug}.png`
+    : `${SITE.domain}/og-default.png`;
 
   // Price valid until date: no more than 90 days out, sourced from product or site config data
   const priceValidUntil = (product as any).priceValidUntil || SITE.priceValidUntil || '2027-02-20';
 
+  const offers: any = {
+    '@type': 'Offer',
+    url: canonicalUrl,
+    priceCurrency: 'PKR',
+    priceValidUntil: priceValidUntil,
+    availability: product.price !== null ? 'https://schema.org/InStock' : 'https://schema.org/LimitedAvailability',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: {
+      '@id': `${SITE.domain}/#organization`,
+    },
+  };
   if (product.price !== null) {
-    graph.push({
-      '@type': 'Product',
-      '@id': `${canonicalUrl}#product`,
-      name: product.name,
-      description: product.answer,
-      image: [productImage],
-      sku: product.slug,
-      brand: {
-        '@type': 'Brand',
-        name: brandName,
-      },
-      category: categoryName,
-      url: canonicalUrl,
-      offers: {
-        '@type': 'Offer',
-        url: canonicalUrl,
-        priceCurrency: 'PKR',
-        price: product.price.toString(),
-        priceValidUntil: priceValidUntil,
-        availability: 'https://schema.org/InStock',
-        itemCondition: 'https://schema.org/NewCondition',
-        seller: {
-          '@id': `${SITE.domain}/#organization`,
-        },
-      },
-    });
-  } else {
-    graph.push({
-      '@type': 'WebPage',
-      '@id': canonicalUrl,
-      url: canonicalUrl,
-      name: product.h1,
-      description: product.answer,
-    });
+    offers.price = product.price.toString();
   }
+
+  graph.push({
+    '@type': 'Product',
+    '@id': `${canonicalUrl}#product`,
+    name: product.name,
+    description: product.answer,
+    image: [productImage],
+    sku: product.slug,
+    brand: {
+      '@type': 'Brand',
+      name: brandName,
+    },
+    category: categoryName,
+    url: canonicalUrl,
+    offers,
+  });
 
   graph.push(getBreadcrumbSchema(breadcrumbs));
 

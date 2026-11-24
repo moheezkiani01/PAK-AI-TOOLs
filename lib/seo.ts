@@ -19,3 +19,18 @@ export const baseOg = {
     },
   ],
 };
+
+/**
+ * Drops trailing parenthetical (e.g. "(Warranty)") if the full page title
+ * including brand suffix is longer than 60 characters.
+ * Returns the cleaned title without brand suffix.
+ */
+export function optimizeSeoTitle(rawTitle: string): string {
+  let clean = (rawTitle || '').replace(/\s*\|\s*PakAITools\s*$/i, '').trim();
+  const full = `${clean} | PakAITools`;
+  if (full.length > 60 && /\s*\([^)]+\)\s*$/.test(clean)) {
+    clean = clean.replace(/\s*\([^)]+\)\s*$/, '').trim();
+  }
+  return clean;
+}
+

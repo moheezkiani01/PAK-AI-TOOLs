@@ -11,7 +11,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { buildWhatsAppLink, getBlogWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
 import { ShieldCheck, MessageCircle, Calendar, BookOpen, CheckCircle2 } from 'lucide-react';
-import { baseOg } from '@/lib/seo';
+import { baseOg, optimizeSeoTitle } from '@/lib/seo';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   if (!post) return {};
 
   const rawTitle = post.seoTitle || post.title || 'Buying Guide';
-  const cleanTitle = rawTitle.replace(/\s*\|\s*PakAITools\s*$/i, '');
+  const cleanTitle = optimizeSeoTitle(rawTitle);
   const desc = post.metaDesc || post.desc || '';
 
   return {

@@ -20,7 +20,7 @@ import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck, ArrowRight, BookOpen, Scale } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { buildWhatsAppLink, getBrandWhatsAppMessage } from '@/lib/whatsapp';
-import { baseOg } from '@/lib/seo';
+import { baseOg, optimizeSeoTitle } from '@/lib/seo';
 
 interface BrandHubPageProps {
   params: Promise<{ category: string; brand: string }>;
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: BrandHubPageProps): Promise<M
 
   if (!hub) return {};
 
-  const cleanTitle = hub.seoTitle.replace(/\s*\|\s*PakAITools\s*$/i, '');
+  const cleanTitle = optimizeSeoTitle(hub.seoTitle);
 
   return {
     title: cleanTitle,
