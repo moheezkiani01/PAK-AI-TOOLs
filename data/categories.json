@@ -10,12 +10,12 @@
     "plans": 22,
     "pages": 18,
     "mergedRows": 4,
-    "brandHubs": 3,
-    "singlePlanBrands": 6,
+    "brandHubs": 4,
+    "singlePlanBrands": 4,
     "sampleBrands": [
       "ChatGPT",
-      "Google Gemini AI Plus",
-      "Grok Plus",
+      "Claude",
+      "Grok",
       "Kimi AI",
       "Manus AI Pro"
     ]

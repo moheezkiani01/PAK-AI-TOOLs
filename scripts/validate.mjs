@@ -62,8 +62,8 @@ if (totalPlans !== 241) {
 
 // 4. Validate Brand Hubs (44)
 const hubs = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'hubs.json'), 'utf8'));
-if (hubs.brands.length !== 45) {
-  error(`Expected 45 brand hubs, found ${hubs.brands.length}`);
+if (hubs.brands.length !== 46) {
+  error(`Expected 46 brand hubs, found ${hubs.brands.length}`);
 } else {
   ok(`Brand hubs count: ${hubs.brands.length}`);
 }

@@ -340,7 +340,7 @@
       "name": "TRAVEL & ESIMS",
       "slug": "esim",
       "url": "/esim/",
-      "seoTitle": "Wink Price in Pakistan – All Plans (PKR)",
+      "seoTitle": "Grok Price in Pakistan – All Plans (PKR)",
       "metaDesc": "Compare Travel & eSIMs plans in Pakistan from Rs. 1,400. Local PKR payment, warranty per plan, WhatsApp support. Choose a brand to see all plans.",
       "h1": "Travel & eSIMs Price in Pakistan",
       "answer": "PakAITools lists 1 brands and 5 plans in Travel & eSIMs for Pakistan, starting from Rs. 1,400. Pakistan eSIM data plans by size and validity. Pick the data amount and days that match your trip.",
@@ -1077,6 +1077,22 @@
         {
           "question": "Wink Pakistan mein kitne ka hai?",
           "answer": "Wink Rs. 1,400 se shuru hota hai. Plan table dekh kar apna plan chunen aur WhatsApp par order karen."
+        },
+        {
+          "question": "What is the Grok price in Pakistan?",
+          "answer": "Grok plans start from Rs. 1,300 on PakAITools and go up to Rs. 10,000, depending on the plan. Open the plan table on this page to compare all 3 options."
+        },
+        {
+          "question": "Which Grok plan should I choose?",
+          "answer": "Pick by duration and features. Choose Grok Plus 7 Days (Rs. 1,300) for quick access, Grok Premium (Rs. 3,200) for standard 14–24 days usage, or the 4-in-1 Bundle (Rs. 10,000) for full Cursor + X Premium tools."
+        },
+        {
+          "question": "Can I pay for Grok without a credit card in Pakistan?",
+          "answer": "Yes. PakAITools accepts local PKR payments via JazzCash, EasyPaisa, SadaPay, NayaPay, and Raast, so you do not need an international card."
+        },
+        {
+          "question": "Grok Pakistan mein kitne ka hai?",
+          "answer": "Grok Rs. 1,300 se shuru hota hai. Plan table dekh kar apna plan chunen aur WhatsApp par order karen."
         }
       ]
     }
@@ -2384,6 +2400,35 @@
         {
           "question": "Wink Pakistan mein kitne ka hai?",
           "answer": "Wink Rs. 1,400 se shuru hota hai. Plan table dekh kar apna plan chunen aur WhatsApp par order karen."
+        }
+      ]
+    },
+    {
+      "name": "Grok",
+      "url": "/ai-chatbots/grok/",
+      "categorySlug": "ai-chatbots",
+      "brandSlug": "grok",
+      "seoTitle": "Grok Price in Pakistan – All Plans (PKR)",
+      "metaDesc": "Compare all 3 Grok plans in Pakistan from Rs. 1,300. PKR payment via JazzCash, EasyPaisa & SadaPay, replacement warranty per plan. Order on WhatsApp.",
+      "h1": "Grok Price in Pakistan",
+      "answer": "Grok plans in Pakistan start from Rs. 1,300 on PakAITools. Choose from 3 plans priced up to Rs. 10,000, compare duration and warranty in the table below, and pay in PKR with local methods—no international card needed.",
+      "contentMarkdown": "## All Grok plans\n| Plan | Price | Duration | Warranty | Order |\n| :--- | :--- | :--- | :--- | :--- |\n| Grok Plus – 7 Days (Dedicated Ready Account) | Rs. 1,300 | 7 Days | 7-Day Replacement Warranty | [View plan](/product/grok-plus-7-days/) |\n| Grok Premium – 14 to 24 Days (3-Day Warranty) | Rs. 3,200 | 14 to 24 Days | 3-Day Warranty | [View plan](/product/grok-premium-14d-24d/) |\n| Grok + Grok Bot + Cursor + X Premium (4-in-1 Bundle) – 1 Month | Rs. 10,000 | 1 Month (30 Days) | 25-Day Replacement Warranty | [View plan](/product/grok-cursor-x-premium-1-month/) |\n\n## Which Grok plan should you choose?\n- **Short-term testing:** Grok Plus – 7 Days at Rs. 1,300, a fast, budget-friendly way to test Grok with dedicated login access.\n- **Mid-term premium access:** Grok Premium – 14 to 24 Days at Rs. 3,200 for extended frontier AI reasoning and X Premium benefits.\n- **Developer & creator bundle:** Grok + Grok Bot + Cursor + X Premium (4-in-1 Bundle) – 1 Month at Rs. 10,000, combining Grok AI, automated Grok bot access, Cursor Pro IDE, and full X Premium verification.\n- **Not sure?** Message WhatsApp support (+92 321 9305619) with your use case and we will point you to the right plan.\n\n## Payment Methods\nPay in PKR using local wallets and bank transfer—see our [Payment Methods](/payment-methods/) page.\n\n## Warranty\nEach plan lists its own warranty. Read the full terms on our [Refund & Warranty Policy](/refund-warranty-policy/) page.",
+      "faqs": [
+        {
+          "question": "What is the Grok price in Pakistan?",
+          "answer": "Grok plans start from Rs. 1,300 on PakAITools and go up to Rs. 10,000, depending on the plan. Open the plan table on this page to compare all 3 options."
+        },
+        {
+          "question": "Which Grok plan should I choose?",
+          "answer": "Pick by duration and features. Choose Grok Plus 7 Days (Rs. 1,300) for quick access, Grok Premium (Rs. 3,200) for standard 14–24 days usage, or the 4-in-1 Bundle (Rs. 10,000) for full Cursor + X Premium tools."
+        },
+        {
+          "question": "Can I pay for Grok without a credit card in Pakistan?",
+          "answer": "Yes. PakAITools accepts local PKR payments via JazzCash, EasyPaisa, SadaPay, NayaPay, and Raast, so you do not need an international card."
+        },
+        {
+          "question": "Grok Pakistan mein kitne ka hai?",
+          "answer": "Grok Rs. 1,300 se shuru hota hai. Plan table dekh kar apna plan chunen aur WhatsApp par order karen."
         }
       ]
     }

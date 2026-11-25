@@ -319,6 +319,7 @@ for (let i = 1; i < catBlocks.length; i += 3) {
 // Canonical brand title casing map (Task 8)
 const BRAND_NAMES = {
   'claude': 'Claude',
+  'grok': 'Grok',
   'claude-api': 'Claude API',
   'cursor-api': 'Cursor API',
   'chinese-models-api': 'Chinese Models API',
@@ -477,7 +478,7 @@ console.log('Copied root brand assets to public/');
 // Construct brands list: multi-plan brands + single-plan brands
 // Map shortened names per spec 4.5:
 const SHORT_NAMES = {
-  'grok': 'Grok + Cursor + X Premium',
+  'grok': 'Grok',
   'grok-cursor-x-premium-1-month': 'Grok + Cursor + X Premium',
   'grok-grok-bot-cursor-x-premium-4-in-1-bundle': 'Grok + Cursor + X Premium',
   'proton': 'Proton Unlimited',

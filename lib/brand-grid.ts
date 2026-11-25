@@ -51,7 +51,7 @@ export const CATEGORY_COMMERCIAL_ORDER: string[] = [
 
 // Shortened display names for long bundles and titles to ensure single-line fit
 export const SHORT_NAMES: Record<string, string> = {
-  'grok': 'Grok + Cursor + X Premium',
+  'grok': 'Grok',
   'grok-cursor-x-premium-1-month': 'Grok + Cursor + X Premium',
   'grok-grok-bot-cursor-x-premium-4-in-1-bundle': 'Grok + Cursor + X Premium',
   'proton': 'Proton Unlimited',

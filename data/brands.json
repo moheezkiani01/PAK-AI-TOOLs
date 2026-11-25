@@ -450,6 +450,16 @@
     "logo": "/brands/wink.png"
   },
   {
+    "slug": "grok",
+    "displayName": "Grok",
+    "categorySlug": "ai-chatbots",
+    "isMultiPlan": true,
+    "hubUrl": "/ai-chatbots/grok/",
+    "planCount": 3,
+    "priority": 10,
+    "logo": "/brands/grok.png"
+  },
+  {
     "slug": "autodesk",
     "displayName": "Autodesk All Apps (68 Applications)",
     "categorySlug": "design-creative",
@@ -492,17 +502,6 @@
     "planCount": 1,
     "priority": 50,
     "logo": "/brands/coursera.png"
-  },
-  {
-    "slug": "grok",
-    "displayName": "Grok + Cursor + X Premium",
-    "categorySlug": "ai-chatbots",
-    "isMultiPlan": false,
-    "productSlug": "grok-cursor-x-premium-1-month",
-    "productUrl": "/product/grok-cursor-x-premium-1-month/",
-    "planCount": 1,
-    "priority": 50,
-    "logo": "/brands/grok.png"
   },
   {
     "slug": "gemini",
