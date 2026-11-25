@@ -15,6 +15,51 @@ interface SearchItem {
   keywords?: string;
 }
 
+function scoreSearchItem(item: SearchItem, q: string): number {
+  const t = item.title.toLowerCase();
+  const k = (item.keywords || '').toLowerCase();
+  const escapedQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const wordRegex = new RegExp(`\\b${escapedQ}`, 'i');
+
+  let score = 0;
+
+  // 1. Exact title match
+  if (t === q) {
+    score += 10000;
+  } else if (t.startsWith(q)) {
+    score += 5000;
+  } else if (wordRegex.test(t)) {
+    score += 3000;
+  } else if (t.includes(q)) {
+    score += 1500;
+  }
+
+  // Multi-word check (e.g. "youtube premium" or "claude full")
+  const words = q.split(/\s+/).filter(Boolean);
+  if (words.length > 1) {
+    const allWordsInTitle = words.every((w) => t.includes(w));
+    if (allWordsInTitle) {
+      score += 2000;
+    }
+  }
+
+  // 2. Type boost for title matches
+  if (score > 0) {
+    if (item.type === 'brand') score += 500;
+    else if (item.type === 'plan' || item.type === 'merged_plan') score += 300;
+    else if (item.type === 'category') score += 100;
+  }
+
+  // 3. Keyword matches (scored lower so any title match always wins)
+  if (wordRegex.test(k)) {
+    score += 50;
+  } else if (k.includes(q)) {
+    score += 10;
+  }
+
+  return score;
+}
+
 export function SearchModal({
   isOpen,
   onClose,
@@ -55,7 +100,7 @@ export function SearchModal({
     }
   }, [isOpen]);
 
-  // Filter items based on query
+  // Filter and rank items based on query
   useEffect(() => {
     const q = query.toLowerCase().trim();
     if (!q) {
@@ -64,11 +109,10 @@ export function SearchModal({
     }
 
     const matched = items
-      .filter(
-        (item) =>
-          item.title.toLowerCase().includes(q) ||
-          (item.keywords && item.keywords.includes(q))
-      )
+      .map((item) => ({ item, score: scoreSearchItem(item, q) }))
+      .filter((entry) => entry.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map((entry) => entry.item)
       .slice(0, 8);
 
     setResults(matched);

@@ -17,6 +17,51 @@ export interface SearchResultItem {
   keywords?: string;
 }
 
+function scoreHeroItem(item: SearchResultItem, q: string): number {
+  const t = item.title.toLowerCase();
+  const k = (item.keywords || '').toLowerCase();
+  const escapedQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const wordRegex = new RegExp(`\\b${escapedQ}`, 'i');
+
+  let score = 0;
+
+  // 1. Exact title match
+  if (t === q) {
+    score += 10000;
+  } else if (t.startsWith(q)) {
+    score += 5000;
+  } else if (wordRegex.test(t)) {
+    score += 3000;
+  } else if (t.includes(q)) {
+    score += 1500;
+  }
+
+  // Multi-word check
+  const words = q.split(/\s+/).filter(Boolean);
+  if (words.length > 1) {
+    const allWordsInTitle = words.every((w) => t.includes(w));
+    if (allWordsInTitle) {
+      score += 2000;
+    }
+  }
+
+  // 2. Type boost for title matches
+  if (score > 0) {
+    if (item.type === 'brand') score += 500;
+    else if (item.type === 'plan' || item.type === 'merged_plan') score += 300;
+    else if (item.type === 'category') score += 100;
+  }
+
+  // 3. Keyword matches (scored lower so any title match always wins)
+  if (wordRegex.test(k)) {
+    score += 50;
+  } else if (k.includes(q)) {
+    score += 10;
+  }
+
+  return score;
+}
+
 export function HeroSearch() {
   const [query, setQuery] = useState('');
   const [items, setItems] = useState<SearchResultItem[]>([]);
@@ -51,33 +96,10 @@ export function HeroSearch() {
 
     if (items.length > 0) {
       const filtered = items
-        .filter((item) => {
-          const t = item.title.toLowerCase();
-          const k = (item.keywords || '').toLowerCase();
-          return t.includes(q) || k.includes(q);
-        })
-        .sort((a, b) => {
-          const aTitle = a.title.toLowerCase();
-          const bTitle = b.title.toLowerCase();
-
-          // 1. Starts with query gets top priority
-          const aStarts = aTitle.startsWith(q);
-          const bStarts = bTitle.startsWith(q);
-          if (aStarts && !bStarts) return -1;
-          if (!aStarts && bStarts) return 1;
-
-          // 2. Word boundary match
-          const aWord = new RegExp(`\\b${q}`, 'i').test(aTitle);
-          const bWord = new RegExp(`\\b${q}`, 'i').test(bTitle);
-          if (aWord && !bWord) return -1;
-          if (!aWord && bWord) return 1;
-
-          // 3. Prioritize brands over secondary plans
-          if (a.type === 'brand' && b.type !== 'brand') return -1;
-          if (a.type !== 'brand' && b.type === 'brand') return 1;
-
-          return 0;
-        })
+        .map((item) => ({ item, score: scoreHeroItem(item, q) }))
+        .filter((entry) => entry.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .map((entry) => entry.item)
         .slice(0, 8);
 
       setResults(filtered);
