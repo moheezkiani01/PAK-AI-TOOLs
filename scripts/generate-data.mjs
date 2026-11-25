@@ -315,7 +315,7 @@ for (let i = 1; i < catBlocks.length; i += 3) {
 
 // Canonical brand title casing map (Task 8)
 const BRAND_NAMES = {
-  'claude': 'Claude Pro',
+  'claude': 'Claude',
   'claude-api': 'Claude API',
   'cursor-api': 'Cursor API',
   'chinese-models-api': 'Chinese Models API',
@@ -439,6 +439,9 @@ for (let i = 1; i < manifestLines.length; i++) {
   logoMap[brand.toLowerCase()] = filename;
   logoMap[parts[1].trim().toLowerCase()] = filename;
 }
+logoMap['pia'] = 'pia.png';
+logoMap['chinese-models-api'] = 'chinese-models-api.png';
+logoMap['chinese models api'] = 'chinese-models-api.png';
 
 // Copy logo files to public/brands
 const sourceLogosDir = path.join(ROOT_DIR, 'brand_logos/logos');

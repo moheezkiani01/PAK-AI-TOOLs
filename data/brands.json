@@ -27,7 +27,7 @@
     "hubUrl": "/ai-apis/chinese-models-api/",
     "planCount": 3,
     "priority": 10,
-    "logo": null
+    "logo": "/brands/chinese-models-api.png"
   },
   {
     "slug": "deepseek-api",
@@ -81,7 +81,7 @@
   },
   {
     "slug": "claude",
-    "displayName": "Claude Pro",
+    "displayName": "Claude",
     "categorySlug": "ai-chatbots",
     "isMultiPlan": true,
     "hubUrl": "/ai-chatbots/claude/",
@@ -612,7 +612,7 @@
     "productUrl": "/product/pia-vpn-7-days/",
     "planCount": 1,
     "priority": 50,
-    "logo": null
+    "logo": "/brands/pia.png"
   },
   {
     "slug": "proton",
