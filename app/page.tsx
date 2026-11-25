@@ -161,26 +161,26 @@ export default function HomePage() {
         </div>
 
         {/* Trust Chips */}
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 pt-4 text-xs font-semibold text-text-secondary">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6 md:gap-8 pt-3 sm:pt-4 text-xs font-semibold text-text-secondary">
           <div className="flex items-center space-x-1.5">
-            <CreditCard className="w-4 h-4 text-accent" />
+            <CreditCard className="w-4 h-4 text-accent flex-shrink-0" />
             <span>Pay in PKR locally</span>
           </div>
           <div className="flex items-center space-x-1.5">
-            <Clock className="w-4 h-4 text-accent" />
+            <Clock className="w-4 h-4 text-accent flex-shrink-0" />
             <span>Delivery in 15 minutes</span>
           </div>
           <div className="flex items-center space-x-1.5">
-            <ShieldCheck className="w-4 h-4 text-accent" />
+            <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0" />
             <span>Warranty shown upfront</span>
           </div>
         </div>
       </section>
 
       {/* 2. All 15 Categories & Verified Plans Grid */}
-      <div className="space-y-8 md:space-y-10">
+      <div className="space-y-6 sm:space-y-8 md:space-y-10">
         {/* Verification & Trust Banner */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl border border-separator bg-bg-card/70 text-xs text-text-secondary gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 sm:p-4 rounded-2xl border border-separator bg-bg-card/70 text-xs text-text-secondary gap-2">
           <div className="flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
             <span>
@@ -190,13 +190,13 @@ export default function HomePage() {
               </time>
             </span>
           </div>
-          <p className="text-text-tertiary">
+          <p className="text-text-tertiary text-[11px] sm:text-xs">
             PakAITools is an independent reseller and is not affiliated with OpenAI, Google, Anthropic, xAI or other brand owners.
           </p>
         </div>
 
         {/* All 15 Category Sections */}
-        <div className="space-y-10 md:space-y-12">
+        <div className="space-y-8 sm:space-y-10 md:space-y-12">
           {brandGridGroups.map((group, idx) => (
             <CategoryBrandSection
               key={group.slug}
@@ -211,7 +211,7 @@ export default function HomePage() {
       <section aria-labelledby="popular-heading" className="space-y-4">
         <div className="flex items-end justify-between border-b border-separator pb-3">
           <div>
-            <h2 id="popular-heading" className="text-2xl font-bold text-text">
+            <h2 id="popular-heading" className="text-xl sm:text-2xl font-bold text-text">
               Popular Subscriptions in Pakistan
             </h2>
             <p className="text-xs md:text-sm text-text-secondary mt-0.5">
@@ -244,11 +244,14 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* 4. Blog Guides Section */}
+      {/* 4. Breaking AI News Section */}
+      <AINewsSection />
+
+      {/* 5. Blog Guides Section */}
       <section aria-labelledby="blog-news-heading" className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-separator pb-3 gap-2">
           <div>
-            <h2 id="blog-news-heading" className="text-2xl md:text-3xl font-bold text-text">
+            <h2 id="blog-news-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-text">
               Latest Buying Guides &amp; Pricing Breakdowns
             </h2>
             <p className="text-xs md:text-sm text-text-secondary mt-0.5">
@@ -257,7 +260,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/blog/"
-            className="inline-flex items-center justify-center px-4 py-2 rounded-xl border border-separator bg-bg-card hover:bg-bg-subtle text-xs md:text-sm font-semibold text-text hover:text-accent transition-colors min-h-[40px]"
+            className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border border-separator bg-bg-card hover:bg-bg-subtle text-xs md:text-sm font-semibold text-text hover:text-accent transition-colors min-h-[34px] sm:min-h-[40px] flex-shrink-0 self-start sm:self-auto"
           >
             View all posts <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
           </Link>
@@ -268,7 +271,7 @@ export default function HomePage() {
           {recentGuides.map((guide) => (
             <article
               key={guide.slug}
-              className="p-5 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card transition-all flex flex-col justify-between"
+              className="p-4 sm:p-5 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center space-x-2 text-xs font-semibold text-text-tertiary mb-2">
@@ -292,9 +295,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      {/* 5. Breaking AI News Section */}
-      <AINewsSection />
 
       {/* 6. Frequently Asked Questions */}
       <section aria-labelledby="faq-heading" className="space-y-4">

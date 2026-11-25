@@ -102,10 +102,10 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
       href={href}
       title={fullName || displayName}
       aria-label={`${displayName}, ${subtitle}`}
-      className="group flex items-center gap-4 p-4 md:p-5 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-all h-full min-h-[96px] md:min-h-[104px] w-full"
+      className="group flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 md:p-5 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-all h-full min-h-[88px] sm:min-h-[96px] md:min-h-[104px] w-full"
     >
       {/* 1. Normalized Fixed ~60x60 Logo Tile (flex-shrink: 0) */}
-      <div className="w-14 h-14 min-w-[56px] min-h-[56px] md:w-[60px] md:h-[60px] md:min-w-[60px] md:min-h-[60px] rounded-2xl border border-separator bg-white flex items-center justify-center p-2 flex-shrink-0 overflow-hidden shadow-xs">
+      <div className="w-13 h-13 min-w-[52px] min-h-[52px] sm:w-14 sm:h-14 sm:min-w-[56px] sm:min-h-[56px] md:w-[60px] md:h-[60px] md:min-w-[60px] md:min-h-[60px] rounded-2xl border border-separator bg-white flex items-center justify-center p-2 flex-shrink-0 overflow-hidden shadow-xs">
         {logoSrc ? (
           <Image
             src={logoSrc}
@@ -114,7 +114,7 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
             height={44}
             loading={priority ? undefined : 'lazy'}
             priority={priority}
-            className="object-contain max-w-[40px] max-h-[40px] md:max-w-[44px] md:max-h-[44px] w-auto h-auto"
+            className="object-contain max-w-[36px] max-h-[36px] sm:max-w-[40px] sm:max-h-[40px] md:max-w-[44px] md:max-h-[44px] w-auto h-auto"
           />
         ) : (
           <span className="text-xs md:text-sm font-bold text-accent" aria-hidden="true">
@@ -138,8 +138,8 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
 
       {/* 3. Arrow Button (~48x48, flex-shrink: 0) */}
       <div className="flex-shrink-0" aria-hidden="true">
-        <span className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-bg-subtle flex items-center justify-center text-text-tertiary group-hover:bg-accent group-hover:text-accent-on transition-colors">
-          <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+        <span className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-bg-subtle flex items-center justify-center text-text-tertiary group-hover:bg-accent group-hover:text-accent-on transition-colors">
+          <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
         </span>
       </div>
     </Link>

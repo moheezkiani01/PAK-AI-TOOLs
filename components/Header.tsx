@@ -75,7 +75,7 @@ export function Header() {
   return (
     <>
       <header className="sticky top-0 z-40 bg-bg/95 backdrop-blur-md border-b border-separator shadow-xs transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
           {/* Brand Logo & Name */}
           <Link href="/" className="flex items-center space-x-2.5 min-h-[44px] flex-shrink-0 group">
             <img
@@ -190,12 +190,12 @@ export function Header() {
           </nav>
 
           {/* Right Actions */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1.5 sm:space-x-2">
             {/* Search Button */}
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="flex items-center space-x-2 px-3 py-2 rounded-xl border border-separator text-text-secondary hover:text-text bg-bg-card hover:bg-bg-subtle transition-colors min-h-[40px] text-xs font-medium"
+              className="flex items-center space-x-2 p-2 sm:px-3 sm:py-2 rounded-xl border border-separator text-text-secondary hover:text-text bg-bg-card hover:bg-bg-subtle transition-colors min-h-[40px] min-w-[40px] justify-center text-xs font-medium"
               aria-label="Search plans (Ctrl+K)"
             >
               <Search className="w-4 h-4 text-text-tertiary" />
