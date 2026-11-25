@@ -22,6 +22,49 @@
   },
   {
     "order": 2,
+    "name": "AI Video & Image Generation",
+    "slug": "ai-video-image",
+    "url": "/ai-video-image/",
+    "icon": "WandSparkles",
+    "tint": "violet",
+    "brands": 9,
+    "plans": 23,
+    "pages": 19,
+    "mergedRows": 4,
+    "brandHubs": 4,
+    "singlePlanBrands": 5,
+    "sampleBrands": [
+      "Dreamina AI",
+      "Higgsfield Genjutsu",
+      "Kling AI",
+      "Muse Video API",
+      "OpenArt AI",
+      "Seedance 2.5"
+    ]
+  },
+  {
+    "order": 3,
+    "name": "AI APIs",
+    "slug": "ai-apis",
+    "url": "/ai-apis/",
+    "icon": "Webhook",
+    "tint": "gray",
+    "brands": 6,
+    "plans": 54,
+    "pages": 20,
+    "mergedRows": 34,
+    "brandHubs": 6,
+    "singlePlanBrands": 0,
+    "sampleBrands": [
+      "Claude API",
+      "Cursor API",
+      "Chinese Models API",
+      "DeepSeek API",
+      "Grok API"
+    ]
+  },
+  {
+    "order": 4,
     "name": "Design & Creative",
     "slug": "design-creative",
     "url": "/design-creative/",
@@ -42,7 +85,7 @@
     ]
   },
   {
-    "order": 3,
+    "order": 5,
     "name": "Video Editing",
     "slug": "video-editing",
     "url": "/video-editing/",
@@ -61,7 +104,7 @@
     ]
   },
   {
-    "order": 4,
+    "order": 6,
     "name": "Streaming & Entertainment",
     "slug": "streaming",
     "url": "/streaming/",
@@ -79,49 +122,6 @@
       "Galaxy Play",
       "iQIYI Premium VIP",
       "Netflix"
-    ]
-  },
-  {
-    "order": 5,
-    "name": "VPN & Privacy",
-    "slug": "vpn-privacy",
-    "url": "/vpn-privacy/",
-    "icon": "ShieldCheck",
-    "tint": "green",
-    "brands": 11,
-    "plans": 22,
-    "pages": 20,
-    "mergedRows": 2,
-    "brandHubs": 5,
-    "singlePlanBrands": 6,
-    "sampleBrands": [
-      "ExpressVPN",
-      "HMA VPN",
-      "Hotspot Shield VPN Premium",
-      "NordVPN",
-      "Private Internet Access"
-    ]
-  },
-  {
-    "order": 6,
-    "name": "AI Video & Image Generation",
-    "slug": "ai-video-image",
-    "url": "/ai-video-image/",
-    "icon": "WandSparkles",
-    "tint": "violet",
-    "brands": 9,
-    "plans": 23,
-    "pages": 19,
-    "mergedRows": 4,
-    "brandHubs": 4,
-    "singlePlanBrands": 5,
-    "sampleBrands": [
-      "Dreamina AI",
-      "Higgsfield Genjutsu",
-      "Kling AI",
-      "Muse Video API",
-      "OpenArt AI",
-      "Seedance 2.5"
     ]
   },
   {
@@ -145,6 +145,27 @@
   },
   {
     "order": 8,
+    "name": "VPN & Privacy",
+    "slug": "vpn-privacy",
+    "url": "/vpn-privacy/",
+    "icon": "ShieldCheck",
+    "tint": "green",
+    "brands": 11,
+    "plans": 22,
+    "pages": 20,
+    "mergedRows": 2,
+    "brandHubs": 5,
+    "singlePlanBrands": 6,
+    "sampleBrands": [
+      "ExpressVPN",
+      "HMA VPN",
+      "Hotspot Shield VPN Premium",
+      "NordVPN",
+      "Private Internet Access"
+    ]
+  },
+  {
+    "order": 9,
     "name": "Online Learning & Education",
     "slug": "education",
     "url": "/education/",
@@ -165,7 +186,7 @@
     ]
   },
   {
-    "order": 9,
+    "order": 10,
     "name": "Productivity & Business Software",
     "slug": "productivity-software",
     "url": "/productivity-software/",
@@ -186,7 +207,7 @@
     ]
   },
   {
-    "order": 10,
+    "order": 11,
     "name": "Developer Tools & IDEs",
     "slug": "developer-tools",
     "url": "/developer-tools/",
@@ -205,7 +226,7 @@
     ]
   },
   {
-    "order": 11,
+    "order": 12,
     "name": "Cloud Storage",
     "slug": "cloud-storage",
     "url": "/cloud-storage/",
@@ -222,7 +243,7 @@
     ]
   },
   {
-    "order": 12,
+    "order": 13,
     "name": "Antivirus & Cybersecurity",
     "slug": "antivirus",
     "url": "/antivirus/",
@@ -239,7 +260,7 @@
     ]
   },
   {
-    "order": 13,
+    "order": 14,
     "name": "Antidetect & Proxies",
     "slug": "antidetect-proxies",
     "url": "/antidetect-proxies/",
@@ -256,7 +277,7 @@
     ]
   },
   {
-    "order": 14,
+    "order": 15,
     "name": "Travel & eSIMs",
     "slug": "esim",
     "url": "/esim/",
@@ -270,27 +291,6 @@
     "singlePlanBrands": 0,
     "sampleBrands": [
       "Pakistan eSIM"
-    ]
-  },
-  {
-    "order": 15,
-    "name": "AI APIs",
-    "slug": "ai-apis",
-    "url": "/ai-apis/",
-    "icon": "Webhook",
-    "tint": "gray",
-    "brands": 6,
-    "plans": 54,
-    "pages": 20,
-    "mergedRows": 34,
-    "brandHubs": 6,
-    "singlePlanBrands": 0,
-    "sampleBrands": [
-      "Claude API",
-      "Cursor API",
-      "Chinese Models API",
-      "DeepSeek API",
-      "Grok API"
     ]
   }
 ]

@@ -14,19 +14,19 @@ import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 
 const ALL_15_CATEGORIES = [
   { name: 'AI Chatbots', url: '/ai-chatbots/' },
-  { name: 'AI APIs', url: '/ai-apis/' },
   { name: 'AI Video & Image', url: '/ai-video-image/' },
-  { name: 'AI Voice & Audio', url: '/ai-voice-audio/' },
+  { name: 'AI APIs', url: '/ai-apis/' },
   { name: 'Design & Creative', url: '/design-creative/' },
   { name: 'Video Editing', url: '/video-editing/' },
-  { name: 'Developer Tools', url: '/developer-tools/' },
-  { name: 'Productivity Software', url: '/productivity-software/' },
+  { name: 'Streaming', url: '/streaming/' },
+  { name: 'AI Voice & Audio', url: '/ai-voice-audio/' },
   { name: 'VPN & Privacy', url: '/vpn-privacy/' },
+  { name: 'Education', url: '/education/' },
+  { name: 'Productivity Software', url: '/productivity-software/' },
+  { name: 'Developer Tools', url: '/developer-tools/' },
+  { name: 'Cloud Storage', url: '/cloud-storage/' },
   { name: 'Antivirus', url: '/antivirus/' },
   { name: 'Antidetect & Proxies', url: '/antidetect-proxies/' },
-  { name: 'Cloud Storage', url: '/cloud-storage/' },
-  { name: 'Education', url: '/education/' },
-  { name: 'Streaming', url: '/streaming/' },
   { name: 'Travel eSIM', url: '/esim/' },
 ];
 

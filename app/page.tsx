@@ -65,14 +65,12 @@ export default function HomePage() {
 
   // Select popular plans
   const popularSlugs = [
-    'canva-pro-1-year',
-    'adobe-creative-cloud-pro-4-months',
-    'chatgpt-plus-shared-1-month',
-    'netflix-1-month',
-    'spotify-premium-1-month',
-    'capcut-pro-vip-12-months',
-    'duolingo-super-12-months',
-    'expressvpn-1-month',
+    'claude-pro-full-private-1-month',
+    'chatgpt-plus-vip-1-month',
+    'google-veo-3-ultra-45000-credits-1-month',
+    'gemini-ai-plus-6-months',
+    'capcut-pro-personal-30-days',
+    'netflix-premium-4k-slot-1-month',
   ];
   const popularPlans = popularSlugs
     .map((slug) => products.find((p) => p.slug === slug))

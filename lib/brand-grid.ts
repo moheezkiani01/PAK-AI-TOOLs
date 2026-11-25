@@ -33,12 +33,13 @@ export type CategoryGroup = {
 // Priority commercial category ordering
 export const CATEGORY_COMMERCIAL_ORDER: string[] = [
   'ai-chatbots',
+  'ai-video-image',
+  'ai-apis',
   'design-creative',
   'video-editing',
   'streaming',
-  'vpn-privacy',
-  'ai-video-image',
   'ai-voice-audio',
+  'vpn-privacy',
   'education',
   'productivity-software',
   'developer-tools',
@@ -46,7 +47,6 @@ export const CATEGORY_COMMERCIAL_ORDER: string[] = [
   'antivirus',
   'antidetect-proxies',
   'esim',
-  'ai-apis',
 ];
 
 // Shortened display names for long bundles and titles to ensure single-line fit
