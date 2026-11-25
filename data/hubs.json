@@ -79,7 +79,7 @@
       "seoTitle": "AI Chatbots & Assistants Price in Pakistan – Plans in PKR",
       "metaDesc": "Compare AI Chatbots & Assistants plans in Pakistan from Rs. 300. Local PKR payment, warranty per plan, WhatsApp support. Choose a brand to see all plans.",
       "h1": "AI Chatbots & Assistants Price in Pakistan",
-      "answer": "PakAITools lists 9 brands and 18 plans in AI Chatbots & Assistants for Pakistan, starting from Rs. 300. AI chat assistants for study, coding and daily work. Plans differ by account type (own account or provided account), usage limits and warranty.",
+      "answer": "PakAITools lists 9 brands and 20 plans in AI Chatbots & Assistants for Pakistan, starting from Rs. 300. AI chat assistants for study, coding and daily work. Plans differ by account type (own account or provided account), usage limits and warranty.",
       "contentMarkdown": "## How to choose in AI Chatbots & Assistants\nAI chat assistants for study, coding and daily work. Plans differ by account type (own account or provided account), usage limits and warranty. Message WhatsApp support if you need help picking.",
       "faqs": [
         {
@@ -485,6 +485,22 @@
         {
           "question": "Kimi AI Pakistan mein kitne ka hai?",
           "answer": "Kimi AI Rs. 7,500 se shuru hota hai. Plan table dekh kar apna plan chunen aur WhatsApp par order karen."
+        },
+        {
+          "question": "What is the Claude Pro price in Pakistan?",
+          "answer": "Claude Pro plans start from Rs. 2,300 on PakAITools and go up to Rs. 5,300, depending on the plan. Open the plan table on this page to compare all 3 options."
+        },
+        {
+          "question": "Which Claude Pro plan should I choose?",
+          "answer": "Pick by your privacy needs and budget. Choose Shared (Rs. 2,300) for budget native access, Extension-Based (Rs. 2,500) for 6 multi-model AI access, or Full Private (Rs. 5,300) for dedicated confidential workflows."
+        },
+        {
+          "question": "Can I pay for Claude Pro without a credit card in Pakistan?",
+          "answer": "Yes. PakAITools accepts local PKR payments via JazzCash, EasyPaisa, SadaPay, NayaPay, and Raast, so you do not need an international card."
+        },
+        {
+          "question": "Claude Pro Pakistan mein kitne ka hai?",
+          "answer": "Claude Pro Rs. 2,300 se shuru hota hai. Plan table dekh kar apna plan chunen aur WhatsApp par order karen."
         },
         {
           "question": "What is the Dreamina AI price in Pakistan?",
@@ -1295,6 +1311,35 @@
         {
           "question": "Kimi AI Pakistan mein kitne ka hai?",
           "answer": "Kimi AI Rs. 7,500 se shuru hota hai. Plan table dekh kar apna plan chunen aur WhatsApp par order karen."
+        }
+      ]
+    },
+    {
+      "name": "Claude Pro",
+      "url": "/ai-chatbots/claude/",
+      "categorySlug": "ai-chatbots",
+      "brandSlug": "claude",
+      "seoTitle": "Claude Pro Price in Pakistan – All Plans (PKR)",
+      "metaDesc": "Compare all 3 Claude Pro plans in Pakistan from Rs. 2,300. PKR payment via JazzCash, EasyPaisa & SadaPay, 25-day warranty per plan. Order on WhatsApp.",
+      "h1": "Claude Pro Price in Pakistan",
+      "answer": "Claude Pro plans in Pakistan start from Rs. 2,300 on PakAITools. Choose from 3 plans priced up to Rs. 5,300, compare duration and warranty in the table below, and pay in PKR with local methods—no international card needed.",
+      "contentMarkdown": "## All Claude Pro plans\n| Plan | Price | Duration | Warranty | Order |\n| :--- | :--- | :--- | :--- | :--- |\n| Claude Pro (Shared) – 1 Month (25-Day Warranty) | Rs. 2,300 | 1 Month (30 Days) | 25-Day Replacement Warranty | [View plan](/product/claude-pro-shared-1-month/) |\n| Claude Pro Extension-Based – 1 Month (All-in-One AI Models) | Rs. 2,500 | 1 Month (30 Days) | 25-Day Replacement Warranty | [View plan](/product/claude-pro-extension-1-month/) |\n| Claude Pro (Full Private) – 1 Month (25-Day Warranty) | Rs. 5,300 | 1 Month (30 Days) | 25-Day Replacement Warranty | [View plan](/product/claude-pro-full-private-1-month/) |\n\n## Which Claude Pro plan should you choose?\n- **Lowest price:** Claude Pro (Shared) – 1 Month (25-Day Warranty) at Rs. 2,300, an affordable way to access Claude Pro models and Artifacts on the native web interface.\n- **Multi-model bundle:** Claude Pro Extension-Based – 1 Month (All-in-One AI Models) at Rs. 2,500, combining 6 frontier AI models (Claude Sonnet 5.5, Claude Haiku 5.5, GPT-6.1 Tera, Grok 4.6, Gemini 4, DeepSeek 4.1 Flash Max) in one desktop browser suite.\n- **Dedicated workspace:** Claude Pro (Full Private) – 1 Month (25-Day Warranty) at Rs. 5,300 for complete privacy, isolated chat history, dedicated Projects, and unshared message limits.\n- **Not sure?** Message WhatsApp support (+92 321 9305619) with your use case and we will point you to the right plan.\n\n## Payment Methods\nPay in PKR using local wallets and bank transfer—see our [Payment Methods](/payment-methods/) page.\n\n## Warranty\nEach plan lists its own warranty. Read the full terms on our [Refund & Warranty Policy](/refund-warranty-policy/) page.",
+      "faqs": [
+        {
+          "question": "What is the Claude Pro price in Pakistan?",
+          "answer": "Claude Pro plans start from Rs. 2,300 on PakAITools and go up to Rs. 5,300, depending on the plan. Open the plan table on this page to compare all 3 options."
+        },
+        {
+          "question": "Which Claude Pro plan should I choose?",
+          "answer": "Pick by your privacy needs and budget. Choose Shared (Rs. 2,300) for budget native access, Extension-Based (Rs. 2,500) for 6 multi-model AI access, or Full Private (Rs. 5,300) for dedicated confidential workflows."
+        },
+        {
+          "question": "Can I pay for Claude Pro without a credit card in Pakistan?",
+          "answer": "Yes. PakAITools accepts local PKR payments via JazzCash, EasyPaisa, SadaPay, NayaPay, and Raast, so you do not need an international card."
+        },
+        {
+          "question": "Claude Pro Pakistan mein kitne ka hai?",
+          "answer": "Claude Pro Rs. 2,300 se shuru hota hai. Plan table dekh kar apna plan chunen aur WhatsApp par order karen."
         }
       ]
     },

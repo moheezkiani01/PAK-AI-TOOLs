@@ -38,8 +38,8 @@ if (categories.length !== 15) {
 
 // 2. Validate Products (179)
 const products = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'products.json'), 'utf8'));
-if (products.length !== 179) {
-  error(`Expected 179 indexable products, found ${products.length}`);
+if (products.length !== 181) {
+  error(`Expected 181 indexable products, found ${products.length}`);
 } else {
   ok(`Indexable products count: ${products.length}`);
 }
@@ -54,16 +54,16 @@ if (mergedPlans.length !== 52) {
 
 // Total plans check (231)
 const totalPlans = products.length + mergedPlans.length;
-if (totalPlans !== 231) {
-  error(`Expected 231 total plans, found ${totalPlans}`);
+if (totalPlans !== 233) {
+  error(`Expected 233 total plans, found ${totalPlans}`);
 } else {
   ok(`Total orderable plans count: ${totalPlans}`);
 }
 
 // 4. Validate Brand Hubs (44)
 const hubs = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'hubs.json'), 'utf8'));
-if (hubs.brands.length !== 44) {
-  error(`Expected 44 brand hubs, found ${hubs.brands.length}`);
+if (hubs.brands.length !== 45) {
+  error(`Expected 45 brand hubs, found ${hubs.brands.length}`);
 } else {
   ok(`Brand hubs count: ${hubs.brands.length}`);
 }
@@ -93,7 +93,7 @@ for (const p of products) {
   if (!p.categorySlug) error(`Product #${p.id} (${p.slug}) has no categorySlug`);
   if (!p.h1) error(`Product #${p.id} (${p.slug}) is missing H1`);
 }
-ok(`Slugs and titles uniqueness checked across 179 products`);
+ok(`Slugs and titles uniqueness checked across 181 products`);
 
 // 7. Validate Comparisons (20)
 let comparisons = [];

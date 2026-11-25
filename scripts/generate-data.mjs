@@ -315,6 +315,7 @@ for (let i = 1; i < catBlocks.length; i += 3) {
 
 // Canonical brand title casing map (Task 8)
 const BRAND_NAMES = {
+  'claude': 'Claude Pro',
   'claude-api': 'Claude API',
   'cursor-api': 'Cursor API',
   'chinese-models-api': 'Chinese Models API',

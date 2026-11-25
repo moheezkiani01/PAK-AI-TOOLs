@@ -80,6 +80,16 @@
     "logo": "/brands/kimi-ai.png"
   },
   {
+    "slug": "claude",
+    "displayName": "Claude Pro",
+    "categorySlug": "ai-chatbots",
+    "isMultiPlan": true,
+    "hubUrl": "/ai-chatbots/claude/",
+    "planCount": 3,
+    "priority": 10,
+    "logo": "/brands/claude.png"
+  },
+  {
     "slug": "dreamina-ai",
     "displayName": "Dreamina AI",
     "categorySlug": "ai-video-image",
@@ -889,16 +899,5 @@
     "planCount": 1,
     "priority": 50,
     "logo": "/brands/meshy-ai.png"
-  },
-  {
-    "slug": "claude",
-    "displayName": "Claude Pro Extension-Based",
-    "categorySlug": "ai-chatbots",
-    "isMultiPlan": false,
-    "productSlug": "claude-pro-extension-1-month",
-    "productUrl": "/product/claude-pro-extension-1-month/",
-    "planCount": 1,
-    "priority": 50,
-    "logo": "/brands/claude.png"
   }
 ]
