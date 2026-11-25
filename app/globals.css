@@ -151,3 +151,11 @@ details summary::-webkit-details-marker {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
+
+/* Plan / Brand Card title truncation per spec */
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

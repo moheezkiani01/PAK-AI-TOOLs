@@ -485,7 +485,7 @@
   },
   {
     "slug": "grok",
-    "displayName": "Grok + Grok Bot + Cursor + X Premium (4-in-1 Bundle)",
+    "displayName": "Grok + Cursor + X Premium",
     "categorySlug": "ai-chatbots",
     "isMultiPlan": false,
     "productSlug": "grok-cursor-x-premium-1-month",
@@ -606,7 +606,7 @@
   },
   {
     "slug": "proton",
-    "displayName": "Proton Unlimited (All-in-One Swiss Privacy Suite)",
+    "displayName": "Proton Unlimited",
     "categorySlug": "vpn-privacy",
     "isMultiPlan": false,
     "productSlug": "proton-unlimited-1-month",

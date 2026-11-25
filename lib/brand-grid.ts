@@ -158,11 +158,12 @@ export function getBrandGridData(categorySlugs: string[] = CATEGORY_COMMERCIAL_O
         ? `/${catSlug}/${b.slug}/`
         : (b.productUrl || `/product/${b.productSlug}/`);
 
+      const fullName = (b.productSlug ? products.find((p) => p.slug === b.productSlug)?.name : null) || b.displayName || b.slug;
       const cleanName = (b.displayName || b.slug).trim();
 
       return {
         slug: b.slug,
-        name: cleanName,
+        name: fullName,
         displayName: cleanName,
         href,
         logo: {

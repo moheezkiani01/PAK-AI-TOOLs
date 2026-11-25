@@ -97,8 +97,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       .map((p) => p.price)
       .filter((pr): pr is number => pr !== null && typeof pr === 'number');
     const minPrice = prices.length > 0 ? Math.min(...prices) : null;
+    const fullName = (brand.productSlug ? brandProducts.find((p) => p.slug === brand.productSlug)?.name : null) || brand.displayName;
     return {
       ...brand,
+      name: fullName,
       minPrice,
     };
   });

@@ -18,7 +18,7 @@ interface BrandGridProps {
 export function BrandGrid({ brands, priorityCount = 0, className = '' }: BrandGridProps) {
   return (
     <ul
-      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr list-none p-0 m-0 ${className}`}
+      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-fr list-none p-0 m-0 ${className}`}
     >
       {brands.map((brand, idx) => (
         <li key={brand.slug} className="flex flex-col h-full m-0 p-0">

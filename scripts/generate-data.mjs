@@ -467,7 +467,11 @@ console.log('Copied root brand assets to public/');
 // Construct brands list: multi-plan brands + single-plan brands
 // Map shortened names per spec 4.5:
 const SHORT_NAMES = {
-  'grok-grok-bot-cursor-x-premium-4-in-1-bundle': 'Grok & Cursor 4-in-1',
+  'grok': 'Grok + Cursor + X Premium',
+  'grok-cursor-x-premium-1-month': 'Grok + Cursor + X Premium',
+  'grok-grok-bot-cursor-x-premium-4-in-1-bundle': 'Grok + Cursor + X Premium',
+  'proton': 'Proton Unlimited',
+  'proton-unlimited-1-month': 'Proton Unlimited',
   'proton-unlimited-all-in-one-swiss-privacy-suite': 'Proton Unlimited',
   'xbox-game-pass-ultimate-pc-edition': 'Xbox Game Pass',
   'autodesk-all-apps-68-applications': 'Autodesk All Apps',
