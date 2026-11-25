@@ -2,7 +2,6 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
   Sparkles,
   ArrowRight,
@@ -153,17 +152,7 @@ export default async function AINewsArticlePage({ params }: AINewsArticlePagePro
           <span>Verified for Pakistani digital workers &amp; developers</span>
         </div>
 
-        {/* Feature Image */}
-        <div className="relative w-full aspect-[1200/630] rounded-2xl overflow-hidden mt-4 bg-bg-subtle border border-separator/70 shadow-xs">
-          <Image
-            src={post.image.src}
-            alt={post.image.alt}
-            fill
-            priority
-            sizes="(max-width: 896px) 100vw, 896px"
-            className="object-cover"
-          />
-        </div>
+
       </header>
 
       {/* 3. Quick Answer Box */}
