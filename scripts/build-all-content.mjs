@@ -97,6 +97,9 @@ const BLOG_GUIDE_DATES = {
 
 // Real date when product prices and plans were last verified
 function getProductUpdatedAt(categorySlug, id) {
+  if (id === 15 || id === 139 || id === 208 || id >= 271) {
+    return '2026-11-26';
+  }
   return '2026-11-22';
 }
 
@@ -249,6 +252,44 @@ for (let i = 1; i < compParts.length; i++) {
   });
 }
 
+
+// Price updates normalization
+for (const c of comparisons) {
+  if (c.slug === 'netflix-4k-vs-amazon-prime-vs-hbo-max-vs-paramount-plus') {
+    c.metaDesc = c.metaDesc.replace('Amazon Prime Video (Rs. 450)', 'Amazon Prime Video (Rs. 650)');
+    c.verdict = c.verdict.replace('Amazon Prime Video 1 Month (Rs. 450)', 'Amazon Prime Video 1 Month (Rs. 650)');
+    c.contentMarkdown = c.contentMarkdown.replace(
+      '| **Amazon Prime Video 1M** | Rs. 450 |',
+      '| **Amazon Prime Video 1M** | Rs. 650 |'
+    );
+  }
+  if (c.slug === 'spotify-premium-vs-youtube-premium-vs-apple-music') {
+    c.metaDesc = c.metaDesc.replace('YouTube Premium 1M (Rs. 300)', 'YouTube Premium 1M (Rs. 500)');
+    c.verdict = c.verdict.replace('YouTube Premium 1 Month Slot (Rs. 300)', 'YouTube Premium 1 Month Slot (Rs. 500)');
+    c.contentMarkdown = c.contentMarkdown
+      .replace(
+        '| **YouTube Premium 1M** | Rs. 300 | 1 Month | Rs. 300/mo |',
+        '| **YouTube Premium 1M** | Rs. 500 | 1 Month | Rs. 500/mo |'
+      )
+      .replace(
+        'Does YouTube Premium (Rs. 300) include YouTube Music?',
+        'Does YouTube Premium (Rs. 500) include YouTube Music?'
+      );
+    if (c.faqs) {
+      c.faqs.forEach(f => {
+        f.question = f.question.replace('Does YouTube Premium (Rs. 300)', 'Does YouTube Premium (Rs. 500)');
+        f.answer = f.answer.replace('Rs. 300', 'Rs. 500');
+      });
+    }
+    if (c.schema) {
+      let schemaStr = JSON.stringify(c.schema);
+      schemaStr = schemaStr.replace(/Does YouTube Premium \(Rs\. 300\)/g, 'Does YouTube Premium (Rs. 500)')
+                           .replace(/1 month at Rs\. 300/g, '1 month at Rs. 500');
+      c.schema = JSON.parse(schemaStr);
+    }
+  }
+}
+
 fs.writeFileSync(
   path.join(ROOT_DIR, 'data', 'comparisons.json'),
   JSON.stringify({ hub: compHub, items: comparisons }, null, 2),
@@ -384,6 +425,41 @@ const allBlogItems = [...blogs, ...evergreenPosts].map(b => {
   }
   return item;
 });
+
+
+// Price updates normalization in blogs
+for (const b of allBlogItems) {
+  if (b.slug === 'streaming-price-guide-pakistan') {
+    b.summary = (b.summary || '').replace(
+      '**Rs. 300/month** for YouTube Premium (own Gmail) and **Rs. 450/month** for Amazon Prime Video',
+      '**Rs. 500/month** for YouTube Premium (own Gmail) and **Rs. 650/month** for Amazon Prime Video'
+    );
+    b.ans = (b.ans || '').replace(
+      '**Rs. 300/month** for YouTube Premium (own Gmail) and **Rs. 450/month** for Amazon Prime Video',
+      '**Rs. 500/month** for YouTube Premium (own Gmail) and **Rs. 650/month** for Amazon Prime Video'
+    );
+    b.contentMarkdown = (b.contentMarkdown || '')
+      .replace('[Amazon Prime Video 1M](/product/amazon-prime-video-1-month/) (Rs. 450)', '[Amazon Prime Video 1M](/product/amazon-prime-video-1-month/) (Rs. 650)')
+      .replace('[YouTube Premium 1M Slot](/product/youtube-premium-1-month-slot/) (Rs. 300)', '[YouTube Premium 1M Slot](/product/youtube-premium-1-month-slot/) (Rs. 500)')
+      .replace('YouTube Premium (Rs. 300) + Amazon Prime Video (Rs. 450) sirf Rs. 750/month', 'YouTube Premium (Rs. 500) + Amazon Prime Video (Rs. 650) sirf Rs. 1,150/month');
+    if (b.faqs) {
+      b.faqs.forEach(f => {
+        f.answer = (f.answer || '').replace('YouTube Premium (Rs. 300) + Amazon Prime Video (Rs. 450) sirf Rs. 750/month', 'YouTube Premium (Rs. 500) + Amazon Prime Video (Rs. 650) sirf Rs. 1,150/month');
+      });
+    }
+  }
+  if (b.slug === 'productivity-software-price-guide-pakistan') {
+    b.contentMarkdown = (b.contentMarkdown || '').replace(
+      '[LinkedIn Premium Career 3M Promo](/product/linkedin-premium-career-3-months-promo/) (Rs. 650,',
+      '[LinkedIn Premium Career 3M Promo](/product/linkedin-premium-career-3-months-promo/) (Rs. 1,000,'
+    );
+    if (b.faqs) {
+      b.faqs.forEach(f => {
+        f.question = (f.question || '').replace('LinkedIn Premium Career 3 Months (Rs. 650)', 'LinkedIn Premium Career 3 Months (Rs. 1,000)');
+      });
+    }
+  }
+}
 
 fs.writeFileSync(
   path.join(ROOT_DIR, 'data', 'blogs.json'),

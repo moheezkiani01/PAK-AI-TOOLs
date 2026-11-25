@@ -68,6 +68,9 @@ console.log(`Saved public/_redirects (${redirects.length} lines)`);
 
 // Real date when product prices and plans were last verified
 function getProductUpdatedAt(categorySlug, id) {
+  if (id === 15 || id === 139 || id === 208 || id >= 271) {
+    return '2026-11-26';
+  }
   return '2026-11-22';
 }
 
