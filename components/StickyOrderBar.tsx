@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { MessageCircle } from 'lucide-react';
 import { buildWhatsAppLink, getProductWhatsAppMessage } from '@/lib/whatsapp';
-import { formatPkr } from '@/lib/money';
+import { formatPkr, formatUsd } from '@/lib/money';
 import { useCurrency } from './CurrencyContext';
 
 interface StickyOrderBarProps {
@@ -58,8 +58,12 @@ export function StickyOrderBar({
     >
       <div className="flex flex-col min-w-0 pr-3">
         <span className="text-xs font-medium text-text-secondary truncate">{planName}</span>
-        <span className="text-sm font-bold text-text">
-          {price !== null ? formatPkr(price) : 'Live quote'}
+        <span className="text-sm font-bold text-text" suppressHydrationWarning>
+          {price !== null
+            ? currency === 'USD'
+              ? formatUsd(price)
+              : formatPkr(price)
+            : 'Live quote'}
         </span>
       </div>
       <a

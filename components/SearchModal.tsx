@@ -3,8 +3,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, X, ArrowRight, Tag, Grid, Layers, BookOpen } from 'lucide-react';
-import { formatPkr } from '@/lib/money';
+import { formatPkr, formatUsd } from '@/lib/money';
 import { searchCatalog, SearchItem } from '@/lib/search';
+import { useCurrency } from './CurrencyContext';
 
 export function SearchModal({
   isOpen,
@@ -13,6 +14,7 @@ export function SearchModal({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const { currency } = useCurrency();
   const [query, setQuery] = useState('');
   const [items, setItems] = useState<SearchItem[]>([]);
   const [results, setResults] = useState<SearchItem[]>([]);
@@ -187,8 +189,12 @@ export function SearchModal({
 
                 <div className="flex items-center space-x-2 flex-shrink-0">
                   {item.price !== undefined && (
-                    <span className="text-xs font-bold text-text">
-                      {item.price !== null ? formatPkr(item.price) : 'Live Quote'}
+                    <span className="text-xs font-bold text-text" suppressHydrationWarning>
+                      {item.price !== null
+                        ? currency === 'USD'
+                          ? formatUsd(item.price)
+                          : formatPkr(item.price)
+                        : 'Live Quote'}
                     </span>
                   )}
                   <ArrowRight className="w-4 h-4 text-text-tertiary" />

@@ -4,13 +4,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Search, X, ArrowRight, Tag, MessageCircle } from 'lucide-react';
-import { formatPkr } from '@/lib/money';
+import { formatPkr, formatUsd } from '@/lib/money';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 import { searchCatalog, SearchItem } from '@/lib/search';
+import { useCurrency } from './CurrencyContext';
 
 export type SearchResultItem = SearchItem;
 
 export function HeroSearch() {
+  const { currency } = useCurrency();
   const [query, setQuery] = useState('');
   const [items, setItems] = useState<SearchResultItem[]>([]);
   const [results, setResults] = useState<SearchResultItem[]>([]);
@@ -185,8 +187,8 @@ export function HeroSearch() {
 
                       <div className="flex-shrink-0 text-right">
                         {item.price !== undefined && item.price !== null ? (
-                          <span className="text-xs md:text-sm font-bold text-accent">
-                            {formatPkr(item.price)}
+                          <span className="text-xs md:text-sm font-bold text-accent" suppressHydrationWarning>
+                            {currency === 'USD' ? formatUsd(item.price) : formatPkr(item.price)}
                           </span>
                         ) : item.type === 'brand' ? (
                           <span className="text-xs font-semibold text-text-tertiary">

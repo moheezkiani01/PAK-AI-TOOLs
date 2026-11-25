@@ -1,11 +1,14 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import type { BrandCardData } from '@/lib/brand-grid';
 import type { Brand, Product, MergedPlan } from '@/lib/types';
-import { formatPkr } from '@/lib/money';
+import { formatPkr, formatUsd } from '@/lib/money';
 import { pluralize } from '@/lib/format';
+import { useCurrency } from './CurrencyContext';
 
 interface BrandCardProps {
   brand: BrandCardData | Brand | Product | MergedPlan;
@@ -14,16 +17,19 @@ interface BrandCardProps {
 }
 
 /**
- * Server component rendering an equal-size, accessible brand card.
+ * Accessible brand card component.
  * - Entire card is one single <Link> with uniform stretch (h-full in grid).
  * - Fixed ~60x60 logo tile with flex-shrink: 0 and uniform padding.
  * - Text block with flex: 1 and min-w-0 for reliable single-line text truncation.
  * - Single-line card-title with ellipsis and full name in title tooltip.
  * - Fixed ~48x48 decorative arrow button with flex-shrink: 0.
- * - Multi-plan brands (e.g. ChatGPT) link to their brand page where all plans live.
+ * - Dynamically switches between PKR (Rs.) and USD ($) based on the Currency Context.
+ * - Multi-plan brands (e.g. ChatGPT, Grok, Claude) link to their brand page where all plans live.
  * - Visible focus ring (focus-visible:ring-accent).
  */
 export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps) {
+  const { currency } = useCurrency();
+
   // Normalize title properties whether from BrandCardData, Brand, Product, or MergedPlan
   const fullName =
     ('name' in brand && brand.name
@@ -81,9 +87,16 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
   const planCount = ('planCount' in brand ? brand.planCount : 1) || 1;
   const countLabel = pluralize(planCount, 'plan');
 
-  const subtitle =
+  const priceFormatted =
     lowestPrice != null
-      ? `${countLabel} · from ${formatPkr(lowestPrice)}`
+      ? currency === 'USD'
+        ? formatUsd(lowestPrice)
+        : formatPkr(lowestPrice)
+      : null;
+
+  const subtitle =
+    priceFormatted != null
+      ? `${countLabel} · from ${priceFormatted}`
       : `${countLabel} · quote on request`;
 
   // Accessible 2-letter uppercase initials fallback
@@ -102,6 +115,7 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
       href={href}
       title={fullName || displayName}
       aria-label={`${displayName}, ${subtitle}`}
+      suppressHydrationWarning
       className="group flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 md:p-5 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-all h-full min-h-[88px] sm:min-h-[96px] md:min-h-[104px] w-full"
     >
       {/* 1. Normalized Fixed ~60x60 Logo Tile (flex-shrink: 0) */}
@@ -131,7 +145,7 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
         >
           {displayName}
         </h3>
-        <p className="text-xs text-text-tertiary truncate mt-1">
+        <p suppressHydrationWarning className="text-xs text-text-tertiary truncate mt-1">
           {subtitle}
         </p>
       </div>
