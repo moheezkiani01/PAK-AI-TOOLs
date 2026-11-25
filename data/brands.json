@@ -95,7 +95,7 @@
     "categorySlug": "ai-video-image",
     "isMultiPlan": true,
     "hubUrl": "/ai-video-image/dreamina-ai/",
-    "planCount": 4,
+    "planCount": 5,
     "priority": 10,
     "logo": "/brands/dreamina-ai.png"
   },
@@ -899,5 +899,27 @@
     "planCount": 1,
     "priority": 50,
     "logo": "/brands/meshy-ai.png"
+  },
+  {
+    "slug": "lovable",
+    "displayName": "Lovable",
+    "categorySlug": "developer-tools",
+    "isMultiPlan": false,
+    "productSlug": "lovable-pro-1-month",
+    "productUrl": "/product/lovable-pro-1-month/",
+    "planCount": 1,
+    "priority": 50,
+    "logo": "/brands/lovable.png"
+  },
+  {
+    "slug": "seedance",
+    "displayName": "Seedance 2.5",
+    "categorySlug": "ai-video-image",
+    "isMultiPlan": false,
+    "productSlug": "seedance-2-5-easemate-ai-pro-1-month",
+    "productUrl": "/product/seedance-2-5-easemate-ai-pro-1-month/",
+    "planCount": 1,
+    "priority": 50,
+    "logo": "/brands/seedance.png"
   }
 ]

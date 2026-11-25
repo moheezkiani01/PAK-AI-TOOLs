@@ -159,6 +159,9 @@ for (let i = 1; i < productBlocks.length; i += 3) {
     // Single plan brand
     const firstWord = slugMatch ? slugMatch[1].trim().split('-')[0] : '';
     brandSlug = firstWord;
+    if (slugMatch && slugMatch[1].trim() === 'muse-ai-1b-token-account') {
+      brandSlug = 'meta';
+    }
   }
 
   const cleanName = schema && schema['@graph'] && schema['@graph'][0]?.name 
@@ -442,6 +445,9 @@ for (let i = 1; i < manifestLines.length; i++) {
 logoMap['pia'] = 'pia.png';
 logoMap['chinese-models-api'] = 'chinese-models-api.png';
 logoMap['chinese models api'] = 'chinese-models-api.png';
+logoMap['lovable'] = 'lovable.png';
+logoMap['seedance'] = 'seedance.png';
+logoMap['easemate'] = 'seedance.png';
 
 // Copy logo files to public/brands
 const sourceLogosDir = path.join(ROOT_DIR, 'brand_logos/logos');
@@ -481,7 +487,11 @@ const SHORT_NAMES = {
   'autodesk-all-apps-68-applications': 'Autodesk All Apps',
   'private-internet-access-pia-vpn': 'Private Internet Access',
   'proxyscrape-residential-proxies': 'ProxyScrape Proxies',
-  'apple-music-activation-link': 'Apple Music'
+  'apple-music-activation-link': 'Apple Music',
+  'seedance': 'Seedance 2.5',
+  'seedance-2-5-easemate-ai-pro-1-month': 'Seedance 2.5',
+  'lovable': 'Lovable',
+  'lovable-pro-1-month': 'Lovable'
 };
 
 // Collect all unique brandSlugs from products and hubs

@@ -38,8 +38,8 @@ if (categories.length !== 15) {
 
 // 2. Validate Products (179)
 const products = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'products.json'), 'utf8'));
-if (products.length !== 181) {
-  error(`Expected 181 indexable products, found ${products.length}`);
+if (products.length !== 189) {
+  error(`Expected 189 indexable products, found ${products.length}`);
 } else {
   ok(`Indexable products count: ${products.length}`);
 }
@@ -54,8 +54,8 @@ if (mergedPlans.length !== 52) {
 
 // Total plans check (231)
 const totalPlans = products.length + mergedPlans.length;
-if (totalPlans !== 233) {
-  error(`Expected 233 total plans, found ${totalPlans}`);
+if (totalPlans !== 241) {
+  error(`Expected 241 total plans, found ${totalPlans}`);
 } else {
   ok(`Total orderable plans count: ${totalPlans}`);
 }
@@ -93,7 +93,7 @@ for (const p of products) {
   if (!p.categorySlug) error(`Product #${p.id} (${p.slug}) has no categorySlug`);
   if (!p.h1) error(`Product #${p.id} (${p.slug}) is missing H1`);
 }
-ok(`Slugs and titles uniqueness checked across 181 products`);
+ok(`Slugs and titles uniqueness checked across 189 products`);
 
 // 7. Validate Comparisons (20)
 let comparisons = [];
