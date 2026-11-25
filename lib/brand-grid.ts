@@ -17,9 +17,6 @@ export type BrandCardData = {
   lowestPricePkr: number | null; // computed from plans (null if quote on request)
   category: string;          // category slug
   isMultiPlan: boolean;
-  duration?: string;
-  warranty?: string;
-  subtitle?: string;
 };
 
 export type CategoryGroup = {
@@ -28,7 +25,7 @@ export type CategoryGroup = {
   icon?: string;             // category icon
   intro: string;             // 2-3 sentence factual intro (AEO/GEO)
   href: string;              // category page URL
-  brands: BrandCardData[];   // all plans in this category
+  brands: BrandCardData[];   // all brand cards in this category
   totalBrandCount: number;
   totalPlanCount: number;
 };
@@ -109,8 +106,9 @@ export function getLastPriceUpdate(): { dateIso: string; dateDisplay: string } {
 }
 
 /**
- * Returns structured Category Groups for all 15 categories containing ALL plans.
- * Sorted in the same order as the canonical categories list.
+ * Returns structured Category Groups for all 15 categories containing all brands.
+ * Each multi-plan brand (e.g. ChatGPT) is a single card linking to its dedicated brand hub
+ * where all its plans are hosted, rather than listing every plan on the homepage.
  */
 export function getBrandGridData(): CategoryGroup[] {
   const brands = brandsData as Brand[];
@@ -118,124 +116,74 @@ export function getBrandGridData(): CategoryGroup[] {
   const products = productsData as Product[];
   const mergedPlans = mergedPlansData as MergedPlan[];
 
-  const brandMap = new Map<string, Brand>();
-  for (const b of brands) {
-    brandMap.set(b.slug, b);
-  }
-
   const result: CategoryGroup[] = [];
 
   for (const cat of categories) {
-    const catProducts = products.filter((p) => p.categorySlug === cat.slug);
-    const catMerged = mergedPlans.filter((m) => m.categorySlug === cat.slug);
-
     const catBrands = brands
       .filter((b) => b.categorySlug === cat.slug)
-      .sort((a, b) => (a.priority ?? 50) - (b.priority ?? 50));
+      .sort((a, b) => {
+        const pDiff = (a.priority ?? 50) - (b.priority ?? 50);
+        if (pDiff !== 0) return pDiff;
+        return (b.planCount ?? 1) - (a.planCount ?? 1);
+      });
 
-    const planCards: BrandCardData[] = [];
-    const includedSlugs = new Set<string>();
+    const brandCards: BrandCardData[] = catBrands.map((b) => {
+      let activePlans: Array<{ price: number | null }> = [];
 
-    // Group plans by brand following brand priority
-    for (const b of catBrands) {
-      const bProducts = catProducts.filter((p) => p.brandSlug === b.slug);
-      const bMerged = catMerged.filter((m) => m.brandSlug === b.slug);
-      const bPlans = [...bProducts, ...bMerged];
-
-      for (const plan of bPlans) {
-        if (includedSlugs.has(plan.slug)) continue;
-        includedSlugs.add(plan.slug);
-
-        const isMerged = 'redirectTo' in plan;
-        let href = isMerged
-          ? (plan as MergedPlan).redirectTo || `/product/${plan.slug}/`
-          : `/product/${plan.slug}/`;
-        if (!href.endsWith('/')) {
-          href = `${href}/`;
-        }
-
-        const fullName = plan.name;
-        const cleanName = (SHORT_NAMES[plan.slug] || fullName).trim();
-
-        planCards.push({
-          id: plan.id,
-          slug: plan.slug,
-          name: fullName,
-          displayName: cleanName,
-          href: href.startsWith('/') ? href : `/${href}`,
-          logo: {
-            src: b.logo || '',
-            alt: `${cleanName} logo`,
-            width: 44,
-            height: 44,
-          },
-          planCount: 1,
-          lowestPricePkr: plan.price ?? null,
-          category: cat.slug,
-          isMultiPlan: false,
-          duration: plan.duration,
-          warranty: plan.warranty,
-        });
+      if (b.isMultiPlan) {
+        const prodPlans = products.filter((p) => p.brandSlug === b.slug);
+        const mergPlans = mergedPlans.filter((mp) => mp.brandSlug === b.slug);
+        activePlans = [...prodPlans, ...mergPlans];
+      } else if (b.productSlug) {
+        const prod = products.find((p) => p.slug === b.productSlug);
+        if (prod) activePlans = [prod];
+      } else {
+        const prod = products.find((p) => p.brandSlug === b.slug);
+        if (prod) activePlans = [prod];
       }
-    }
 
-    // Fallback: include any product not matched by brand
-    for (const p of catProducts) {
-      if (!includedSlugs.has(p.slug)) {
-        includedSlugs.add(p.slug);
-        const b = brandMap.get(p.brandSlug);
-        planCards.push({
-          id: p.id,
-          slug: p.slug,
-          name: p.name,
-          displayName: (SHORT_NAMES[p.slug] || p.name).trim(),
-          href: `/product/${p.slug}/`,
-          logo: {
-            src: b?.logo || '',
-            alt: `${p.name} logo`,
-            width: 44,
-            height: 44,
-          },
-          planCount: 1,
-          lowestPricePkr: p.price ?? null,
-          category: cat.slug,
-          isMultiPlan: false,
-          duration: p.duration,
-          warranty: p.warranty,
-        });
-      }
-    }
+      const validPrices = activePlans
+        .map((p) => p.price)
+        .filter((pr): pr is number => typeof pr === 'number' && pr > 0);
 
-    // Fallback: include any merged plan not matched by brand
-    for (const m of catMerged) {
-      if (!includedSlugs.has(m.slug)) {
-        includedSlugs.add(m.slug);
-        const b = brandMap.get(m.brandSlug);
-        let href = m.redirectTo || `/product/${m.slug}/`;
-        if (!href.endsWith('/')) {
-          href = `${href}/`;
-        }
-        planCards.push({
-          id: m.id,
-          slug: m.slug,
-          name: m.name,
-          displayName: (SHORT_NAMES[m.slug] || m.name).trim(),
-          href: href.startsWith('/') ? href : `/${href}`,
-          logo: {
-            src: b?.logo || '',
-            alt: `${m.name} logo`,
-            width: 44,
-            height: 44,
-          },
-          planCount: 1,
-          lowestPricePkr: m.price ?? null,
-          category: cat.slug,
-          isMultiPlan: false,
-          duration: m.duration,
-          warranty: m.warranty,
-        });
+      const lowestPricePkr = validPrices.length > 0 ? Math.min(...validPrices) : null;
+      const planCount = activePlans.length || b.planCount || 1;
+
+      let href = b.isMultiPlan
+        ? `/${cat.slug}/${b.slug}/`
+        : (b.productUrl || `/product/${b.productSlug || b.slug}/`);
+      if (!href.endsWith('/')) {
+        href = `${href}/`;
       }
-    }
+
+      const prod = !b.isMultiPlan
+        ? products.find((p) => p.slug === b.productSlug || p.brandSlug === b.slug)
+        : null;
+      const fullName = prod ? prod.name : b.displayName || b.slug;
+      const cleanName = (SHORT_NAMES[b.slug] || b.displayName || b.slug).trim();
+
+      return {
+        id: b.slug,
+        slug: b.slug,
+        name: fullName,
+        displayName: cleanName,
+        href,
+        logo: {
+          src: b.logo || '',
+          alt: `${cleanName} logo`,
+          width: 44,
+          height: 44,
+        },
+        planCount,
+        lowestPricePkr,
+        category: cat.slug,
+        isMultiPlan: b.isMultiPlan,
+      };
+    });
+
+    const catProducts = products.filter((p) => p.categorySlug === cat.slug);
+    const catMerged = mergedPlans.filter((m) => m.categorySlug === cat.slug);
+    const totalPlanCount = catProducts.length + catMerged.length;
 
     const intro =
       CATEGORY_FACTUAL_INTROS[cat.slug] ||
@@ -248,9 +196,9 @@ export function getBrandGridData(): CategoryGroup[] {
       icon: cat.icon,
       intro,
       href: `/${cat.slug}/`,
-      brands: planCards,
+      brands: brandCards,
       totalBrandCount: catBrands.length,
-      totalPlanCount: planCards.length,
+      totalPlanCount,
     });
   }
 
@@ -258,7 +206,7 @@ export function getBrandGridData(): CategoryGroup[] {
 }
 
 /**
- * Builds ItemList structured data for visible brand/plan cards across the grid.
+ * Builds ItemList structured data for visible brand cards across the grid.
  */
 export function getBrandGridJsonLd(groups: CategoryGroup[]) {
   return groups.map((group) => {

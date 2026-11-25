@@ -14,12 +14,13 @@ interface BrandCardProps {
 }
 
 /**
- * Server component rendering an equal-size, accessible plan / brand card.
+ * Server component rendering an equal-size, accessible brand card.
  * - Entire card is one single <Link> with uniform stretch (h-full in grid).
  * - Fixed ~60x60 logo tile with flex-shrink: 0 and uniform padding.
  * - Text block with flex: 1 and min-w-0 for reliable single-line text truncation.
- * - Single-line card-title with ellipsis and full plan name in title tooltip.
+ * - Single-line card-title with ellipsis and full name in title tooltip.
  * - Fixed ~48x48 decorative arrow button with flex-shrink: 0.
+ * - Multi-plan brands (e.g. ChatGPT) link to their brand page where all plans live.
  * - Visible focus ring (focus-visible:ring-accent).
  */
 export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps) {
@@ -80,10 +81,10 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
   const planCount = ('planCount' in brand ? brand.planCount : 1) || 1;
   const countLabel = pluralize(planCount, 'plan');
 
-  const duration = 'duration' in brand && brand.duration ? (brand.duration as string) : null;
-  const subtitle = duration
-    ? `${duration}${lowestPrice != null ? ` · ${formatPkr(lowestPrice)}` : ' · quote on request'}`
-    : `${countLabel}${lowestPrice != null ? ` · from ${formatPkr(lowestPrice)}` : ' · quote on request'}`;
+  const subtitle =
+    lowestPrice != null
+      ? `${countLabel} · from ${formatPkr(lowestPrice)}`
+      : `${countLabel} · quote on request`;
 
   // Accessible 2-letter uppercase initials fallback
   const initials =
