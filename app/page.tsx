@@ -12,8 +12,7 @@ import {
   Newspaper,
   BookOpen,
 } from 'lucide-react';
-import { getCategories, getProducts, getSitePages, getBlogPosts } from '@/lib/data';
-import { CategoryCard } from '@/components/CategoryCard';
+import { getProducts, getSitePages, getBlogPosts } from '@/lib/data';
 import { PlanRow } from '@/components/PlanRow';
 import { Faq } from '@/components/Faq';
 import { HeroSearch } from '@/components/HeroSearch';
@@ -23,7 +22,6 @@ import { buildWhatsAppLink, getGeneralWhatsAppMessage } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site.config';
 import { baseOg } from '@/lib/seo';
 import {
-  HOME_GRID_CATEGORIES,
   getBrandGridData,
   getLastPriceUpdate,
   getBrandGridJsonLd,
@@ -56,7 +54,6 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const categories = getCategories();
   const products = getProducts();
   const sitePages = getSitePages();
   const blogPosts = getBlogPosts();
@@ -111,7 +108,8 @@ export default function HomePage() {
     },
   ];
 
-  const brandGridGroups = getBrandGridData(HOME_GRID_CATEGORIES);
+  // All 15 Categories & All Plans
+  const brandGridGroups = getBrandGridData();
   const priceUpdate = getLastPriceUpdate();
   const brandGridJsonLd = getBrandGridJsonLd(brandGridGroups);
   const homeFaqJsonLd = getFaqSchema(homeFaqs);
@@ -138,15 +136,17 @@ export default function HomePage() {
         </p>
 
         {/* Quick Instant Search Box */}
-        <HeroSearch />
+        <div className="pt-2">
+          <HeroSearch />
+        </div>
 
-        {/* Primary & Secondary Action CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        {/* Action CTAs */}
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
           <Link
             href="/price-list/"
-            className="bg-accent text-accent-on px-6 py-3.5 rounded-xl font-bold text-sm shadow-sm hover:opacity-95 transition-all hover:-translate-y-0.5 active:translate-y-0 min-h-[48px] flex items-center"
+            className="bg-accent text-accent-on px-6 py-3.5 rounded-xl font-bold text-sm shadow-card hover:opacity-95 transition-all hover:-translate-y-0.5 active:translate-y-0 min-h-[48px] flex items-center"
           >
-            Browse all 231 plans
+            <span>Browse Full Price List</span>
             <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
           <a
@@ -177,33 +177,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Browse Categories (15 Curated Categories) */}
-      <section aria-labelledby="categories-heading" className="space-y-4">
-        <div className="flex items-end justify-between border-b border-separator pb-3">
-          <div>
-            <h2 id="categories-heading" className="text-2xl font-bold text-text">
-              Browse Categories
-            </h2>
-            <p className="text-xs md:text-sm text-text-secondary mt-0.5">
-              15 curated software and subscription categories priced in Pakistani Rupees
-            </p>
-          </div>
-          <Link
-            href="/categories/"
-            className="text-xs md:text-sm font-semibold text-accent hover:underline flex items-center"
-          >
-            All 15 Categories <ArrowRight className="w-3.5 h-3.5 ml-1" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
-          {categories.map((cat) => (
-            <CategoryCard key={cat.slug} category={cat} />
-          ))}
-        </div>
-      </section>
-
-      {/* 3. Verified PKR Brands by Category Grid (Top Commercial Categories) */}
+      {/* 2. All 15 Categories & Verified Plans Grid */}
       <div className="space-y-8 md:space-y-10">
         {/* Verification & Trust Banner */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl border border-separator bg-bg-card/70 text-xs text-text-secondary gap-2">
@@ -221,7 +195,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Top Brand Category Sections */}
+        {/* All 15 Category Sections */}
         <div className="space-y-10 md:space-y-12">
           {brandGridGroups.map((group, idx) => (
             <CategoryBrandSection
@@ -233,7 +207,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 4. Popular Subscriptions in Pakistan */}
+      {/* 3. Popular Subscriptions in Pakistan */}
       <section aria-labelledby="popular-heading" className="space-y-4">
         <div className="flex items-end justify-between border-b border-separator pb-3">
           <div>
@@ -298,182 +272,43 @@ export default function HomePage() {
             >
               <div>
                 <div className="flex items-center space-x-2 text-xs font-semibold text-text-tertiary mb-2">
-                  <span className="uppercase tracking-wider px-2 py-0.5 rounded bg-accent-soft text-accent font-bold">
-                    Guide
-                  </span>
-                  <span>·</span>
-                  <time dateTime={guide.date || '2026-11-22'}>{guide.date || '2026-11-22'}</time>
+                  <BookOpen className="w-3.5 h-3.5 text-accent" />
+                  <span>Buying Guide</span>
                 </div>
-                <h3 className="text-base font-bold text-text leading-snug mb-2 line-clamp-2">
-                  <Link href={`/blog/${guide.slug}/`} className="hover:text-accent hover:underline">
-                    {guide.h1 || guide.seoTitle || guide.title}
-                  </Link>
+                <h3 className="font-bold text-base md:text-lg text-text mb-2 line-clamp-2">
+                  {guide.title}
                 </h3>
-                <p className="text-xs text-text-secondary line-clamp-2 leading-relaxed mb-4">
-                  {(guide.summary || guide.metaDesc || guide.desc)?.replace(/\*\*/g, '')}
+                <p className="text-xs md:text-sm text-text-secondary line-clamp-3 mb-4 leading-relaxed">
+                  {(guide.desc || guide.summary || guide.metaDesc)?.replace(/\*\*/g, '')}
                 </p>
               </div>
               <Link
                 href={`/blog/${guide.slug}/`}
-                className="inline-flex items-center text-xs font-bold text-accent hover:underline"
+                className="text-xs md:text-sm font-semibold text-accent hover:underline inline-flex items-center mt-auto"
               >
-                Read more →
+                Read full guide <ArrowRight className="w-3.5 h-3.5 ml-1" />
               </Link>
             </article>
           ))}
         </div>
       </section>
 
-      {/* AI News Section */}
+      {/* 5. Breaking AI News Section */}
       <AINewsSection />
 
-      {/* 5. How Ordering Works (3 Steps) */}
-      <section aria-labelledby="how-it-works-heading" className="rounded-3xl border border-separator bg-bg-card p-6 md:p-8 space-y-5">
-        <div className="text-center max-w-xl mx-auto space-y-2">
-          <h2 id="how-it-works-heading" className="text-2xl md:text-3xl font-bold text-text">
-            How Ordering Works
-          </h2>
-          <p className="text-xs md:text-sm text-text-secondary">
-            Simple 3-step local checkout via WhatsApp in under 15 minutes
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-bg-subtle">
-            <div className="w-10 h-10 rounded-full bg-accent text-accent-on font-bold flex items-center justify-center mb-3 text-sm">
-              1
-            </div>
-            <h3 className="font-bold text-text text-base mb-1">Pick a Plan</h3>
-            <p className="text-xs text-text-secondary leading-relaxed">
-              Choose your product, check duration, device limit, and warranty on the plan page.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-bg-subtle">
-            <div className="w-10 h-10 rounded-full bg-accent text-accent-on font-bold flex items-center justify-center mb-3 text-sm">
-              2
-            </div>
-            <h3 className="font-bold text-text text-base mb-1">Pay in PKR</h3>
-            <p className="text-xs text-text-secondary leading-relaxed">
-              Transfer locally using JazzCash, EasyPaisa, SadaPay, NayaPay, or Binance Pay.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-bg-subtle">
-            <div className="w-10 h-10 rounded-full bg-accent text-accent-on font-bold flex items-center justify-center mb-3 text-sm">
-              3
-            </div>
-            <h3 className="font-bold text-text text-base mb-1">Get Fast Delivery</h3>
-            <p className="text-xs text-text-secondary leading-relaxed">
-              Receive login credentials or invite link privately on WhatsApp within 15 minutes.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. How to Choose & Local Payment Methods */}
-      <section aria-labelledby="payment-heading" className="space-y-6">
+      {/* 6. Frequently Asked Questions */}
+      <section aria-labelledby="faq-heading" className="space-y-4">
         <div className="border-b border-separator pb-3">
-          <h2 id="payment-heading" className="text-2xl md:text-3xl font-bold text-text">
-            How to Choose &amp; Pay for Subscriptions in Pakistan
+          <h2 id="faq-heading" className="text-2xl font-bold text-text">
+            Frequently Asked Questions
           </h2>
-          <p className="text-xs md:text-sm text-text-secondary mt-1">
-            Zero international card markup, transparent replacement warranty, and instant PKR transfers.
+          <p className="text-xs md:text-sm text-text-secondary mt-0.5">
+            Everything you need to know about purchasing verified digital subscriptions in Pakistan
           </p>
         </div>
 
-        {/* Buying Advice Paragraphs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs md:text-sm text-text-secondary leading-relaxed">
-          <div className="p-4 rounded-xl border border-separator bg-bg-card space-y-1.5">
-            <h3 className="font-bold text-text text-sm">1. Identify Your Account Type</h3>
-            <p>
-              Decide between private accounts (activated on your own personal email, ideal for <Link href="/design-creative/" className="text-accent underline font-medium">Canva Pro</Link> and <Link href="/developer-tools/" className="text-accent underline font-medium">GitHub Copilot</Link>) versus shared slot profiles (budget-friendly access for <Link href="/ai-chatbots/" className="text-accent underline font-medium">ChatGPT Plus</Link> and <Link href="/streaming/" className="text-accent underline font-medium">Netflix</Link>).
-            </p>
-          </div>
-          <div className="p-4 rounded-xl border border-separator bg-bg-card space-y-1.5">
-            <h3 className="font-bold text-text text-sm">2. Check Warranty Upfront</h3>
-            <p>
-              Every active listing on PakAITools displays an upfront replacement warranty duration. If third-party access issues occur during your term, our WhatsApp support team restores or replaces credentials without hassle.
-            </p>
-          </div>
-          <div className="p-4 rounded-xl border border-separator bg-bg-card space-y-1.5">
-            <h3 className="font-bold text-text text-sm">3. Zero Card Fees</h3>
-            <p>
-              Avoid 10%–15% foreign transaction taxes and advance withholding fees levied on local bank cards. Check the <Link href="/price-list/" className="text-accent underline font-medium">Full Price List</Link> for exact fixed PKR amounts.
-            </p>
-          </div>
-        </div>
-
-        {/* Payment Comparison Table */}
-        <div className="rounded-2xl border border-separator bg-bg-card overflow-hidden">
-          <div className="p-4 border-b border-separator/60 bg-bg-subtle/50">
-            <h3 className="font-bold text-sm text-text">Pakistani Payment Methods Comparison</h3>
-            <p className="text-xs text-text-secondary mt-0.5">Choose your preferred local wallet or interbank transfer</p>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs md:text-sm">
-              <thead className="bg-bg-subtle border-b border-separator text-text font-bold">
-                <tr>
-                  <th scope="col" className="px-4 py-3">Method</th>
-                  <th scope="col" className="px-4 py-3">Transfer Speed</th>
-                  <th scope="col" className="px-4 py-3">Bank Fee</th>
-                  <th scope="col" className="px-4 py-3">Best Suited For</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-separator text-text-secondary">
-                <tr className="hover:bg-bg-subtle/40 transition-colors">
-                  <th scope="row" className="px-4 py-3 font-semibold text-text">JazzCash / EasyPaisa</th>
-                  <td className="px-4 py-3">Instant (1 min)</td>
-                  <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">Rs. 0</td>
-                  <td className="px-4 py-3">Students &amp; quick individual plan purchases</td>
-                </tr>
-                <tr className="hover:bg-bg-subtle/40 transition-colors">
-                  <th scope="row" className="px-4 py-3 font-semibold text-text">SadaPay / NayaPay</th>
-                  <td className="px-4 py-3">Instant (1 min)</td>
-                  <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">Rs. 0</td>
-                  <td className="px-4 py-3">Freelancers, creators &amp; tech professionals</td>
-                </tr>
-                <tr className="hover:bg-bg-subtle/40 transition-colors">
-                  <th scope="row" className="px-4 py-3 font-semibold text-text">Raast Transfer</th>
-                  <td className="px-4 py-3">Instant (Real-time)</td>
-                  <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">Rs. 0</td>
-                  <td className="px-4 py-3">Direct account-to-account transfer from any Pakistani bank</td>
-                </tr>
-                <tr className="hover:bg-bg-subtle/40 transition-colors">
-                  <th scope="row" className="px-4 py-3 font-semibold text-text">Binance Pay (USDT)</th>
-                  <td className="px-4 py-3">5–15 mins</td>
-                  <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">Network standard</td>
-                  <td className="px-4 py-3">Overseas Pakistanis &amp; international digital workers</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="p-3 bg-bg-subtle/40 border-t border-separator text-right">
-            <Link href="/payment-methods/" className="text-xs text-accent font-semibold hover:underline inline-flex items-center">
-              Read step-by-step payment instructions <ArrowRight className="w-3.5 h-3.5 ml-1" />
-            </Link>
-          </div>
-        </div>
+        <Faq items={homeFaqs} />
       </section>
-
-      {/* 7. Frequently Asked Questions */}
-      <Faq items={homeFaqs} />
-
-      {/* Trust Notice */}
-      <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">
-        <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-        <p>
-          Trust Notice: PakAITools is an independent reseller providing digital subscriptions in Pakistan with instant WhatsApp delivery and verified warranty. Have questions? WhatsApp Support:{' '}
-          <a
-            href={buildWhatsAppLink(getGeneralWhatsAppMessage('https://pakaitools.store/'))}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent underline font-semibold hover:opacity-80"
-          >
-            {SITE.whatsappDisplay}
-          </a>.
-        </p>
-      </div>
     </div>
   );
 }

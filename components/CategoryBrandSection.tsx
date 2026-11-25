@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { CategoryGroup } from '@/lib/brand-grid';
+import { CategoryIcon } from './IconHelper';
+import { pluralize } from '@/lib/format';
 import { BrandGrid } from './BrandGrid';
 
 interface CategoryBrandSectionProps {
@@ -10,21 +12,37 @@ interface CategoryBrandSectionProps {
 }
 
 /**
- * Renders an accessible, crawl-friendly category section with up to 8 equal-size brand cards.
- * Uses semantic section, h2, ul/li markup with a responsive 1->2->3 column grid.
+ * Renders an accessible, crawl-friendly category section listing ALL plans in that category.
+ * Uses semantic section, h2 (with category icon), ul/li markup with a responsive 1->2->3 column grid.
  */
 export function CategoryBrandSection({
   group,
   isFirstCategory = false,
 }: CategoryBrandSectionProps) {
+  const planCount = group.totalPlanCount ?? group.brands.length;
+  const brandCount = group.totalBrandCount;
+
   return (
     <section aria-labelledby={`cat-${group.slug}`} className="space-y-4">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-separator pb-3 gap-2">
-        <div>
-          <h2 id={`cat-${group.slug}`} className="text-2xl md:text-3xl font-bold text-text">
-            {group.title}
-          </h2>
-          <p className="text-xs md:text-sm text-text-secondary mt-1 max-w-3xl leading-relaxed">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2.5">
+            {group.icon && (
+              <span
+                className="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-accent-soft text-accent flex items-center justify-center flex-shrink-0"
+                aria-hidden="true"
+              >
+                <CategoryIcon name={group.icon} className="w-4 h-4 md:w-5 md:h-5" />
+              </span>
+            )}
+            <h2 id={`cat-${group.slug}`} className="text-2xl md:text-3xl font-bold text-text">
+              {group.title}
+            </h2>
+            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-bg-subtle border border-separator text-text-secondary ml-1">
+              {pluralize(planCount, 'plan')}{brandCount ? ` · ${pluralize(brandCount, 'brand')}` : ''}
+            </span>
+          </div>
+          <p className="text-xs md:text-sm text-text-secondary max-w-3xl leading-relaxed">
             {group.intro}
           </p>
         </div>

@@ -7,6 +7,7 @@ import { SITE_URL } from './site.config';
 import type { Category, Brand, Product, MergedPlan } from './types';
 
 export type BrandCardData = {
+  id?: number | string;
   slug: string;
   name: string;              // full search-friendly name
   displayName?: string;      // optional compact display name (<= 32 chars)
@@ -16,15 +17,20 @@ export type BrandCardData = {
   lowestPricePkr: number | null; // computed from plans (null if quote on request)
   category: string;          // category slug
   isMultiPlan: boolean;
+  duration?: string;
+  warranty?: string;
+  subtitle?: string;
 };
 
 export type CategoryGroup = {
   slug: string;
   title: string;             // e.g. "AI Chatbots & Assistants"
+  icon?: string;             // category icon
   intro: string;             // 2-3 sentence factual intro (AEO/GEO)
   href: string;              // category page URL
-  brands: BrandCardData[];   // top 6-8 by priority, ordered deliberately
+  brands: BrandCardData[];   // all plans in this category
   totalBrandCount: number;
+  totalPlanCount: number;
 };
 
 // Priority commercial category ordering
@@ -32,11 +38,10 @@ export const CATEGORY_COMMERCIAL_ORDER: string[] = [
   'ai-chatbots',
   'design-creative',
   'video-editing',
+  'streaming',
+  'vpn-privacy',
   'ai-video-image',
   'ai-voice-audio',
-  'ai-apis',
-  'vpn-privacy',
-  'streaming',
   'education',
   'productivity-software',
   'developer-tools',
@@ -44,15 +49,20 @@ export const CATEGORY_COMMERCIAL_ORDER: string[] = [
   'antivirus',
   'antidetect-proxies',
   'esim',
+  'ai-apis',
 ];
 
-// Top categories featured on the homepage brand grid
-export const HOME_GRID_CATEGORIES: string[] = [
-  'ai-chatbots',
-  'ai-video-image',
-  'ai-apis',
-  'design-creative',
-];
+// Shortened display names for long bundles and titles to ensure single-line fit
+export const SHORT_NAMES: Record<string, string> = {
+  'grok': 'Grok + Cursor + X Premium',
+  'grok-cursor-x-premium-1-month': 'Grok + Cursor + X Premium',
+  'grok-grok-bot-cursor-x-premium-4-in-1-bundle': 'Grok + Cursor + X Premium',
+  'proton': 'Proton Unlimited',
+  'proton-unlimited-1-month': 'Proton Unlimited',
+  'proton-unlimited-all-in-one-swiss-privacy-suite': 'Proton Unlimited',
+  'xbox-game-pass-ultimate-pc-edition': 'Xbox Game Pass',
+  'autodesk-all-apps-68-applications': 'Autodesk All Apps',
+};
 
 // Plain, factual 2-3 sentence intros for each category hub (AEO/GEO)
 export const CATEGORY_FACTUAL_INTROS: Record<string, string> = {
@@ -99,98 +109,148 @@ export function getLastPriceUpdate(): { dateIso: string; dateDisplay: string } {
 }
 
 /**
- * Returns the structured Brand Grid categories and their top 6-8 brands
- * derived strictly from the canonical data sources.
+ * Returns structured Category Groups for all 15 categories containing ALL plans.
+ * Sorted in the same order as the canonical categories list.
  */
-export function getBrandGridData(categorySlugs: string[] = CATEGORY_COMMERCIAL_ORDER): CategoryGroup[] {
+export function getBrandGridData(): CategoryGroup[] {
   const brands = brandsData as Brand[];
-  const categories = categoriesData as Category[];
+  const categories = [...(categoriesData as Category[])].sort((a, b) => a.order - b.order);
   const products = productsData as Product[];
   const mergedPlans = mergedPlansData as MergedPlan[];
 
-  const categoryMap = new Map<string, Category>();
-  for (const c of categories) {
-    categoryMap.set(c.slug, c);
+  const brandMap = new Map<string, Brand>();
+  for (const b of brands) {
+    brandMap.set(b.slug, b);
   }
 
   const result: CategoryGroup[] = [];
 
-  for (const catSlug of categorySlugs) {
-    const cat = categoryMap.get(catSlug);
-    if (!cat) continue;
+  for (const cat of categories) {
+    const catProducts = products.filter((p) => p.categorySlug === cat.slug);
+    const catMerged = mergedPlans.filter((m) => m.categorySlug === cat.slug);
 
-    // Filter brands belonging to this category
-    const catBrands = brands.filter((b) => b.categorySlug === catSlug);
+    const catBrands = brands
+      .filter((b) => b.categorySlug === cat.slug)
+      .sort((a, b) => (a.priority ?? 50) - (b.priority ?? 50));
 
-    // Sort brands: priority ascending (10, 20, 50), then planCount descending
-    const sortedBrands = [...catBrands].sort((a, b) => {
-      const pDiff = (a.priority ?? 50) - (b.priority ?? 50);
-      if (pDiff !== 0) return pDiff;
-      return (b.planCount ?? 1) - (a.planCount ?? 1);
-    });
+    const planCards: BrandCardData[] = [];
+    const includedSlugs = new Set<string>();
 
-    // Take top 6-8 brands (up to 8)
-    const selectedBrands = sortedBrands.slice(0, 8);
+    // Group plans by brand following brand priority
+    for (const b of catBrands) {
+      const bProducts = catProducts.filter((p) => p.brandSlug === b.slug);
+      const bMerged = catMerged.filter((m) => m.brandSlug === b.slug);
+      const bPlans = [...bProducts, ...bMerged];
 
-    const brandCards: BrandCardData[] = selectedBrands.map((b) => {
-      // Find active plans for this brand
-      let activePlans: Array<{ price: number | null }> = [];
+      for (const plan of bPlans) {
+        if (includedSlugs.has(plan.slug)) continue;
+        includedSlugs.add(plan.slug);
 
-      if (b.isMultiPlan) {
-        const prodPlans = products.filter((p) => p.brandSlug === b.slug);
-        const mergPlans = mergedPlans.filter((mp) => mp.brandSlug === b.slug);
-        activePlans = [...prodPlans, ...mergPlans];
-      } else if (b.productSlug) {
-        const prod = products.find((p) => p.slug === b.productSlug);
-        if (prod) activePlans = [prod];
+        const isMerged = 'redirectTo' in plan;
+        let href = isMerged
+          ? (plan as MergedPlan).redirectTo || `/product/${plan.slug}/`
+          : `/product/${plan.slug}/`;
+        if (!href.endsWith('/')) {
+          href = `${href}/`;
+        }
+
+        const fullName = plan.name;
+        const cleanName = (SHORT_NAMES[plan.slug] || fullName).trim();
+
+        planCards.push({
+          id: plan.id,
+          slug: plan.slug,
+          name: fullName,
+          displayName: cleanName,
+          href: href.startsWith('/') ? href : `/${href}`,
+          logo: {
+            src: b.logo || '',
+            alt: `${cleanName} logo`,
+            width: 44,
+            height: 44,
+          },
+          planCount: 1,
+          lowestPricePkr: plan.price ?? null,
+          category: cat.slug,
+          isMultiPlan: false,
+          duration: plan.duration,
+          warranty: plan.warranty,
+        });
       }
+    }
 
-      // Compute lowest price (numbers > 0)
-      const validPrices = activePlans
-        .map((p) => p.price)
-        .filter((pr): pr is number => typeof pr === 'number' && pr > 0);
+    // Fallback: include any product not matched by brand
+    for (const p of catProducts) {
+      if (!includedSlugs.has(p.slug)) {
+        includedSlugs.add(p.slug);
+        const b = brandMap.get(p.brandSlug);
+        planCards.push({
+          id: p.id,
+          slug: p.slug,
+          name: p.name,
+          displayName: (SHORT_NAMES[p.slug] || p.name).trim(),
+          href: `/product/${p.slug}/`,
+          logo: {
+            src: b?.logo || '',
+            alt: `${p.name} logo`,
+            width: 44,
+            height: 44,
+          },
+          planCount: 1,
+          lowestPricePkr: p.price ?? null,
+          category: cat.slug,
+          isMultiPlan: false,
+          duration: p.duration,
+          warranty: p.warranty,
+        });
+      }
+    }
 
-      const lowestPricePkr = validPrices.length > 0 ? Math.min(...validPrices) : null;
-      const planCount = activePlans.length || b.planCount || 1;
-
-      // Single-plan brands link to /product/${productSlug}/; multi-plan link to /${catSlug}/${b.slug}/
-      const href = b.isMultiPlan
-        ? `/${catSlug}/${b.slug}/`
-        : (b.productUrl || `/product/${b.productSlug}/`);
-
-      const fullName = (b.productSlug ? products.find((p) => p.slug === b.productSlug)?.name : null) || b.displayName || b.slug;
-      const cleanName = (b.displayName || b.slug).trim();
-
-      return {
-        slug: b.slug,
-        name: fullName,
-        displayName: cleanName,
-        href,
-        logo: {
-          src: b.logo || '',
-          alt: `${cleanName} logo`,
-          width: 40,
-          height: 40,
-        },
-        planCount,
-        lowestPricePkr,
-        category: catSlug,
-        isMultiPlan: b.isMultiPlan,
-      };
-    });
+    // Fallback: include any merged plan not matched by brand
+    for (const m of catMerged) {
+      if (!includedSlugs.has(m.slug)) {
+        includedSlugs.add(m.slug);
+        const b = brandMap.get(m.brandSlug);
+        let href = m.redirectTo || `/product/${m.slug}/`;
+        if (!href.endsWith('/')) {
+          href = `${href}/`;
+        }
+        planCards.push({
+          id: m.id,
+          slug: m.slug,
+          name: m.name,
+          displayName: (SHORT_NAMES[m.slug] || m.name).trim(),
+          href: href.startsWith('/') ? href : `/${href}`,
+          logo: {
+            src: b?.logo || '',
+            alt: `${m.name} logo`,
+            width: 44,
+            height: 44,
+          },
+          planCount: 1,
+          lowestPricePkr: m.price ?? null,
+          category: cat.slug,
+          isMultiPlan: false,
+          duration: m.duration,
+          warranty: m.warranty,
+        });
+      }
+    }
 
     const intro =
-      CATEGORY_FACTUAL_INTROS[catSlug] ||
-      (hubsData.categories as any[]).find((hc) => hc.slug === catSlug)?.answer ||
+      CATEGORY_FACTUAL_INTROS[cat.slug] ||
+      (hubsData.categories as any[]).find((hc) => hc.slug === cat.slug)?.answer ||
       `Browse verified ${cat.name} subscriptions in Pakistan priced in PKR.`;
 
     result.push({
-      slug: catSlug,
+      slug: cat.slug,
       title: cat.name,
+      icon: cat.icon,
       intro,
-      href: `/${catSlug}/`,
-      brands: brandCards,
+      href: `/${cat.slug}/`,
+      brands: planCards,
       totalBrandCount: catBrands.length,
+      totalPlanCount: planCards.length,
     });
   }
 
@@ -198,7 +258,7 @@ export function getBrandGridData(categorySlugs: string[] = CATEGORY_COMMERCIAL_O
 }
 
 /**
- * Builds ItemList structured data for visible brand cards across the grid.
+ * Builds ItemList structured data for visible brand/plan cards across the grid.
  */
 export function getBrandGridJsonLd(groups: CategoryGroup[]) {
   return groups.map((group) => {
@@ -208,9 +268,9 @@ export function getBrandGridJsonLd(groups: CategoryGroup[]) {
       name: `${group.title} Subscriptions in Pakistan`,
       description: group.intro,
       numberOfItems: group.brands.length,
-      itemListElement: group.brands.map((b, idx) => ({
+      itemListElement: group.brands.map((b, index) => ({
         '@type': 'ListItem',
-        position: idx + 1,
+        position: index + 1,
         name: b.name,
         url: `${SITE_URL}${b.href}`,
       })),

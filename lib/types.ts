@@ -109,6 +109,7 @@ export interface BlogPost {
   seoTitle?: string;
   metaDesc?: string;
   desc?: string;
+  excerpt?: string;
   h1?: string;
   summary?: string;
   ans?: string;

@@ -3,18 +3,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import type { BrandCardData } from '@/lib/brand-grid';
-import type { Brand } from '@/lib/types';
+import type { Brand, Product, MergedPlan } from '@/lib/types';
 import { formatPkr } from '@/lib/money';
 import { pluralize } from '@/lib/format';
 
 interface BrandCardProps {
-  brand: BrandCardData | Brand;
+  brand: BrandCardData | Brand | Product | MergedPlan;
   minPrice?: number | null;
   priority?: boolean;
 }
 
 /**
- * Server component rendering an equal-size, accessible brand card.
+ * Server component rendering an equal-size, accessible plan / brand card.
  * - Entire card is one single <Link> with uniform stretch (h-full in grid).
  * - Fixed ~60x60 logo tile with flex-shrink: 0 and uniform padding.
  * - Text block with flex: 1 and min-w-0 for reliable single-line text truncation.
@@ -23,7 +23,7 @@ interface BrandCardProps {
  * - Visible focus ring (focus-visible:ring-accent).
  */
 export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps) {
-  // Normalize brand properties whether from brand-grid or raw Brand model
+  // Normalize title properties whether from BrandCardData, Brand, Product, or MergedPlan
   const fullName =
     ('name' in brand && brand.name
       ? brand.name
@@ -33,12 +33,29 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
   const displayName =
     ('displayName' in brand && brand.displayName ? brand.displayName : '') || fullName;
 
-  const href =
-    'href' in brand
+  const categorySlug =
+    'categorySlug' in brand && brand.categorySlug
+      ? (brand as any).categorySlug
+      : 'category' in brand && brand.category
+      ? (brand as any).category
+      : '';
+
+  let href =
+    'href' in brand && brand.href
       ? brand.href
-      : brand.isMultiPlan
-      ? `/${brand.categorySlug}/${brand.slug}/`
-      : (brand.productUrl || `/product/${brand.productSlug}/`);
+      : 'redirectTo' in brand && (brand as MergedPlan).redirectTo
+      ? (brand as MergedPlan).redirectTo
+      : 'isMultiPlan' in brand && brand.isMultiPlan
+      ? `/${categorySlug}/${brand.slug}/`
+      : 'productUrl' in brand && (brand as any).productUrl
+      ? (brand as any).productUrl
+      : 'productSlug' in brand && (brand as any).productSlug
+      ? `/product/${(brand as any).productSlug}/`
+      : `/product/${brand.slug}/`;
+
+  if (!href.endsWith('/')) {
+    href = `${href}/`;
+  }
 
   const rawLogo = 'logo' in brand ? brand.logo : null;
   const logoSrc =
@@ -56,10 +73,17 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
       ? minPrice
       : 'lowestPricePkr' in brand
       ? brand.lowestPricePkr
+      : 'price' in brand
+      ? (brand as Product | MergedPlan).price
       : null;
 
-  const planCount = brand.planCount || 1;
+  const planCount = ('planCount' in brand ? brand.planCount : 1) || 1;
   const countLabel = pluralize(planCount, 'plan');
+
+  const duration = 'duration' in brand && brand.duration ? (brand.duration as string) : null;
+  const subtitle = duration
+    ? `${duration}${lowestPrice != null ? ` · ${formatPkr(lowestPrice)}` : ' · quote on request'}`
+    : `${countLabel}${lowestPrice != null ? ` · from ${formatPkr(lowestPrice)}` : ' · quote on request'}`;
 
   // Accessible 2-letter uppercase initials fallback
   const initials =
@@ -76,7 +100,7 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
     <Link
       href={href}
       title={fullName || displayName}
-      aria-label={`${displayName}, ${countLabel}${lowestPrice != null ? `, from ${formatPkr(lowestPrice)}` : ''}`}
+      aria-label={`${displayName}, ${subtitle}`}
       className="group flex items-center gap-4 p-4 md:p-5 rounded-2xl border border-separator bg-bg-card hover:border-accent hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-all h-full min-h-[96px] md:min-h-[104px] w-full"
     >
       {/* 1. Normalized Fixed ~60x60 Logo Tile (flex-shrink: 0) */}
@@ -107,12 +131,7 @@ export function BrandCard({ brand, minPrice, priority = false }: BrandCardProps)
           {displayName}
         </h3>
         <p className="text-xs text-text-tertiary truncate mt-1">
-          <span>{countLabel}</span>
-          {lowestPrice != null ? (
-            <span> · from {formatPkr(lowestPrice)}</span>
-          ) : (
-            <span> · quote on request</span>
-          )}
+          {subtitle}
         </p>
       </div>
 
