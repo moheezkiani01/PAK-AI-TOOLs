@@ -6,61 +6,9 @@ import Link from 'next/link';
 import { Search, X, ArrowRight, Tag, MessageCircle } from 'lucide-react';
 import { formatPkr } from '@/lib/money';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
+import { searchCatalog, SearchItem } from '@/lib/search';
 
-export interface SearchResultItem {
-  title: string;
-  url: string;
-  type: 'plan' | 'merged_plan' | 'brand' | 'category' | 'guide';
-  category?: string;
-  price?: number | null;
-  duration?: string;
-  keywords?: string;
-}
-
-function scoreHeroItem(item: SearchResultItem, q: string): number {
-  const t = item.title.toLowerCase();
-  const k = (item.keywords || '').toLowerCase();
-  const escapedQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const wordRegex = new RegExp(`\\b${escapedQ}`, 'i');
-
-  let score = 0;
-
-  // 1. Exact title match
-  if (t === q) {
-    score += 10000;
-  } else if (t.startsWith(q)) {
-    score += 5000;
-  } else if (wordRegex.test(t)) {
-    score += 3000;
-  } else if (t.includes(q)) {
-    score += 1500;
-  }
-
-  // Multi-word check
-  const words = q.split(/\s+/).filter(Boolean);
-  if (words.length > 1) {
-    const allWordsInTitle = words.every((w) => t.includes(w));
-    if (allWordsInTitle) {
-      score += 2000;
-    }
-  }
-
-  // 2. Type boost for title matches
-  if (score > 0) {
-    if (item.type === 'brand') score += 500;
-    else if (item.type === 'plan' || item.type === 'merged_plan') score += 300;
-    else if (item.type === 'category') score += 100;
-  }
-
-  // 3. Keyword matches (scored lower so any title match always wins)
-  if (wordRegex.test(k)) {
-    score += 50;
-  } else if (k.includes(q)) {
-    score += 10;
-  }
-
-  return score;
-}
+export type SearchResultItem = SearchItem;
 
 export function HeroSearch() {
   const [query, setQuery] = useState('');
@@ -86,7 +34,7 @@ export function HeroSearch() {
 
   // Filter on query change (activates on 1st typed character!)
   useEffect(() => {
-    const q = query.trim().toLowerCase();
+    const q = query.trim();
     if (!q) {
       setResults([]);
       setIsOpen(false);
@@ -95,13 +43,7 @@ export function HeroSearch() {
     }
 
     if (items.length > 0) {
-      const filtered = items
-        .map((item) => ({ item, score: scoreHeroItem(item, q) }))
-        .filter((entry) => entry.score > 0)
-        .sort((a, b) => b.score - a.score)
-        .map((entry) => entry.item)
-        .slice(0, 8);
-
+      const filtered = searchCatalog(items, q, 8);
       setResults(filtered);
       setIsOpen(true);
       setSelectedIndex(-1);
