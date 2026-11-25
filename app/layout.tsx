@@ -71,7 +71,7 @@ export default function RootLayout({
         </a>
         <CurrencyProvider>
           <Header />
-          <main id="main" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
+          <main id="main" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 md:pt-4 pb-4 md:pb-6">
             {children}
           </main>
           <Footer />

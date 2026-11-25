@@ -123,14 +123,15 @@ export default function HomePage() {
   };
 
   return (
-    <div className="space-y-8 md:space-y-10 py-2">
+    <>
       <JsonLd data={homeGraph} />
 
-      {/* 1. Hero Section (Above the fold) */}
-      <section className="text-center max-w-3xl mx-auto space-y-4 pt-2 md:pt-4">
-        <h1 className="text-3xl md:text-5xl font-black text-text tracking-tight leading-tight">
-          {h1Text}
-        </h1>
+      <div className="space-y-8 md:space-y-10">
+        {/* 1. Hero Section (Above the fold) */}
+        <section className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
+          <h1 className="text-3xl md:text-5xl font-black text-text tracking-tight leading-tight">
+            {h1Text}
+          </h1>
         <p className="text-base md:text-lg text-text-secondary leading-relaxed">
           {answerText}
         </p>
@@ -310,5 +311,6 @@ export default function HomePage() {
         <Faq items={homeFaqs} />
       </section>
     </div>
+    </>
   );
 }
