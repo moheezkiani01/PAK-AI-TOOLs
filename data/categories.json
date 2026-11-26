@@ -18,7 +18,8 @@
       "Grok",
       "Kimi AI",
       "Manus AI Pro"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 2,
@@ -40,7 +41,8 @@
       "Muse Video API",
       "OpenArt AI",
       "Seedance 2.5"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 3,
@@ -61,7 +63,8 @@
       "Chinese Models API",
       "DeepSeek API",
       "Grok API"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 4,
@@ -82,7 +85,8 @@
       "Autodesk All Apps",
       "Figma",
       "Meitu"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 5,
@@ -101,7 +105,8 @@
       "CapCut",
       "Wink",
       "Alight Motion Premium"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 6,
@@ -122,7 +127,8 @@
       "Galaxy Play",
       "iQIYI Premium VIP",
       "Netflix"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 7,
@@ -141,7 +147,8 @@
       "ElevenLabs",
       "MiniMax Voice",
       "Suno AI"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 8,
@@ -162,7 +169,8 @@
       "Hotspot Shield VPN Premium",
       "NordVPN",
       "Private Internet Access"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 9,
@@ -183,7 +191,8 @@
       "Kahoot!+ Gold",
       "Quizlet",
       "Skillshare Membership"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 10,
@@ -204,7 +213,8 @@
       "Notion",
       "Zoom",
       "Microsoft 365 + Copilot"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 11,
@@ -223,7 +233,8 @@
       "JetBrains",
       "Replit",
       "Lovable"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 12,
@@ -240,7 +251,8 @@
     "singlePlanBrands": 0,
     "sampleBrands": [
       "Apple iCloud+"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 13,
@@ -257,7 +269,8 @@
     "singlePlanBrands": 0,
     "sampleBrands": [
       "Kaspersky"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 14,
@@ -274,7 +287,8 @@
     "singlePlanBrands": 1,
     "sampleBrands": [
       "GPM Login"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   },
   {
     "order": 15,
@@ -291,6 +305,7 @@
     "singlePlanBrands": 0,
     "sampleBrands": [
       "Pakistan eSIM"
-    ]
+    ],
+    "updatedAt": "2026-11-26"
   }
 ]

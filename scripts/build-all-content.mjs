@@ -62,6 +62,11 @@ if (fs.existsSync(hubsPath)) {
   // Clean brand hubs
   if (hubs.brands) {
     for (const b of hubs.brands) {
+      if (b.brandSlug === 'claude' || b.brandSlug === 'dreamina-ai' || b.brandSlug === 'grok') {
+        b.updatedAt = '2026-11-26';
+      } else {
+        b.updatedAt = '2026-11-22';
+      }
       if (b.faqs) {
         for (const faq of b.faqs) {
           faq.answer = cleanAnswer(faq.answer);
@@ -106,12 +111,109 @@ function getProductUpdatedAt(categorySlug, id) {
 // ---------------------------------------------------------------------
 // 2. Clean data/products.json of duplicate empty FAQ heading and duplicate H1/H2
 // ---------------------------------------------------------------------
+function getDynamicSavings(p, allProds) {
+  if (p.slug === 'claude-pro-shared-1-month') {
+    const priv = allProds.find(x => x.slug === 'claude-pro-full-private-1-month');
+    if (priv && priv.price && p.price) {
+      const diff = priv.price - p.price;
+      return `saving Rs. ${diff.toLocaleString('en-US')} compared to Claude Pro (Full Private) at Rs. ${priv.price.toLocaleString('en-US')}`;
+    }
+  }
+  if (p.slug === 'brainfm-60-days') {
+    const single = allProds.find(x => x.slug === 'brainfm-30-days');
+    if (single && single.price && p.price) {
+      const baseline = single.price * 2;
+      const diff = baseline - p.price;
+      return `saving Rs. ${diff.toLocaleString('en-US')} compared to two 30-day passes`;
+    }
+  }
+  if (p.slug === 'brainfm-90-days') {
+    const single = allProds.find(x => x.slug === 'brainfm-30-days');
+    if (single && single.price && p.price) {
+      const baseline = single.price * 3;
+      const diff = baseline - p.price;
+      return `saving Rs. ${diff.toLocaleString('en-US')} compared to three 30-day passes`;
+    }
+  }
+  if (p.slug === 'pakistan-esim-10gb-30-days') {
+    const single = allProds.find(x => x.slug === 'pakistan-esim-5gb-30-days');
+    if (single && single.price && p.price) {
+      const baseline = single.price * 2;
+      const diff = baseline - p.price;
+      return `saving Rs. ${diff.toLocaleString('en-US')} compared to two 5GB plans`;
+    }
+  }
+  if (p.slug === 'pakistan-esim-20gb-30-days') {
+    const single = allProds.find(x => x.slug === 'pakistan-esim-10gb-30-days');
+    if (single && single.price && p.price) {
+      const baseline = single.price * 2;
+      const diff = baseline - p.price;
+      return `saving Rs. ${diff.toLocaleString('en-US')} compared to two 10GB plans`;
+    }
+  }
+  if (p.slug === 'wink-vip-ios-90-days') {
+    const single = allProds.find(x => x.slug === 'wink-vip-ios-30-days');
+    if (single && single.price && p.price) {
+      const baseline = single.price * 3;
+      const diff = baseline - p.price;
+      return `saving Rs. ${diff.toLocaleString('en-US')} compared to three 30-day passes`;
+    }
+  }
+  return null;
+}
+
+function cleanField(val) {
+  if (!val) return '';
+  return val.replace(/\s+/g, ' ').trim();
+}
+
+function buildCatalogueDescription(p, allProds) {
+  const dynamicSavings = getDynamicSavings(p, allProds);
+  const name = cleanField(p.name);
+  const duration = cleanField(p.duration);
+  const warranty = cleanField(p.warranty);
+  let accountType = cleanField(p.accountType);
+
+  if (p.slug === 'microsoft-365-admin-account-1-year') {
+    accountType = 'Admin Microsoft 365 Family account (preloaded master login; allows inviting up to 5 family/team members)';
+  }
+
+  if (typeof p.price === 'number' && p.price > 0) {
+    const priceFormatted = `Rs. ${p.price.toLocaleString('en-US')}`;
+    const savingsFormatted = dynamicSavings ? ` (${dynamicSavings})` : '';
+    let desc = `The ${name} price in Pakistan is ${priceFormatted}${savingsFormatted} on PakAITools.`;
+    if (duration) desc += ` Duration: ${duration}.`;
+    if (accountType) desc += ` Account format: ${accountType}.`;
+    if (warranty) desc += ` Backed by ${warranty}.`;
+    desc += ` Payable locally in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer.`;
+    return desc;
+  } else {
+    let desc = `The ${name} price in Pakistan is quoted live in PKR via PakAITools WhatsApp support (+92 321 9305619).`;
+    if (duration) desc += ` Duration: ${duration}.`;
+    if (accountType) desc += ` Account format: ${accountType}.`;
+    if (warranty) desc += ` Backed by ${warranty}.`;
+    return desc;
+  }
+}
+
 const productsPath = path.join(ROOT_DIR, 'data', 'products.json');
 if (fs.existsSync(productsPath)) {
   const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
   for (const p of products) {
     p.priceValidUntil = '2027-02-20';
-    p.updatedAt = getProductUpdatedAt(p.categorySlug, p.id);
+    p.updatedAt = '2026-11-26';
+    p.answer = buildCatalogueDescription(p, products);
+
+    if (p.slug === 'meta-muse-ai-1-billion-tokens') {
+      p.seoTitle = 'Meta Muse AI 1B Tokens (OTP Login) – Rs. 300 | Pakistan';
+      p.h1 = 'Meta Muse AI 1 Billion Tokens (OTP Login, No Warranty) Price in Pakistan';
+      p.metaDesc = 'Buy Meta Muse AI 1B tokens ready account in Pakistan for Rs. 300. OTP web link login, no warranty. Pay locally via JazzCash, EasyPaisa & Raast.';
+    }
+    if (p.slug === 'muse-ai-1b-token-account') {
+      p.seoTitle = 'Muse AI 1B Token Hotmail Account – Rs. 500 | Pakistan';
+      p.h1 = 'Muse AI 1B Token Hotmail Account (Activation Warranty) Price in Pakistan';
+      p.metaDesc = 'Buy Muse AI 1B token account in Pakistan for Rs. 500. Hotmail login with 2FA and recovery code, activation warranty. Pay via JazzCash & Raast.';
+    }
 
     // Optimize SEO title: drop trailing parenthetical if full title > 60 chars
     if (p.seoTitle) {
@@ -143,7 +245,7 @@ if (fs.existsSync(productsPath)) {
     }
   }
   fs.writeFileSync(productsPath, JSON.stringify(products, null, 2), 'utf8');
-  console.log('Cleaned data/products.json (duplicate FAQ headings stripped and duplicate H2s replaced with questions)');
+  console.log('Cleaned data/products.json (descriptions rewritten to catalogue fields with dynamic build-time savings)');
 }
 
 // ---------------------------------------------------------------------
@@ -252,6 +354,20 @@ for (let i = 1; i < compParts.length; i++) {
   });
 }
 
+
+for (const c of comparisons) {
+  if (
+    c.slug === 'notion-plus-vs-notion-business-vs-gamma-vs-microsoft-365' ||
+    c.slug === 'netflix-4k-vs-amazon-prime-vs-hbo-max-vs-paramount-plus' ||
+    c.slug === 'spotify-premium-vs-youtube-premium-vs-apple-music'
+  ) {
+    c.date = '2026-11-26';
+    c.updatedAt = '2026-11-26';
+  } else {
+    c.date = '2026-11-22';
+    c.updatedAt = '2026-11-22';
+  }
+}
 
 // Price updates normalization
 for (const c of comparisons) {

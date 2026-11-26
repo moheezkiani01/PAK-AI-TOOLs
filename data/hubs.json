@@ -1099,6 +1099,7 @@
   ],
   "brands": [
     {
+      "updatedAt": "2026-11-22",
       "name": "Claude API",
       "url": "/ai-apis/claude-api/",
       "categorySlug": "ai-apis",
@@ -1128,6 +1129,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Cursor API",
       "url": "/ai-apis/cursor-api/",
       "categorySlug": "ai-apis",
@@ -1157,6 +1159,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Chinese Models API",
       "url": "/ai-apis/chinese-models-api/",
       "categorySlug": "ai-apis",
@@ -1186,6 +1189,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "DeepSeek API",
       "url": "/ai-apis/deepseek-api/",
       "categorySlug": "ai-apis",
@@ -1215,6 +1219,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Grok API",
       "url": "/ai-apis/grok-api/",
       "categorySlug": "ai-apis",
@@ -1244,6 +1249,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Qwen API",
       "url": "/ai-apis/qwen-api/",
       "categorySlug": "ai-apis",
@@ -1273,6 +1279,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "ChatGPT",
       "url": "/ai-chatbots/chatgpt/",
       "categorySlug": "ai-chatbots",
@@ -1302,6 +1309,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Kimi AI",
       "url": "/ai-chatbots/kimi-ai/",
       "categorySlug": "ai-chatbots",
@@ -1331,6 +1339,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-26",
       "name": "Claude",
       "url": "/ai-chatbots/claude/",
       "categorySlug": "ai-chatbots",
@@ -1360,6 +1369,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-26",
       "name": "Dreamina AI",
       "url": "/ai-video-image/dreamina-ai/",
       "categorySlug": "ai-video-image",
@@ -1389,6 +1399,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Kling AI",
       "url": "/ai-video-image/kling-ai/",
       "categorySlug": "ai-video-image",
@@ -1418,6 +1429,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Muse Video API",
       "url": "/ai-video-image/muse-video-api/",
       "categorySlug": "ai-video-image",
@@ -1447,6 +1459,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "OpenArt AI",
       "url": "/ai-video-image/openart-ai/",
       "categorySlug": "ai-video-image",
@@ -1476,6 +1489,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "ElevenLabs",
       "url": "/ai-voice-audio/elevenlabs/",
       "categorySlug": "ai-voice-audio",
@@ -1505,6 +1519,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "MiniMax Voice",
       "url": "/ai-voice-audio/minimax-voice/",
       "categorySlug": "ai-voice-audio",
@@ -1534,6 +1549,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Suno AI",
       "url": "/ai-voice-audio/suno-ai/",
       "categorySlug": "ai-voice-audio",
@@ -1563,6 +1579,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "GPM Login",
       "url": "/antidetect-proxies/gpm-login/",
       "categorySlug": "antidetect-proxies",
@@ -1592,6 +1609,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Kaspersky",
       "url": "/antivirus/kaspersky/",
       "categorySlug": "antivirus",
@@ -1621,6 +1639,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Apple iCloud+",
       "url": "/cloud-storage/apple-icloud/",
       "categorySlug": "cloud-storage",
@@ -1650,6 +1669,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Adobe Creative Cloud",
       "url": "/design-creative/adobe-creative-cloud/",
       "categorySlug": "design-creative",
@@ -1679,6 +1699,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Canva Pro",
       "url": "/design-creative/canva/",
       "categorySlug": "design-creative",
@@ -1708,6 +1729,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Figma",
       "url": "/design-creative/figma/",
       "categorySlug": "design-creative",
@@ -1737,6 +1759,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Meitu",
       "url": "/design-creative/meitu/",
       "categorySlug": "design-creative",
@@ -1766,6 +1789,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Xingtu",
       "url": "/design-creative/xingtu/",
       "categorySlug": "design-creative",
@@ -1795,6 +1819,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "JetBrains",
       "url": "/developer-tools/jetbrains/",
       "categorySlug": "developer-tools",
@@ -1824,6 +1849,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Replit",
       "url": "/developer-tools/replit/",
       "categorySlug": "developer-tools",
@@ -1853,6 +1879,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Duolingo",
       "url": "/education/duolingo/",
       "categorySlug": "education",
@@ -1882,6 +1909,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Quizlet",
       "url": "/education/quizlet/",
       "categorySlug": "education",
@@ -1911,6 +1939,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Gamma AI",
       "url": "/productivity-software/gamma-ai/",
       "categorySlug": "productivity-software",
@@ -1940,6 +1969,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Notion",
       "url": "/productivity-software/notion/",
       "categorySlug": "productivity-software",
@@ -1969,6 +1999,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Zoom",
       "url": "/productivity-software/zoom-pro/",
       "categorySlug": "productivity-software",
@@ -1998,6 +2029,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Brain.fm",
       "url": "/productivity-software/brainfm/",
       "categorySlug": "productivity-software",
@@ -2027,6 +2059,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "FPT Play",
       "url": "/streaming/fpt-play/",
       "categorySlug": "streaming",
@@ -2056,6 +2089,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Galaxy Play",
       "url": "/streaming/galaxy-play/",
       "categorySlug": "streaming",
@@ -2085,6 +2119,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Netflix",
       "url": "/streaming/netflix/",
       "categorySlug": "streaming",
@@ -2114,6 +2149,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Spotify",
       "url": "/streaming/spotify/",
       "categorySlug": "streaming",
@@ -2143,6 +2179,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "VieON",
       "url": "/streaming/vieon/",
       "categorySlug": "streaming",
@@ -2172,6 +2209,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Pakistan eSIM",
       "url": "/esim/pakistan-esim/",
       "categorySlug": "esim",
@@ -2201,6 +2239,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "ExpressVPN",
       "url": "/vpn-privacy/expressvpn/",
       "categorySlug": "vpn-privacy",
@@ -2230,6 +2269,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "HMA VPN",
       "url": "/vpn-privacy/hma-vpn/",
       "categorySlug": "vpn-privacy",
@@ -2259,6 +2299,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "NordVPN",
       "url": "/vpn-privacy/nordvpn/",
       "categorySlug": "vpn-privacy",
@@ -2288,6 +2329,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "PureVPN",
       "url": "/vpn-privacy/purevpn/",
       "categorySlug": "vpn-privacy",
@@ -2317,6 +2359,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Surfshark VPN",
       "url": "/vpn-privacy/surfshark-vpn/",
       "categorySlug": "vpn-privacy",
@@ -2346,6 +2389,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "CapCut",
       "url": "/video-editing/capcut/",
       "categorySlug": "video-editing",
@@ -2375,6 +2419,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-22",
       "name": "Wink",
       "url": "/video-editing/wink/",
       "categorySlug": "video-editing",
@@ -2404,6 +2449,7 @@
       ]
     },
     {
+      "updatedAt": "2026-11-26",
       "name": "Grok",
       "url": "/ai-chatbots/grok/",
       "categorySlug": "ai-chatbots",

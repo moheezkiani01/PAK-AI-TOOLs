@@ -123,12 +123,12 @@ if (fs.existsSync(path.join(DATA_DIR, 'blogs.json'))) {
   error('data/blogs.json is missing');
 }
 
-// 9. Validate AI News Option A (Unpublished & 301 Redirected to /blog/)
+// 9. Validate AI News Option A (Published at /ai-news/ & legacy /blog/news/ 301 Redirected to /blog/)
 const redirectsPath = path.join(PUBLIC_DIR, '_redirects');
 if (fs.existsSync(redirectsPath)) {
   const redText = fs.readFileSync(redirectsPath, 'utf8');
   if (redText.includes('/blog/news/openai-operator-autonomous-agent') && redText.includes('/blog/')) {
-    ok('AI news items unpublished and safely 301-redirected to /blog/');
+    ok('AI news items live (5 published articles in /ai-news/) and legacy /blog/news/ 301-redirected to /blog/');
   } else {
     warn('News redirects missing in public/_redirects');
   }
@@ -271,12 +271,25 @@ if (fs.existsSync(OUT_DIR)) {
 
   // 11b. Strict 2-way Sitemap Parity Check
   console.log('\n--- Validating Sitemap Parity & Robots.txt ---');
-  const sitemapXml = fs.readFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), 'utf8');
-  const sitemapLocs = [...sitemapXml.matchAll(/<loc>(https:\/\/pakaitools\.store\/[^<]*)<\/loc>/g)].map(m => m[1]);
+  const subSitemaps = [
+    'sitemap_hubs.xml',
+    'sitemap_products.xml',
+    'sitemap_compare.xml',
+    'sitemap_blog.xml',
+    'sitemap_news.xml',
+  ];
+  const sitemapLocs = [];
+  const lastmodMatches = [];
+  for (const sm of subSitemaps) {
+    const smXml = fs.readFileSync(path.join(PUBLIC_DIR, sm), 'utf8');
+    const locs = [...smXml.matchAll(/<loc>(https:\/\/pakaitools\.store\/[^<]*)<\/loc>/g)].map(m => m[1]);
+    const lms = [...smXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m => m[1]);
+    sitemapLocs.push(...locs);
+    lastmodMatches.push(...lms);
+  }
   const sitemapSet = new Set(sitemapLocs);
 
-  // Validate every lastmod in sitemap
-  const lastmodMatches = [...sitemapXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m => m[1]);
+  // Validate every lastmod in sub-sitemaps
   let badLastmods = 0;
   for (const lm of lastmodMatches) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(lm)) {
@@ -285,7 +298,7 @@ if (fs.existsSync(OUT_DIR)) {
     }
   }
   if (badLastmods === 0 && lastmodMatches.length === sitemapLocs.length) {
-    ok(`All ${sitemapLocs.length} sitemap URLs have valid YYYY-MM-DD <lastmod>`);
+    ok(`All ${sitemapLocs.length} sub-sitemap URLs have valid YYYY-MM-DD <lastmod>`);
   } else if (lastmodMatches.length !== sitemapLocs.length) {
     error(`Missing <lastmod> tags: ${sitemapLocs.length} URLs vs ${lastmodMatches.length} lastmods`);
   }
@@ -334,10 +347,10 @@ if (fs.existsSync(OUT_DIR)) {
   const robotsTxtPath = path.join(PUBLIC_DIR, 'robots.txt');
   if (fs.existsSync(robotsTxtPath)) {
     const robotsTxt = fs.readFileSync(robotsTxtPath, 'utf8');
-    if (!robotsTxt.includes('Sitemap: https://pakaitools.store/sitemap.xml')) {
-      error('robots.txt missing "Sitemap: https://pakaitools.store/sitemap.xml"');
+    if (!robotsTxt.includes('Sitemap: https://pakaitools.store/sitemap_index.xml')) {
+      error('robots.txt missing "Sitemap: https://pakaitools.store/sitemap_index.xml"');
     } else {
-      ok('robots.txt contains correct Sitemap declaration');
+      ok('robots.txt contains correct Sitemap declaration (sitemap_index.xml)');
     }
     if (robotsTxt.includes('Disallow: /product') || robotsTxt.includes('Disallow: /faqs')) {
       error('robots.txt blocks indexable paths!');

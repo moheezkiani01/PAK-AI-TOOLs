@@ -100,9 +100,15 @@ for (let i = 1; i < productBlocks.length; i += 3) {
   const qfLines = qfText.split(/\r?\n/);
   for (const line of qfLines) {
     if (line.includes('|') && !line.includes(':---')) {
-      const cols = line.split('|').map(s => s.trim()).filter(Boolean);
-      if (cols.length >= 2) {
-        quickFacts[cols[0]] = cols[1];
+      const firstPipe = line.indexOf('|');
+      const secondPipe = line.indexOf('|', firstPipe + 1);
+      const lastPipe = line.lastIndexOf('|');
+      if (firstPipe !== -1 && secondPipe !== -1) {
+        const field = line.slice(firstPipe + 1, secondPipe).trim();
+        const details = line.slice(secondPipe + 1, lastPipe > secondPipe ? lastPipe : undefined).trim();
+        if (field && field !== 'Field') {
+          quickFacts[field] = details;
+        }
       }
     }
   }
@@ -199,8 +205,21 @@ for (let i = 1; i < productBlocks.length; i += 3) {
       romanUrdu: romanUrduMatch ? romanUrduMatch[1].trim() : ''
     },
     schema,
-    updatedAt: getProductUpdatedAt(categorySlug, id)
+    updatedAt: '2026-11-26'
   });
+}
+
+for (const p of products) {
+  if (p.slug === 'meta-muse-ai-1-billion-tokens') {
+    p.seoTitle = 'Meta Muse AI 1B Tokens (OTP Login) – Rs. 300 | Pakistan';
+    p.h1 = 'Meta Muse AI 1 Billion Tokens (OTP Login, No Warranty) Price in Pakistan';
+    p.metaDesc = 'Buy Meta Muse AI 1B tokens ready account in Pakistan for Rs. 300. OTP web link login, no warranty. Pay locally via JazzCash, EasyPaisa & Raast.';
+  }
+  if (p.slug === 'muse-ai-1b-token-account') {
+    p.seoTitle = 'Muse AI 1B Token Hotmail Account – Rs. 500 | Pakistan';
+    p.h1 = 'Muse AI 1B Token Hotmail Account (Activation Warranty) Price in Pakistan';
+    p.metaDesc = 'Buy Muse AI 1B token account in Pakistan for Rs. 500. Hotmail login with 2FA and recovery code, activation warranty. Pay via JazzCash & Raast.';
+  }
 }
 
 fs.writeFileSync(path.join(DATA_DIR, 'products.json'), JSON.stringify(products, null, 2));
@@ -403,7 +422,9 @@ for (let i = 1; i < brandBlocks.length; i += 3) {
   const brandSlug = urlParts[1] || '';
   const cleanBrandName = BRAND_NAMES[brandSlug] || rawName;
 
+  const brandUpdatedAt = (brandSlug === 'claude' || brandSlug === 'dreamina-ai' || brandSlug === 'grok') ? '2026-11-26' : '2026-11-22';
   brandHubs.push({
+    updatedAt: brandUpdatedAt,
     name: cleanBrandName,
     url,
     categorySlug,
@@ -429,6 +450,18 @@ let sitePages = {};
 if (fs.existsSync(path.join(ROOT_DIR, 'site_pages_extracted.json'))) {
   sitePages = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'site_pages_extracted.json'), 'utf8'));
 }
+sitePages.updatedAt = {
+  '/about/': '2026-11-24',
+  '/contact/': '2026-11-24',
+  '/privacy-policy/': '2026-11-24',
+  '/terms/': '2026-11-24',
+  '/refund-warranty-policy/': '2026-11-24',
+  '/payment-methods/': '2026-11-24',
+  '/faqs/': '2026-11-26',
+  '/': '2026-11-26',
+  '/categories/': '2026-11-26',
+  '/price-list/': '2026-11-26'
+};
 fs.writeFileSync(path.join(DATA_DIR, 'site_pages.json'), JSON.stringify(sitePages, null, 2));
 console.log('Saved data/site_pages.json');
 

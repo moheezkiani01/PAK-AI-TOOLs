@@ -2,7 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://pakaitools.store/sitemap_index.xml
-Sitemap: https://pakaitools.store/sitemap.xml
 
 # AI search crawlers (allowed for citations and search discovery)
 User-agent: OAI-SearchBot

@@ -1537,5 +1537,17 @@
       "summary": "Choose ExpressVPN if your primary goal is effortless streaming unlock with ultra-fast Lightway protocol and maximum Pakistani ISP compatibility; choose NordVPN if you want integrated Threat Protection malware blocking, Double VPN encryption, and budget-friendly multi-device bundles.",
       "metaDesc": ""
     }
-  ]
+  ],
+  "updatedAt": {
+    "/about/": "2026-11-24",
+    "/contact/": "2026-11-24",
+    "/privacy-policy/": "2026-11-24",
+    "/terms/": "2026-11-24",
+    "/refund-warranty-policy/": "2026-11-24",
+    "/payment-methods/": "2026-11-24",
+    "/faqs/": "2026-11-26",
+    "/": "2026-11-26",
+    "/categories/": "2026-11-26",
+    "/price-list/": "2026-11-26"
+  }
 }
