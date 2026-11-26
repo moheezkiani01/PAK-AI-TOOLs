@@ -1,0 +1,1548 @@
+{
+ "meta": {
+  "note": "Addendum for 10 products missing from pack v2; merge into products[] by url",
+  "count": 10
+ },
+ "products": [
+  {
+   "id": null,
+   "name": "Claude Pro (Full Private) – 1 Month",
+   "title": "Claude Pro (Full Private) – 1 Month (25-Day Warranty)",
+   "url": "https://pakaitools.store/product/claude-pro-full-private-1-month/",
+   "category": "AI Chatbots & Assistants",
+   "category_url": "https://pakaitools.store/ai-chatbots/",
+   "price": "Rs. 5,300",
+   "duration": "1 Month (30 Days access; 25-day warranty coverage)",
+   "warranty": "25-Day Replacement Warranty: if your account has an issue within 25 days, we'll replace it",
+   "account": "Full Private Claude Pro account (dedicated single-user workspace; confirm own-email vs fresh-account setup on WhatsApp)",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "AI Chatbots & Assistants",
+     "https://pakaitools.store/ai-chatbots/"
+    ],
+    [
+     "Claude",
+     "https://pakaitools.store/ai-chatbots/claude/"
+    ],
+    [
+     "Claude Pro (Full Private) – 1 Month (25-Day Warranty)",
+     "https://pakaitools.store/product/claude-pro-full-private-1-month/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Claude Pro (Full Private) – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Claude Pro (Full Private) – 1 Month price in Pakistan is Rs. 5,300 for 1 Month (30 days of access). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "Is Claude Pro (Full Private) – 1 Month a private account, and can I use my own email?",
+     "a": "Claude Pro (Full Private) – 1 Month is a full private Claude Pro account: a dedicated single-user workspace with isolated chat history, private Projects and unshared message capacity. Confirm on WhatsApp (+92 321 9305619) whether it is set up on your own email or as a fresh account when you order."
+    },
+    {
+     "lang": "en",
+     "q": "What is the difference between Claude Pro (Full Private) – 1 Month and the shared Claude Pro plan?",
+     "a": "Claude Pro (Full Private) – 1 Month is a dedicated single-user workspace, so your chats and Projects are not visible to anyone else. The shared Claude Pro plan is a shared web account where threads are visible to other users and message limits are shared, so avoid confidential work there."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Claude Pro (Full Private) – 1 Month and what voids warranty coverage?",
+     "a": "Claude Pro (Full Private) – 1 Month includes a 25-Day Replacement Warranty: if your account has an issue within 25 days, PakAITools replaces it. Access runs for 30 days, but warranty coverage is the first 25. Send a screenshot and your order details to WhatsApp (+92 321 9305619); breaking the plan's rules or the platform's policies voids coverage."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Claude Pro (Full Private) – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Claude Pro (Full Private) – 1 Month ki qeemat Rs. 5,300 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Agar Claude Pro (Full Private) – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+     "a": "Ji haan, Claude Pro (Full Private) – 1 Month par 25 din ki replacement warranty milti hai. 25 din ke andar masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; hamari taraf ka masla ho toh account replace kiya jata hai. Access 30 din ka hota hai, lekin warranty pehle 25 din ki hai."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/claude-pro-full-private-1-month/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Chatbots & Assistants",
+        "item": "https://pakaitools.store/ai-chatbots/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Claude",
+        "item": "https://pakaitools.store/ai-chatbots/claude/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Claude Pro (Full Private) – 1 Month (25-Day Warranty)",
+        "item": "https://pakaitools.store/product/claude-pro-full-private-1-month/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/claude-pro-full-private-1-month/#faq",
+      "url": "https://pakaitools.store/product/claude-pro-full-private-1-month/",
+      "name": "Claude Pro (Full Private) – 1 Month – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/claude-pro-full-private-1-month/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Claude Pro (Full Private) – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Claude Pro (Full Private) – 1 Month price in Pakistan is Rs. 5,300 for 1 Month (30 days of access). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Is Claude Pro (Full Private) – 1 Month a private account, and can I use my own email?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Claude Pro (Full Private) – 1 Month is a full private Claude Pro account: a dedicated single-user workspace with isolated chat history, private Projects and unshared message capacity. Confirm on WhatsApp (+92 321 9305619) whether it is set up on your own email or as a fresh account when you order."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What is the difference between Claude Pro (Full Private) – 1 Month and the shared Claude Pro plan?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Claude Pro (Full Private) – 1 Month is a dedicated single-user workspace, so your chats and Projects are not visible to anyone else. The shared Claude Pro plan is a shared web account where threads are visible to other users and message limits are shared, so avoid confidential work there."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Claude Pro (Full Private) – 1 Month and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Claude Pro (Full Private) – 1 Month includes a 25-Day Replacement Warranty: if your account has an issue within 25 days, PakAITools replaces it. Access runs for 30 days, but warranty coverage is the first 25. Send a screenshot and your order details to WhatsApp (+92 321 9305619); breaking the plan's rules or the platform's policies voids coverage."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Claude Pro (Full Private) – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Claude Pro (Full Private) – 1 Month ki qeemat Rs. 5,300 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Agar Claude Pro (Full Private) – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan, Claude Pro (Full Private) – 1 Month par 25 din ki replacement warranty milti hai. 25 din ke andar masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; hamari taraf ka masla ho toh account replace kiya jata hai. Access 30 din ka hota hai, lekin warranty pehle 25 din ki hai."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": null,
+   "name": "Claude Pro (Shared) – 1 Month",
+   "title": "Claude Pro (Shared) – 1 Month (25-Day Warranty)",
+   "url": "https://pakaitools.store/product/claude-pro-shared-1-month/",
+   "category": "AI Chatbots & Assistants",
+   "category_url": "https://pakaitools.store/ai-chatbots/",
+   "price": "Rs. 2,300",
+   "duration": "1 Month (30 Days access; 25-day warranty coverage)",
+   "warranty": "25-Day Replacement Warranty: if your shared account has an issue within 25 days, we'll replace it",
+   "account": "Shared Claude Pro web account",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "AI Chatbots & Assistants",
+     "https://pakaitools.store/ai-chatbots/"
+    ],
+    [
+     "Claude",
+     "https://pakaitools.store/ai-chatbots/claude/"
+    ],
+    [
+     "Claude Pro (Shared) – 1 Month (25-Day Warranty)",
+     "https://pakaitools.store/product/claude-pro-shared-1-month/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Claude Pro (Shared) – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Claude Pro (Shared) – 1 Month price in Pakistan is Rs. 2,300 for 1 Month (30 days of access). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "Is Claude Pro (Shared) – 1 Month a private account or shared, and what are the device rules?",
+     "a": "Claude Pro (Shared) – 1 Month is a shared Claude Pro web account, not a private one. Stick to the device limit shared at delivery on WhatsApp (+92 321 9305619), and never change the password, email or security settings."
+    },
+    {
+     "lang": "en",
+     "q": "Is it safe to use Claude Pro (Shared) – 1 Month for client or confidential work?",
+     "a": "No. Threads in a shared account are visible to the other users, so never paste passwords, API keys or confidential client material, and expect message limits to be shared. For private work, choose the full private Claude Pro plan."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Claude Pro (Shared) – 1 Month and what voids warranty coverage?",
+     "a": "Claude Pro (Shared) – 1 Month includes a 25-Day Replacement Warranty: if your shared account has an issue within 25 days, PakAITools replaces it. Send a screenshot to WhatsApp (+92 321 9305619). Changing the password, email or security settings voids coverage."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Claude Pro (Shared) – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Claude Pro (Shared) – 1 Month ki qeemat Rs. 2,300 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Agar Claude Pro (Shared) – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+     "a": "Ji haan, Claude Pro (Shared) – 1 Month par 25 din ki replacement warranty milti hai. Shared account mein masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; hamari taraf ka masla ho toh replace kiya jata hai. Password, email ya security settings badalna warranty khatam kar deta hai."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/claude-pro-shared-1-month/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Chatbots & Assistants",
+        "item": "https://pakaitools.store/ai-chatbots/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Claude",
+        "item": "https://pakaitools.store/ai-chatbots/claude/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Claude Pro (Shared) – 1 Month (25-Day Warranty)",
+        "item": "https://pakaitools.store/product/claude-pro-shared-1-month/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/claude-pro-shared-1-month/#faq",
+      "url": "https://pakaitools.store/product/claude-pro-shared-1-month/",
+      "name": "Claude Pro (Shared) – 1 Month – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/claude-pro-shared-1-month/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Claude Pro (Shared) – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Claude Pro (Shared) – 1 Month price in Pakistan is Rs. 2,300 for 1 Month (30 days of access). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Is Claude Pro (Shared) – 1 Month a private account or shared, and what are the device rules?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Claude Pro (Shared) – 1 Month is a shared Claude Pro web account, not a private one. Stick to the device limit shared at delivery on WhatsApp (+92 321 9305619), and never change the password, email or security settings."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Is it safe to use Claude Pro (Shared) – 1 Month for client or confidential work?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "No. Threads in a shared account are visible to the other users, so never paste passwords, API keys or confidential client material, and expect message limits to be shared. For private work, choose the full private Claude Pro plan."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Claude Pro (Shared) – 1 Month and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Claude Pro (Shared) – 1 Month includes a 25-Day Replacement Warranty: if your shared account has an issue within 25 days, PakAITools replaces it. Send a screenshot to WhatsApp (+92 321 9305619). Changing the password, email or security settings voids coverage."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Claude Pro (Shared) – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Claude Pro (Shared) – 1 Month ki qeemat Rs. 2,300 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Agar Claude Pro (Shared) – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan, Claude Pro (Shared) – 1 Month par 25 din ki replacement warranty milti hai. Shared account mein masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; hamari taraf ka masla ho toh replace kiya jata hai. Password, email ya security settings badalna warranty khatam kar deta hai."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": null,
+   "name": "Lovable Pro – 1 Month",
+   "title": "Lovable Pro – 1 Month (Full Warranty)",
+   "url": "https://pakaitools.store/product/lovable-pro-1-month/",
+   "category": "Developer Tools & IDEs",
+   "category_url": "https://pakaitools.store/developer-tools/",
+   "price": "Rs. 5,500",
+   "duration": "1 Month (30 Days)",
+   "warranty": "1-Month Package Warranty: if the package drops, we re-upgrade/replace it; if re-upgrade fails, no cash refund is issued for unused days",
+   "account": "Lovable Pro subscription account (manual seller delivery; confirm private vs own-email format on WhatsApp)",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "Developer Tools & IDEs",
+     "https://pakaitools.store/developer-tools/"
+    ],
+    [
+     "Lovable Pro – 1 Month (Full Warranty)",
+     "https://pakaitools.store/product/lovable-pro-1-month/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Lovable Pro – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Lovable Pro – 1 Month price in Pakistan is Rs. 5,500 for 1 Month (30 days). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "What type of account do I get with Lovable Pro – 1 Month?",
+     "a": "Lovable Pro – 1 Month is a Lovable Pro subscription account delivered manually by the seller after payment verification. Confirm on WhatsApp (+92 321 9305619) whether it is a private account or an upgrade on your own email, then use the standard web login."
+    },
+    {
+     "lang": "en",
+     "q": "How do I protect my projects on Lovable Pro – 1 Month?",
+     "a": "Connect GitHub and export your generated codebase regularly, so your work is not tied to a single account. Do not change the email, password or billing settings unless support instructs you to."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Lovable Pro – 1 Month and what voids warranty coverage?",
+     "a": "Lovable Pro – 1 Month includes a 1-Month Package Warranty. If the package drops, PakAITools re-upgrades or replaces it; if a re-upgrade fails, no cash refund is issued for unused days. Send a screenshot to WhatsApp (+92 321 9305619)."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Lovable Pro – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Lovable Pro – 1 Month ki qeemat Rs. 5,500 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Agar Lovable Pro – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+     "a": "Ji haan, Lovable Pro – 1 Month par 1 mahine ki package warranty milti hai. Package drop ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; dobara upgrade ya replacement diya jata hai. Agar re-upgrade na ho sake toh baqi dinon ka cash refund nahi milta."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/lovable-pro-1-month/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Developer Tools & IDEs",
+        "item": "https://pakaitools.store/developer-tools/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Lovable Pro – 1 Month (Full Warranty)",
+        "item": "https://pakaitools.store/product/lovable-pro-1-month/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/lovable-pro-1-month/#faq",
+      "url": "https://pakaitools.store/product/lovable-pro-1-month/",
+      "name": "Lovable Pro – 1 Month – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/lovable-pro-1-month/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Lovable Pro – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Lovable Pro – 1 Month price in Pakistan is Rs. 5,500 for 1 Month (30 days). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What type of account do I get with Lovable Pro – 1 Month?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Lovable Pro – 1 Month is a Lovable Pro subscription account delivered manually by the seller after payment verification. Confirm on WhatsApp (+92 321 9305619) whether it is a private account or an upgrade on your own email, then use the standard web login."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "How do I protect my projects on Lovable Pro – 1 Month?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Connect GitHub and export your generated codebase regularly, so your work is not tied to a single account. Do not change the email, password or billing settings unless support instructs you to."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Lovable Pro – 1 Month and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Lovable Pro – 1 Month includes a 1-Month Package Warranty. If the package drops, PakAITools re-upgrades or replaces it; if a re-upgrade fails, no cash refund is issued for unused days. Send a screenshot to WhatsApp (+92 321 9305619)."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Lovable Pro – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Lovable Pro – 1 Month ki qeemat Rs. 5,500 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Agar Lovable Pro – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan, Lovable Pro – 1 Month par 1 mahine ki package warranty milti hai. Package drop ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; dobara upgrade ya replacement diya jata hai. Agar re-upgrade na ho sake toh baqi dinon ka cash refund nahi milta."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": null,
+   "name": "Seedance 2.5 / EaseMate AI Pro – 1 Month",
+   "title": "Seedance 2.5 / EaseMate AI Pro – 1 Month (7-Day Warranty)",
+   "url": "https://pakaitools.store/product/seedance-2-5-easemate-ai-pro-1-month/",
+   "category": "AI Video & Image Generation",
+   "category_url": "https://pakaitools.store/ai-video-image/",
+   "price": "Rs. 2,500",
+   "duration": "1 Month (30 Days access; 7-day warranty coverage)",
+   "warranty": "7-Day Replacement Warranty: covered against login/account issues within 7 days of delivery",
+   "account": "EaseMate AI Pro account (easemate.ai — works on desktop & mobile iOS/Android browsers)",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "AI Video & Image Generation",
+     "https://pakaitools.store/ai-video-image/"
+    ],
+    [
+     "Seedance 2.5 / EaseMate AI Pro – 1 Month (7-Day Warranty)",
+     "https://pakaitools.store/product/seedance-2-5-easemate-ai-pro-1-month/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Seedance 2.5 / EaseMate AI Pro – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Seedance 2.5 / EaseMate AI Pro – 1 Month price in Pakistan is Rs. 2,500 for 1 Month (30 days of access). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "What do I get with Seedance 2.5 / EaseMate AI Pro – 1 Month, and where can I use it?",
+     "a": "Seedance 2.5 / EaseMate AI Pro – 1 Month is an EaseMate AI Pro account at easemate.ai that works in desktop browsers and in iOS or Android mobile browsers. Keep the provided credentials untouched."
+    },
+    {
+     "lang": "en",
+     "q": "Is video and image generation unlimited on Seedance 2.5 / EaseMate AI Pro – 1 Month?",
+     "a": "No. Video and image tasks use the credits included in the account, so generation is not unlimited. Download exported videos and images promptly."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Seedance 2.5 / EaseMate AI Pro – 1 Month and what voids warranty coverage?",
+     "a": "Seedance 2.5 / EaseMate AI Pro – 1 Month includes a 7-Day Replacement Warranty covering login or account issues within 7 days of delivery. Access runs for 30 days, but the warranty covers only the first 7. Send a screenshot to WhatsApp (+92 321 9305619); changing the credentials voids coverage."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Seedance 2.5 / EaseMate AI Pro – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Seedance 2.5 / EaseMate AI Pro – 1 Month ki qeemat Rs. 2,500 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Agar Seedance 2.5 / EaseMate AI Pro – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+     "a": "Ji haan, Seedance 2.5 / EaseMate AI Pro – 1 Month par 7 din ki replacement warranty milti hai. Delivery ke 7 din ke andar login ya account ka masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein. Access 30 din ka hota hai, lekin warranty sirf pehle 7 din ki hai."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/seedance-2-5-easemate-ai-pro-1-month/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Video & Image Generation",
+        "item": "https://pakaitools.store/ai-video-image/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Seedance 2.5 / EaseMate AI Pro – 1 Month (7-Day Warranty)",
+        "item": "https://pakaitools.store/product/seedance-2-5-easemate-ai-pro-1-month/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/seedance-2-5-easemate-ai-pro-1-month/#faq",
+      "url": "https://pakaitools.store/product/seedance-2-5-easemate-ai-pro-1-month/",
+      "name": "Seedance 2.5 / EaseMate AI Pro – 1 Month – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/seedance-2-5-easemate-ai-pro-1-month/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Seedance 2.5 / EaseMate AI Pro – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Seedance 2.5 / EaseMate AI Pro – 1 Month price in Pakistan is Rs. 2,500 for 1 Month (30 days of access). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What do I get with Seedance 2.5 / EaseMate AI Pro – 1 Month, and where can I use it?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Seedance 2.5 / EaseMate AI Pro – 1 Month is an EaseMate AI Pro account at easemate.ai that works in desktop browsers and in iOS or Android mobile browsers. Keep the provided credentials untouched."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Is video and image generation unlimited on Seedance 2.5 / EaseMate AI Pro – 1 Month?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "No. Video and image tasks use the credits included in the account, so generation is not unlimited. Download exported videos and images promptly."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Seedance 2.5 / EaseMate AI Pro – 1 Month and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Seedance 2.5 / EaseMate AI Pro – 1 Month includes a 7-Day Replacement Warranty covering login or account issues within 7 days of delivery. Access runs for 30 days, but the warranty covers only the first 7. Send a screenshot to WhatsApp (+92 321 9305619); changing the credentials voids coverage."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Seedance 2.5 / EaseMate AI Pro – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Seedance 2.5 / EaseMate AI Pro – 1 Month ki qeemat Rs. 2,500 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Agar Seedance 2.5 / EaseMate AI Pro – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan, Seedance 2.5 / EaseMate AI Pro – 1 Month par 7 din ki replacement warranty milti hai. Delivery ke 7 din ke andar login ya account ka masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein. Access 30 din ka hota hai, lekin warranty sirf pehle 7 din ki hai."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": null,
+   "name": "Microsoft 365 Family Slot – 1 Year",
+   "title": "Microsoft 365 Family Slot – 1 Year (Full Warranty)",
+   "url": "https://pakaitools.store/product/microsoft-365-family-slot-1-year/",
+   "category": "Productivity & Business Software",
+   "category_url": "https://pakaitools.store/productivity-software/",
+   "price": "Rs. 3,000",
+   "duration": "1 Year (12 Months)",
+   "warranty": "Full 1-Year Replacement Warranty: covered for the entire 12-month subscription period",
+   "account": "Private Family Slot activated on your own existing Microsoft-registered email (100% private OneDrive & files)",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "Productivity & Business Software",
+     "https://pakaitools.store/productivity-software/"
+    ],
+    [
+     "Microsoft 365 Family Slot – 1 Year (Full Warranty)",
+     "https://pakaitools.store/product/microsoft-365-family-slot-1-year/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Microsoft 365 Family Slot – 1 Year price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Microsoft 365 Family Slot – 1 Year price in Pakistan is Rs. 3,000 for 1 Year (12 months). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "Does Microsoft 365 Family Slot – 1 Year activate on my own Microsoft email, and are my files private?",
+     "a": "Yes. Microsoft 365 Family Slot – 1 Year is a private Family slot activated on your own existing Microsoft-registered email, and your OneDrive and files stay private. The email must already be registered at account.microsoft.com."
+    },
+    {
+     "lang": "en",
+     "q": "What do I need before ordering Microsoft 365 Family Slot – 1 Year, and how many devices can I use?",
+     "a": "You can use it on up to 5 devices at the same time (PC, Mac, iPad, iPhone and Android). Your Microsoft account must not already be inside another active Microsoft 365 Family group. If you order several, send one email per line."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Microsoft 365 Family Slot – 1 Year and what voids warranty coverage?",
+     "a": "Microsoft 365 Family Slot – 1 Year includes a Full 1-Year Replacement Warranty covering the entire 12-month subscription. If access drops on our side, send a screenshot to WhatsApp (+92 321 9305619) for a replacement or eligible resolution; breaking the plan's rules voids coverage."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Microsoft 365 Family Slot – 1 Year Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Microsoft 365 Family Slot – 1 Year ki qeemat Rs. 3,000 (1 Year) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Agar Microsoft 365 Family Slot – 1 Year waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+     "a": "Ji haan, Microsoft 365 Family Slot – 1 Year par poore 12 mahine ki replacement warranty milti hai. Agar hamari taraf se masla aaye toh WhatsApp (+92 321 9305619) par screenshot bhejein; replacement ya eligible hal diya jata hai. Plan ke qawaid par amal karna zaroori hai."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/microsoft-365-family-slot-1-year/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Productivity & Business Software",
+        "item": "https://pakaitools.store/productivity-software/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Microsoft 365 Family Slot – 1 Year (Full Warranty)",
+        "item": "https://pakaitools.store/product/microsoft-365-family-slot-1-year/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/microsoft-365-family-slot-1-year/#faq",
+      "url": "https://pakaitools.store/product/microsoft-365-family-slot-1-year/",
+      "name": "Microsoft 365 Family Slot – 1 Year – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/microsoft-365-family-slot-1-year/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Microsoft 365 Family Slot – 1 Year price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Microsoft 365 Family Slot – 1 Year price in Pakistan is Rs. 3,000 for 1 Year (12 months). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Does Microsoft 365 Family Slot – 1 Year activate on my own Microsoft email, and are my files private?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Yes. Microsoft 365 Family Slot – 1 Year is a private Family slot activated on your own existing Microsoft-registered email, and your OneDrive and files stay private. The email must already be registered at account.microsoft.com."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What do I need before ordering Microsoft 365 Family Slot – 1 Year, and how many devices can I use?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "You can use it on up to 5 devices at the same time (PC, Mac, iPad, iPhone and Android). Your Microsoft account must not already be inside another active Microsoft 365 Family group. If you order several, send one email per line."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Microsoft 365 Family Slot – 1 Year and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Microsoft 365 Family Slot – 1 Year includes a Full 1-Year Replacement Warranty covering the entire 12-month subscription. If access drops on our side, send a screenshot to WhatsApp (+92 321 9305619) for a replacement or eligible resolution; breaking the plan's rules voids coverage."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Microsoft 365 Family Slot – 1 Year Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Microsoft 365 Family Slot – 1 Year ki qeemat Rs. 3,000 (1 Year) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Agar Microsoft 365 Family Slot – 1 Year waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan, Microsoft 365 Family Slot – 1 Year par poore 12 mahine ki replacement warranty milti hai. Agar hamari taraf se masla aaye toh WhatsApp (+92 321 9305619) par screenshot bhejein; replacement ya eligible hal diya jata hai. Plan ke qawaid par amal karna zaroori hai."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": null,
+   "name": "Microsoft 365 Admin Account – 1 Year",
+   "title": "Microsoft 365 Admin Account – 1 Year (Full Warranty, Add 5 Members)",
+   "url": "https://pakaitools.store/product/microsoft-365-admin-account-1-year/",
+   "category": "Productivity & Business Software",
+   "category_url": "https://pakaitools.store/productivity-software/",
+   "price": "Rs. 4,500",
+   "duration": "1 Year (12 Months — auto-renewed monthly by our system)",
+   "warranty": "Full 1-Year Warranty (provided password, recovery email & security settings remain untouched)",
+   "account": "Admin Microsoft 365 Family account (preloaded master login; allows inviting up to 5 family/team members)",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "Productivity & Business Software",
+     "https://pakaitools.store/productivity-software/"
+    ],
+    [
+     "Microsoft 365 Admin Account – 1 Year (Full Warranty, Add 5 Members)",
+     "https://pakaitools.store/product/microsoft-365-admin-account-1-year/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Microsoft 365 Admin Account – 1 Year price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Microsoft 365 Admin Account – 1 Year price in Pakistan is Rs. 4,500 for 1 Year (12 months). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "Is Microsoft 365 Admin Account – 1 Year a private account, and can I add members?",
+     "a": "Microsoft 365 Admin Account – 1 Year is an admin Microsoft 365 Family account with a preloaded master login that lets you invite up to 5 family or team members. Invite your personal email as one member to keep your own files private."
+    },
+    {
+     "lang": "en",
+     "q": "What must I never change on Microsoft 365 Admin Account – 1 Year?",
+     "a": "Never change the admin password or recovery email, and never add 2FA or other security. An automated tool signs in monthly to renew the subscription, so changing credentials breaks renewal and voids the warranty. Each invited member gets 5 simultaneous devices."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Microsoft 365 Admin Account – 1 Year and what voids warranty coverage?",
+     "a": "Microsoft 365 Admin Account – 1 Year includes a Full 1-Year Warranty, provided the password, recovery email and security settings stay untouched. If access drops on our side, send a screenshot to WhatsApp (+92 321 9305619) for a replacement or eligible resolution."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Microsoft 365 Admin Account – 1 Year Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Microsoft 365 Admin Account – 1 Year ki qeemat Rs. 4,500 (1 Year) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Agar Microsoft 365 Admin Account – 1 Year waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+     "a": "Ji haan, Microsoft 365 Admin Account – 1 Year par poore 1 saal ki warranty milti hai, shart yeh hai ke password, recovery email aur security settings na badli jayein. Hamari taraf se masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; replacement ya eligible hal diya jata hai."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/microsoft-365-admin-account-1-year/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Productivity & Business Software",
+        "item": "https://pakaitools.store/productivity-software/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Microsoft 365 Admin Account – 1 Year (Full Warranty, Add 5 Members)",
+        "item": "https://pakaitools.store/product/microsoft-365-admin-account-1-year/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/microsoft-365-admin-account-1-year/#faq",
+      "url": "https://pakaitools.store/product/microsoft-365-admin-account-1-year/",
+      "name": "Microsoft 365 Admin Account – 1 Year – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/microsoft-365-admin-account-1-year/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Microsoft 365 Admin Account – 1 Year price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Microsoft 365 Admin Account – 1 Year price in Pakistan is Rs. 4,500 for 1 Year (12 months). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Is Microsoft 365 Admin Account – 1 Year a private account, and can I add members?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Microsoft 365 Admin Account – 1 Year is an admin Microsoft 365 Family account with a preloaded master login that lets you invite up to 5 family or team members. Invite your personal email as one member to keep your own files private."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What must I never change on Microsoft 365 Admin Account – 1 Year?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Never change the admin password or recovery email, and never add 2FA or other security. An automated tool signs in monthly to renew the subscription, so changing credentials breaks renewal and voids the warranty. Each invited member gets 5 simultaneous devices."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Microsoft 365 Admin Account – 1 Year and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Microsoft 365 Admin Account – 1 Year includes a Full 1-Year Warranty, provided the password, recovery email and security settings stay untouched. If access drops on our side, send a screenshot to WhatsApp (+92 321 9305619) for a replacement or eligible resolution."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Microsoft 365 Admin Account – 1 Year Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Microsoft 365 Admin Account – 1 Year ki qeemat Rs. 4,500 (1 Year) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Agar Microsoft 365 Admin Account – 1 Year waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan, Microsoft 365 Admin Account – 1 Year par poore 1 saal ki warranty milti hai, shart yeh hai ke password, recovery email aur security settings na badli jayein. Hamari taraf se masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; replacement ya eligible hal diya jata hai."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": null,
+   "name": "Muse AI – 1B Token Account",
+   "title": "Muse AI – 1B Token Account (Activation Warranty)",
+   "url": "https://pakaitools.store/product/muse-ai-1b-token-account/",
+   "category": "AI Chatbots & Assistants",
+   "category_url": "https://pakaitools.store/ai-chatbots/",
+   "price": "Rs. 500",
+   "duration": "One-time 1B (1 Billion) Token pre-loaded account",
+   "warranty": "Activation Warranty Only: guaranteed valid login & active 1B token balance upon first sign-in",
+   "account": "Pre-loaded Hotmail-backed Muse AI account (mail | pass | 2FA | recovery code format)",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "AI Chatbots & Assistants",
+     "https://pakaitools.store/ai-chatbots/"
+    ],
+    [
+     "Muse AI – 1B Token Account (Activation Warranty)",
+     "https://pakaitools.store/product/muse-ai-1b-token-account/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Muse AI – 1B Token Account price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Muse AI – 1B Token Account price in Pakistan is Rs. 500 as a one-time, pre-loaded 1 billion token balance. Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "What type of account do I get with Muse AI – 1B Token Account?",
+     "a": "Muse AI – 1B Token Account is a pre-loaded, Hotmail-backed Muse AI account delivered as mail, password, 2FA and recovery code. Save the 2FA key and recovery code securely, because you need them for Hotmail verification."
+    },
+    {
+     "lang": "en",
+     "q": "How do I check the 1B token balance on Muse AI – 1B Token Account?",
+     "a": "Sign in immediately after delivery to verify the 1B token balance. Confirm with WhatsApp support (+92 321 9305619) whether the account is meant for API-mail or web-dashboard use."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Muse AI – 1B Token Account and what voids warranty coverage?",
+     "a": "Muse AI – 1B Token Account carries an activation warranty only: a valid login and an active 1B token balance on first sign-in are guaranteed. Test the login as soon as it is delivered, and send a screenshot to WhatsApp (+92 321 9305619) if it fails."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Muse AI – 1B Token Account Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Muse AI – 1B Token Account ki qeemat Rs. 500 (one-time) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Muse AI – 1B Token Account par refund ya replacement warranty milti hai?",
+     "a": "Sirf activation warranty milti hai: pehli sign-in par valid login aur active 1B token balance ki guarantee hai. Delivery milte hi login check kar lein aur 2FA key aur recovery code mehfooz rakhein."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/muse-ai-1b-token-account/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Chatbots & Assistants",
+        "item": "https://pakaitools.store/ai-chatbots/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Muse AI – 1B Token Account (Activation Warranty)",
+        "item": "https://pakaitools.store/product/muse-ai-1b-token-account/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/muse-ai-1b-token-account/#faq",
+      "url": "https://pakaitools.store/product/muse-ai-1b-token-account/",
+      "name": "Muse AI – 1B Token Account – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/muse-ai-1b-token-account/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Muse AI – 1B Token Account price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Muse AI – 1B Token Account price in Pakistan is Rs. 500 as a one-time, pre-loaded 1 billion token balance. Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What type of account do I get with Muse AI – 1B Token Account?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Muse AI – 1B Token Account is a pre-loaded, Hotmail-backed Muse AI account delivered as mail, password, 2FA and recovery code. Save the 2FA key and recovery code securely, because you need them for Hotmail verification."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "How do I check the 1B token balance on Muse AI – 1B Token Account?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Sign in immediately after delivery to verify the 1B token balance. Confirm with WhatsApp support (+92 321 9305619) whether the account is meant for API-mail or web-dashboard use."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Muse AI – 1B Token Account and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Muse AI – 1B Token Account carries an activation warranty only: a valid login and an active 1B token balance on first sign-in are guaranteed. Test the login as soon as it is delivered, and send a screenshot to WhatsApp (+92 321 9305619) if it fails."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Muse AI – 1B Token Account Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Muse AI – 1B Token Account ki qeemat Rs. 500 (one-time) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Muse AI – 1B Token Account par refund ya replacement warranty milti hai?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Sirf activation warranty milti hai: pehli sign-in par valid login aur active 1B token balance ki guarantee hai. Delivery milte hi login check kar lein aur 2FA key aur recovery code mehfooz rakhein."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": null,
+   "name": "Amazon Prime Video – 6 Months",
+   "title": "Amazon Prime Video – 6 Months (Full Warranty)",
+   "url": "https://pakaitools.store/product/amazon-prime-video-6-months/",
+   "category": "Streaming & Entertainment",
+   "category_url": "https://pakaitools.store/streaming/",
+   "price": "Rs. 3,000",
+   "duration": "6 Months (180 Days)",
+   "warranty": "Full 6-Month Replacement Warranty: if your account has an issue during the 6 months, we'll replace it",
+   "account": "Amazon Prime Video subscription account (confirm private vs profile slot & device limit via WhatsApp)",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "Streaming & Entertainment",
+     "https://pakaitools.store/streaming/"
+    ],
+    [
+     "Amazon Prime Video – 6 Months (Full Warranty)",
+     "https://pakaitools.store/product/amazon-prime-video-6-months/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Amazon Prime Video – 6 Months price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Amazon Prime Video – 6 Months price in Pakistan is Rs. 3,000 for 6 Months (180 days). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "What type of account do I get with Amazon Prime Video – 6 Months, and are there screen limits?",
+     "a": "PakAITools confirms on WhatsApp (+92 321 9305619) whether Amazon Prime Video – 6 Months is a private account or a profile slot, and the simultaneous screen limit. Ask before you order so you know exactly what you receive."
+    },
+    {
+     "lang": "en",
+     "q": "What keeps the 6-month warranty valid on Amazon Prime Video – 6 Months?",
+     "a": "Stay within the screen limit confirmed on WhatsApp, and never change the email, password, profile PINs or Amazon account settings provided at delivery."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Amazon Prime Video – 6 Months and what voids warranty coverage?",
+     "a": "Amazon Prime Video – 6 Months includes a Full 6-Month Replacement Warranty: if your account has an issue during the 6 months, PakAITools replaces it. Send a screenshot to WhatsApp (+92 321 9305619). Exceeding the confirmed screen limit or changing account details voids coverage."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Amazon Prime Video – 6 Months Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Amazon Prime Video – 6 Months ki qeemat Rs. 3,000 (6 Months) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Agar Amazon Prime Video – 6 Months waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+     "a": "Ji haan, Amazon Prime Video – 6 Months par poore 6 mahine ki replacement warranty milti hai. Is dauran masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; account replace kiya jata hai. Confirm ki gayi screen limit aur account details ke qawaid par amal karein."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/amazon-prime-video-6-months/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Streaming & Entertainment",
+        "item": "https://pakaitools.store/streaming/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Amazon Prime Video – 6 Months (Full Warranty)",
+        "item": "https://pakaitools.store/product/amazon-prime-video-6-months/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/amazon-prime-video-6-months/#faq",
+      "url": "https://pakaitools.store/product/amazon-prime-video-6-months/",
+      "name": "Amazon Prime Video – 6 Months – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/amazon-prime-video-6-months/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Amazon Prime Video – 6 Months price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Amazon Prime Video – 6 Months price in Pakistan is Rs. 3,000 for 6 Months (180 days). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What type of account do I get with Amazon Prime Video – 6 Months, and are there screen limits?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "PakAITools confirms on WhatsApp (+92 321 9305619) whether Amazon Prime Video – 6 Months is a private account or a profile slot, and the simultaneous screen limit. Ask before you order so you know exactly what you receive."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What keeps the 6-month warranty valid on Amazon Prime Video – 6 Months?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Stay within the screen limit confirmed on WhatsApp, and never change the email, password, profile PINs or Amazon account settings provided at delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Amazon Prime Video – 6 Months and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Amazon Prime Video – 6 Months includes a Full 6-Month Replacement Warranty: if your account has an issue during the 6 months, PakAITools replaces it. Send a screenshot to WhatsApp (+92 321 9305619). Exceeding the confirmed screen limit or changing account details voids coverage."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Amazon Prime Video – 6 Months Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Amazon Prime Video – 6 Months ki qeemat Rs. 3,000 (6 Months) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Agar Amazon Prime Video – 6 Months waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan, Amazon Prime Video – 6 Months par poore 6 mahine ki replacement warranty milti hai. Is dauran masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein; account replace kiya jata hai. Confirm ki gayi screen limit aur account details ke qawaid par amal karein."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": null,
+   "name": "Grok Premium – 14 to 24 Days",
+   "title": "Grok Premium – 14 to 24 Days (3-Day Warranty)",
+   "url": "https://pakaitools.store/product/grok-premium-14d-24d/",
+   "category": "AI Chatbots & Assistants",
+   "category_url": "https://pakaitools.store/ai-chatbots/",
+   "price": "Rs. 3,200",
+   "duration": "14 to 24 Days remaining subscription window",
+   "warranty": "3-Day Usage Warranty: only the first 3 days of usage are covered under replacement warranty",
+   "account": "Password-changeable Grok Premium account",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "AI Chatbots & Assistants",
+     "https://pakaitools.store/ai-chatbots/"
+    ],
+    [
+     "Grok",
+     "https://pakaitools.store/ai-chatbots/grok/"
+    ],
+    [
+     "Grok Premium – 14 to 24 Days (3-Day Warranty)",
+     "https://pakaitools.store/product/grok-premium-14d-24d/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Grok Premium – 14 to 24 Days price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Grok Premium – 14 to 24 Days price in Pakistan is Rs. 3,200 for 14 to 24 days of remaining subscription. Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "Is Grok Premium – 14 to 24 Days a dedicated account, and can I change the password?",
+     "a": "Grok Premium – 14 to 24 Days is a password-changeable Grok Premium account with direct account login. Change the password immediately after purchase."
+    },
+    {
+     "lang": "en",
+     "q": "How long does Grok Premium – 14 to 24 Days last, and how long is it covered?",
+     "a": "The account carries 14 to 24 days of validity, but the replacement warranty covers only the first 3 days of usage. It also supports Cursor on Grok."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Grok Premium – 14 to 24 Days and what voids warranty coverage?",
+     "a": "Grok Premium – 14 to 24 Days includes a 3-Day Usage Warranty: only the first 3 days of usage are covered by replacement. Send a screenshot to WhatsApp (+92 321 9305619) within those days if access fails on our side."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Grok Premium – 14 to 24 Days Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Grok Premium – 14 to 24 Days ki qeemat Rs. 3,200 (14 se 24 din) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Agar Grok Premium – 14 to 24 Days waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+     "a": "Ji haan, Grok Premium – 14 to 24 Days par 3 din ki usage warranty milti hai. Account 14 se 24 din chalta hai, lekin replacement sirf pehle 3 din ke liye hai. Masla ho toh in 3 dinon mein WhatsApp (+92 321 9305619) par screenshot bhejein."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/grok-premium-14d-24d/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Chatbots & Assistants",
+        "item": "https://pakaitools.store/ai-chatbots/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Grok",
+        "item": "https://pakaitools.store/ai-chatbots/grok/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Grok Premium – 14 to 24 Days (3-Day Warranty)",
+        "item": "https://pakaitools.store/product/grok-premium-14d-24d/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/grok-premium-14d-24d/#faq",
+      "url": "https://pakaitools.store/product/grok-premium-14d-24d/",
+      "name": "Grok Premium – 14 to 24 Days – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/grok-premium-14d-24d/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Grok Premium – 14 to 24 Days price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Grok Premium – 14 to 24 Days price in Pakistan is Rs. 3,200 for 14 to 24 days of remaining subscription. Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Is Grok Premium – 14 to 24 Days a dedicated account, and can I change the password?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Grok Premium – 14 to 24 Days is a password-changeable Grok Premium account with direct account login. Change the password immediately after purchase."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "How long does Grok Premium – 14 to 24 Days last, and how long is it covered?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The account carries 14 to 24 days of validity, but the replacement warranty covers only the first 3 days of usage. It also supports Cursor on Grok."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Grok Premium – 14 to 24 Days and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Grok Premium – 14 to 24 Days includes a 3-Day Usage Warranty: only the first 3 days of usage are covered by replacement. Send a screenshot to WhatsApp (+92 321 9305619) within those days if access fails on our side."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Grok Premium – 14 to 24 Days Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Grok Premium – 14 to 24 Days ki qeemat Rs. 3,200 (14 se 24 din) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Agar Grok Premium – 14 to 24 Days waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan, Grok Premium – 14 to 24 Days par 3 din ki usage warranty milti hai. Account 14 se 24 din chalta hai, lekin replacement sirf pehle 3 din ke liye hai. Masla ho toh in 3 dinon mein WhatsApp (+92 321 9305619) par screenshot bhejein."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": null,
+   "name": "Dreamina Basic (CapCut) – 1 Month",
+   "title": "Dreamina Basic (CapCut) – 1 Month (3-Day Warranty)",
+   "url": "https://pakaitools.store/product/dreamina-basic-1-month/",
+   "category": "AI Video & Image Generation",
+   "category_url": "https://pakaitools.store/ai-video-image/",
+   "price": "Rs. 2,000",
+   "duration": "1 Month (30 Days access; 3-day warranty coverage)",
+   "warranty": "3-Day Replacement Warranty: covered against login/plan issues within the first 3 days of delivery",
+   "account": "Dreamina Basic account (dreamina.capcut.com)",
+   "breadcrumb": [
+    [
+     "Home",
+     "https://pakaitools.store/"
+    ],
+    [
+     "AI Video & Image Generation",
+     "https://pakaitools.store/ai-video-image/"
+    ],
+    [
+     "Dreamina AI",
+     "https://pakaitools.store/ai-video-image/dreamina-ai/"
+    ],
+    [
+     "Dreamina Basic (CapCut) – 1 Month (3-Day Warranty)",
+     "https://pakaitools.store/product/dreamina-basic-1-month/"
+    ]
+   ],
+   "faqs": [
+    {
+     "lang": "en",
+     "q": "What is the Dreamina Basic (CapCut) – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+     "a": "The Dreamina Basic (CapCut) – 1 Month price in Pakistan is Rs. 2,000 for 1 Month (30 days of access). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+    },
+    {
+     "lang": "en",
+     "q": "What type of account do I get with Dreamina Basic (CapCut) – 1 Month?",
+     "a": "Dreamina Basic (CapCut) – 1 Month is a Dreamina Basic account at dreamina.capcut.com. Log in and verify the Basic status as soon as it is delivered, follow the device limit confirmed on WhatsApp (+92 321 9305619), and keep the credentials untouched."
+    },
+    {
+     "lang": "en",
+     "q": "How long is Dreamina Basic (CapCut) – 1 Month covered compared with how long it lasts?",
+     "a": "Access runs for 1 month (30 days), but the 3-day replacement warranty covers only the first 3 days. Check your login, plan status and credits right away, and download generated content promptly."
+    },
+    {
+     "lang": "en",
+     "q": "What warranty comes with Dreamina Basic (CapCut) – 1 Month and what voids warranty coverage?",
+     "a": "Dreamina Basic (CapCut) – 1 Month includes a 3-Day Replacement Warranty covering login or plan issues within the first 3 days of delivery. Send a screenshot to WhatsApp (+92 321 9305619) inside that window; changing the credentials voids coverage."
+    },
+    {
+     "lang": "ru",
+     "q": "Kya Dreamina Basic (CapCut) – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+     "a": "Ji haan! PakAITools par Dreamina Basic (CapCut) – 1 Month ki qeemat Rs. 2,000 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+    },
+    {
+     "lang": "ru",
+     "q": "Agar Dreamina Basic (CapCut) – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+     "a": "Ji haan, Dreamina Basic (CapCut) – 1 Month par 3 din ki replacement warranty milti hai. Delivery ke pehle 3 din mein login ya plan ka masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein. Access 1 mahine ka hota hai, lekin warranty sirf pehle 3 din ki hai."
+    }
+   ],
+   "jsonld": {
+    "@context": "https://schema.org",
+    "@graph": [
+     {
+      "@type": "BreadcrumbList",
+      "@id": "https://pakaitools.store/product/dreamina-basic-1-month/#breadcrumb",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pakaitools.store/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI Video & Image Generation",
+        "item": "https://pakaitools.store/ai-video-image/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dreamina AI",
+        "item": "https://pakaitools.store/ai-video-image/dreamina-ai/"
+       },
+       {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Dreamina Basic (CapCut) – 1 Month (3-Day Warranty)",
+        "item": "https://pakaitools.store/product/dreamina-basic-1-month/"
+       }
+      ]
+     },
+     {
+      "@type": "FAQPage",
+      "@id": "https://pakaitools.store/product/dreamina-basic-1-month/#faq",
+      "url": "https://pakaitools.store/product/dreamina-basic-1-month/",
+      "name": "Dreamina Basic (CapCut) – 1 Month – Frequently Asked Questions",
+      "inLanguage": "en-PK",
+      "mainEntityOfPage": {
+       "@type": "WebPage",
+       "@id": "https://pakaitools.store/product/dreamina-basic-1-month/"
+      },
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "What is the Dreamina Basic (CapCut) – 1 Month price in Pakistan and can I pay with JazzCash or EasyPaisa?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "The Dreamina Basic (CapCut) – 1 Month price in Pakistan is Rs. 2,000 for 1 Month (30 days of access). Pay in PKR via JazzCash, EasyPaisa, SadaPay, NayaPay, Raast or UBL bank transfer without an international card, then send your receipt to PakAITools on WhatsApp (+92 321 9305619) to start delivery."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What type of account do I get with Dreamina Basic (CapCut) – 1 Month?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Dreamina Basic (CapCut) – 1 Month is a Dreamina Basic account at dreamina.capcut.com. Log in and verify the Basic status as soon as it is delivered, follow the device limit confirmed on WhatsApp (+92 321 9305619), and keep the credentials untouched."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "How long is Dreamina Basic (CapCut) – 1 Month covered compared with how long it lasts?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Access runs for 1 month (30 days), but the 3-day replacement warranty covers only the first 3 days. Check your login, plan status and credits right away, and download generated content promptly."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "What warranty comes with Dreamina Basic (CapCut) – 1 Month and what voids warranty coverage?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Dreamina Basic (CapCut) – 1 Month includes a 3-Day Replacement Warranty covering login or plan issues within the first 3 days of delivery. Send a screenshot to WhatsApp (+92 321 9305619) inside that window; changing the credentials voids coverage."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Kya Dreamina Basic (CapCut) – 1 Month Pakistan mein JazzCash ya EasyPaisa se bina credit card buy kar sakte hain?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan! PakAITools par Dreamina Basic (CapCut) – 1 Month ki qeemat Rs. 2,000 (1 Month) hai. International card ke bina JazzCash, EasyPaisa, SadaPay, NayaPay, Raast ya UBL bank transfer se PKR mein payment karein aur receipt WhatsApp (+92 321 9305619) par bhej dein."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Agar Dreamina Basic (CapCut) – 1 Month waqt se pehle band ya drop ho jaye toh kya replacement milegi?",
+        "inLanguage": "ur-Latn",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ji haan, Dreamina Basic (CapCut) – 1 Month par 3 din ki replacement warranty milti hai. Delivery ke pehle 3 din mein login ya plan ka masla ho toh WhatsApp (+92 321 9305619) par screenshot bhejein. Access 1 mahine ka hota hai, lekin warranty sirf pehle 3 din ki hai."
+        }
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

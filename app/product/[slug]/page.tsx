@@ -123,7 +123,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     : `https://pakaitools.store/og-default.png`;
 
   return {
-    title: cleanTitle,
+    title: cleanTitle.includes('|') ? { absolute: cleanTitle } : cleanTitle,
     description: product.metaDesc,
     alternates: {
       canonical: `https://pakaitools.store/product/${product.slug}/`,

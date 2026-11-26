@@ -8,7 +8,7 @@ export interface FaqEntry {
 }
 
 export interface FaqProduct {
-  id: number;
+  id?: number | null;
   name: string;
   title: string;
   url: string;
