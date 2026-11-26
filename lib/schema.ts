@@ -128,22 +128,7 @@ export function getProductSchema(
   // Price valid until date: no more than 90 days out, sourced from product or site config data
   const priceValidUntil = (product as any).priceValidUntil || SITE.priceValidUntil || '2027-02-20';
 
-  const offers: any = {
-    '@type': 'Offer',
-    url: canonicalUrl,
-    priceCurrency: 'PKR',
-    priceValidUntil: priceValidUntil,
-    availability: product.price !== null ? 'https://schema.org/InStock' : 'https://schema.org/LimitedAvailability',
-    itemCondition: 'https://schema.org/NewCondition',
-    seller: {
-      '@id': `${SITE_URL}/#organization`,
-    },
-  };
-  if (product.price !== null) {
-    offers.price = product.price.toString();
-  }
-
-  graph.push({
+  const productNode: any = {
     '@type': 'Product',
     '@id': `${canonicalUrl}#product`,
     name: product.name,
@@ -156,8 +141,24 @@ export function getProductSchema(
     },
     category: categoryName,
     url: canonicalUrl,
-    offers,
-  });
+  };
+
+  if (typeof product.price === 'number' && product.price > 0) {
+    productNode.offers = {
+      '@type': 'Offer',
+      url: canonicalUrl,
+      priceCurrency: 'PKR',
+      price: product.price.toString(),
+      priceValidUntil: priceValidUntil,
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: {
+        '@id': `${SITE_URL}/#organization`,
+      },
+    };
+  }
+
+  graph.push(productNode);
 
   graph.push(getBreadcrumbSchema(breadcrumbs));
 
