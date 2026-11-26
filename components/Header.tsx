@@ -96,7 +96,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation (Focused, spacious, clean) */}
-          <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-3 xl:gap-5 text-[13px] xl:text-sm font-medium text-text-secondary whitespace-nowrap flex-shrink-0">
+          <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-2 xl:gap-3.5 2xl:gap-5 text-xs xl:text-[13px] 2xl:text-sm font-medium text-text-secondary whitespace-nowrap flex-shrink-0">
             {/* Home Link (First item) */}
             <HomeLink className="whitespace-nowrap flex-shrink-0" />
 
@@ -154,8 +154,8 @@ export function Header() {
                 pathname === '/price-list/' ? 'text-accent font-semibold' : ''
               }`}
             >
-              <Tag className="w-3.5 h-3.5 text-accent" />
-              <span>Price List</span>
+              <Tag className="w-3.5 h-3.5 text-accent flex-shrink-0 shrink-0" />
+              <span className="whitespace-nowrap">Price&nbsp;List</span>
             </Link>
 
             <Link
@@ -164,7 +164,7 @@ export function Header() {
                 pathname.startsWith('/compare') ? 'text-accent font-semibold' : ''
               }`}
             >
-              <Scale className="w-3.5 h-3.5" />
+              <Scale className="w-3.5 h-3.5 flex-shrink-0 shrink-0" />
               <span>Compare</span>
             </Link>
 
@@ -174,8 +174,8 @@ export function Header() {
                 pathname.startsWith('/blog') ? 'text-accent font-semibold' : ''
               }`}
             >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Blog &amp; Guides</span>
+              <BookOpen className="w-3.5 h-3.5 flex-shrink-0 shrink-0" />
+              <span className="whitespace-nowrap">Blog&nbsp;&amp;&nbsp;Guides</span>
             </Link>
 
             <Link
@@ -184,8 +184,8 @@ export function Header() {
                 pathname === '/payment-methods/' ? 'text-accent font-semibold' : ''
               }`}
             >
-              <CreditCard className="w-3.5 h-3.5" />
-              <span>Payment</span>
+              <CreditCard className="w-3.5 h-3.5 flex-shrink-0 shrink-0" />
+              <span className="whitespace-nowrap">Payment</span>
             </Link>
 
             <Link
@@ -194,8 +194,8 @@ export function Header() {
                 pathname === '/faqs/' ? 'text-accent font-semibold' : ''
               }`}
             >
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>FAQs</span>
+              <HelpCircle className="w-3.5 h-3.5 flex-shrink-0 shrink-0" />
+              <span className="whitespace-nowrap">FAQs</span>
             </Link>
           </nav>
 
