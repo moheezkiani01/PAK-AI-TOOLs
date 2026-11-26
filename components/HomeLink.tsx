@@ -25,7 +25,7 @@ export function HomeLink({
       aria-label="Home"
       aria-current={isActive ? 'page' : undefined}
       onClick={onClick}
-      className={`inline-flex items-center gap-1.5 py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg ${
+      className={`inline-flex items-center gap-1.5 py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg whitespace-nowrap shrink-0 ${
         isActive ? 'text-accent font-semibold' : 'text-text-secondary hover:text-accent'
       } ${className}`}
     >

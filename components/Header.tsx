@@ -96,20 +96,20 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation (Focused, spacious, clean) */}
-          <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-5 text-sm font-medium text-text-secondary">
+          <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-3 xl:gap-5 text-[13px] xl:text-sm font-medium text-text-secondary whitespace-nowrap flex-shrink-0">
             {/* Home Link (First item) */}
-            <HomeLink />
+            <HomeLink className="whitespace-nowrap flex-shrink-0" />
 
             {/* Categories Mega Dropdown */}
             <div
-              className="relative"
+              className="relative flex-shrink-0"
               onMouseEnter={() => setCategoriesDropdownOpen(true)}
               onMouseLeave={() => setCategoriesDropdownOpen(false)}
             >
               <button
                 type="button"
                 onClick={() => setCategoriesDropdownOpen(!categoriesDropdownOpen)}
-                className={`flex items-center space-x-1.5 py-2 hover:text-accent transition-colors focus:outline-none ${
+                className={`flex items-center space-x-1.5 py-2 hover:text-accent transition-colors focus:outline-none whitespace-nowrap ${
                   categoriesDropdownOpen ? 'text-accent' : ''
                 }`}
                 aria-expanded={categoriesDropdownOpen}
@@ -150,7 +150,7 @@ export function Header() {
 
             <Link
               href="/price-list/"
-              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 ${
+              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 whitespace-nowrap flex-shrink-0 ${
                 pathname === '/price-list/' ? 'text-accent font-semibold' : ''
               }`}
             >
@@ -160,7 +160,7 @@ export function Header() {
 
             <Link
               href="/compare/"
-              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 ${
+              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 whitespace-nowrap flex-shrink-0 ${
                 pathname.startsWith('/compare') ? 'text-accent font-semibold' : ''
               }`}
             >
@@ -170,7 +170,7 @@ export function Header() {
 
             <Link
               href="/blog/"
-              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 ${
+              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 whitespace-nowrap flex-shrink-0 ${
                 pathname.startsWith('/blog') ? 'text-accent font-semibold' : ''
               }`}
             >
@@ -180,7 +180,7 @@ export function Header() {
 
             <Link
               href="/payment-methods/"
-              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 ${
+              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 whitespace-nowrap flex-shrink-0 ${
                 pathname === '/payment-methods/' ? 'text-accent font-semibold' : ''
               }`}
             >
@@ -190,7 +190,7 @@ export function Header() {
 
             <Link
               href="/faqs/"
-              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 ${
+              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 whitespace-nowrap flex-shrink-0 ${
                 pathname === '/faqs/' ? 'text-accent font-semibold' : ''
               }`}
             >
@@ -200,7 +200,7 @@ export function Header() {
           </nav>
 
           {/* Right Actions */}
-          <div className="flex items-center space-x-1.5 sm:space-x-2">
+          <div className="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
             {/* Search Button */}
             <button
               type="button"
