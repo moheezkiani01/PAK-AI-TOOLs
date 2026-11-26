@@ -268,6 +268,83 @@ if (fs.existsSync(OUT_DIR)) {
 
   scanDir(OUT_DIR);
   ok(`Total generated HTML pages scanned: ${htmlFiles}`);
+
+  // 11b. Strict 2-way Sitemap Parity Check
+  console.log('\n--- Validating Sitemap Parity & Robots.txt ---');
+  const sitemapXml = fs.readFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), 'utf8');
+  const sitemapLocs = [...sitemapXml.matchAll(/<loc>(https:\/\/pakaitools\.store\/[^<]*)<\/loc>/g)].map(m => m[1]);
+  const sitemapSet = new Set(sitemapLocs);
+
+  // Validate every lastmod in sitemap
+  const lastmodMatches = [...sitemapXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m => m[1]);
+  let badLastmods = 0;
+  for (const lm of lastmodMatches) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(lm)) {
+      error(`Invalid lastmod format in sitemap: ${lm}`);
+      badLastmods++;
+    }
+  }
+  if (badLastmods === 0 && lastmodMatches.length === sitemapLocs.length) {
+    ok(`All ${sitemapLocs.length} sitemap URLs have valid YYYY-MM-DD <lastmod>`);
+  } else if (lastmodMatches.length !== sitemapLocs.length) {
+    error(`Missing <lastmod> tags: ${sitemapLocs.length} URLs vs ${lastmodMatches.length} lastmods`);
+  }
+
+  // Check built pages missing from sitemap
+  let sitemapMissingErrors = 0;
+  const outCanonicals = new Map();
+  function collectCanonicals(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        collectCanonicals(full);
+      } else if (entry.isFile() && entry.name.endsWith('.html')) {
+        const rel = path.relative(OUT_DIR, full);
+        if (rel.includes('404') || rel.includes('brand-card-fixtures')) continue;
+        const html = fs.readFileSync(full, 'utf8');
+        const canMatch = html.match(/<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i) ||
+                         html.match(/<link[^>]+href="([^"]+)"[^>]+rel="canonical"/i);
+        if (canMatch) {
+          outCanonicals.set(canMatch[1], rel);
+        }
+      }
+    }
+  }
+  collectCanonicals(OUT_DIR);
+
+  for (const [canUrl, rel] of outCanonicals.entries()) {
+    if (!sitemapSet.has(canUrl)) {
+      error(`Indexable built page missing from sitemap: ${canUrl} (${rel})`);
+      sitemapMissingErrors++;
+    }
+  }
+
+  for (const loc of sitemapLocs) {
+    if (!outCanonicals.has(loc)) {
+      error(`Sitemap URL has no corresponding built page: ${loc}`);
+      sitemapMissingErrors++;
+    }
+  }
+
+  if (sitemapMissingErrors === 0) {
+    ok(`Sitemap 2-way parity verified: exactly ${sitemapLocs.length} built pages match ${outCanonicals.size} sitemap URLs 1:1`);
+  }
+
+  // Validate robots.txt
+  const robotsTxtPath = path.join(PUBLIC_DIR, 'robots.txt');
+  if (fs.existsSync(robotsTxtPath)) {
+    const robotsTxt = fs.readFileSync(robotsTxtPath, 'utf8');
+    if (!robotsTxt.includes('Sitemap: https://pakaitools.store/sitemap.xml')) {
+      error('robots.txt missing "Sitemap: https://pakaitools.store/sitemap.xml"');
+    } else {
+      ok('robots.txt contains correct Sitemap declaration');
+    }
+    if (robotsTxt.includes('Disallow: /product') || robotsTxt.includes('Disallow: /faqs')) {
+      error('robots.txt blocks indexable paths!');
+    } else {
+      ok('robots.txt does not block /product/, /faqs/ or category paths');
+    }
+  }
   if (h1Failures === 0) ok('All generated HTML pages have exactly one <h1>');
   if (objectFailures === 0) ok('Zero occurrences of [object Object]');
   if (placeholderFailures === 0) ok('Zero unreplaced template placeholders in generated HTML');

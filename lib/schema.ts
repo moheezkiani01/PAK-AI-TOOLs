@@ -163,9 +163,6 @@ export function getProductSchema(
 
   if (faqPageNode) {
     graph.push(faqPageNode);
-  } else if (product.faqs && product.faqs.length > 0) {
-    const faqSchema = getFaqSchema(product.faqs);
-    if (faqSchema) graph.push(faqSchema);
   }
 
   return {

@@ -357,8 +357,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
               }}
               lastReviewed="November 26, 2026"
             />
-          ) : product.faqs && product.faqs.length > 0 ? (
-            <Faq items={product.faqs} />
           ) : null}
 
           {/* Compare Before Buying Callout */}

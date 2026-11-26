@@ -82,7 +82,7 @@ export default function FaqsPage() {
           Everything you need to know about purchasing AI tools, creative suites, streaming subscriptions, and developer accounts in Pakistan. Pay locally in PKR with no international credit card required.
         </p>
         <div className="flex flex-wrap items-center gap-4 text-xs text-text-tertiary pt-2 border-t border-separator">
-          <span>22 Verified Questions &amp; Answers</span>
+          <span>{faqGeneral.faqs.length} Verified Questions &amp; Answers</span>
           <span>·</span>
           <span>Last reviewed: November 26, 2026</span>
           <span>·</span>

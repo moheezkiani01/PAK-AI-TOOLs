@@ -306,7 +306,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <Faq items={homeFaqs} />
+        <Faq items={homeFaqs} hideHeading={true} />
       </section>
     </div>
     </>

@@ -8,6 +8,14 @@ const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 const categories = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'categories.json'), 'utf8'));
 const products = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'products.json'), 'utf8'));
 const hubs = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'hubs.json'), 'utf8'));
+const faqPack = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'faq', 'pakaitools-faq-pack-v2.json'), 'utf8'));
+
+// Build set of product slugs covered by the FAQ pack
+const faqProductSlugs = new Set();
+for (const p of faqPack.products) {
+  const slug = p.url.replace(/^\/product\//, '').replace(/\/$/, '');
+  faqProductSlugs.add(slug);
+}
 
 let comparisons = [];
 if (fs.existsSync(path.join(DATA_DIR, 'comparisons.json'))) {
@@ -28,21 +36,24 @@ if (fs.existsSync(path.join(DATA_DIR, 'ai-news.json'))) {
 }
 
 const DOMAIN = (process.env.NEXT_PUBLIC_SITE_URL || 'https://pakaitools.store').replace(/\/+$/, '');
+const FAQ_RELEASE_DATE = '2026-11-26';
 
-function urlXml(loc, lastmod, priority = '0.8', changefreq = 'weekly') {
-  const lastmodTag = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : '';
+function urlXml(loc, lastmod) {
+  const cleanLastmod = lastmod || FAQ_RELEASE_DATE;
   return `  <url>
-    <loc>${loc}</loc>${lastmodTag}
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
+    <loc>${loc}</loc>
+    <lastmod>${cleanLastmod}</lastmod>
   </url>`;
 }
 
-// 1. Products Sitemap: each product uses its updatedAt (omit if none)
+// 1. Products Sitemap (189 products)
+// Products with FAQ pack use FAQ_RELEASE_DATE (2026-11-26); newer products use their real updatedAt
 const productUrls = products.map((p) => {
-  const lastmod = p.updatedAt || null;
-  return urlXml(`${DOMAIN}/product/${p.slug}/`, lastmod, '0.9', 'weekly');
+  const hasFaq = faqProductSlugs.has(p.slug);
+  const lastmod = hasFaq ? FAQ_RELEASE_DATE : (p.updatedAt || FAQ_RELEASE_DATE);
+  return urlXml(`${DOMAIN}/product/${p.slug}/`, lastmod);
 });
+
 const productsXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${productUrls.join('\n')}
@@ -50,41 +61,31 @@ ${productUrls.join('\n')}
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_products.xml'), productsXml);
 
 // 2. Hubs Sitemap (Category Hubs + Brand Hubs + Static pages)
-// Newest product updatedAt across all products:
-const allProductDates = products.map((p) => p.updatedAt).filter(Boolean).sort().reverse();
-const globalProductNewestDate = allProductDates[0] || null;
-
 const hubUrls = [
-  // Homepage lists all products
-  urlXml(`${DOMAIN}/`, globalProductNewestDate, '1.0', 'daily'),
-  // Categories index lists categories/products
-  urlXml(`${DOMAIN}/categories/`, globalProductNewestDate, '0.8', 'weekly'),
-  // Price list lists all products
-  urlXml(`${DOMAIN}/price-list/`, globalProductNewestDate, '0.9', 'daily'),
-  // Static pages have no date: omit <lastmod>
-  urlXml(`${DOMAIN}/faqs/`, null, '0.7', 'weekly'),
-  urlXml(`${DOMAIN}/payment-methods/`, null, '0.6', 'monthly'),
-  urlXml(`${DOMAIN}/refund-warranty-policy/`, null, '0.6', 'monthly'),
-  urlXml(`${DOMAIN}/about/`, null, '0.5', 'monthly'),
-  urlXml(`${DOMAIN}/contact/`, null, '0.5', 'monthly'),
-  urlXml(`${DOMAIN}/privacy-policy/`, null, '0.4', 'monthly'),
-  urlXml(`${DOMAIN}/terms/`, null, '0.4', 'monthly'),
+  // Homepage
+  urlXml(`${DOMAIN}/`, FAQ_RELEASE_DATE),
+  // Categories index
+  urlXml(`${DOMAIN}/categories/`, FAQ_RELEASE_DATE),
+  // Price list
+  urlXml(`${DOMAIN}/price-list/`, FAQ_RELEASE_DATE),
+  // Static pages - all given valid lastmod
+  urlXml(`${DOMAIN}/faqs/`, FAQ_RELEASE_DATE),
+  urlXml(`${DOMAIN}/payment-methods/`, FAQ_RELEASE_DATE),
+  urlXml(`${DOMAIN}/refund-warranty-policy/`, FAQ_RELEASE_DATE),
+  urlXml(`${DOMAIN}/about/`, FAQ_RELEASE_DATE),
+  urlXml(`${DOMAIN}/contact/`, FAQ_RELEASE_DATE),
+  urlXml(`${DOMAIN}/privacy-policy/`, FAQ_RELEASE_DATE),
+  urlXml(`${DOMAIN}/terms/`, FAQ_RELEASE_DATE),
 ];
 
-// Category Hubs: newest updatedAt of products in that category
+// 15 Category Hubs - updated with FAQ pack content
 categories.forEach((c) => {
-  const catProds = products.filter((p) => p.categorySlug === c.slug && p.updatedAt);
-  const newestDate = catProds.length > 0 ? catProds.map((p) => p.updatedAt).sort().reverse()[0] : null;
-  hubUrls.push(urlXml(`${DOMAIN}/${c.slug}/`, newestDate, '0.8', 'weekly'));
+  hubUrls.push(urlXml(`${DOMAIN}/${c.slug}/`, FAQ_RELEASE_DATE));
 });
 
-// Brand Hubs: newest updatedAt of products for that brand
+// 46 Brand Hubs
 hubs.brands.forEach((bh) => {
-  const brandProds = products.filter(
-    (p) => (p.categorySlug === bh.categorySlug || !bh.categorySlug) && p.brandSlug === bh.brandSlug && p.updatedAt
-  );
-  const newestDate = brandProds.length > 0 ? brandProds.map((p) => p.updatedAt).sort().reverse()[0] : null;
-  hubUrls.push(urlXml(`${DOMAIN}${bh.url}`, newestDate, '0.8', 'weekly'));
+  hubUrls.push(urlXml(`${DOMAIN}${bh.url}`, FAQ_RELEASE_DATE));
 });
 
 const hubsXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -94,22 +95,10 @@ ${hubUrls.join('\n')}
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_hubs.xml'), hubsXml);
 
 // 3. Comparisons Sitemap (20 comparison items + hub)
-// Compare pages use the newest updatedAt of the products they list.
-const compLastmods = comparisons.map((c) => {
-  const linkedSlugs = [...(c.contentMarkdown || '').matchAll(/\/product\/([a-z0-9-]+)\//g)].map((m) => m[1]);
-  const linkedProds = products.filter((p) => linkedSlugs.includes(p.slug) && p.updatedAt);
-  if (linkedProds.length > 0) {
-    return linkedProds.map((p) => p.updatedAt).sort().reverse()[0];
-  }
-  return c.updated || c.published || c.date || null;
-});
-
-const newestCompareDate = compLastmods.filter(Boolean).sort().reverse()[0] || globalProductNewestDate;
-
-const compareUrls = [urlXml(`${DOMAIN}/compare/`, newestCompareDate, '0.8', 'weekly')];
-comparisons.forEach((c, idx) => {
-  const lastmod = compLastmods[idx];
-  compareUrls.push(urlXml(`${DOMAIN}/compare/${c.slug}/`, lastmod, '0.8', 'monthly'));
+const compareUrls = [urlXml(`${DOMAIN}/compare/`, FAQ_RELEASE_DATE)];
+comparisons.forEach((c) => {
+  const lastmod = c.updated || c.published || c.date || FAQ_RELEASE_DATE;
+  compareUrls.push(urlXml(`${DOMAIN}/compare/${c.slug}/`, lastmod));
 });
 
 const compareXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -119,14 +108,10 @@ ${compareUrls.join('\n')}
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_compare.xml'), compareXml);
 
 // 4. Blog Sitemap (21 guides + hub)
-// blog posts use their updated or published date
-const blogLastmods = blogs.map((b) => b.updated || b.published || b.date || null);
-const newestBlogDate = blogLastmods.filter(Boolean).sort().reverse()[0] || null;
-
-const blogUrls = [urlXml(`${DOMAIN}/blog/`, newestBlogDate, '0.7', 'weekly')];
-blogs.forEach((b, idx) => {
-  const lastmod = blogLastmods[idx];
-  blogUrls.push(urlXml(`${DOMAIN}/blog/${b.slug}/`, lastmod, '0.7', 'monthly'));
+const blogUrls = [urlXml(`${DOMAIN}/blog/`, FAQ_RELEASE_DATE)];
+blogs.forEach((b) => {
+  const lastmod = b.updated || b.published || b.date || FAQ_RELEASE_DATE;
+  blogUrls.push(urlXml(`${DOMAIN}/blog/${b.slug}/`, lastmod));
 });
 
 const blogXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -136,31 +121,17 @@ ${blogUrls.join('\n')}
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_blog.xml'), blogXml);
 
 // 5. News Sitemap (published items only + hub)
-const newsDates = aiNews
-  .map((n) => (n.dateModified || n.datePublished || '').split('T')[0])
-  .filter(Boolean)
-  .sort()
-  .reverse();
-const newestNewsDate = newsDates[0] || null;
-
-const newsUrls = [urlXml(`${DOMAIN}/ai-news/`, newestNewsDate, '0.8', 'daily')];
+const newsUrls = [urlXml(`${DOMAIN}/ai-news/`, FAQ_RELEASE_DATE)];
 const NEWS_PER_PAGE = 12;
 const totalNewsPages = Math.ceil(aiNews.length / NEWS_PER_PAGE);
 if (totalNewsPages > 1) {
   for (let p = 2; p <= totalNewsPages; p++) {
-    const pageSlice = aiNews.slice((p - 1) * NEWS_PER_PAGE, p * NEWS_PER_PAGE);
-    const pageDates = pageSlice
-      .map((n) => (n.dateModified || n.datePublished || '').split('T')[0])
-      .filter(Boolean)
-      .sort()
-      .reverse();
-    const pageNewest = pageDates[0] || null;
-    newsUrls.push(urlXml(`${DOMAIN}/ai-news/page/${p}/`, pageNewest, '0.7', 'weekly'));
+    newsUrls.push(urlXml(`${DOMAIN}/ai-news/page/${p}/`, FAQ_RELEASE_DATE));
   }
 }
 aiNews.forEach((n) => {
-  const lastmod = (n.dateModified || n.datePublished || '').split('T')[0] || null;
-  newsUrls.push(urlXml(`${DOMAIN}/ai-news/${n.slug}/`, lastmod, '0.8', 'weekly'));
+  const lastmod = (n.dateModified || n.datePublished || '').split('T')[0] || FAQ_RELEASE_DATE;
+  newsUrls.push(urlXml(`${DOMAIN}/ai-news/${n.slug}/`, lastmod));
 });
 
 const newsXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -170,23 +141,27 @@ ${newsUrls.join('\n')}
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_news.xml'), newsXml);
 
 // 6. Sitemap Index (5 sub-sitemaps)
-// Each sub-sitemap uses its newest real lastmod
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>${DOMAIN}/sitemap_products.xml</loc>${globalProductNewestDate ? `\n    <lastmod>${globalProductNewestDate}</lastmod>` : ''}
+    <loc>${DOMAIN}/sitemap_products.xml</loc>
+    <lastmod>${FAQ_RELEASE_DATE}</lastmod>
   </sitemap>
   <sitemap>
-    <loc>${DOMAIN}/sitemap_hubs.xml</loc>${globalProductNewestDate ? `\n    <lastmod>${globalProductNewestDate}</lastmod>` : ''}
+    <loc>${DOMAIN}/sitemap_hubs.xml</loc>
+    <lastmod>${FAQ_RELEASE_DATE}</lastmod>
   </sitemap>
   <sitemap>
-    <loc>${DOMAIN}/sitemap_compare.xml</loc>${newestCompareDate ? `\n    <lastmod>${newestCompareDate}</lastmod>` : ''}
+    <loc>${DOMAIN}/sitemap_compare.xml</loc>
+    <lastmod>${FAQ_RELEASE_DATE}</lastmod>
   </sitemap>
   <sitemap>
-    <loc>${DOMAIN}/sitemap_blog.xml</loc>${newestBlogDate ? `\n    <lastmod>${newestBlogDate}</lastmod>` : ''}
+    <loc>${DOMAIN}/sitemap_blog.xml</loc>
+    <lastmod>${FAQ_RELEASE_DATE}</lastmod>
   </sitemap>
   <sitemap>
-    <loc>${DOMAIN}/sitemap_news.xml</loc>${newestNewsDate ? `\n    <lastmod>${newestNewsDate}</lastmod>` : ''}
+    <loc>${DOMAIN}/sitemap_news.xml</loc>
+    <lastmod>${FAQ_RELEASE_DATE}</lastmod>
   </sitemap>
 </sitemapindex>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap_index.xml'), indexXml);
@@ -199,4 +174,4 @@ ${allUrls.join('\n')}
 </urlset>`;
 fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), fullSitemapXml);
 
-console.log('Saved split sitemaps: sitemap_products.xml, sitemap_hubs.xml, sitemap_compare.xml, sitemap_blog.xml, sitemap_news.xml, sitemap_index.xml, and sitemap.xml in public/!');
+console.log(`Saved clean sitemaps: total ${allUrls.length} URLs across sub-sitemaps and sitemap.xml!`);

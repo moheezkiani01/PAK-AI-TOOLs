@@ -2,6 +2,12 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // 1. Canonical Host: Redirect www to apex domain
+    if (url.hostname === 'www.pakaitools.store') {
+      url.hostname = 'pakaitools.store';
+      return Response.redirect(url.toString(), 301);
+    }
+
     // Support /news and /news/ by routing to /ai-news/
     if (url.pathname === '/news' || url.pathname === '/news/') {
       url.pathname = '/ai-news/';
