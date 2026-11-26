@@ -8,6 +8,8 @@
   Cache-Control: public, max-age=31536000, immutable
 /brands/*
   Cache-Control: public, max-age=2592000
+/brand-card-fixtures/*
+  X-Robots-Tag: noindex, nofollow
 /*.html
   Content-Type: text/html; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate

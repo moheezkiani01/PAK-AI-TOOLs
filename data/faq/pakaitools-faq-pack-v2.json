@@ -32,7 +32,7 @@
         "group": "Ordering & payment",
         "lang": "en",
         "q": "Which payment methods does PakAITools accept?",
-        "a": "PakAITools accepts local PKR payments through JazzCash, EasyPaisa, SadaPay, NayaPay, Raast and UBL bank transfer. Binance Pay (USDT) is also available; message WhatsApp (+92 321 9305619) for details. After paying, send your receipt on WhatsApp (+92 321 9305619) so your order can be confirmed and delivered."
+        "a": "PakAITools accepts local PKR payments through JazzCash, EasyPaisa, SadaPay, NayaPay, Raast and UBL bank transfer. Binance Pay (USDT) is also available; message WhatsApp for details. After paying, send your receipt on WhatsApp (+92 321 9305619) so your order can be confirmed and delivered."
       },
       {
         "group": "Ordering & payment",
@@ -205,7 +205,7 @@
               "name": "Which payment methods does PakAITools accept?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PakAITools accepts local PKR payments through JazzCash, EasyPaisa, SadaPay, NayaPay, Raast and UBL bank transfer. Binance Pay (USDT) is also available; message WhatsApp (+92 321 9305619) for details. After paying, send your receipt on WhatsApp (+92 321 9305619) so your order can be confirmed and delivered."
+                "text": "PakAITools accepts local PKR payments through JazzCash, EasyPaisa, SadaPay, NayaPay, Raast and UBL bank transfer. Binance Pay (USDT) is also available; message WhatsApp for details. After paying, send your receipt on WhatsApp (+92 321 9305619) so your order can be confirmed and delivered."
               }
             },
             {
@@ -222,6 +222,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Open the plan you want and check its price, duration, warranty and account type. Pay in PKR through a local method, then send your receipt to WhatsApp (+92 321 9305619). PakAITools confirms the payment and delivers your access privately on WhatsApp."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How fast will my order be delivered?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most ready plans are delivered on WhatsApp within 15 minutes after your payment is verified, during normal operating hours. Made-to-order subscriptions are prepared fresh, so they can take longer. Message WhatsApp (+92 321 9305619) to confirm timing for your plan."
               }
             },
             {
@@ -370,14 +378,6 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Payment confirm hone ke baad delivery WhatsApp par private tor par milti hai: ready account, activation key, invite ya upgrade link, ya eSIM QR code, saath setup ki hidayaat. Har plan ka format uske product page par likha hota hai."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How fast will my order be delivered?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Most ready plans are delivered on WhatsApp within 15 minutes after your payment is verified, during normal operating hours. Made-to-order subscriptions are prepared fresh, so they can take longer. Message WhatsApp (+92 321 9305619) to confirm timing for your plan."
               }
             }
           ]

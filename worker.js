@@ -20,12 +20,26 @@ export default {
 
     const response = await env.ASSETS.fetch(request);
 
+    // Guard brand-card-fixtures
+    if (url.pathname.startsWith('/brand-card-fixtures')) {
+      const headers = new Headers(response.headers);
+      headers.set('X-Robots-Tag', 'noindex, nofollow');
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
+    }
+
     // Pre-Launch Staging Guardrail:
-    // Add X-Robots-Tag: noindex, nofollow on staging (*.workers.dev)
+    // Add X-Robots-Tag: noindex, nofollow and prevent edge/browser caching on staging (*.workers.dev)
     // Automatically excluded when served on production custom domain (pakaitools.store)
     if (url.hostname.endsWith('.workers.dev')) {
       const headers = new Headers(response.headers);
       headers.set('X-Robots-Tag', 'noindex, nofollow');
+      headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      headers.set('Pragma', 'no-cache');
+      headers.set('Expires', '0');
       return new Response(response.body, {
         status: response.status,
         statusText: response.statusText,

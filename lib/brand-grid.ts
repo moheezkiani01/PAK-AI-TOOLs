@@ -70,17 +70,17 @@ export const CATEGORY_FACTUAL_INTROS: Record<string, string> = {
   'video-editing':
     'Unlock CapCut Pro VIP, Wink VIP, and Alight Motion Premium subscriptions in Pakistan without an international bank card. Designed for TikTok, YouTube, and freelance video creators with instant PKR payment via JazzCash, EasyPaisa, or SadaPay.',
   'ai-video-image':
-    'Generate high-resolution AI art and cinematic video using Kling AI, Midjourney, Dreamina, Runway Gen-3, Google Veo 3, and PixVerse. All subscriptions and credit packs are priced in PKR with fast delivery and upfront replacement warranty.',
+    'Generate high-resolution AI art and cinematic video using Kling AI, Dreamina, Runway Gen-3, Google Veo 3, and OpenArt AI. All subscriptions and credit packs are priced in PKR with fast delivery and upfront replacement warranty.',
   'ai-voice-audio':
-    'Access professional voice synthesis and music generation platforms including ElevenLabs, Suno AI, and Udio in Pakistan. Secure monthly plans and credit tiers priced in PKR for content creators, podcasters, and agency voiceover workflows.',
+    'Access professional voice synthesis and music generation platforms including ElevenLabs, Suno AI, and MiniMax Voice in Pakistan. Secure monthly plans and credit tiers priced in PKR for content creators, podcasters, and agency voiceover workflows.',
   'ai-apis':
     'Direct wholesale developer API token access for Claude API, Cursor API, DeepSeek API, Grok API, and Qwen API in Pakistan. Billed transparently in PKR for software engineers, startups, and automated AI agents.',
   'vpn-privacy':
-    'Protect your online privacy and bypass regional restrictions with ExpressVPN, NordVPN, Surfshark, HMA, and IPVanish in Pakistan. Order multi-device plans paid in Pakistani Rupees (PKR) with zero international banking hassle.',
+    'Protect your online privacy and bypass regional restrictions with ExpressVPN, NordVPN, Surfshark, PureVPN, and HMA in Pakistan. Order multi-device plans paid in Pakistani Rupees (PKR) with zero international banking hassle.',
   'streaming':
     'Enjoy uninterrupted movies and music with Netflix, Spotify Premium, Amazon Prime Video, Apple Music, and iQIYI in Pakistan. Compare private and shared screen options with guaranteed warranty.',
   'education':
-    'Upgrade your skills with Duolingo Super, Coursera Plus, Udemy Personal Plan, Skillshare, and Studocu in Pakistan. Pay in local PKR to access certified courses, language practice, and academic study resources.',
+    'Upgrade your skills with Duolingo Super, Coursera Premium, Udemy Personal Plan, Skillshare, and Studocu in Pakistan. Pay in local PKR to access certified courses, language practice, and academic study resources.',
   'productivity-software':
     'Boost your daily workflow with Microsoft 365, Notion, Gamma App, LinkedIn Premium, and Zoom in Pakistan. Verified licenses and team invitations billed in PKR without recurring foreign card charges.',
   'developer-tools':
@@ -88,7 +88,7 @@ export const CATEGORY_FACTUAL_INTROS: Record<string, string> = {
   'cloud-storage':
     'Expand your secure digital storage with Apple iCloud+ packages in Pakistan. Store photos, device backups, and documents with instant PKR activation and no recurring US dollar card requirements.',
   'antivirus':
-    'Safeguard your Windows PC, Mac, and mobile devices with Kaspersky Total Security licenses in Pakistan. Verified multi-device protection keys priced in PKR with full duration replacement warranty.',
+    'Safeguard your Windows PC with Kaspersky Plus and Kaspersky Premium 1-year licenses in Pakistan. Verified protection keys and own-account upgrades priced in PKR with full duration replacement warranty.',
   'antidetect-proxies':
     'Manage multi-account operations, affiliate marketing, and web scraping with GPM Login and ProxyScrape in Pakistan. Reliable proxy bandwidth and anti-detect browser licenses priced in local currency.',
   'esim':

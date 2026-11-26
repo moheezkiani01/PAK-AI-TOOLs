@@ -125,40 +125,41 @@ export function getProductSchema(
     ? `${SITE_URL}/og/${product.slug}.png`
     : `${SITE_URL}/og-default.png`;
 
-  // Price valid until date: no more than 90 days out, sourced from product or site config data
-  const priceValidUntil = (product as any).priceValidUntil || SITE.priceValidUntil || '2027-02-20';
+  // Generate priceValidUntil dynamically 90 days from the build date
+  const validUntilDate = new Date();
+  validUntilDate.setDate(validUntilDate.getDate() + 90);
+  const priceValidUntil = validUntilDate.toISOString().split('T')[0];
 
-  const productNode: any = {
-    '@type': 'Product',
-    '@id': `${canonicalUrl}#product`,
-    name: product.name,
-    description: product.answer,
-    image: [productImage],
-    sku: product.slug,
-    brand: {
-      '@type': 'Brand',
-      name: brandName,
-    },
-    category: categoryName,
-    url: canonicalUrl,
-  };
-
+  // Requirement: Omit the Product node on quote-only plans. Keep BreadcrumbList and FAQPage.
   if (typeof product.price === 'number' && product.price > 0) {
-    productNode.offers = {
-      '@type': 'Offer',
+    const productNode: any = {
+      '@type': 'Product',
+      '@id': `${canonicalUrl}#product`,
+      name: product.name,
+      description: product.answer,
+      image: [productImage],
+      sku: product.slug,
+      brand: {
+        '@type': 'Brand',
+        name: brandName,
+      },
+      category: categoryName,
       url: canonicalUrl,
-      priceCurrency: 'PKR',
-      price: product.price.toString(),
-      priceValidUntil: priceValidUntil,
-      availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: {
-        '@id': `${SITE_URL}/#organization`,
+      offers: {
+        '@type': 'Offer',
+        url: canonicalUrl,
+        priceCurrency: 'PKR',
+        price: product.price.toString(),
+        priceValidUntil: priceValidUntil,
+        availability: 'https://schema.org/InStock',
+        itemCondition: 'https://schema.org/NewCondition',
+        seller: {
+          '@id': `${SITE_URL}/#organization`,
+        },
       },
     };
+    graph.push(productNode);
   }
-
-  graph.push(productNode);
 
   graph.push(getBreadcrumbSchema(breadcrumbs));
 
