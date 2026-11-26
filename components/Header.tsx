@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Search, ChevronDown, Tag, Scale, BookOpen, CreditCard, Sparkles, Home } from 'lucide-react';
+import { Menu, X, Search, ChevronDown, Tag, Scale, BookOpen, CreditCard, Sparkles, Home, HelpCircle } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
 import { HomeLink } from './HomeLink';
 import { CurrencyToggle } from './CurrencyToggle';
@@ -186,6 +186,16 @@ export function Header() {
             >
               <CreditCard className="w-3.5 h-3.5" />
               <span>Payment</span>
+            </Link>
+
+            <Link
+              href="/faqs/"
+              className={`hover:text-accent transition-colors py-2 flex items-center space-x-1 ${
+                pathname === '/faqs/' ? 'text-accent font-semibold' : ''
+              }`}
+            >
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>FAQs</span>
             </Link>
           </nav>
 
@@ -390,6 +400,13 @@ export function Header() {
               {/* Trust & Policy Links */}
               <div className="pt-2 border-t border-separator space-y-1 text-xs">
                 <div className="grid grid-cols-2 gap-2 py-1 text-text-secondary">
+                  <Link
+                    href="/faqs/"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="hover:text-text py-1"
+                  >
+                    FAQs
+                  </Link>
                   <Link
                     href="/refund-warranty-policy/"
                     onClick={() => setMobileMenuOpen(false)}

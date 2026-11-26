@@ -64,6 +64,11 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-xs md:text-sm">
               <li>
+                <Link href="/faqs/" className="hover:text-accent transition-colors">
+                  Frequently Asked Questions (FAQs)
+                </Link>
+              </li>
+              <li>
                 <Link href="/payment-methods/" className="hover:text-accent transition-colors">
                   Payment Methods
                 </Link>

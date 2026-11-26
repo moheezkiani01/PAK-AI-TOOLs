@@ -102,7 +102,8 @@ export function getFaqSchema(faqs: Array<{ question: string; answer: string }>) 
 export function getProductSchema(
   product: Product,
   breadcrumbs: Array<{ name: string; url: string }>,
-  _brandLogo?: string | null
+  _brandLogo?: string | null,
+  faqPageNode?: any
 ) {
   const graph: any[] = [];
   const canonicalUrl = `${SITE_URL}/product/${product.slug}/`;
@@ -160,7 +161,9 @@ export function getProductSchema(
 
   graph.push(getBreadcrumbSchema(breadcrumbs));
 
-  if (product.faqs && product.faqs.length > 0) {
+  if (faqPageNode) {
+    graph.push(faqPageNode);
+  } else if (product.faqs && product.faqs.length > 0) {
     const faqSchema = getFaqSchema(product.faqs);
     if (faqSchema) graph.push(faqSchema);
   }
@@ -182,7 +185,8 @@ export function getCollectionSchema(
     highPrice: number;
     offerCount: number;
     description: string;
-  }
+  },
+  faqPageNode?: any
 ) {
   const canonical = `${SITE_URL}${url}`;
   const graph: any[] = [
@@ -217,7 +221,9 @@ export function getCollectionSchema(
     });
   }
 
-  if (faqs && faqs.length > 0) {
+  if (faqPageNode) {
+    graph.push(faqPageNode);
+  } else if (faqs && faqs.length > 0) {
     const faqSchema = getFaqSchema(faqs);
     if (faqSchema) graph.push(faqSchema);
   }

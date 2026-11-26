@@ -17,7 +17,9 @@ import { BuyCard } from '@/components/BuyCard';
 import { StickyOrderBar } from '@/components/StickyOrderBar';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Faq } from '@/components/Faq';
+import { PackFaq } from '@/components/PackFaq';
 import { JsonLd } from '@/components/JsonLd';
+import { getFaqByProductSlug } from '@/lib/faq';
 import { ComparisonTable } from '@/components/ComparisonTable';
 import { RelatedPlans } from '@/components/RelatedPlans';
 import { getProductSchema } from '@/lib/schema';
@@ -170,7 +172,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
     { name: product.name, url: `/product/${product.slug}/` },
   ];
 
-  const schema = getProductSchema(product, breadcrumbs, brand?.logo);
+  const faqProduct = getFaqByProductSlug(product.slug);
+  const faqPageNode = faqProduct
+    ? faqProduct.jsonld['@graph'].find((n: any) => n['@type'] === 'FAQPage')
+    : undefined;
+
+  const schema = getProductSchema(product, breadcrumbs, brand?.logo, faqPageNode);
 
   // Related plans: same-brand plans first, then same-category alternatives
   const sameBrandPlans = getProductsByBrand(product.brandSlug);
@@ -338,7 +345,21 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
 
           {/* FAQ (Single Heading) */}
-          {product.faqs && product.faqs.length > 0 && <Faq items={product.faqs} />}
+          {faqProduct ? (
+            <PackFaq
+              title={`Frequently Asked Questions about ${faqProduct.name}`}
+              faqs={faqProduct.faqs}
+              atAGlance={{
+                price: faqProduct.price,
+                duration: faqProduct.duration,
+                warranty: faqProduct.warranty,
+                account: faqProduct.account,
+              }}
+              lastReviewed="November 26, 2026"
+            />
+          ) : product.faqs && product.faqs.length > 0 ? (
+            <Faq items={product.faqs} />
+          ) : null}
 
           {/* Compare Before Buying Callout */}
           <div className="p-4 rounded-xl border border-separator bg-bg-card flex items-center justify-between gap-3">

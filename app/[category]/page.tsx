@@ -14,8 +14,10 @@ import { BrandCard } from '@/components/BrandCard';
 import { BrandGrid } from '@/components/BrandGrid';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Faq } from '@/components/Faq';
+import { PackFaq } from '@/components/PackFaq';
 import { JsonLd } from '@/components/JsonLd';
 import { getCollectionSchema } from '@/lib/schema';
+import { getFaqByCategorySlug } from '@/lib/faq';
 import { renderMarkdown } from '@/lib/markdown';
 import { ShieldCheck, BookOpen, ArrowRight } from 'lucide-react';
 import { SITE } from '@/lib/site.config';
@@ -78,6 +80,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     { name: category.name, url: `/${category.slug}/` },
   ];
 
+  const faqCategory = getFaqByCategorySlug(catSlug);
+  const faqPageNode = faqCategory
+    ? faqCategory.jsonld['@graph'].find((n: any) => n['@type'] === 'FAQPage')
+    : undefined;
+
   // B8 Content Uniqueness: Check if category has verified unique FAQs (hide templated generic FAQs)
   const isTemplatedFaq = !hub?.faqs || hub.faqs.some((f) => f.question.startsWith('What is the price of '));
   const uniqueFaqs = isTemplatedFaq ? undefined : hub.faqs;
@@ -86,7 +93,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     hub?.h1 || `${category.name} Price in Pakistan`,
     `/${category.slug}/`,
     breadcrumbs,
-    uniqueFaqs
+    uniqueFaqs,
+    undefined,
+    faqPageNode
   );
 
   const brandsWithPrices = brands.map((brand) => {
@@ -174,8 +183,16 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </Link>
       </section>
 
-      {/* FAQs (Rendered only when verified unique FAQs exist) */}
-      {uniqueFaqs && uniqueFaqs.length > 0 && <Faq items={uniqueFaqs} />}
+      {/* FAQs */}
+      {faqCategory ? (
+        <PackFaq
+          title={`Frequently Asked Questions about ${faqCategory.label}`}
+          faqs={faqCategory.faqs}
+          lastReviewed="November 26, 2026"
+        />
+      ) : uniqueFaqs && uniqueFaqs.length > 0 ? (
+        <Faq items={uniqueFaqs} />
+      ) : null}
 
       {/* Trust Notice */}
       <div className="p-4 rounded-xl border border-separator bg-bg-subtle text-xs text-text-tertiary flex items-start space-x-2">

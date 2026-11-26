@@ -62,6 +62,7 @@ const hubUrls = [
   // Price list lists all products
   urlXml(`${DOMAIN}/price-list/`, globalProductNewestDate, '0.9', 'daily'),
   // Static pages have no date: omit <lastmod>
+  urlXml(`${DOMAIN}/faqs/`, null, '0.7', 'weekly'),
   urlXml(`${DOMAIN}/payment-methods/`, null, '0.6', 'monthly'),
   urlXml(`${DOMAIN}/refund-warranty-policy/`, null, '0.6', 'monthly'),
   urlXml(`${DOMAIN}/about/`, null, '0.5', 'monthly'),
